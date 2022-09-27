@@ -61,7 +61,7 @@ ___
 
 4.  Kies je reviewers (zie onder)
 
-5.  Sleep in Trello je user story naar 'Review'  
+5.  Informeer Lex dat je klaar bent
 
 --
 ## PR reviews Sprint 1:
@@ -95,9 +95,9 @@ Marijana, Hiu-Chee: Jens
 
 12.00 - lunch
 
-14:00 - 5 min. pauze
+14:30 - groepsupdate
 
 14.45 - 15 min. pauze
 
-15:45 - update + 5 min pauze
+15:45 - 5 min pauze
 
