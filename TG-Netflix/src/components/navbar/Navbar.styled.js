@@ -17,8 +17,7 @@ export const Nav = styled.nav`
   );
 
   ul {
-    display: flex;
-    align-items: center;
+    display: flex;    align-items: center;
     list-style: none;
 
     /* @media (min-width: 885px) {
@@ -105,7 +104,7 @@ export const Profile = styled.div`
 
     li {
       display: flex;
-      padding: 1rem 0;
+      padding: 1.1rem 0;
 
       &:nth-of-type(4) {
         align-self: center;

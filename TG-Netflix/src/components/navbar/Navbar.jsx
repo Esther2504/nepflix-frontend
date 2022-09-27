@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import * as Styled from './Navbar.styled'
+import * as S from './Navbar.styled'
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
 import { AiFillCaretDown } from 'react-icons/ai';
@@ -21,9 +21,9 @@ export default function NavBar() {
 
   return (
     <>
-      <Styled.Nav role="navigation">
-        <Styled.Container>
-          <Styled.PrimaryNav>
+      <S.Nav role="navigation">
+        <S.Container>
+          <S.PrimaryNav>
             <img src={logo} alt="Netflix logo" />
 
             <ul>
@@ -34,8 +34,8 @@ export default function NavBar() {
                 <a href="#">Films</a>
               </li>
             </ul>
-          </Styled.PrimaryNav>
-          <Styled.SecondaryNav>
+          </S.PrimaryNav>
+          <S.SecondaryNav>
             <ul>
               <li>
                 <TbSearch size={30} />
@@ -45,7 +45,7 @@ export default function NavBar() {
               </li>
               <li>
                 {' '}
-                <Styled.Profile>
+                <S.Profile>
                   <img src={profile} alt="Profile icon" />
                   <AiFillCaretDown size={15} />
                   <ul>
@@ -63,13 +63,13 @@ export default function NavBar() {
                     <hr />
                     <li>Sign out of Netflix</li>
                   </ul>
-                </Styled.Profile>
+                </S.Profile>
               </li>
             </ul>
-          </Styled.SecondaryNav>
-        </Styled.Container>
-      </Styled.Nav>
-      <Styled.Spacer></Styled.Spacer>
+          </S.SecondaryNav>
+        </S.Container>
+      </S.Nav>
+      <S.Spacer></S.Spacer>
     </>
   );
 }
