@@ -63,7 +63,7 @@ h6 {
 
 //footer styling 
 .socialIcons {
-margin-right: 15px;
+margin-right: 25px;
 margin-top: 2px;
 user-select: none;
 cursor:pointer;
@@ -71,6 +71,7 @@ text-decoration: none;
 }
 
 .footer-links {
+  
   & ul, li {
     list-style-type: none;
   }

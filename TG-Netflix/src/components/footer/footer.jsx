@@ -27,17 +27,17 @@ export default function Footer() {
 
                     <LinksWrapper>
                         <Item><a href="#"><FooterLink>Audio Description</FooterLink></a></Item>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Help Centre</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Gift Cards</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Media Centre</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Investor Relations</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Jobs</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Terms of Use</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Privacy</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Legal Notice</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Corporate Information</FooterLink></a></li>
-                        <li className='footer-links-item'><a href="#"><FooterLink>Contact Us</FooterLink></a></li>
+                       <Item><a href="#"><FooterLink>Help Centre</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Gift Cards</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Media Centre</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Investor Relations</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Jobs</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Terms of Use</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Privacy</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Legal Notice</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Corporate Information</FooterLink></a></Item>
+                       <Item><a href="#"><FooterLink>Contact Us</FooterLink></a></Item>
                     </LinksWrapper>
 
                     <div>Service Code</div>
@@ -60,7 +60,6 @@ padding: 0 4%;
 margin: 20px auto 0;
 color: white
 `
-
 const Wrapper = styled.div`
 display: flex;
 align-items: center;
@@ -81,11 +80,16 @@ flex-direction: row;
 align-items: flex-start;
 flex-wrap: wrap;
 font-size: 13px;
-margin-bottom: 14px;
+margin-bottom: 0px;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
 
 & ul, li {
     list-style-type: none;
     flex: 0 0 25%;
+
+
   }
   font-weight: 600;
   & a, a:visited, a:active {
@@ -98,6 +102,7 @@ margin-bottom: 14px;
 `
 
 const Item = styled.li`
+margin-bottom: 16px;
  
 
 
