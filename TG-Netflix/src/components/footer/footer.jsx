@@ -25,8 +25,21 @@ export default function Footer() {
                         </IconContext.Provider>
                     </SocialsWrapper>
 
+                    <LinksWrapper>
+                        <Item><a href="#"><FooterLink>Audio Description</FooterLink></a></Item>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Help Centre</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Gift Cards</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Media Centre</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Investor Relations</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Jobs</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Terms of Use</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Privacy</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Legal Notice</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Corporate Information</FooterLink></a></li>
+                        <li className='footer-links-item'><a href="#"><FooterLink>Contact Us</FooterLink></a></li>
+                    </LinksWrapper>
 
-                    <div>Footer links</div>
                     <div>Service Code</div>
                     <div>Copyright</div>
 
@@ -36,7 +49,7 @@ export default function Footer() {
     )
 }
 
-
+// Styled components
 
 
 const Container = styled.div`
@@ -49,13 +62,44 @@ color: white
 `
 
 const Wrapper = styled.div`
-display: grid;
+display: flex;
 align-items: center;
-place-content: center;
+justify-content: center;
 `
- const SocialsWrapper = styled.div`
+const SocialsWrapper = styled.div`
 display: flex;
 margin-bottom: 1em;
+`
+const FooterLink = styled.span`
+color: grey;
+text-decoration: none;
+
+`
+const LinksWrapper = styled.ul`
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+flex-wrap: wrap;
+font-size: 13px;
+margin-bottom: 14px;
+
+& ul, li {
+    list-style-type: none;
+    flex: 0 0 25%;
+  }
+  font-weight: 600;
+  & a, a:visited, a:active {
+    color: grey;
+    text-decoration: none;
+  }
+  & a:hover {
+   text-decoration:underline;
+}
+`
+
+const Item = styled.li`
+ 
+
 
 `
 
