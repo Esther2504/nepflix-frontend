@@ -1,7 +1,9 @@
 import React from 'react'
-import Container from "./styling"
-import Wrapper from "./styling"
-import SocialsWrapper from "./styling"
+import styled from 'styled-components'
+
+
+
+
 // social icons
 import { FaFacebookF } from 'react-icons/fa'
 import { BsInstagram } from 'react-icons/bs'
@@ -33,4 +35,27 @@ export default function Footer() {
         </>
     )
 }
+
+
+
+
+const Container = styled.div`
+background-color: black;
+width: 980px; // set to max-width later
+display: block;
+padding: 0 4%;
+margin: 20px auto 0;
+color: white
+`
+
+const Wrapper = styled.div`
+display: grid;
+align-items: center;
+place-content: center;
+`
+ const SocialsWrapper = styled.div`
+display: flex;
+margin-bottom: 1em;
+
+`
 

@@ -61,4 +61,15 @@ h6 {
   isolation: isolate;
 }
 
+//footer styling 
+.socialIcons {
+margin-right: 15px;
+margin-top: 2px;
+user-select: none;
+cursor:pointer;
+text-decoration: none;
+
+
+}
+
 `;
