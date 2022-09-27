@@ -1,11 +1,14 @@
-import Navbar from "./components/navbar/Navbar";
+import { Outlet, useLocation } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <Navbar/>
-      <h1>Welcome to Netflix</h1>
-    </div>
+    <>
+      {location.pathname === '/' ? null : <Navbar />}
+      <Outlet />
+    </>
   );
 }
 

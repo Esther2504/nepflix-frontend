@@ -9,6 +9,10 @@ export const Nav = styled.nav`
   font-size: 1rem;
   color: white;
   z-index: 1;
+  transition: background-color 1000ms;
+  transition: ${(props) =>
+    props.isScrolled ? 'background-color 1000ms;' : ''};
+  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
 
   background-image: linear-gradient(
     to top,
@@ -17,7 +21,8 @@ export const Nav = styled.nav`
   );
 
   ul {
-    display: flex;    align-items: center;
+    display: flex;
+    align-items: center;
     list-style: none;
 
     /* @media (min-width: 885px) {
@@ -71,8 +76,6 @@ export const SecondaryNav = styled.div`
   height: 100%;
   /* border: 1px solid yellow; */
 
-
-
   /* @media (min-width: 400px) {
     show search function
   } */
@@ -85,6 +88,7 @@ export const Profile = styled.div`
   display: flex;
   position: relative;
   height: 100%;
+
 
   img {
     width: 3rem;
@@ -120,6 +124,7 @@ export const Profile = styled.div`
   &:hover {
     ul {
       display: flex;
+      
     }
   }
 
