@@ -76,7 +76,7 @@ text-decoration: none;
 .select-globe {
   position: relative;
   top: 30px;
-  left: 15px;
+  left: 20px;
   scale: 2;
 }`
 

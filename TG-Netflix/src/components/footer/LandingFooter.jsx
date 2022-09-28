@@ -62,7 +62,7 @@ display: flex;
 margin-bottom: 1em;
 color:#737373;
 padding: 0 4%;
-font-size: 1.5em;
+font-size: 1.6em;
 & a, a:visited, a:active {
         color: #737373;
         text-decoration: none;
