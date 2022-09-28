@@ -1,134 +1,136 @@
 import style from "styled-components";
 
 export const Container = style.div`
-    background-color: black;
+    background-color: grey;
     font-size: 2rem;
     color: white;
     width: 100%;
-    height: 95vh;
-    padding: 2rem;
+    padding: 5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media only screen and (max-width: 700px) {
+        margin: 0;
+        padding: 0;
+        height: auto;
+    } 
 
-    @media (max-width: 988px) {
-           background-color: grey;
-           flex-direction: column;
-           font-size: 1.75rem;
+    a{
+        color: white;
+
+        &:visited {
+            color: red;
         }
-
-   @media (max-width: 645px) {
-        // font-size: 1.55rem;
-        background-color: purple;
-        }       
-
-   @media (max-width: 400px) {
-        font-size: 1.55rem;
-        background-color: blue;
-        }        
+    }
 `;
 
-export const LandingCard = style.div`
-    // background-color: white;
-    // border: 1px solid yellow;
-    color: white;    
-    // color: black;
-    width: 80%;
-    height: 95%;
-    padding: 2.5rem;
+export const Form = style.form`
+    // background-color: lightgreen;
+    // border: 1px solid red;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    @media (max-width: 705px) {
-        width: 100%;
-        padding: 0;
-        // height: auto;
+    height: 45%;
+    margin: 1rem;
+    @media only screen and (max-width: 700px) {
+        height: 40%;
+        margin: auto;
+        min-width: 90%;
+        justify-content: center;
     }
 
-    h1, h2 {
-        text-align: center;
-        margin: 1rem;
+
+   
+
+    button {
+        width: 50%;
+        margin: 0.55rem auto;
         padding: 1rem;
-        @media (max-width: 450px) {
-                padding: 0.5rem;
-                margin: 0.5rem;
-                }
-            }
+        border-radius: 2%;
+        border: none;
+        background-color: red;
+        color: black;
+        font-weight: bold;
+    }
+    
+`;
+
+export const Input = style.div`
+
+    label{
+        margin: 0 0.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+ input{
+        padding: 1rem;
+        margin: 0.75rem;
+        border-color: red;
+        border: none;
+        @media only screen and (max-width: 700px){
+        padding: 0.35rem;
+        margin: 0.20rem;
+        }
+
+        &:focus {
+            background-color: lightblue;
+            outline: none;
+            border: 3px solid red;
+        }
+    }
 `;
 
 export const LoginCard = style.div`
-    background-color: pink;
-    opacity: 0.5;
-    color: black;
-    border: 1px solid yellow;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    margin: auto 1rem;
-    @media (max-width: 1045px) {
-        flex-direction: column;
+    background-color: rgb(0,0,0, 0.8);
+    color: white;
+    border-radius: 2%;
+    width: 500px;
+    height: 85vh;
+    text-align: center;
+    font-size: 1.7rem;
+    @media only screen and (max-width: 700px) {
         width: 100%;
-      }
-
-
-    h3, button {
-        // margin: auto;
-        padding: 1rem ;
+        height: 80vh;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
     }
 
-
-    h3 {
-        width: 65%;
-        text-align: center;
-    }
-
-    button {
-        width: 35%;
+    h1, h2 {
+        padding: 0.55rem;
+        margin: 0.55rem;
+        @media only screen and (max-width: 700px) {
+            padding: 0.25rem;
+            margin: 0.25rem;
+        }
     }
 `;
 
-export const LoginForm = style.form`
-// background-color: pink;
-color: black;
-color: white;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: space-evenly;
-align-items: center;
-width: 70%;
-margin: 1rem;
-text-align: center;
-@media (max-width: 1045px) {
+export const SubForm = style.div`
+    // background-color: purple;
+    color: white;  
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+    font-size: 1.25rem;
+`;
+
+export const ExtraInfo = style.div`
+    text-align: left;
+    padding: 1rem;
+    margin: 1rem;
+    dislay: flex;
+    flexwrap: wrap;
     flex-direction: column;
-    width: 100%;
-    }
-
-  input {
-    width: 65%;
-  }
-
-  button {
-    width: 35%;
-    }
-
-  h3, input, button {
-    padding: 0.75rem; 
-    @media (max-width: 1045px) {
-        margin: 0.5rem;
-        width: 80%;
-        }
-   @media (max-width: 600px) {
-        width: 90%;
-        }
-    }  
+    font-size: 1.5rem;
 `;
 
 export const SeperationLine = style.hr`
-    background-color: green;
+    background-color: black;
     width: 100%;
     padding: 0.5rem;
 `;
@@ -139,7 +141,6 @@ export const Nav = style.div`
     background-color: pink;
     border: 1px solid red;
     font-size: 2rem;
-    z-index: 5;
     width: 100%;
     height: 6rem;
 `;
@@ -150,12 +151,4 @@ export const Footer = style.div`
     font-size: 2rem;
     width: 100%;
     height: 250px;
-    // height: 1rem;
-`;
-
-export const Icon = style.span`
-    background-color: lightblue;
-    border: 1px solid black;
-    width: 1rem;
-    margin-left: 1rem;
 `;
