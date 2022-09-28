@@ -50,7 +50,7 @@ export default function Footer() {
     )
 };
 
-// Styled Components - pink wrapper here for dev purposes!
+// pink wrapper only here for dev purposes
 const Wrapper = styled.div`
 display: flex;
 align-items: center;
@@ -162,3 +162,5 @@ margin-right: auto;
 margin-bottom: 0;
 padding: 0 4%;
 `
+
+
