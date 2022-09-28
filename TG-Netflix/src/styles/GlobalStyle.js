@@ -61,6 +61,9 @@ h6 {
   isolation: isolate;
 }
 
+
+
+
 //footer styling 
 .socialIcons {
 margin-right: 25px;
@@ -70,19 +73,12 @@ cursor:pointer;
 text-decoration: none;
 
 }
-
-.langpicker {
-  background-color: transparent;
-  color: #737373;
-  font-size: 13px;
-  padding: 1em 1em 1em 1em;
-  margin: 0;
-  border-radius: 2px;
-  text-align: center;
- 
-
-
-
-
-
+.select-globe {
+  position: relative;
+  top: 30px;
+  left: 15px;
+  scale: 2;
 }`
+
+
+

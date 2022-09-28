@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { BsGlobe } from 'react-icons/bs'
+
+
 export default function Footer() {
     return (
         <>
@@ -17,20 +20,18 @@ export default function Footer() {
                         <Item><a href="#"><FooterLink>Privacy</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Corporate Information</FooterLink></a></Item>
-                      
                     </LinksWrapper>
 
                     <LangSelectContainer>
-                        <LangSelector>
-                        <select class="langpicker" id="lang-switch-select">
-                            <option lang="en" value="">English</option>
-                            <option lang="nl" value="">Nederlands</option>
-                        </select>
-                        
-                        </LangSelector>
+                            <LangSelector>
+                                <BsGlobe className='select-globe'/>
+                                    <Langpicker>
+                                        <option lang="en" value="">English</option>
+                                        <option lang="nl" value="">Nederlands</option>
+                                    </Langpicker>
+                            </LangSelector>
                     </LangSelectContainer>
 
-                 
                 </Container>
             </Wrapper>
         </>
@@ -44,6 +45,7 @@ align-items: center;
 justify-content: center;
 background: rgba(0,0,0,.75);
 `
+
 const Container = styled.div`
 background-color: rgba(0,0,0,.75);
 max-width: 980px; // set to max-width later
@@ -53,6 +55,7 @@ margin: 20px auto 0;
 color: white;
 
 `
+
 const FooterTopWrapper = styled.div`
 display: flex;
 margin-bottom: 1em;
@@ -121,15 +124,25 @@ margin-left: auto;
 margin-right: auto;
 max-width: 980px;
 display: block;
+`
 
-
+const Langpicker=styled.select`
+  background-color: transparent;
+  color: #737373;
+  font-size: 13px;
+  padding-left: 3.2rem;
+  margin: 0;
+  height: inherit;
+  width: inherit;
+  text-align: center;
 
 `
 
 const LangSelector = styled.div`
 background: transparent;
 border: none;
-width: auto;
+width: 15rem;
+height: 5rem;
 font-size: 1em;
 color: #737373;
 padding: 0;
