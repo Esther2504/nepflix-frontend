@@ -117,8 +117,33 @@ export const SubForm = style.div`
     font-size: 1.25rem;
 
     input[type= checkbox]{
-        // width: 35px;
-        background-color: red;
+        appearance: none;
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.35rem;
+        border: white;
+        background-color: black;
+        border: 0.5px solid white;
+        color: white;
+        vertical-align: -3px;
+
+        &::before {
+            content: "";
+            visibility: hidden;
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            font-size: 1.5rem;
+            right: -1px;
+            top: -1px;
+            background-color: red;
+            border: 1px solid white;
+          }
+
+         &:checked::before{
+            visibility: visible;
+         } 
     }
 `;
 
