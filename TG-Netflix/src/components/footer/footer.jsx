@@ -17,7 +17,7 @@ export default function Footer() {
             <Wrapper>
                 <Container>
                     <SocialsWrapper>
-                        <IconContext.Provider value={{ color: "white", size: "2em", className: "socialIcons" }}>
+                        <IconContext.Provider value={{ color: "white", size: "24px", className: "socialIcons" }}>
                             <FaFacebookF />
                             <BsInstagram />
                             <BsTwitter />
@@ -40,59 +40,78 @@ export default function Footer() {
                        <Item><a href="#"><FooterLink>Contact Us</FooterLink></a></Item>
                     </LinksWrapper>
 
-                    <div>Service Code</div>
-                    <div>Copyright</div>
+                    <ServiceWrapper>
+                    <ServiceCode><a href="#">Service Code</a></ServiceCode>
+                    </ServiceWrapper>
+                    <CopyrightWrapper>© 1997-2022 Netflix, Inc.</CopyrightWrapper>
+
+                  
+                   
+
 
                 </Container>
             </Wrapper>
         </>
     )
-}
 
-// Styled components
+};
 
+// wrapper only there for styling purposes
+const Wrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: pink;
+`
 
 const Container = styled.div`
-background-color: black;
+background-color: rgba(0,0,0,.75);
 width: 980px; // set to max-width later
 display: block;
 padding: 0 4%;
 margin: 20px auto 0;
 color: white
 `
-const Wrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-`
+
 const SocialsWrapper = styled.div`
 display: flex;
 margin-bottom: 1em;
+padding: 0 4%;
 `
-const FooterLink = styled.span`
-color: grey;
-text-decoration: none;
 
-`
 const LinksWrapper = styled.ul`
+padding: 0 4%;
 display: flex;
 flex-direction: row;
 align-items: flex-start;
 flex-wrap: wrap;
 font-size: 13px;
-margin-bottom: 0px;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
+margin-bottom: 0px;
 
-& ul, li {
-    list-style-type: none;
-    flex: 0 0 25%;
 
+& ul {
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 
   }
-  font-weight: 600;
-  & a, a:visited, a:active {
+& li {
+    list-style-type: none;
+    flex: 0 0 50%;
+
+    @media (min-width: 800px) {
+    flex: 0 0 25%;
+}
+  }
+
+
+& a, a:visited, a:active {
     color: grey;
     text-decoration: none;
   }
@@ -100,11 +119,60 @@ margin-right: auto;
    text-decoration:underline;
 }
 `
+const FooterLink = styled.span`
+color: grey;
+text-decoration: none;
+
+`
 
 const Item = styled.li`
 margin-bottom: 16px;
- 
+`
 
+const ServiceWrapper = styled.div`
+padding: 0 4%;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+max-width: 980px;
+`
+const ServiceCode = styled.button`
+background: transparent;
+border: 1px solid grey;
+font-size: 13px;
+color: grey;
+padding: 0.5em;
+cursor: pointer;
+text-transform: none;
+text-indent: 0px;
+overflow: visible;
+text-shadow: none;
+display: inline-block;
+text-align: center;
+align-items: flex-start;
+box-sizing: border-box;
+text-rendering: auto;
+word-spacing: normal;
+
+
+
+
+  & a, a:visited, a:active {
+    color: grey;
+    text-decoration: none;
+  }
+  & a:hover {
+   color: white;
+}
+`
+
+const CopyrightWrapper = styled.div`
+color: white;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0;
+padding: 0 4%;
 
 `
 
