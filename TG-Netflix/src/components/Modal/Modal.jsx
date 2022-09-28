@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import Trailer from "../Modal/testTrailer.webm";
 import {
   SmallModal,
   ModalContainer,
@@ -13,45 +14,65 @@ import {
   CloseCircle,
   PlayButton,
   PlusCircle,
-  ThumbsUp
+  ThumbsUp,
+  RateIcons,
+  VolumeIcon,
+  CloseButton,
+  MoreLikeThisContainer,
+  VideoInfoContainer,
 } from "../Modal/Modal.style";
-import Trailer from "../Modal/testTrailer.webm";
 
 
 function Modal() {
   const modalRef = useRef();
   const modalRefContent = useRef();
-
+  const modalRefVideo = useRef();
+  
   window.onclick = (e) => {
-    if (e.target.className === modalRef.current.className) {
+    if ((e.target.className === modalRef.current.className)) {
       modalRef.current.style.display = "none";
+      modalRefVideo.current.pause();
     }
   };
 
-  const handleOnclick = (e) => {
+  const handleClose = () => {
+    modalRef.current.style.display = "none";
+    modalRefVideo.current.pause();
+  };
+
+  const handleOnclick = () => {
     modalRef.current.style.display = "block";
+    modalRefVideo.current.play();
   };
 
   return (
     <>
       <ModalContainer ref={modalRef}>
         <ModalContent ref={modalRefContent}>
-          <ModalClose>
-            <CloseCircle/>
-          </ModalClose>
+          <CloseButton onClick={handleClose}>
+            <CloseCircle />
+          </CloseButton>
           <ModalPreview>
             <VideoControlsContainer>
               <VideoTitle />
               <VideoControls>
                 <VideoPlay>
-                  <PlayButton/>
+                  <PlayButton />
                   Play
                 </VideoPlay>
-                <PlusCircle/>
-                <ThumbsUp/>
+                <PlusCircle />
+                <ThumbsUp />
+                <RateIcons />
+                <VolumeIcon />
               </VideoControls>
+              <VideoInfoContainer>
+
+              </VideoInfoContainer>
             </VideoControlsContainer>
-            <VideoPlayer autoPlay muted src={Trailer} type="video/webm" />
+            <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo}/>
+            <MoreLikeThisContainer>
+
+            </MoreLikeThisContainer>
           </ModalPreview>
         </ModalContent>
       </ModalContainer>
