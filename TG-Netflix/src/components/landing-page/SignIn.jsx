@@ -1,25 +1,14 @@
 import React from "react";
 
-import {
-  Container,
-  Nav,
-  Footer,
-  Form,
-  Input,
-  LoginCard,
-  SubForm,
-  ExtraInfo,
-  SeperationLine,
-} from "./style";
+import { Container, Form, Input, LoginCard, SubForm, ExtraInfo } from "./style";
 
-const CompLandingPage = () => {
+const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("I'm not rendering");
   };
   return (
     <>
-      <Nav>I am a placeholder Navbar</Nav>
       <Container>
         <LoginCard>
           <h1>Welcome.</h1>
@@ -44,6 +33,7 @@ const CompLandingPage = () => {
                 ></input>
               </label>
             </Input>
+            {/* Should have a Nevigate function to correct page: Discover */}
             <button type="submit">Login</button>
             <SubForm>
               <label>
@@ -59,16 +49,14 @@ const CompLandingPage = () => {
             </p>
             <br />
             <p>
-              This product is not the real thing. It is a project made by a roup
-              of developers. <a href="#">Learn more</a>
+              This product is not the real thing. It is a project made by a
+              group of developers. <a href="#">Learn more</a>
             </p>
           </ExtraInfo>
         </LoginCard>
       </Container>
-      <SeperationLine />
-      <Footer>I am a placeholder footer</Footer>
     </>
   );
 };
 
-export default CompLandingPage;
+export default SignIn;

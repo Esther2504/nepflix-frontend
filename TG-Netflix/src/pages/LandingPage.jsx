@@ -1,7 +1,15 @@
-import React from 'react'
+import React from "react";
+import SignIn from "../components/landing-page/SignIn";
+import { Background, Nav, Footer } from "../components/landing-page/style";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
-    <div>LandingPage</div>
-  )
-}
+    <Background>
+      <Nav>I am a placeholder Navbar</Nav>
+      <SignIn />
+      <Footer>I am a placeholder footer</Footer>
+    </Background>
+  );
+};
+
+export default LandingPage;
