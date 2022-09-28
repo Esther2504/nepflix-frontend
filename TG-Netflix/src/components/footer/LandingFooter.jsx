@@ -43,7 +43,8 @@ min-width: 190px;
 display: block;
 align-items: center;
 justify-content: center;
-background: rgba(0,0,0,.75);
+/* background: rgba(0,0,0,.75); */
+background: pink;
 `
 
 const Container = styled.div`
@@ -127,7 +128,7 @@ display: block;
 `
 
 const Langpicker=styled.select`
-  background-color: transparent;
+  background-color: black;
   color: #737373;
   font-size: 13px;
   padding-left: 3.2rem;
