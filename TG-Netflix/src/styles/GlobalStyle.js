@@ -68,20 +68,21 @@ margin-top: 2px;
 user-select: none;
 cursor:pointer;
 text-decoration: none;
+
 }
 
-.footer-links {
-  
-  & ul, li {
-    list-style-type: none;
-  }
-  font-weight: 600;
-  & a, a:visited, a:active {
-    color: grey;
-    text-decoration: none;
-  }
-  & a:hover {
-   text-decoration:underline;
-}
+.langpicker {
+  background-color: transparent;
+  color: #737373;
+  font-size: 13px;
+  padding: 1em 1em 1em 1em;
+  margin: 0;
+  border-radius: 2px;
+  text-align: center;
+ 
+
+
+
+
 
 }`

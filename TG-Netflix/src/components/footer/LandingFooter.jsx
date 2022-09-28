@@ -1,76 +1,71 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// social icons
-import { FaFacebookF } from 'react-icons/fa'
-import { BsInstagram } from 'react-icons/bs'
-import { BsTwitter } from 'react-icons/bs'
-import { FaYoutube } from 'react-icons/fa'
-import { IconContext } from "react-icons";
-
 export default function Footer() {
     return (
         <>
             <Wrapper>
                 <Container>
-                    <SocialsWrapper>
-                        <IconContext.Provider value={{ color: "white", size: "24px", className: "socialIcons" }}>
-                            <FaFacebookF />
-                            <BsInstagram />
-                            <BsTwitter />
-                            <FaYoutube />
-                        </IconContext.Provider>
-                    </SocialsWrapper>
+                    <FooterTopWrapper>
+                    <span>Questions? Call <a href="tel:08000225173">08000225173</a></span>
+                    </FooterTopWrapper>
 
                     <LinksWrapper>
-                        <Item><a href="#"><FooterLink>Audio Description</FooterLink></a></Item>
+                        <Item><a href="#"><FooterLink>FAQ</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Help Centre</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Gift Cards</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Media Centre</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Investor Relations</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Jobs</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Terms of Use</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Privacy</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Legal Notice</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></Item>
                         <Item><a href="#"><FooterLink>Corporate Information</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Contact Us</FooterLink></a></Item>
+                      
                     </LinksWrapper>
 
-                    <ServiceCodeWrapper>
-                        <ServiceCode><a href="#">Service Code</a></ServiceCode>
-                    </ServiceCodeWrapper>
+                    <LangSelectContainer>
+                        <LangSelector>
+                        <select class="langpicker" id="lang-switch-select">
+                            <option lang="en" value="">English</option>
+                            <option lang="nl" value="">Nederlands</option>
+                        </select>
+                        
+                        </LangSelector>
+                    </LangSelectContainer>
 
-                    <CopyrightWrapper>
-                        <span>© 1997-2022 Netflix, Inc.</span>
-                    </CopyrightWrapper>
+                 
                 </Container>
             </Wrapper>
         </>
     )
 };
 
-// pink wrapper only here for dev purposes
 const Wrapper = styled.div`
-display: flex;
+min-width: 190px;
+display: block;
 align-items: center;
 justify-content: center;
-background-color: pink;
+background: rgba(0,0,0,.75);
 `
-
 const Container = styled.div`
 background-color: rgba(0,0,0,.75);
-width: 980px; // set to max-width later
+max-width: 980px; // set to max-width later
 display: block;
-padding: 0 4%;
+padding: 30px 4%;
 margin: 20px auto 0;
-color: white
-`
+color: white;
 
-const SocialsWrapper = styled.div`
+`
+const FooterTopWrapper = styled.div`
 display: flex;
 margin-bottom: 1em;
+color:#737373;
 padding: 0 4%;
+font-size: 1.5em;
+& a, a:visited, a:active {
+        color: #737373;
+        text-decoration: none;
+    }
+    & a:hover {
+        text-decoration:underline;
+    }
 `
 
 const LinksWrapper = styled.ul`
@@ -102,7 +97,7 @@ margin-bottom: 0px;
     }
 
     & a, a:visited, a:active {
-        color: grey;
+        color: #737373;
         text-decoration: none;
     }
     & a:hover {
@@ -111,7 +106,7 @@ margin-bottom: 0px;
 `
 
 const FooterLink = styled.span`
-color: grey;
+color: #737373;
 text-decoration: none;
 `
 
@@ -119,31 +114,28 @@ const Item = styled.li`
 margin-bottom: 16px;
 `
 
-const ServiceCodeWrapper = styled.div`
+const LangSelectContainer = styled.div`
 padding: 0 4%;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 max-width: 980px;
+display: block;
+
+
+
 `
 
-const ServiceCode = styled.button`
+const LangSelector = styled.div`
 background: transparent;
-border: 1px solid grey;
-font-size: 13px;
-color: grey;
-padding: 0.5em;
+border: none;
+width: auto;
+font-size: 1em;
+color: #737373;
+padding: 0;
+margin: 0;
 cursor: pointer;
-text-transform: none;
-text-indent: 0px;
-overflow: visible;
-text-shadow: none;
-display: inline-block;
-text-align: center;
-align-items: flex-start;
-box-sizing: border-box;
-text-rendering: auto;
-word-spacing: normal;
+
 
   & a, a:visited, a:active {
     color: grey;
@@ -154,13 +146,6 @@ word-spacing: normal;
   }
 `
 
-const CopyrightWrapper = styled.div`
-color: white;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 0;
-padding: 0 4%;
-`
+
 
 

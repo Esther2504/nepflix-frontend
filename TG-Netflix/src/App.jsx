@@ -1,4 +1,5 @@
-import Footer from "./components/footer/footer"
+import Footer from "./components/footer/Footer"
+import LandingFooter from "./components/footer/LandingFooter"
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
 
       </div>
       < Footer />
+      < LandingFooter />
     </>
 
   );

@@ -50,17 +50,18 @@ export default function Footer() {
     )
 };
 
-// Styled Components - pink wrapper here for dev purposes!
+
 const Wrapper = styled.div`
-display: flex;
+min-width: 190px;
+display: block;
 align-items: center;
 justify-content: center;
-background-color: pink;
+background: rgba(0,0,0,.75);
 `
 
 const Container = styled.div`
 background-color: rgba(0,0,0,.75);
-width: 980px; // set to max-width later
+max-width: 980px;
 display: block;
 padding: 0 4%;
 margin: 20px auto 0;
