@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import * as S from './Navbar.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
-import { AiFillCaretDown } from 'react-icons/ai';
+import arrowdown from '../../assets/arrow_down.png';
 import { IoMdNotifications } from 'react-icons/io';
 import { TbSearch } from 'react-icons/tb';
 import { RiPencilFill } from 'react-icons/ri';
@@ -13,14 +12,13 @@ import { BiHelpCircle } from 'react-icons/bi';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const activeStyle = {
-    fontWeight: 'bold',
-  };
-
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => window.onscroll === null;
+  };
+
+  const activeStyle = {
+    fontWeight: 'bold',
   };
 
   return (
@@ -32,6 +30,11 @@ export default function Navbar() {
               {' '}
               <img src={logo} alt="Netflix logo" />
             </NavLink>
+
+            <S.Browse>
+              Browse
+              <img src={arrowdown} />
+            </S.Browse>
             <ul>
               <li>
                 <NavLink
@@ -57,35 +60,44 @@ export default function Navbar() {
                 <TbSearch size={30} />
               </li>
               <li>
-                <IoMdNotifications size={30} />
+                <S.Notifications>
+                  <IoMdNotifications size={30} />
+                  <ul>
+                    <img src={arrowdown} />
+                    <li>No recent notifications</li>
+                  </ul>
+                </S.Notifications>
               </li>
               <li>
                 {' '}
-                <S.Profile>
+                <S.Account>
                   <img src={profile} alt="Profile icon" />
-                  <AiFillCaretDown size={15} />
+                  <img src={arrowdown} />
                   <ul>
+                    <img src={arrowdown} />
                     <li>
-                      <RiPencilFill size={20} /> Manage Profiles
+                      <RiPencilFill size={20} /> <p>Manage Profiles</p>
                     </li>
                     <li>
                       <MdOutlineAccountCircle size={20} />
-                      Account
+                      <p>Account</p>
                     </li>
                     <li>
                       <BiHelpCircle size={20} />
-                      Help Centre
+                      <p>Help Centre</p>
                     </li>
                     <hr />
-                    <li>Sign out of Netflix</li>
+                    <li>
+                      <p>Sign out of Netflix</p>
+                    </li>
                   </ul>
-                </S.Profile>
+                </S.Account>
               </li>
             </ul>
           </S.SecondaryNav>
         </S.Container>
       </S.Nav>
-      <S.Spacer></S.Spacer>
+      <S.VerticalSpacer></S.VerticalSpacer>
     </>
   );
 }
