@@ -6,8 +6,20 @@ color: #333333;
 width: 100%
 height: 100vh;
 
+a {
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
 .left-side {
   padding-top: 1.2rem;
+  width: 23%;
 }
 
 .heading {
@@ -55,8 +67,21 @@ height: 100vh;
     border-top: 1px solid #999;
     display: flex;
     justify-content: space-between;
-    font-size: 1.6rem;
+    font-size: 1.54rem;
     padding-bottom: 1.2rem;
+
+    .payment-method {
+      display: flex;
+      font-weight: bold;
+      width: 8rem;
+      justify-content: space-between;
+      
+     
+      img {
+        width: 2.2rem;
+        height: 2.5rem;
+      }
+    }
 
     .line {
       opacity: 0.2;
@@ -78,6 +103,11 @@ height: 100vh;
     }
   }
 
+  .small-line {
+    width: 90%;
+    align-self: flex-end;
+  }
+
   .account-subsection {
     display: flex;
     justify-content: space-between;
@@ -93,24 +123,78 @@ height: 100vh;
         margin: 0 0 6px 0;
       }
 
-      a {
-        text-decoration: none;
-        color: #0073e6;
-        font-weight: 500;
-      }
       }
     }
 
-    .settings {
-      justify-content: flex-start;
-    }
+  }
+
+  .settings {
+    width: 74%;
+    align-self: flex-start;
+  }
+
+.settings li {
+      text-align: left;
   }
 
   .subsections-container {
     display: flex;
     flex-direction: column;
     width: 74%;
+
   }
+
+  .profile-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2rem 0 2rem;
+    align-items: center;
+
+    .left {
+      display: flex;
+    }
+
+    img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 0.5rem;
+    }
+
+    .name-rating {
+      align-self: center;
+
+      p {
+        margin: 0 0 0 1.8rem;
+      }
+
+      p:nth-child(2) {
+        font-size: 1.3rem;
+      }
+    }
+
+ 
+  }
+
+  .profile-subsection {
+    width: 90%;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 2rem;
+    align-items: center;
+    font-size: 1.3rem;
+
+    p:first-child {
+      font-size: 1.45rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+  }
+
+.big-line {
+  width: 100%;
+}
 
   footer {
     width: 100%;
