@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Searchbar from './Searchbar';
 import * as S from './Navbar.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
@@ -57,7 +58,7 @@ export default function Navbar() {
           <S.SecondaryNav>
             <ul>
               <li>
-                <TbSearch size={30} />
+                <Searchbar />
               </li>
               <li>
                 <S.Notifications>

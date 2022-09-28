@@ -111,6 +111,7 @@ export const PrimaryNav = styled.div`
     li {
       justify-content: center;
       width: 100%;
+      font-size: 1.4rem;
 
       &:hover {
         background-color: rgba(20, 20, 20, 0.5);
@@ -130,10 +131,19 @@ export const PrimaryNav = styled.div`
       width: auto;
 
       li {
+        font-size: 1rem;
+
         &:hover {
           background-color: transparent;
         }
       }
+    }
+    @media (min-width: 1200px) {
+
+      li {
+        font-size: 1.4rem;
+      }
+      
     }
   }
 `;
