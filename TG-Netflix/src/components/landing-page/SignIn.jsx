@@ -1,12 +1,18 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 import { Container, Form, Input, LoginCard, SubForm, ExtraInfo } from "./style";
 
 const SignIn = () => {
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("I'm not rendering");
   };
+
+  const navigate = useNavigate();
+
   return (
     <>
       <Container>
@@ -23,7 +29,6 @@ const SignIn = () => {
                   placeholder="test@hotmail.com"
                 ></input>
               </label>
-
               <label>
                 Password:
                 <input
@@ -33,8 +38,8 @@ const SignIn = () => {
                 ></input>
               </label>
             </Input>
-            {/* Should have a Nevigate function to correct page: Discover */}
-            <button type="submit">Login</button>
+            {/* Path to Discover page needs ot be place in navigate  */}
+            <button type="submit" onClick={() => navigate("To discovre page")}>Login</button>
             <SubForm>
               <label>
                 <input type="checkbox" id="checkbox"></input>
