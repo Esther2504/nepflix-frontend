@@ -1,17 +1,21 @@
+import paypall from '../../assets/account-images/paypal.webp'
+import avatarbluegreen from '../../assets/account-images/avatar-bluegreen.png'
+import avatarlightgreen from '../../assets/account-images/avatar-lightgreen.png'
+import avatarblue from '../../assets/account-images/avatar-blue.png'
 
-    {
+ export const data = {
       "email": "johndoe@fakeemail.com",
       "register_date": "29 September 2019",
       "register_day": "29",
       "register_month": "September",
       "register_year": "2019",
       "payment_method": "PayPal",
-      "payment_logo": "https://cdn.pixabay.com/photo/2018/05/08/21/29/paypal-3384015_1280.png",
+      "payment_logo": `${paypall}`,
       "plan": "Standard",
       "profiles": [
         {
           "id": 1,
-          "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png",
+          "avatar": `${avatarbluegreen}`,
           "name": "John",
           "rating": "All Maturity Ratings",
           "language": "English",
@@ -21,7 +25,7 @@
         },
         {
           "id": 2,
-          "avatar": "https://i.pinimg.com/originals/61/54/76/61547625e01d8daf941aae3ffb37f653.png",
+          "avatar": `${avatarlightgreen}`,
           "name": "Jane",
           "rating": "All Maturity Ratings",
           "language": "English",
@@ -31,7 +35,7 @@
         },
         {
           "id": 3,
-          "avatar": "http://zoeice.com/assets/img/uploads/profile.png",
+          "avatar": `${avatarblue}`,
           "name": "James",
           "rating": "12 and below",
           "language": "English",

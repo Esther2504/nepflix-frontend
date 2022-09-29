@@ -25,7 +25,7 @@ a:hover {
   color: #737373;
 }
 
-.heading {
+.header {
   display: flex;
   align-items: center;
   margin-bottom: 1.4rem;
@@ -132,6 +132,7 @@ a:hover {
   .small-line {
     width: 90%;
     align-self: flex-end;
+    border-top: 1px solid #ccc;
   }
 
   .account-subsection {
@@ -212,6 +213,7 @@ a:hover {
     align-items: center;
     font-size: 1.3rem;
     cursor: pointer;
+    min-height: 5rem;
 
     p:first-child {
       font-size: 1.45rem;
@@ -222,6 +224,7 @@ a:hover {
 
 .big-line {
   width: 100%;
+  border-top: 1px solid #ccc;
 }
 
   footer {
@@ -232,5 +235,24 @@ a:hover {
     bottom: 0;
     left: 0;
     background-color: #f3f3f3;
+  }
+
+  @media screen and (max-width: 740px) {
+.header h1 {
+  font-size: 2.2rem;
+}
+
+    .account-section {
+ 
+flex-direction: column;
+
+.left-side {
+  width: 100%;
+}
+.subsections-container {
+  width: 100%;
+}
+
+    }
   }
 `;
