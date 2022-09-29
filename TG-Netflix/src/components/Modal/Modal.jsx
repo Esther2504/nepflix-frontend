@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import Trailer from "../Modal/testTrailer.webm";
 import {
   SmallModal,
+  SmallModalTop,
+  SmallModalBottom,
   ModalContainer,
   ModalContent,
   ModalClose,
@@ -76,7 +78,10 @@ function Modal() {
           </ModalPreview>
         </ModalContent>
       </ModalContainer>
-      <SmallModal onClick={handleOnclick}>Click me!</SmallModal>
+      <SmallModal onClick={handleOnclick}>
+        <SmallModalTop></SmallModalTop>
+        <SmallModalBottom></SmallModalBottom>
+      </SmallModal>
     </>
   );
 }
