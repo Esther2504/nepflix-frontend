@@ -1,17 +1,18 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 import { Container, Form, Input, LoginCard, SubForm, ExtraInfo } from "./style";
 
 const SignIn = () => {
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("I'm not rendering");
-  };
-
   const navigate = useNavigate();
+
+  //Navigate would have to be changed to proper path to Discover page
+  const handleSubmit = (e) => {
+    e.preventDefault(),
+      setTimeout(() => {
+        navigate("/discover");
+      }, 500),
+      console.log("I work");
+  };
 
   return (
     <>
@@ -23,26 +24,17 @@ const SignIn = () => {
             <Input>
               <label>
                 Email:
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="test@hotmail.com"
-                ></input>
+                <input type="email" placeholder="test@hotmail.com"></input>
               </label>
               <label>
                 Password:
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="test123"
-                ></input>
+                <input type="password" placeholder="test123"></input>
               </label>
             </Input>
-            {/* Path to Discover page needs ot be place in navigate  */}
-            <button type="submit" onClick={() => navigate("To discovre page")}>Login</button>
+            <button type="submit">Login</button>
             <SubForm>
               <label>
-                <input type="checkbox" id="checkbox"></input>
+                <input type="checkbox"></input>
                 Remember me
               </label>
               <a href="#">Need Help?</a>
