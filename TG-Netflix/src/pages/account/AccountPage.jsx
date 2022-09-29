@@ -5,14 +5,28 @@ import { BsChevronDown } from "react-icons/bs";
 import { BsChevronUp } from "react-icons/bs";
 
 export default function AccountPage() {
-const [collapse, setCollapse] = useState(false)
+const [collapse, setCollapse] = useState([])
+
+let currentDate = new Date()
+let billingDate = new Date(`${data.register_date}`)
+
+if ((currentDate.getDate() === billingDate.getDate()) && (currentDate.getMonth() === billingDate.getMonth())) {
+  billingDate = currentDate.setMonth(currentDate.getMonth() + 1)
+  billingDate = new Date(billingDate)
+}
+
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
+let datet = billingDate.toLocaleDateString('en-NL', options)
 
 function handleClick(param) {
   console.log(param)
-  if (collapse != param) {
-  setCollapse(param)
+  if (!collapse.includes(param)) {
+  setCollapse([...collapse, param])
   } else {
-    setCollapse(false)
+    let itemToRemove = collapse.find(item => item === param)
+    if (itemToRemove) {
+    setCollapse(collapse.filter((item, index) => item !== itemToRemove))
+    }
   }
 }
 
@@ -62,7 +76,7 @@ console.log(collapse)
                   <img src={data.payment_logo}></img>{" "}
                   <p>{data.payment_method}</p>
                 </div>
-                <p>Your next billing date is 13 October 2022.</p>
+                <p>Your next billing date is {datet}.</p>
               </div>
 
               <div className="links">
@@ -134,10 +148,11 @@ console.log(collapse)
                       <p>{profile.rating}</p>
                     </div>
                   </div>
-                  <BsChevronUp />
+                  {collapse === `${profile.id}` ? <BsChevronUp /> : <BsChevronDown />}
+                  
                 </div>
                 <hr className="big-line" />
-                {collapse === `${profile.id}` ? 
+                {collapse.includes(`${profile.id}`) ? 
                 <>
                 <div className="profile-subsection">
                   <div>
@@ -219,7 +234,9 @@ console.log(collapse)
           </div>
         </div>
         <div className="account-section">
+          <div className="left-side">
           <h2>SETTINGS</h2>
+          </div>
           <div className="account-subsection settings">
             <div className="links">
               <ul>

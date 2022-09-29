@@ -4,7 +4,8 @@ export const Wrapper = styled.div`
 background-color: #f3f3f3;
 color: #333333;
 width: 100%
-height: 100vh;
+position: relative;
+min-height: 100vh;
 
 a {
   text-decoration: none;
@@ -20,25 +21,36 @@ a:hover {
 .left-side {
   padding-top: 1.2rem;
   width: 23%;
+  font-weight: 500;
+  color: #737373;
 }
 
 .heading {
   display: flex;
   align-items: center;
+  margin-bottom: 1.4rem;
 
   h1 {
     margin-right: 1.5rem;
-    font-size: 3.4rem;
+    font-size: 3.3rem;
     font-weight: 500;
   }
 
   p {
-    font-weight: bolder;
-    font-size: 1.3rem;
+    font-weight: 500;
+    text-shadow: 1px 0 #888888;
+    letter-spacing:1px;
+    font-size: 1.2rem;
     margin-left: 0.4rem;
   }
 
 
+}
+
+.left:nth-child(3) {
+  .big-line {
+    display: none;
+  }
 }
 
   nav {
@@ -47,19 +59,32 @@ a:hover {
     background-color: black;
     color: white;
     font-size: 3rem;
+    position: fixed;
+    top: 0;
   }
 
   .account-container {
-    width: 80%;
-    margin: 5rem auto;
+    width: 81%;
+    margin: 4rem auto auto;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 
     button {
-      width: 18rem;
+      width: 19.5rem;
+      height: 3.8rem;
       padding: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      font-weight: 500;
       border: none;
       background-color: #e6e6e6;
+      background-image: linear-gradient(180deg,#e6e6e6,#ddd);
       box-shadow: 0 1px 0 rgb(0 0 0 / 20%);
+      margin-top: 0.8rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #eaeaea;
     }
   }
 
@@ -67,8 +92,9 @@ a:hover {
     border-top: 1px solid #999;
     display: flex;
     justify-content: space-between;
-    font-size: 1.54rem;
+    font-size: 1.58rem;
     padding-bottom: 1.2rem;
+    min-height: 8rem;
 
     .payment-method {
       display: flex;
@@ -91,7 +117,7 @@ a:hover {
     h2 {
         color: #737373;
         font-size: 1.9rem;
-        font-weight: 200;
+        font-weight: 500;
     }
 
     p {
@@ -150,6 +176,7 @@ a:hover {
     width: 100%;
     margin: 2rem 0 2rem;
     align-items: center;
+    cursor: pointer;
 
     .left {
       display: flex;
@@ -184,6 +211,7 @@ a:hover {
     margin: 2rem 0 2rem;
     align-items: center;
     font-size: 1.3rem;
+    cursor: pointer;
 
     p:first-child {
       font-size: 1.45rem;
@@ -202,6 +230,7 @@ a:hover {
     font-size: 3rem;
     position: absolute;
     bottom: 0;
+    left: 0;
     background-color: #f3f3f3;
   }
 `;
