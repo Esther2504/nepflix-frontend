@@ -24,17 +24,17 @@ const SignIn = () => {
             <Input>
               <label>
                 Email:
-                <input type="email" placeholder="test@hotmail.com"></input>
+                <input type="email" placeholder="test@hotmail.com" />
               </label>
               <label>
                 Password:
-                <input type="password" placeholder="test123"></input>
+                <input type="password" placeholder="test123" />
               </label>
             </Input>
             <button type="submit">Login</button>
             <SubForm>
               <label>
-                <input type="checkbox"></input>
+                <input type="checkbox" />
                 Remember me
               </label>
               <a href="#">Need Help?</a>
