@@ -5,10 +5,10 @@ import avatarblue from '../../assets/account-images/avatar-blue.png'
 
  export const data = {
       "email": "johndoe@fakeemail.com",
-      "register_date": "29 September 2019",
-      "register_day": "29",
-      "register_month": "September",
-      "register_year": "2019",
+      "register_date": "23 March 2020",
+      "register_day": "23",
+      "register_month": "March",
+      "register_year": "2020",
       "payment_method": "PayPal",
       "payment_logo": `${paypall}`,
       "plan": "Standard",

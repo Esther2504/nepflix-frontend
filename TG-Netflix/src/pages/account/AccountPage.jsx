@@ -1,7 +1,7 @@
 import React from "react";
-import { Wrapper } from "./AccountPage.styled";
+import { Wrapper, ProfileStyling } from "./AccountPage.styled";
 
-// Components imports
+// Componenten imports
 import MembershipSection from "../../components/account-page/MembershipSection";
 import PlanSection from "../../components/account-page/PlanSection";
 import ProfileSection from "../../components/account-page/ProfileSection";
@@ -16,10 +16,12 @@ export default function AccountPage() {
         <HeaderSection />
         <MembershipSection />
         <PlanSection />
-        <ProfileSection />
+        <ProfileStyling>
+          <ProfileSection />
+        </ProfileStyling>
         <SettingsSection />
       </div>
-      {/* <footer>Footer placeholder</footer> */}
+      <footer>Footer placeholder</footer>
     </Wrapper>
   );
 }
