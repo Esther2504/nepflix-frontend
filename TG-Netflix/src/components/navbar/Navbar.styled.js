@@ -39,9 +39,8 @@ export const Nav = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 6.8rem;
-  padding: 0 7rem 0 4.6rem;
-  font-size: 1rem;
+  height: 68px;
+  padding: 0 4.6rem;
   color: white;
   z-index: 1;
   transition: background-color 1000ms;
@@ -74,9 +73,9 @@ export const Nav = styled.nav`
     }
   }
 
-  /* @media (min-width: 950px) {
-   expand navbar size
-  } */
+  @media (min-width: 950px) {
+    padding: 0 7rem 0 4.6rem;
+    }
 
   @media (min-width: 1200px) {
     font-size: 1.4rem;
@@ -92,7 +91,6 @@ export const Container = styled.div`
 
 export const PrimaryNav = styled.div`
   ${dropdown}
-
   display: flex;
   align-items: center;
   height: 100%;
@@ -107,6 +105,14 @@ export const PrimaryNav = styled.div`
     width: 20rem;
     left: 80px;
     border-top: 2px solid white;
+
+    img {
+      position: absolute;
+      top: -13px;
+      left: 90px;
+      width: 15px;
+      transform: rotate(180deg);
+    }
 
     li {
       justify-content: center;
@@ -130,8 +136,12 @@ export const PrimaryNav = styled.div`
       border-top: none;
       width: auto;
 
+      img {
+        display: none
+      }
+
       li {
-        font-size: 1rem;
+        font-size: 1.2rem;
 
         &:hover {
           background-color: transparent;
@@ -161,24 +171,18 @@ export const Browse = styled.div`
   @media (min-width: 885px) {
     display: none;
   }
+  
 `;
 
 export const SecondaryNav = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-
-  /* @media (min-width: 400px) {
-    show search function
-  } */
-
-  /* @media (min-width: 1100px) {
-    show 'Kids' link
-  } */
 `;
 
 export const Notifications = styled.div`
-  ${dropdown}
+  ${dropdown};
+  cursor: pointer;
 
   ul {
     left: -270px;
@@ -204,7 +208,6 @@ export const Notifications = styled.div`
 
 export const Account = styled.div`
   ${dropdown}
-
   cursor: pointer;
 
   img {
@@ -214,10 +217,15 @@ export const Account = styled.div`
 
   img:nth-of-type(2) {
     position: absolute;
+    display: none;
     top: 30px;
     left: 40px;
     width: 12px;
     transition: 400ms;
+
+    @media (min-width: 950px) {
+      display: block;
+    }
   }
 
   ul {

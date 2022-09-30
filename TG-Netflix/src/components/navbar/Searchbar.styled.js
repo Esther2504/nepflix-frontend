@@ -2,12 +2,16 @@ import styled from 'styled-components';
 
 export const Search = styled.form`
   position: relative;
-  display: flex;
+  display: none;
   width: 3.5rem;
   height: 3.5rem;
   border: none;
   transition: width 0.3s ease-out;
   overflow-x: hidden;
+
+  @media (min-width: 670px) {
+    display: flex;
+  }
 
   input {
     position: absolute;

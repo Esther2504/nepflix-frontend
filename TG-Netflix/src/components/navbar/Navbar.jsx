@@ -6,7 +6,6 @@ import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
 import arrowdown from '../../assets/arrow_down.png';
 import { IoMdNotifications } from 'react-icons/io';
-import { TbSearch } from 'react-icons/tb';
 import { RiPencilFill } from 'react-icons/ri';
 import { MdOutlineAccountCircle } from 'react-icons/md';
 import { BiHelpCircle } from 'react-icons/bi';
@@ -24,7 +23,7 @@ export default function Navbar() {
 
   return (
     <>
-      <S.Nav role="navigation" isScrolled={isScrolled}>
+      <S.Nav isScrolled={isScrolled}>
         <S.Container>
           <S.PrimaryNav>
             <NavLink to="browse">
@@ -37,6 +36,7 @@ export default function Navbar() {
               <img src={arrowdown} />
             </S.Browse>
             <ul>
+            <img src={arrowdown} />
               <li>
                 <NavLink
                   to="browse"
