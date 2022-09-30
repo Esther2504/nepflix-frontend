@@ -35,6 +35,7 @@ export const Form = style.form`
     flex-direction: column;
     justify-content: center;
     height: 45%;
+    padding: 60px 60px 40px;
     margin: 1rem;
     @media only screen and (max-width: 700px) {
         height: 40%;
@@ -44,7 +45,7 @@ export const Form = style.form`
     }
 
     button {
-        width: 50%;
+        width: 100%;
         margin: 0.55rem auto;
         padding: 1rem;
         border-radius: 2%;
@@ -65,11 +66,12 @@ export const Input = style.div`
     }
 
  input{
-        padding: 1rem;
-        margin: 0.75rem;
         border-color: red;
         border: none;
-        border-radius: 1rem;
+        border-radius: 4px;
+        width: 100%;
+        line-height: 50px;
+        padding: 5px 10px 0;
         @media only screen and (max-width: 700px){
         padding: 0.35rem;
         margin: 0.20rem;
