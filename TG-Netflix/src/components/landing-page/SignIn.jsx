@@ -19,7 +19,7 @@ const SignIn = () => {
       <Container>
         <LoginCard>
           <h1>Welcome.</h1>
-          <h2>Log in and keep watching</h2>
+          {/* <h2>Log in and keep watching</h2> */}
           <Form onSubmit={handleSubmit}>
             <Input>
               <label>
@@ -30,8 +30,9 @@ const SignIn = () => {
                 Password:
                 <input type="password" placeholder="test123" />
               </label>
+               <button type="submit">Login</button>
             </Input>
-            <button type="submit">Login</button>
+           
             <SubForm>
               <label>
                 <input type="checkbox" />

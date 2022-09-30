@@ -8,7 +8,7 @@ const LandingPage = () => {
   
   return (
     <Background>
-      <Nav>I am a placeholder Navbar</Nav>
+      {/* <Nav>I am a placeholder Navbar</Nav> */}
       <SignIn />
       <Footer>I am a placeholder footer</Footer>
     </Background>

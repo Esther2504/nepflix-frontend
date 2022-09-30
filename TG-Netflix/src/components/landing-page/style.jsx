@@ -34,20 +34,21 @@ export const Form = style.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 45%;
+    // height: 45%;
     padding: 60px 60px 40px;
     margin: 1rem;
     @media only screen and (max-width: 700px) {
-        height: 40%;
+        min-height: 50%;
         margin: auto;
         min-width: 90%;
+        padding: 20px 40px 20px;
         justify-content: center;
     }
 
     button {
         width: 100%;
-        margin: 0.55rem auto;
-        padding: 1rem;
+        margin: 2rem 0 1rem;
+        padding: 2rem 0;
         border-radius: 2%;
         border: none;
         background-color:  rgba(219,0,0);
@@ -59,7 +60,8 @@ export const Form = style.form`
 
 export const Input = style.div`
     label{
-        margin: 0 0.75rem;
+        margin: 0.75rem 0;
+        // padding: 1rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -94,7 +96,7 @@ export const LoginCard = style.div`
     font-size: 1.7rem;
     @media only screen and (max-width: 700px) {
         width: 100%;
-        height: 80vh;
+        height: 100vh;
         padding: 0;
         margin: 0;
         border-radius: 0;
@@ -151,7 +153,7 @@ export const SubForm = style.div`
 
 export const ExtraInfo = style.div`
     text-align: left;
-    padding: 1rem;
+    padding: 1rem 2.5rem 2rem;
     margin: 1rem;
     dislay: flex;
     flexwrap: wrap;
