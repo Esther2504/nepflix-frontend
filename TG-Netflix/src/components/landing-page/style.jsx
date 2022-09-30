@@ -168,19 +168,41 @@ background-position: center;
 background-size: cover;
 `;
 
+export const Logo = style.div`
+    background-color: rgb(0,0,0,0.6); 
+    // font-size: 2rem;
+    width: 100%;
+    height: auto;
+    // margin: 2rem;
+    @media only screen and (max-width: 700px){
+        background-color: rgb(0,0,0, 0.9); 
+        // height: 8rem;
+    }
+
+    svg {
+        width: 25%;
+        height: 6rem;
+        // padding: 1rem;
+        // margin-bottom: 2rem;
+        position: relative;
+        left: 20px;
+        top: 20px;
+        fill: red;
+        @media only screen and (max-width: 700px){
+           width: 30%;
+           left: 15px;
+        }
+    }
+`;
+
+
 
 //// PLACEHOLDER
 
-export const Nav = style.div`
-    background-color: pink;
-    border: 1px solid red;
-    font-size: 2rem;
-    width: 100%;
-    height: 6rem;
-`;
+
 
 export const Footer = style.div`
-    background-color: pink;
+    // background-color: pink;
     border: 1px solid red;
     font-size: 2rem;
     width: 100%;
