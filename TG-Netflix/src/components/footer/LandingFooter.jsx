@@ -14,47 +14,46 @@ export default function Footer() {
                     </FooterTopWrapper>
 
                     <LinksWrapper>
-                        <Item><a href="#"><FooterLink>FAQ</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Help Centre</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Terms of Use</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Privacy</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></Item>
-                        <Item><a href="#"><FooterLink>Corporate Information</FooterLink></a></Item>
+                        <Item placeholder='FAQ'><a href="#"><FooterLink>FAQ</FooterLink></a></Item>
+                        <Item placeholder='Help Centre'><a href="#"><FooterLink>Help Centre</FooterLink></a></Item>
+                        <Item placeholder='Terms of Use'><a href="#"><FooterLink>Terms of Use</FooterLink></a></Item>
+                        <Item placeholder='Privacy'><a href="#"><FooterLink>Privacy</FooterLink></a></Item>
+                        <Item placeholder='Cookie Preferences'><a href="#"><FooterLink>Cookie Preferences</FooterLink></a></Item>
+                        <Item placeholder='Corporate Information'><a href="#"><FooterLink>Corporate Information</FooterLink></a></Item>
                     </LinksWrapper>
 
                     <LangSelectContainer>
-                            <LangSelector>
-                                <BsGlobe className='select-globe'/>
-                                    <Langpicker>
-                                        <option lang="en" value="">English</option>
-                                        <option lang="nl" value="">Nederlands</option>
-                                    </Langpicker>
-                            </LangSelector>
-                    </LangSelectContainer>
-
+                        <LangPicker>
+                            <BsGlobe className='select-globe'/>
+                                <LangSelector>
+                                    <option lang="en" value="">English</option>
+                                    <option lang="nl" value="">Nederlands</option>
+                                </LangSelector>
+                        </LangPicker>
+                        <FooterCountry>Netflix Netherlands</FooterCountry>
+                    </LangSelectContainer>    
                 </Container>
             </Wrapper>
         </>
     )
 };
 
+// Styled Components - Icon styling (1x) in Global Styling (.select-globe)
 const Wrapper = styled.div`
 min-width: 190px;
 display: block;
 align-items: center;
 justify-content: center;
-/* background: rgba(0,0,0,.75); */
-background: pink;
+background: pink;  //pink background for styling purposes
 `
 
 const Container = styled.div`
 background-color: rgba(0,0,0,.75);
-max-width: 980px; // set to max-width later
+max-width: 980px; 
 display: block;
 padding: 30px 4%;
 margin: 20px auto 0;
 color: white;
-
 `
 
 const FooterTopWrapper = styled.div`
@@ -63,7 +62,7 @@ margin-bottom: 1em;
 color:#737373;
 padding: 0 4%;
 font-size: 1.6em;
-& a, a:visited, a:active {
+    & a, a:visited, a:active {
         color: #737373;
         text-decoration: none;
     }
@@ -90,7 +89,6 @@ margin-bottom: 0px;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
         padding-inline-start: 40px;
-
     }
     & li {
         list-style-type: none;
@@ -99,7 +97,6 @@ margin-bottom: 0px;
         flex: 0 0 25%;  
         }
     }
-
     & a, a:visited, a:active {
         color: #737373;
         text-decoration: none;
@@ -127,19 +124,19 @@ max-width: 980px;
 display: block;
 `
 
-const Langpicker=styled.select`
+const LangSelector = styled.select`
   background-color: black;
   color: #737373;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
   padding-left: 3.2rem;
   margin: 0;
   height: inherit;
   width: inherit;
   text-align: center;
-
 `
 
-const LangSelector = styled.div`
+const LangPicker = styled.div`
 background: transparent;
 border: none;
 width: 15rem;
@@ -149,16 +146,22 @@ color: #737373;
 padding: 0;
 margin: 0;
 cursor: pointer;
-
-
-  & a, a:visited, a:active {
+    & a, a:visited, a:active {
     color: grey;
     text-decoration: none;
-  }
-  & a:hover {
+    }
+    & a:hover {
     color: white;
-  }
+    }
 `
+
+const FooterCountry = styled.p`
+font-size: 13px;
+margin-top: 34px;
+color: #737373;
+display: block;
+`;
+
 
 
 

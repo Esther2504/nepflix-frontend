@@ -14,7 +14,7 @@ export default function Footer() {
             <Wrapper>
                 <Container>
                     <SocialsWrapper>
-                        <IconContext.Provider value={{ color: "white", size: "24px", className: "socialIcons" }}>
+                        <IconContext.Provider value={{ size: "24px", className: "socialIcons" }}>
                             <FaFacebookF />
                             <BsInstagram />
                             <BsTwitter />
@@ -51,15 +51,14 @@ export default function Footer() {
 };
 
 
+// Styled Components. - icon styling in GlobalStyle (.socialIcons)
 const Wrapper = styled.div`
 min-width: 190px;
-display: block;
+display: flex;
 align-items: center;
 justify-content: center;
-background: pink;
+background: pink; // pink for testing purposes
 `
-
-
 
 const Container = styled.div`
 background-color: rgba(0,0,0,.75);
@@ -74,6 +73,8 @@ const SocialsWrapper = styled.div`
 display: flex;
 margin-bottom: 1em;
 padding: 0 4%;
+color: white;
+
 `
 
 const LinksWrapper = styled.ul`
@@ -132,12 +133,11 @@ max-width: 980px;
 
 const ServiceCode = styled.button`
 background: transparent;
-border: 1px solid grey;
+border: 1px solid #737373;
 font-size: 13px;
-color: grey;
+color: #737373;
 padding: 0.5em;
 cursor: pointer;
-text-transform: none;
 text-indent: 0px;
 overflow: visible;
 text-shadow: none;
@@ -145,23 +145,21 @@ display: inline-block;
 text-align: center;
 align-items: flex-start;
 box-sizing: border-box;
-text-rendering: auto;
-word-spacing: normal;
-
-  & a, a:visited, a:active {
-    color: grey;
+    & a, a:visited, a:active {
+    color: #737373;
     text-decoration: none;
-  }
-  & a:hover {
+    }
+    & a:hover {
     color: white;
-  }
+    }
 `
 
 const CopyrightWrapper = styled.div`
-color: white;
+color: #737373;
 margin-top: 20px;
+font-size: 13px;
 margin-left: auto;
 margin-right: auto;
-margin-bottom: 0;
+margin-bottom: 2em;
 padding: 0 4%;
-`
+`;

@@ -61,18 +61,15 @@ h6 {
   isolation: isolate;
 }
 
-
-
-
-//footer styling 
+//footer styling - icons
 .socialIcons {
 margin-right: 25px;
 margin-top: 2px;
 user-select: none;
 cursor:pointer;
 text-decoration: none;
-
 }
+
 .select-globe {
   position: relative;
   top: 30px;
