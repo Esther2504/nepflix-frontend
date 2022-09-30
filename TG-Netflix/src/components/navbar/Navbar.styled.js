@@ -139,11 +139,9 @@ export const PrimaryNav = styled.div`
       }
     }
     @media (min-width: 1200px) {
-
       li {
         font-size: 1.4rem;
       }
-      
     }
   }
 `;
@@ -206,6 +204,8 @@ export const Notifications = styled.div`
 
 export const Account = styled.div`
   ${dropdown}
+
+  cursor: pointer;
 
   img {
     width: 3rem;

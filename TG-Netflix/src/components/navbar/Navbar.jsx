@@ -56,9 +56,10 @@ export default function Navbar() {
             </ul>
           </S.PrimaryNav>
           <S.SecondaryNav>
+          
             <ul>
               <li>
-                <Searchbar />
+              <Searchbar />
               </li>
               <li>
                 <S.Notifications>
@@ -98,7 +99,8 @@ export default function Navbar() {
           </S.SecondaryNav>
         </S.Container>
       </S.Nav>
-      <S.VerticalSpacer></S.VerticalSpacer>
+      <S.VerticalSpacer />
+      
     </>
   );
 }
