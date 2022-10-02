@@ -43,15 +43,15 @@ export const Nav = styled.nav`
   padding: 0 46px;
   color: white;
   z-index: 1;
-  transition: background-color 1000ms; // return transition
-  transition: ${(props) =>
-    props.isScrolled ? 'background-color 1000ms;' : ''};
-  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0.4)
   );
+  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
+  transition: ${(props) =>
+    props.isScrolled ? 'background-color 1000ms;' : ''};
+  transition: background-color 1000ms; // return transition
 
   @media (min-width: 950px) {
     padding: 0 7rem 0 4.6rem;
@@ -120,7 +120,7 @@ export const PrimaryNav = styled.div`
       @media (max-width: 885px) {
         margin-left: 0;
       }
-      
+
       &:hover {
         background-color: rgba(20, 20, 20, 0.5);
       }
@@ -186,6 +186,10 @@ export const Notifications = styled.div`
     height: 10rem;
     text-align: center;
     border-top: 2px solid white;
+
+    &:hover {
+      background-color: rgb(20, 20, 20);
+    }
 
     img {
       position: absolute;

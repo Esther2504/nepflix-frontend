@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Search = styled.form`
   position: relative;
   display: none;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 5px;
   overflow-x: hidden;
   border: none;
   transition: width 300ms ease-out;
@@ -17,9 +18,10 @@ export const Search = styled.form`
     position: absolute;
     top: 0;
     bottom: 0;
+    width: 95%;
     padding-left: 30px;
     flex-grow: 1;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     opacity: 0;
     border: 0;
     background: transparent;
@@ -42,17 +44,13 @@ export const Search = styled.form`
 
   &:focus-within {
     width: 25rem;
-    border: solid 1px rgba(255, 255, 255, 0.85);
+    border: 1px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(0, 0, 0, 0.5);
 
     input {
       opacity: 1;
       color: white;
       cursor: initial;
-    }
-
-    button {
-      margin-right: auto;
     }
   }
 `;
