@@ -5,9 +5,9 @@ export const Search = styled.form`
   display: none;
   width: 3.5rem;
   height: 3.5rem;
-  border: none;
-  transition: width 0.3s ease-out;
   overflow-x: hidden;
+  border: none;
+  transition: width 300ms ease-out;
 
   @media (min-width: 670px) {
     display: flex;
@@ -15,22 +15,21 @@ export const Search = styled.form`
 
   input {
     position: absolute;
-    border: 0;
-    background: transparent;
-    padding-left: 3rem;
-    flex-grow: 1;
-    font-size: 1.5rem;
     top: 0;
     bottom: 0;
-    color: white;
+    padding-left: 30px;
+    flex-grow: 1;
+    font-size: 1.5rem;
     opacity: 0;
+    border: 0;
+    background: transparent;
     cursor: pointer;
 
     &:focus {
       outline: 0;
-      color: white;
     }
   }
+
   button {
     background: transparent;
     border: 0;
@@ -43,7 +42,7 @@ export const Search = styled.form`
 
   &:focus-within {
     width: 25rem;
-    border: solid 1px rgba(255,255,255,0.85);
+    border: solid 1px rgba(255, 255, 255, 0.85);
     background-color: rgb(0, 0, 0, 0.5);
 
     input {

@@ -6,22 +6,22 @@ const dropdown = css`
   display: flex;
   position: relative;
   height: 100%;
-  padding: 2.1rem 0;
+  padding: 21px 0;
 
   ul {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 7.2rem;
     padding: 1rem 0;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 2px;
-    border-top: 5rem;
 
     li {
       display: flex;
-      margin-left: 2rem;
-      padding: 1.1rem 0;
+      margin-left: 20px;
+      padding: 10px 0;
+      font-size: 1.3rem;
       cursor: pointer;
     }
   }
@@ -39,11 +39,11 @@ export const Nav = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 68px;
-  padding: 0 4.6rem;
+  height: 6.8rem;
+  padding: 0 46px;
   color: white;
   z-index: 1;
-  transition: background-color 1000ms;
+  transition: background-color 1000ms; // return transition
   transition: ${(props) =>
     props.isScrolled ? 'background-color 1000ms;' : ''};
   background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
@@ -52,6 +52,14 @@ export const Nav = styled.nav`
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0.4)
   );
+
+  @media (min-width: 950px) {
+    padding: 0 7rem 0 4.6rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 1.4rem;
+  }
 
   ul {
     display: flex;
@@ -66,19 +74,11 @@ export const Nav = styled.nav`
         color: white;
 
         &:hover {
-          color: grey;
-          transition: 500ms;
+          color: #b8b8b8;
+          transition: 300ms;
         }
       }
     }
-  }
-
-  @media (min-width: 950px) {
-    padding: 0 7rem 0 4.6rem;
-    }
-
-  @media (min-width: 1200px) {
-    font-size: 1.4rem;
   }
 `;
 
@@ -93,16 +93,15 @@ export const PrimaryNav = styled.div`
   ${dropdown}
   display: flex;
   align-items: center;
-  height: 100%;
-  padding: 3rem 0;
 
   img {
-    width: 12rem;
-    margin-right: 1rem;
+    width: 120px;
+    margin-right: 10px;
   }
 
   ul {
     width: 20rem;
+    top: 7rem;
     left: 103px;
     border-top: 2px solid white;
 
@@ -117,14 +116,13 @@ export const PrimaryNav = styled.div`
     li {
       justify-content: center;
       width: 100%;
-      font-size: 1.4rem;
-
-      &:hover {
-        background-color: rgba(20, 20, 20, 0.5);
-      }
 
       @media (max-width: 885px) {
         margin-left: 0;
+      }
+      
+      &:hover {
+        background-color: rgba(20, 20, 20, 0.5);
       }
     }
 
@@ -137,17 +135,16 @@ export const PrimaryNav = styled.div`
       width: auto;
 
       img {
-        display: none
+        display: none;
       }
 
       li {
-        font-size: 1.2rem;
-
         &:hover {
           background-color: transparent;
         }
       }
     }
+
     @media (min-width: 1200px) {
       li {
         font-size: 1.4rem;
@@ -160,24 +157,23 @@ export const Browse = styled.div`
   display: flex;
   position: relative;
   margin-left: 2rem;
+  font-size: 1.2rem;
 
   img {
     position: absolute;
-    top: 2px;
-    left: 45px;
+    top: 4px;
+    left: 47px;
     width: 10px;
   }
 
   @media (min-width: 885px) {
     display: none;
   }
-  
 `;
 
 export const SecondaryNav = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
 `;
 
 export const Notifications = styled.div`
@@ -185,8 +181,8 @@ export const Notifications = styled.div`
   cursor: pointer;
 
   ul {
-    left: -270px;
-    width: 30rem;
+    left: -317px;
+    width: 35rem;
     height: 10rem;
     text-align: center;
     border-top: 2px solid white;
@@ -194,14 +190,14 @@ export const Notifications = styled.div`
     img {
       position: absolute;
       top: -13px;
-      left: 278px;
+      left: 325px;
       width: 15px;
       transform: rotate(180deg);
     }
 
     li {
       margin: auto;
-      color: grey;
+      color: #b8b8b8;
     }
   }
 `;
@@ -211,8 +207,8 @@ export const Account = styled.div`
   cursor: pointer;
 
   img {
-    width: 3rem;
-    border-radius: 5px;
+    width: 30px;
+    border-radius: 3px;
   }
 
   img:nth-of-type(2) {
@@ -257,7 +253,7 @@ export const Account = styled.div`
 
       &:nth-of-type(4) {
         align-self: center;
-        margin-left: 0rem;
+        margin-left: 0;
         padding-left: 0;
       }
     }

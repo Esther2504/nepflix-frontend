@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
+import { IoMdNotifications } from 'react-icons/io';
+import { RiPencilLine, RiAccountCircleLine } from 'react-icons/ri';
+import { BiHelpCircle} from 'react-icons/bi';
+
 import Searchbar from './Searchbar';
 import * as S from './Navbar.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
-import arrowdown from '../../assets/arrow_down.png';
-import { IoMdNotifications } from 'react-icons/io';
-import { RiPencilFill } from 'react-icons/ri';
-import { MdOutlineAccountCircle } from 'react-icons/md';
-import { BiHelpCircle } from 'react-icons/bi';
+import arrow from '../../assets/arrow.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,13 +31,12 @@ export default function Navbar() {
               {' '}
               <img src={logo} alt="Netflix logo" />
             </NavLink>
-
             <S.Browse>
               Browse
-              <img src={arrowdown} />
+              <img src={arrow} />
             </S.Browse>
             <ul>
-            <img src={arrowdown} />
+              <img src={arrow} />
               <li>
                 <NavLink
                   to="browse"
@@ -56,16 +56,15 @@ export default function Navbar() {
             </ul>
           </S.PrimaryNav>
           <S.SecondaryNav>
-          
             <ul>
               <li>
-              <Searchbar />
+                <Searchbar />
               </li>
               <li>
                 <S.Notifications>
                   <IoMdNotifications size={30} />
                   <ul>
-                    <img src={arrowdown} />
+                    <img src={arrow} />
                     <li>No recent notifications</li>
                   </ul>
                 </S.Notifications>
@@ -74,14 +73,15 @@ export default function Navbar() {
                 {' '}
                 <S.Account>
                   <img src={profile} alt="Profile icon" />
-                  <img src={arrowdown} />
+                  <img src={arrow} />
                   <ul>
-                    <img src={arrowdown} />
+                    <img src={arrow} />
                     <li>
-                      <RiPencilFill size={20} /> <p>Manage Profiles</p>
+                      <RiPencilLine size={20} />
+                      <p>Manage Profiles</p>
                     </li>
                     <li>
-                      <MdOutlineAccountCircle size={20} />
+                      <RiAccountCircleLine size={20} />
                       <p>Account</p>
                     </li>
                     <li>
@@ -100,7 +100,6 @@ export default function Navbar() {
         </S.Container>
       </S.Nav>
       <S.VerticalSpacer />
-      
     </>
   );
 }

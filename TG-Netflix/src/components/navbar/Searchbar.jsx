@@ -8,12 +8,7 @@ export default function Searchbar() {
         <button>
           <img src={icon} alt="Search icon" />
         </button>
-        <input
-          type="search"
-          name=""
-          id=""
-          placeholder="Titles, people, genres"
-        />
+        <input type="search" placeholder="Titles, people, genres" />
       </S.Search>
     </>
   );
