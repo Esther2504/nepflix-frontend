@@ -1,9 +1,9 @@
-
+import MovieCard from "./components/movie-card/MovieCard";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Netflix</h1>
+      <MovieCard></MovieCard>
     </div>
   );
 }
