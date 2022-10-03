@@ -6,7 +6,8 @@ function App() {
 
   return (
     <>
-      {location.pathname === '/' ? null : <Navbar />}
+      {location.pathname === '/account' ? null : <Navbar />}
+     
       <Outlet />
     </>
   );
