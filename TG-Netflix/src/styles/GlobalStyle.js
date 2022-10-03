@@ -72,10 +72,19 @@ text-decoration: none;
 
 .select-globe {
   position: relative;
+  top: 40px;
+  left: 12px;
+  scale: 2;
+
+}
+.select-caret {
+  position: relative;
   top: 30px;
-  left: 20px;
+  left: 130px;
   scale: 2;
 }`
+
+
 
 
 

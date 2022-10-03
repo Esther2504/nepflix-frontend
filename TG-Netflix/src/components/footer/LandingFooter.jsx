@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { BsGlobe } from 'react-icons/bs'
+import {BiCaretDown} from 'react-icons/bi'
 
 
 export default function Footer() {
@@ -25,10 +26,12 @@ export default function Footer() {
                     <LangSelectContainer>
                         <LangPicker>
                             <BsGlobe className='select-globe'/>
+                            <BiCaretDown className='select-caret'/>   
                                 <LangSelector>
                                     <option lang="en" value="">English</option>
                                     <option lang="nl" value="">Nederlands</option>
                                 </LangSelector>
+                             
                         </LangPicker>
                         <FooterCountry>Netflix Netherlands</FooterCountry>
                     </LangSelectContainer>    
@@ -44,7 +47,7 @@ min-width: 190px;
 display: block;
 align-items: center;
 justify-content: center;
-background: pink;  //pink background for styling purposes
+background-color: #000; //pink background for styling purposes
 `
 
 const Container = styled.div`
@@ -126,17 +129,20 @@ display: block;
 
 const LangSelector = styled.select`
   background-color: black;
+  appearance: none;
   color: #737373;
   font-size: 14px;
   font-weight: 600;
-  padding-left: 3.2rem;
   margin: 0;
+  padding: 12px 26px 12px 45px;
   height: inherit;
   width: inherit;
-  text-align: center;
+  &:focus { border: 2px blue};
 `
 
 const LangPicker = styled.div`
+display: inline-block;
+position: relative;
 background: transparent;
 border: none;
 width: 15rem;
