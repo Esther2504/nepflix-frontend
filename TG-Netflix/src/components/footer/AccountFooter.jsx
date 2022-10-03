@@ -43,7 +43,7 @@ width: 100%;
 padding-bottom: 20px;
 margin-top: 80px;
 position: relative;
-background: pink;  //pink background for styling purposes
+background-color: rgb(243 243 243)  
 `
 
 const Divider = styled.div`
@@ -146,7 +146,7 @@ margin: 45px 0 20px;
 const ServiceCode = styled.button`
 background: transparent;
 border: 1px solid #737373;
-font-size: 13px;
+font-size: 1rem;
 color: #737373;
 padding: 8px;
 min-width: 90px;

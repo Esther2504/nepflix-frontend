@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { BsGlobe } from 'react-icons/bs'
-import {BiCaretDown} from 'react-icons/bi'
+import { BiCaretDown } from 'react-icons/bi'
 
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
             <Wrapper>
                 <Container>
                     <FooterTopWrapper>
-                    <span>Questions? Call <a href="tel:08000225173">08000225173</a></span>
+                        <span>Questions? Call <a href="tel:08000225173">08000225173</a></span>
                     </FooterTopWrapper>
 
                     <LinksWrapper>
@@ -25,29 +25,29 @@ export default function Footer() {
 
                     <LangSelectContainer>
                         <LangPicker>
-                            <BsGlobe className='select-globe'/>
-                            <BiCaretDown className='select-caret'/>   
-                                <LangSelector>
-                                    <option lang="en" value="">English</option>
-                                    <option lang="nl" value="">Nederlands</option>
-                                </LangSelector>
-                             
+                            <BsGlobe className='select-globe' />
+                            <BiCaretDown className='select-caret' />
+                            <LangSelector>
+                                <option lang="en" value="">English</option>
+                                <option lang="nl" value="">Nederlands</option>
+                            </LangSelector>
+
                         </LangPicker>
                         <FooterCountry>Netflix Netherlands</FooterCountry>
-                    </LangSelectContainer>    
+                    </LangSelectContainer>
                 </Container>
             </Wrapper>
         </>
     )
 };
 
-// Styled Components - Icon styling (1x) in Global Styling (.select-globe)
+// Styled Components - Icon styling (2x) in Global Styling (.select-globe / .select-caret)
 const Wrapper = styled.div`
 min-width: 190px;
 display: block;
 align-items: center;
 justify-content: center;
-background-color: #000; //pink background for styling purposes
+background-color: #000; 
 `
 
 const Container = styled.div`

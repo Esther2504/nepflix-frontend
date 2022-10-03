@@ -57,7 +57,7 @@ min-width: 190px;
 display: flex;
 align-items: center;
 justify-content: center;
-background: pink; // pink for testing purposes
+background-color: black;
 `
 
 const Container = styled.div`
