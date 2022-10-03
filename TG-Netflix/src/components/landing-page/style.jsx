@@ -7,12 +7,14 @@ import bgImage from "./netflixbg.png";
 
 export const Container = style.div`
     background-color: rgb(0,0,0,0.6); 
-    font-size: 2rem;
+    // font-size: 2rem;
     color: rgb(255,255,255);
     width: 100%;
-    padding: 5rem;
+    height: 100vh;
+    // padding: 5rem;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    // justify-content: space-evenly;
     align-items: center;
     @media only screen and (max-width: 700px) {
         margin: 0;
@@ -34,11 +36,11 @@ export const Form = style.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // height: 45%;
-    padding: 60px 60px 40px;
-    margin: 1rem;
+    padding: 30px 50px 30px;
+    // width: 450px;
+    // margin: 1rem;
     @media only screen and (max-width: 700px) {
-        min-height: 50%;
+        // min-height: 40%;
         margin: auto;
         min-width: 90%;
         padding: 20px 40px 20px;
@@ -90,8 +92,9 @@ export const Input = style.div`
 export const LoginCard = style.div`
     background-color: rgb(0,0,0, 0.8);
     border-radius: 2%;
-    width: 500px;
-    height: 85vh;
+    width: 450px;
+    margin-bottom: 20px;
+    min-height: 600px;
     text-align: center;
     font-size: 1.7rem;
     @media only screen and (max-width: 700px) {
@@ -103,8 +106,8 @@ export const LoginCard = style.div`
     }
 
     h1, h2 {
-        padding: 0.55rem;
-        margin: 0.55rem;
+        padding: 0.35rem;
+        margin: 0.35rem;
         @media only screen and (max-width: 700px) {
             padding: 0.25rem;
             margin: 0.25rem;
@@ -166,32 +169,40 @@ background-image: url(${bgImage});
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
+height: 100%;
 `;
 
 export const Logo = style.div`
-    background-color: rgb(0,0,0,0.6); 
-    // font-size: 2rem;
-    width: 100%;
-    height: auto;
-    // margin: 2rem;
+    // background-color: rgb(0,0,0,0.6); 
+    // // font-size: 2rem;
+    width:100%;
+    height: 100px;
+    padding: 0.5rem;
+    margin: 2rem;
+    position: relative;
+    // left: 10px;
+    // top: 15px;
     @media only screen and (max-width: 700px){
-        background-color: rgb(0,0,0, 0.9); 
-        // height: 8rem;
+        background-color: rgb(0,0,0, 0.8); 
+        margin: 0;
+        padding: 1rem;
+        top: 0;
+
     }
 
     svg {
-        width: 25%;
-        height: 6rem;
-        // padding: 1rem;
-        // margin-bottom: 2rem;
-        position: relative;
-        left: 20px;
-        top: 20px;
+        width: 250px;
+        height: 50px;
+        // padding: 0.5rem;
+        // margin: 1.5rem;
+        // position: relative;
+        // left: 5px;
+        // top: 5px;
         fill: red;
-        @media only screen and (max-width: 700px){
-           width: 30%;
-           left: 15px;
-        }
+        // @media only screen and (max-width: 700px){
+        //    width: 30%;
+        //    left: 15px;
+        // }
     }
 `;
 
@@ -202,7 +213,7 @@ export const Logo = style.div`
 
 
 export const Footer = style.div`
-    // background-color: pink;
+    background-color: pink;
     border: 1px solid red;
     font-size: 2rem;
     width: 100%;
