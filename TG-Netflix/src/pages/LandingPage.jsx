@@ -5,6 +5,7 @@ import {
   Footer,
   Logo,
   Wrapper,
+  Spacer,
 } from "../components/landing-page/style";
 import bgImage from "../components/landing-page/NetflixBg2.jpg";
 
@@ -29,10 +30,9 @@ const LandingPage = () => {
           </Logo>
           <SignIn />
         </Wrapper>
-
-          <Footer>I am a placeholder footer</Footer>
+        <Spacer />
+        <Footer>I am a placeholder footer</Footer>
       </Background>
-      
     </>
   );
 };

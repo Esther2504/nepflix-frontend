@@ -10,59 +10,37 @@ background-image: url(${bgImage});
 background-repeat: repeat;
 background-position: center;
 background-size: cover;
-// background-color: green;
-// position: absolute; 
-// width: 100%;
-// min-height: 100vh;
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
-    
-    // img {
-        // position: absolute;
-        // width: 100%;
-        // min-height: 100vh;
-        // z-index: 1;
-    // }
+@media only screen and (max-width: 750px){
+    height: 100vh;
+    } 
 `;
 
 export const Wrapper = style.div`
-    // background-color: rgb(0,0,0, 0.6);
-    // background-color: red;
-    // position: absolute;
-    // z-index: 2;
+    background-color: rgb(0,0,0, 0.6);
     width: 100%;
-    height: 150vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    // justify-content: space-evenly;
     align-items: start;
     @media only screen and (max-width: 750px){
-    background-color: rgb(0,0,0, 0.8);
+    background-color: rgb(0,0,0, 1);
+        height: 90%;
     } 
-    
-
 `;
 
 export const Container = style.div`
-    // background-color: rgb(0,0,0,0.6);
-    // border: 1px solid red;
     color: rgb(255,255,255);
     width: 100%;
     height: 100vh;
-    // min-height: 600px;
-    // padding: 50px;
-    // margin-bottom: 50px;
-    // position: relative;
     display: flex;
-    // justify-content: spave-evenly;
     flex-direction: column;
     align-items: center;
     @media only screen and (max-width: 750px){
-        // background-color: rgb(0,0,0, 0.8); 
         margin: 0;
         padding: 0;
-        // height: auto;
     } 
 
     a{
@@ -78,10 +56,8 @@ export const Logo = style.div`
     width:100%;
     height: 90px;
     padding: 0.5rem;
-    // margin: 1rem;
     position: relative;
     @media only screen and (max-width: 750px){
-        // background-color: rgb(0,0,0, 0.8); 
         margin: 0;
         padding: 1rem;
         top: 0;
@@ -96,17 +72,15 @@ export const Logo = style.div`
 
 
 export const LoginCard = style.div`
-    background-color: rgb(0,0,0, 0.8);
+    background-color: rgb(0,0,0, 0.9);
     border-radius: 2%;
     width: 450px;
-    margin: 0 auto;
     min-height: 600px;
     text-align: center;
     font-size: 1.7rem;
     @media only screen and (max-width: 750px) {
         background-color: rgb(0,0,0,0);
         width: 100%;
-        // height: 100vh;
         padding: 0;
         margin: 0;
         border-radius: 0;
@@ -133,7 +107,6 @@ export const Form = style.form`
         margin: auto;
         min-width: 90%;
         padding: 20px 30px 10px;
-        justify-content: center;
     }
 
     button {
@@ -225,23 +198,27 @@ export const ExtraInfo = style.div`
     padding: 1rem 3rem;
     margin: 1.5rem;
     font-size: 1.10rem;
+    @media only screen and (max-width: 750px){
+        padding: 0 2rem;
+        margin: 0 1.5rem;
+    }
 `;
 
-
+export const Spacer = style.div`
+    background-color: rgb(0,0,0, 0.6);
+    width: 100%;
+    height: 70px;
+    @media only screen and (max-width: 750px){
+        display: none;
+    }
+`;
 
 //// PLACEHOLDER, to be replaced with actual footer.
 
 export const Footer = style.div`
     background-color: pink;
     opacity: 0.5;
-    // margin-top: 50px
-    // border: 1px solid red;
     font-size: 2rem;
     width: 100%;
     height: 200px;
-    // position: fixed;
-    // bottom: 0;
-    // right: 0;
-    // left: 0;
-    // z-index: 3;
 `;
