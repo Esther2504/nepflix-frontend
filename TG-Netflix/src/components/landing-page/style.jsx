@@ -9,7 +9,7 @@ export const Container = style.div`
     background-color: rgb(0,0,0,0.6);
     color: rgb(255,255,255);
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -34,11 +34,11 @@ export const Form = style.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30px 50px 30px;
+    padding: 60px 60px 40px;
     @media only screen and (max-width: 700px) {
         margin: auto;
         min-width: 90%;
-        padding: 20px 40px 20px;
+        padding: 40px 40px 30px;
         justify-content: center;
     }
 
@@ -156,9 +156,6 @@ export const ExtraInfo = style.div`
     text-align: left;
     padding: 1rem 2.5rem 2rem;
     margin: 1rem;
-    dislay: flex;
-    flexwrap: wrap;
-    flex-direction: column;
     font-size: 1.5rem;
 `;
 
@@ -167,7 +164,6 @@ background-image: url(${bgImage});
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
-height: 100%;
 `;
 
 export const Logo = style.div`
@@ -190,11 +186,16 @@ export const Logo = style.div`
     }
 `;
 
+export const Spacer = style.div`
+    background-color: rgb(0,0,0, 0.6); 
+    height: 75px;
+    @media only screen and (max-width: 700px){
+        display: none;
+    }
+`;
 
 
 //// PLACEHOLDER
-
-
 
 export const Footer = style.div`
     background-color: pink;
