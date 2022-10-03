@@ -79,7 +79,7 @@ export const Input = style.div`
         }
 
         &:focus {
-            background-color: lightgrey;
+            background-color: rgb(211,211,211);
             outline: none;
         }
     }
@@ -195,11 +195,11 @@ export const Spacer = style.div`
 `;
 
 
-//// PLACEHOLDER
+//// PLACEHOLDER, to be replaced with actual footer.
 
 export const Footer = style.div`
     background-color: pink;
-    opacity:0.5;
+    opacity: 0.5;
     border: 1px solid red;
     font-size: 2rem;
     width: 100%;

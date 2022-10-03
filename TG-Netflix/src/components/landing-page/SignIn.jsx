@@ -8,7 +8,6 @@ import {
   SubForm,
   ExtraInfo,
   Logo,
-  // Nav,
 } from "./style";
 
 const SignIn = () => {
