@@ -36,7 +36,7 @@ export default function SettingsSection() {
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="/">
                 Sign out of all devices{" "}
                 <div className="arrow-mobile">
                   <BsChevronRight size={"2.2rem"} />

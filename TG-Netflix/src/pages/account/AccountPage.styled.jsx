@@ -281,6 +281,7 @@ a {
          border-top: 1px solid #ccc;
   }
 }
+}
 `;
 
 export const AccountSubSection = styled.div`
@@ -298,6 +299,10 @@ padding-top: 1.2rem;
     }
   }
   }
+}
+
+.password {
+  color: #737373;
 }
 
 @media screen and (max-width: 500px) {
@@ -378,7 +383,7 @@ export const ProfileStyling = styled.div`
 }
 
 .profile-subsection {
-  width: 90%;
+  width: 89%;
   align-self: flex-end;
   display: flex;
   justify-content: space-between;
@@ -394,6 +399,10 @@ export const ProfileStyling = styled.div`
     font-weight: 500;
     margin-bottom: 0;
   }
+
+  p:nth-child(2) {
+    color: #787878;
+  }
 }
 
 .profile-divider {
@@ -402,7 +411,7 @@ export const ProfileStyling = styled.div`
 }
 
 .profile-section-divider {
-  width: 90%;
+  width: 89%;
   align-self: flex-end;
   border-top: 1px solid #ccc;
 }

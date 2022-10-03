@@ -39,7 +39,7 @@ export default function MembershipSection() {
         <AccountSubSection>
           <div>
             <p>{data.email}</p>
-            <p>Password: *******</p>
+            <p className="password">Password: *******</p>
           </div>
           <div className="links">
             <ul>
