@@ -1,5 +1,6 @@
 import Footer from "./components/footer/Footer"
 import LandingFooter from "./components/footer/LandingFooter"
+import AccountFooter from "./components/footer/AccountFooter"
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
 
 
       </div>
-      < Footer />
-      < LandingFooter />
+      <Footer/>
+      <LandingFooter/>
+      <AccountFooter/>
     </>
 
   );
