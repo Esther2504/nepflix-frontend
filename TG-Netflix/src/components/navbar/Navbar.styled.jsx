@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components';
 const dropdown = css`
   display: flex;
   position: relative;
-  height: 100%;
   padding: 21px 0;
 
   ul {
@@ -36,13 +35,17 @@ const dropdown = css`
 // styled components
 
 export const Nav = styled.nav`
+  display: flex;
   position: fixed;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
   width: 100%;
   height: 6.8rem;
   padding: 0 46px;
   color: white;
   z-index: 1;
+
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0),
@@ -54,7 +57,7 @@ export const Nav = styled.nav`
   transition: background-color 1000ms; // return transition
 
   @media (min-width: 950px) {
-    padding: 0 7rem 0 4.6rem;
+    padding: 0 70px 0 46px;
   }
 
   @media (min-width: 1200px) {
@@ -82,12 +85,12 @@ export const Nav = styled.nav`
   }
 `;
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-`;
+// export const Container = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 100%;
+// `;
 
 export const PrimaryNav = styled.div`
   ${dropdown}
@@ -211,7 +214,7 @@ export const Account = styled.div`
   cursor: pointer;
 
   img {
-    width: 30px;
+    width: 32px;
     border-radius: 3px;
   }
 
@@ -247,7 +250,7 @@ export const Account = styled.div`
     }
 
     li {
-      p {
+      a {
         padding-left: 1rem;
 
         &:hover {

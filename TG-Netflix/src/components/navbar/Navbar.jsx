@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <>
       <S.Nav isScrolled={isScrolled}>
-        <S.Container>
+       
           <S.PrimaryNav>
             <NavLink to="browse">
               {' '}
@@ -78,26 +78,26 @@ export default function Navbar() {
                     <img src={arrow} />
                     <li>
                       <RiPencilLine size={20} />
-                      <p>Manage Profiles</p>
+                      <a href="#">Manage Profiles</a>
                     </li>
                     <li>
                       <RiAccountCircleLine size={20} />
-                      <p>Account</p>
+                      <a href="/account">Account</a>
                     </li>
                     <li>
                       <BiHelpCircle size={20} />
-                      <p>Help Centre</p>
+                      <a href="#">Help Centre</a>
                     </li>
                     <hr />
                     <li>
-                      <p>Sign out of Netflix</p>
+                      <a href="#">Sign out of Netflix</a>
                     </li>
                   </ul>
                 </S.Account>
               </li>
             </ul>
           </S.SecondaryNav>
-        </S.Container>
+      
       </S.Nav>
       <S.VerticalSpacer />
     </>

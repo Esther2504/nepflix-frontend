@@ -47,7 +47,7 @@ export const Container = styled.nav`
   background-color: rgba(0, 0, 0, 0.97);
 
   @media (min-width: 740px) {
-    padding: 0 60px 0 30px;
+    padding: 0 70px 0 30px;
   }
 
   img:nth-of-type(1) {
@@ -112,8 +112,10 @@ export const Menu = styled.div`
     }
 
     li {
-      p {
+      a {
         padding-left: 1rem;
+        color: white;
+        text-decoration: none;
 
         &:hover {
           text-decoration: underline;

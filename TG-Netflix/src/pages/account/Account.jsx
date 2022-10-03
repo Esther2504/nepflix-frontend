@@ -1,9 +1,7 @@
-import NavbarAccount from "../../components/navbar/NavbarAccount";
+import React from 'react'
 
 export default function Account() {
   return (
-    <>
-     Account
-    </>
-  );
+    <div>Account</div>
+  )
 }

@@ -18,17 +18,17 @@ export default function NavbarAccount() {
           <ul>
             <img src={arrow} />
             <li>
-              <p>Manage Profiles</p>
+            <a href="#">Manage Profiles</a>
             </li>
             <li>
-              <p>Account</p>
+              <a href="/account">Account</a>
             </li>
             <li>
-              <p>Help Centre</p>
+            <a href="#">Help Centre</a>
             </li>
             <hr />
             <li>
-              <p>Sign out of Netflix</p>
+            <a href="#">Sign out of Netflix</a>
             </li>
           </ul>
         </S.Menu>
