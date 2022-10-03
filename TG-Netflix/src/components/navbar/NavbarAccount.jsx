@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-
 import * as S from './NavbarAccount.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
@@ -21,7 +20,6 @@ export default function NavbarAccount() {
             <li>
               <p>Manage Profiles</p>
             </li>
-            <hr />
             <li>
               <p>Account</p>
             </li>
@@ -35,7 +33,6 @@ export default function NavbarAccount() {
           </ul>
         </S.Menu>
       </S.Container>
-      <S.VerticalSpacer />
     </>
   );
 }

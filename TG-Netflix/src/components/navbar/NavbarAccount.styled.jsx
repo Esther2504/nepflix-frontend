@@ -32,6 +32,8 @@ const dropdown = css`
   }
 `;
 
+// styled components
+
 export const Container = styled.nav`
   display: flex;
   position: sticky;
@@ -126,8 +128,4 @@ export const Menu = styled.div`
       transition: transform 300ms;
     }
   }
-`;
-
-export const VerticalSpacer = styled.div`
-  height: 2000px;
 `;
