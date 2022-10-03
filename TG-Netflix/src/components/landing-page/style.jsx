@@ -6,15 +6,13 @@ import bgImage from "./netflixbg.png";
 
 
 export const Container = style.div`
-    background-color: rgb(0,0,0,0.6); 
-    // font-size: 2rem;
+    background-color: rgb(0,0,0,0.6);
     color: rgb(255,255,255);
     width: 100%;
-    height: 100vh;
-    // padding: 5rem;
+    height: 100%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    // justify-content: space-evenly;
     align-items: center;
     @media only screen and (max-width: 700px) {
         margin: 0;
@@ -37,10 +35,7 @@ export const Form = style.form`
     flex-direction: column;
     justify-content: center;
     padding: 30px 50px 30px;
-    // width: 450px;
-    // margin: 1rem;
     @media only screen and (max-width: 700px) {
-        // min-height: 40%;
         margin: auto;
         min-width: 90%;
         padding: 20px 40px 20px;
@@ -53,9 +48,13 @@ export const Form = style.form`
         padding: 2rem 0;
         border-radius: 2%;
         border: none;
-        background-color:  rgba(219,0,0);
+        background-color: rgba(219,0,0);
         color: rgb(255,255,255);
         font-weight: bold;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
     
 `;
@@ -63,14 +62,12 @@ export const Form = style.form`
 export const Input = style.div`
     label{
         margin: 0.75rem 0;
-        // padding: 1rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
  input{
-        border-color: red;
         border: none;
         border-radius: 4px;
         width: 100%;
@@ -82,9 +79,8 @@ export const Input = style.div`
         }
 
         &:focus {
-            background-color: lightblue;
+            background-color: lightgrey;
             outline: none;
-            border: 3px solid red;
         }
     }
 `;
@@ -93,7 +89,7 @@ export const LoginCard = style.div`
     background-color: rgb(0,0,0, 0.8);
     border-radius: 2%;
     width: 450px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     min-height: 600px;
     text-align: center;
     font-size: 1.7rem;
@@ -116,7 +112,6 @@ export const LoginCard = style.div`
 `;
 
 export const SubForm = style.div`
-    // color: white;  // grey-ish
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -129,11 +124,14 @@ export const SubForm = style.div`
         width: 1.5rem;
         height: 1.5rem;
         margin-right: 0.35rem;
-        border: white;
-        background-color: black;
-        border: 0.5px solid white;
-        color: white;
+        border: (255,255,255);
+        background-color: grey;
+        color: rgb(255,255,255);
         vertical-align: -3px;
+
+        &: hover{
+            cursor: pointer;
+        }
 
         &::before {
             content: "";
@@ -144,8 +142,8 @@ export const SubForm = style.div`
             font-size: 1.5rem;
             right: -1px;
             top: -1px;
-            background-color: red;
-            border: 1px solid white;
+            background-color: rgba(219,0,0);
+            border: 1px solid rgba(255, 255, 255);
           }
 
          &:checked::before{
@@ -173,36 +171,22 @@ height: 100%;
 `;
 
 export const Logo = style.div`
-    // background-color: rgb(0,0,0,0.6); 
-    // // font-size: 2rem;
     width:100%;
-    height: 100px;
+    height: 90px;
     padding: 0.5rem;
     margin: 2rem;
     position: relative;
-    // left: 10px;
-    // top: 15px;
     @media only screen and (max-width: 700px){
         background-color: rgb(0,0,0, 0.8); 
         margin: 0;
         padding: 1rem;
         top: 0;
-
     }
 
     svg {
         width: 250px;
         height: 50px;
-        // padding: 0.5rem;
-        // margin: 1.5rem;
-        // position: relative;
-        // left: 5px;
-        // top: 5px;
-        fill: red;
-        // @media only screen and (max-width: 700px){
-        //    width: 30%;
-        //    left: 15px;
-        // }
+        fill:  rgba(219,0,0);
     }
 `;
 
@@ -214,6 +198,7 @@ export const Logo = style.div`
 
 export const Footer = style.div`
     background-color: pink;
+    opacity:0.5;
     border: 1px solid red;
     font-size: 2rem;
     width: 100%;
