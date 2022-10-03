@@ -83,13 +83,11 @@ font-size: 1.6em;
 const LinksWrapper = styled.ul`
 box-sizing: border-box;
 max-width: 1000px;
-
+font-size: 13px;
 display: flex;
 flex-direction: row;
 align-items: flex-start;
 flex-wrap: wrap;
-font-size: 13px;
-
     & ul {
         display: block;
         list-style-type: disc;
@@ -102,8 +100,14 @@ font-size: 13px;
     & li {
         list-style-type: none;
         flex: 0 0 50%;
-        @media (min-width: 800px) {
+        @media (min-width: 740px) {
         flex: 0 0 25%;  
+        }
+        @media (max-width: 739px) {
+        flex: 0 0 33%;  
+        }
+        @media (max-width: 500px) {
+        flex: 0 0 50%;  
         }
     }
     & a, a:visited, a:active {
@@ -118,12 +122,20 @@ font-size: 13px;
 const FooterLink = styled.span`
 color: #737373;
 text-decoration: none;
-width: 25%
 `
 
 const Item = styled.li`
 margin-bottom: 16px;
+width: 25%;
+min-width: 100px;
+vertical-align: top;
+@media only screen and (max-width: 739px) {
+    width: 33%;
+}
 
+@media only screen and (max-width: 500px) {
+    width: 50%;
+}
 
 `
 const ServiceCodeWrapper = styled.div`
