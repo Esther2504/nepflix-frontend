@@ -36,14 +36,14 @@ export default function Footer() {
     )
 };
 
-// Styled Components - Icon styling (1x) in Global Styling (.select-globe)
+// Styled Components
 const Wrapper = styled.div`
 min-width: 190px;
 width: 100%;
 padding-bottom: 20px;
 margin-top: 80px;
 position: relative;
-background-color: rgb(243 243 243)  
+background-color: rgb(243 243 243);  
 `
 
 const Divider = styled.div`

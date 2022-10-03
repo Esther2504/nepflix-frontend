@@ -120,7 +120,6 @@ margin-bottom: 16px;
 
 const LangSelectContainer = styled.div`
 padding: 0 4%;
-margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 max-width: 980px;
@@ -162,8 +161,8 @@ cursor: pointer;
 `
 
 const FooterCountry = styled.p`
-font-size: 13px;
-margin-top: 34px;
+font-size: 1.3em;
+margin-top: 5rem;
 color: #737373;
 display: block;
 `;
