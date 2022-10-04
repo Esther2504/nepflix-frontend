@@ -1,9 +1,9 @@
-import MovieCard from "./components/movie-card/MovieCard";
+import TestCarousel from './components/movie-card/TestCarousel';
 
 function App() {
   return (
     <div className="App">
-      <MovieCard></MovieCard>
+      <TestCarousel />
     </div>
   );
 }

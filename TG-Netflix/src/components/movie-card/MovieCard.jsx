@@ -1,37 +1,18 @@
-import { Carousel, Card } from './MovieCard.styled';
+import { Card } from './MovieCard.styled';
 import image from '../../assets/spider-man.jpg';
+import logo from '../../assets/n_logo.ico';
 
 export default function MovieCard() {
-  const title = 'SPIDER-MAN';
+  const title = 'Spider-Man';
 
   return (
     <>
-      <Carousel>
-        <Card>
-          <img src={image} alt={title} />
-          <span>{title}</span>
-        </Card>
-        <Card>
-          <img src={image} alt={title} />
-          <span>{title}</span>
-        </Card>
-        <Card>
-          <img src={image} alt={title} />
-          <span>{title}</span>
-        </Card>
-        <Card>
-          <img src={image} alt={title} />
-          <span>{title}</span>
-        </Card>
-        <Card>
-          <img src={image} alt={title} />
-          <span>{title}</span>
-        </Card>
-        <Card>
-          <img src={image} alt={title} />
-          <span>{title}</span>
-        </Card>
-      </Carousel>
+      <Card>
+        <img src={image} alt={title} />
+        <span>{title}</span>
+        <img src={logo} />
+      </Card>
     </>
   );
 }
+

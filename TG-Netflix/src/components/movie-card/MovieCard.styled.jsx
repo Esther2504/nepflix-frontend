@@ -1,33 +1,81 @@
 import styled from 'styled-components';
 
-export const Carousel = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100vw;
-  padding-left: 1rem;
-`;
-
 export const Card = styled.div`
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0.3rem;
-  padding: 0.3rem;
-  text-align: center;
-  font-size: 1.6rem;
-  font-family: Futura;
-  line-height: 0.9;
   overflow: hidden;
-  border-radius: 15px;
+  margin: 0.5rem;
+  border-radius: 5px;
 
   span {
     position: absolute;
-    bottom: 5px;
-    right: 10px;
-    font-size: 3rem;
+    width: 100%;
+    padding: 0 5px;
+    bottom: 7px;
+
+    font-family: Futura;
+    text-align: center;
+    line-height: 0.9;
+    font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    -webkit-text-stroke: 1px black;
-    text-shadow: none;
+    text-shadow: 2px 2px 2px black;
+
+    @media (min-width: 1000px) {
+      font-size: 1.75rem;
+    }
+
+    @media (min-width: 1100px) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: 1200px) {
+      font-size: 2.25rem;
+    }
+
+    @media (min-width: 1300px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  img:nth-of-type(2) {
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    width: 15px;
+
+    @media (min-width: 600px) {
+      width: 16px;
+    }
+
+    @media (min-width: 700px) {
+      width: 17px;
+    }
+    
+    @media (min-width: 800px) {
+      width: 18px;
+    }
+
+    @media (min-width: 900px) {
+      width: 19px;
+    }
+
+    @media (min-width: 1000px) {
+      width: 20px;
+    }
+
+    @media (min-width: 1100px) {
+      width: 21px;
+    }
+
+    @media (min-width: 1200px) {
+      width: 22px;
+    }
+
+    @media (min-width: 1300px) {
+      width: 23px;
+    }
+    @media (min-width: 1400px) {
+      width: 25px;
+    }
   }
 `;
