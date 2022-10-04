@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Carousel = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  width: 100v;
+  width: 100vw;
   padding-left: 1rem;
 `;
 
