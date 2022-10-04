@@ -187,7 +187,7 @@ export const SecondaryNav = styled.div`
   align-items: center;
 `;
 
-export const Children = styled.span`
+export const Children = styled.li`
   display: none;
 
   @media (min-width: 1100px) {
@@ -210,16 +210,16 @@ export const Notifications = styled.div`
       background-color: rgb(20, 20, 20);
     }
 
+    li {
+      margin: auto;
+      color: #b8b8b8;
+    }
+
     img {
       position: absolute;
       top: -13px;
       left: 325px;
-      width: 15px;
-    }
-
-    li {
-      margin: auto;
-      color: #b8b8b8;
+      width: 13px;
     }
   }
 `;
@@ -290,8 +290,6 @@ export const Account = styled.div`
     }
   }
 `;
-
-
 
 export const VerticalSpacer = styled.div`
   height: 2000px;

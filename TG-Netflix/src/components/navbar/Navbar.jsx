@@ -73,15 +73,13 @@ export default function Navbar() {
             <li>
               <Searchbar />
             </li>
-            <li>
-              <S.Children>
-                <NavLink to="">Children</NavLink>
-              </S.Children>
-            </li>
+            <S.Children>
+              <NavLink to="">Children</NavLink>
+            </S.Children>
             <li>
               <S.Notifications>
-                <IoMdNotifications size={30} />
-                <ul className='dropdown-text'>
+                <IoMdNotifications size={27} />
+                <ul className="dropdown-text">
                   <img src={arrowup} />
                   <li>No recent notifications</li>
                 </ul>
@@ -92,12 +90,12 @@ export default function Navbar() {
               <S.Account>
                 <img src={profile} alt="Profile icon" />
                 <img src={arrowdown} />
-                <ul className='dropdown-text'>
-                  <img  className='arrow-up' src={arrowup} />
-                    <li>
-                      <img src={kids} alt="Kids icon" />
-                      <a href="#">Kids</a>
-                    </li>
+                <ul className="dropdown-text">
+                  <img className="arrow-up" src={arrowup} />
+                  <li>
+                    <img src={kids} alt="Kids icon" />
+                    <a href="#">Kids</a>
+                  </li>
                   <li>
                     <RiPencilLine size={20} />
                     <a href="#">Manage Profiles</a>
