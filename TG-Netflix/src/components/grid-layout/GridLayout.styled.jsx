@@ -35,6 +35,7 @@ div {
 }
 `
 
+// Tijdelijk voor demo
 export const Card = styled.div`
 position: relative;
 display: flex;
