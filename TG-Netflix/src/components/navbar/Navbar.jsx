@@ -9,7 +9,9 @@ import Searchbar from './Searchbar';
 import * as S from './Navbar.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
-import arrow from '../../assets/arrow.png';
+import kids from '../../assets/kids-icon.png';
+import arrowdown from '../../assets/arrow-down.png';
+import arrowup from '../../assets/arrow-up.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,10 +34,10 @@ export default function Navbar() {
           </NavLink>
           <S.Browse>
             Browse
-            <img src={arrow} />
+            <img src={arrowdown} />
           </S.Browse>
           <ul>
-            <img src={arrow} />
+            <img src={arrowup} />
             <li>
               <NavLink
                 to="browse"
@@ -73,14 +75,14 @@ export default function Navbar() {
             </li>
             <li>
               <S.Children>
-              <NavLink to="">Children</NavLink>
+                <NavLink to="">Children</NavLink>
               </S.Children>
             </li>
             <li>
               <S.Notifications>
                 <IoMdNotifications size={30} />
-                <ul>
-                  <img src={arrow} />
+                <ul className='dropdown-text'>
+                  <img src={arrowup} />
                   <li>No recent notifications</li>
                 </ul>
               </S.Notifications>
@@ -89,9 +91,13 @@ export default function Navbar() {
               {' '}
               <S.Account>
                 <img src={profile} alt="Profile icon" />
-                <img src={arrow} />
-                <ul>
-                  <img src={arrow} />
+                <img src={arrowdown} />
+                <ul className='dropdown-text'>
+                  <img  className='arrow-up' src={arrowup} />
+                    <li>
+                      <img src={kids} alt="Kids icon" />
+                      <a href="#">Kids</a>
+                    </li>
                   <li>
                     <RiPencilLine size={20} />
                     <a href="#">Manage Profiles</a>

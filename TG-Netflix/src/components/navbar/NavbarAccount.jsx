@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import * as S from './NavbarAccount.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
-import arrow from '../../assets/arrow.png';
+import arrowdown from '../../assets/arrow-down.png';
 
 export default function NavbarAccount() {
   return (
@@ -14,9 +14,9 @@ export default function NavbarAccount() {
         </NavLink>
         <S.Menu>
           <img src={profile} alt="Profile icon" />
-          <img src={arrow} />
+          <img src={arrowdown} />
           <ul>
-            <img src={arrow} />
+            <img src={arrowdown} />
             <li>
             <a href="#">Manage Profiles</a>
             </li>

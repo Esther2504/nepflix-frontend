@@ -10,7 +10,7 @@ export const Search = styled.form`
   border: none;
   transition: width 300ms ease-out;
 
-  @media (min-width: 670px) {
+  @media (min-width: 600px) {
     display: flex;
   }
 

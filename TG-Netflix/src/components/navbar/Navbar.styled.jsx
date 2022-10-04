@@ -21,6 +21,10 @@ const dropdown = css`
       margin-left: 20px;
       padding: 10px 0;
       cursor: pointer;
+
+      @media (max-width: 885px) {
+        font-size: 1.3rem;
+      }
     }
   }
 
@@ -29,6 +33,11 @@ const dropdown = css`
       display: flex;
     }
   }
+
+.dropdown-text {
+  font-size: 1.3rem;
+}
+
 `;
 
 // styled components
@@ -72,11 +81,9 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     list-style: none;
-    
 
     li {
-      margin-left: 2rem;
-      font-size: 1.3rem;
+      margin-left: 1.5rem;
 
       a {
         text-decoration: none;
@@ -120,7 +127,6 @@ export const PrimaryNav = styled.div`
       top: -13px;
       left: 90px;
       width: 15px;
-      transform: rotate(180deg);
     }
 
     li {
@@ -134,7 +140,7 @@ export const PrimaryNav = styled.div`
 
       &:hover {
         background-color: rgba(20, 20, 20, 0.5);
-             }
+      }
     }
 
     @media (min-width: 885px) {
@@ -161,6 +167,7 @@ export const PrimaryNav = styled.div`
 export const Browse = styled.div`
   display: flex;
   position: relative;
+  height: 100%;
   margin-left: 2rem;
 
   img {
@@ -208,7 +215,6 @@ export const Notifications = styled.div`
       top: -13px;
       left: 325px;
       width: 15px;
-      transform: rotate(180deg);
     }
 
     li {
@@ -222,7 +228,7 @@ export const Account = styled.div`
   ${dropdown}
   cursor: pointer;
 
-  img {
+  img:nth-of-type(1) {
     width: 32px;
     border-radius: 3px;
   }
@@ -240,25 +246,29 @@ export const Account = styled.div`
     }
   }
 
+  &:hover {
+    img:nth-of-type(2) {
+      transform: rotate(180deg);
+      transition: transform 300ms;
+    }
+  }
+
   ul {
     left: -150px;
     width: 20rem;
     align-items: flex-start;
 
-    img {
+    .arrow-up {
+      width: 15px;
       position: absolute;
       top: -13px;
       left: 160px;
-      width: 15px;
-      transform: rotate(180deg);
-    }
-
-    hr {
-      width: 100%;
-      margin: 1rem 0;
     }
 
     li {
+      display: flex;
+      align-items: center;
+
       a {
         padding-left: 1rem;
 
@@ -267,21 +277,21 @@ export const Account = styled.div`
         }
       }
 
-      &:nth-of-type(4) {
+      &:nth-of-type(5) {
         align-self: center;
         margin-left: 0;
         padding-left: 0;
       }
     }
-  }
 
-  &:hover {
-    img:nth-of-type(2) {
-      transform: rotate(180deg);
-      transition: transform 300ms;
+    hr {
+      width: 100%;
+      border-top: 1px solid grey;
     }
   }
 `;
+
+
 
 export const VerticalSpacer = styled.div`
   height: 2000px;
