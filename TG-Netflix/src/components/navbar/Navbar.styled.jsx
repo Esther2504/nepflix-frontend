@@ -88,11 +88,6 @@ export const Nav = styled.nav`
       a {
         text-decoration: none;
         color: white;
-
-        &:hover {
-          color: #b8b8b8;
-          transition: 300ms;
-        }
       }
     }
   }
@@ -140,6 +135,12 @@ export const PrimaryNav = styled.div`
 
       &:hover {
         background-color: rgba(20, 20, 20, 0.5);
+      }
+      a {
+        &:hover {
+          color: #b8b8b8;
+          transition: 300ms;
+        }
       }
     }
 
@@ -258,13 +259,6 @@ export const Account = styled.div`
     width: 20rem;
     align-items: flex-start;
 
-    .arrow-up {
-      width: 15px;
-      position: absolute;
-      top: -13px;
-      left: 160px;
-    }
-
     li {
       display: flex;
       align-items: center;
@@ -282,6 +276,13 @@ export const Account = styled.div`
         margin-left: 0;
         padding-left: 0;
       }
+    }
+
+    .arrow-up {
+      width: 15px;
+      position: absolute;
+      top: -13px;
+      left: 160px;
     }
 
     hr {

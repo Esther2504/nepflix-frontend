@@ -44,7 +44,7 @@ export const Menu = styled.div`
     display: none;
     top: 30px;
     left: 45px;
-    width: 12px;
+    width: 10px;
     transition: 400ms;
 
     @media (min-width: 740px) {
@@ -102,7 +102,7 @@ export const Menu = styled.div`
       display: none;
       top: -13px;
       left: 100px;
-      width: 15px;
+      width: 18px;
       height: 15px;
 
       @media (min-width: 740px) {
@@ -119,13 +119,6 @@ export const Menu = styled.div`
   &:hover {
     ul {
       display: flex;
-    }
-  }
-
-  &:hover {
-    img:nth-of-type(2) {
-      transform: rotate(180deg);
-      transition: transform 300ms;
     }
   }
 `;
