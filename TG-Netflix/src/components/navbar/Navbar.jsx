@@ -45,6 +45,9 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li>
+              <NavLink to="">Series</NavLink>
+            </li>
+            <li>
               <NavLink
                 to="films"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -52,12 +55,26 @@ export default function Navbar() {
                 Films
               </NavLink>
             </li>
+            <li>
+              <NavLink to="">New & Popular</NavLink>
+            </li>
+            <li>
+              <NavLink to="">My List</NavLink>
+            </li>
+            <li>
+              <NavLink to="">Browse by Languages</NavLink>
+            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
           <ul>
             <li>
               <Searchbar />
+            </li>
+            <li>
+              <S.Children>
+              <NavLink to="">Children</NavLink>
+              </S.Children>
             </li>
             <li>
               <S.Notifications>

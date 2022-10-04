@@ -20,7 +20,6 @@ const dropdown = css`
       display: flex;
       margin-left: 20px;
       padding: 10px 0;
-      font-size: 1.3rem;
       cursor: pointer;
     }
   }
@@ -41,8 +40,9 @@ export const Nav = styled.nav`
   align-items: center;
   top: 0;
   width: 100%;
-  height: 6.8rem;
-  padding: 0 46px;
+  height: 4.1rem;
+  padding: 0 46px 0 25px;
+  font-size: 0.8rem;
   color: white;
   z-index: 1;
 
@@ -57,20 +57,26 @@ export const Nav = styled.nav`
   transition: background-color 1000ms; // return transition
 
   @media (min-width: 950px) {
-    padding: 0 70px 0 46px;
+    height: 6.8rem;
+    padding: 0 70px 0 35px;
+    font-size: 0.9rem;
   }
-
+  @media (min-width: 1035px) {
+    font-size: 1.1rem;
+  }
   @media (min-width: 1200px) {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   ul {
     display: flex;
     align-items: center;
     list-style: none;
+    
 
     li {
       margin-left: 2rem;
+      font-size: 1.3rem;
 
       a {
         text-decoration: none;
@@ -85,27 +91,28 @@ export const Nav = styled.nav`
   }
 `;
 
-// export const Container = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   height: 100%;
-// `;
-
 export const PrimaryNav = styled.div`
   ${dropdown}
   display: flex;
   align-items: center;
 
   img {
-    width: 120px;
-    margin-right: 10px;
+    width: 70px;
+    margin-right: 0px;
+
+    @media (min-width: 950px) {
+      width: 120px;
+    }
+
+    @media (min-width: 1150px) {
+      margin-right: 8px;
+    }
   }
 
   ul {
     width: 20rem;
     top: 7rem;
-    left: 103px;
+    left: 34px;
     border-top: 2px solid white;
 
     img {
@@ -118,6 +125,7 @@ export const PrimaryNav = styled.div`
 
     li {
       justify-content: center;
+      white-space: nowrap;
       width: 100%;
 
       @media (max-width: 885px) {
@@ -126,7 +134,7 @@ export const PrimaryNav = styled.div`
 
       &:hover {
         background-color: rgba(20, 20, 20, 0.5);
-      }
+             }
     }
 
     @media (min-width: 885px) {
@@ -147,12 +155,6 @@ export const PrimaryNav = styled.div`
         }
       }
     }
-
-    @media (min-width: 1200px) {
-      li {
-        font-size: 1.4rem;
-      }
-    }
   }
 `;
 
@@ -160,12 +162,11 @@ export const Browse = styled.div`
   display: flex;
   position: relative;
   margin-left: 2rem;
-  font-size: 1.2rem;
 
   img {
     position: absolute;
-    top: 4px;
-    left: 47px;
+    top: 1px;
+    left: 35px;
     width: 10px;
   }
 
@@ -177,6 +178,14 @@ export const Browse = styled.div`
 export const SecondaryNav = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const Children = styled.span`
+  display: none;
+
+  @media (min-width: 1100px) {
+    display: block;
+  }
 `;
 
 export const Notifications = styled.div`
