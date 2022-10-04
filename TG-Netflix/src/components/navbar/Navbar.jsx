@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { IoMdNotifications } from 'react-icons/io';
 import { RiPencilLine, RiAccountCircleLine } from 'react-icons/ri';
 import { BiHelpCircle } from 'react-icons/bi';
 
@@ -10,8 +9,9 @@ import * as S from './Navbar.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
 import kids from '../../assets/kids-icon.png';
-import arrowdown from '../../assets/arrow-down.png';
 import arrowup from '../../assets/arrow-up.png';
+import arrowdown from '../../assets/arrow-down.png';
+import { BellIcon } from './Navbar.styled';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,7 +78,8 @@ export default function Navbar() {
             </S.Children>
             <li>
               <S.Notifications>
-                <IoMdNotifications size={27} />
+                {/* <IoMdNotifications size={27} /> */}
+                <BellIcon />
                 <ul className="dropdown-text">
                   <img src={arrowup} />
                   <li>No recent notifications</li>

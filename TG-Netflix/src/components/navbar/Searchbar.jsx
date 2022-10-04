@@ -1,12 +1,12 @@
 import * as S from './Searchbar.styled';
-import icon from '../../assets/search_icon.png';
+import { SearchIcon } from './Searchbar.styled';
 
 export default function Searchbar() {
   return (
     <>
       <S.Search>
         <button>
-          <img src={icon} alt="Search icon" />
+          <SearchIcon />
         </button>
         <input type="search" placeholder="Titles, people, genres" />
       </S.Search>
