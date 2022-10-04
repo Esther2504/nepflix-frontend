@@ -11,7 +11,6 @@ import HeaderSection from "../../components/account-page/HeaderSection";
 export default function AccountPage() {
   return (
     <Wrapper>
-      <nav>Navigatie placeholder</nav>
       <div className="account-container">
         <HeaderSection />
         <MembershipSection />
@@ -21,7 +20,6 @@ export default function AccountPage() {
         </ProfileStyling>
         <SettingsSection />
       </div>
-      <footer>Footer placeholder</footer>
     </Wrapper>
   );
 }
