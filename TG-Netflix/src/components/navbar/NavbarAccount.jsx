@@ -2,7 +2,9 @@ import { NavLink } from 'react-router-dom';
 import * as S from './NavbarAccount.styled';
 import logo from '../../assets/netflix_logo.png';
 import profile from '../../assets/profile-icon.png';
+import kids from '../../assets/kids-icon.png';
 import arrowdown from '../../assets/arrow-down.png';
+import arrowup from '../../assets/arrow-up.png';
 
 export default function NavbarAccount() {
   return (
@@ -16,19 +18,23 @@ export default function NavbarAccount() {
           <img src={profile} alt="Profile icon" />
           <img src={arrowdown} />
           <ul>
-            <img src={arrowdown} />
+            <img src={arrowup} className="arrow-up" />
             <li>
-            <a href="#">Manage Profiles</a>
+              <img src={kids} alt="Kids icon" />
+              <a href="#">Kids</a>
+            </li>
+            <li>
+              <a href="#">Manage Profiles</a>
             </li>
             <li>
               <a href="/account">Account</a>
             </li>
             <li>
-            <a href="#">Help Centre</a>
+              <a href="#">Help Centre</a>
             </li>
             <hr />
             <li>
-            <a href="#">Sign out of Netflix</a>
+              <a href="#">Sign out of Netflix</a>
             </li>
           </ul>
         </S.Menu>

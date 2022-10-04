@@ -34,10 +34,9 @@ const dropdown = css`
     }
   }
 
-.dropdown-text {
-  font-size: 1.3rem;
-}
-
+  .dropdown-text {
+    font-size: 1.3rem;
+  }
 `;
 
 // styled components
@@ -54,7 +53,6 @@ export const Nav = styled.nav`
   font-size: 0.8rem;
   color: white;
   z-index: 1;
-
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0),
@@ -70,9 +68,11 @@ export const Nav = styled.nav`
     padding: 0 70px 0 35px;
     font-size: 0.9rem;
   }
+
   @media (min-width: 1035px) {
     font-size: 1.1rem;
   }
+
   @media (min-width: 1200px) {
     font-size: 1.3rem;
   }
@@ -286,7 +286,6 @@ export const Account = styled.div`
 
     hr {
       width: 100%;
-      border-top: 1px solid grey;
     }
   }
 `;

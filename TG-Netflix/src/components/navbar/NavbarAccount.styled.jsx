@@ -1,52 +1,19 @@
-import styled, { css } from 'styled-components';
-
-// utility classes
-
-const dropdown = css`
-  display: flex;
-  position: relative;
-  align-items: center;
-
-  ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 7.2rem;
-    padding: 15px 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 2px;
-
-    li {
-      display: flex;
-      margin-left: 20px;
-      padding: 10px 0;
-      font-size: 1.3rem;
-      cursor: pointer;
-    }
-  }
-
-  &:hover {
-    ul {
-      display: flex;
-    }
-  }
-`;
-
-// styled components
+import styled from 'styled-components';
 
 export const Container = styled.nav`
   display: flex;
   position: sticky;
-  top: 0;
   justify-content: space-between;
   align-items: center;
+  top: 0;
   width: 100%;
-  height: 7rem;
+  height: 5rem;
   padding: 0;
   color: white;
   background-color: rgba(0, 0, 0, 0.97);
 
   @media (min-width: 740px) {
+    height: 7rem;
     padding: 0 70px 0 30px;
   }
 
@@ -56,12 +23,14 @@ export const Container = styled.nav`
 `;
 
 export const Menu = styled.div`
-  ${dropdown}
+  position: relative;
+  display: flex;
+  align-items: center;
   height: 100%;
   cursor: pointer;
 
-  img:first-of-type {
-    width: 70px;
+  img:nth-of-type(1) {
+    width: 50px;
 
     @media (min-width: 740px) {
       width: 32px;
@@ -84,22 +53,57 @@ export const Menu = styled.div`
   }
 
   ul {
-    right: 0px;
-    width: 20rem;
+    position: absolute;
+    display: none;
+    flex-direction: column;
     align-items: flex-start;
+    top: 5.2rem;
+    width: 16rem;
+    right: 0px;
+
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.8);
 
     @media (min-width: 740px) {
-      left: -150px;
+      top: 7.2rem;
+      left: -90px;
     }
 
-    img:nth-of-type(1) {
-      display: none;
+    li {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      padding-left: 1rem;
+      font-size: 1.3rem;
+
+      &:nth-of-type(5) {
+        align-self: center;
+        padding-left: 0;
+      }
+
+      img:nth-of-type(1) {
+        width: 32px;
+        margin-right: 1rem;
+        border-radius: 5px;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .arrow-up {
       position: absolute;
+      display: none;
       top: -13px;
-      left: 160px;
+      left: 100px;
       width: 15px;
       height: 15px;
-      transform: rotate(180deg);
 
       @media (min-width: 740px) {
         display: block;
@@ -110,17 +114,11 @@ export const Menu = styled.div`
       width: 100%;
       margin: 1rem 0;
     }
+  }
 
-    li {
-      a {
-        padding-left: 1rem;
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+  &:hover {
+    ul {
+      display: flex;
     }
   }
 

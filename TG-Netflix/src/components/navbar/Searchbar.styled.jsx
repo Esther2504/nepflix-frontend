@@ -43,7 +43,7 @@ export const Search = styled.form`
   }
 
   &:focus-within {
-    width: 25rem;
+    width: 24rem;
     border: 1px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(0, 0, 0, 0.5);
     transition: width 300ms ease-out;
