@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Card = styled.div`
   position: relative;
   overflow: hidden;
-  margin: 0.5rem;
+  margin: 5px;
   border-radius: 5px;
 
   span {
@@ -34,6 +34,10 @@ export const Card = styled.div`
 
     @media (min-width: 1300px) {
       font-size: 2.5rem;
+    }
+
+    @media (min-width: 1400px) {
+      font-size: 2.75rem;
     }
   }
 
@@ -74,6 +78,7 @@ export const Card = styled.div`
     @media (min-width: 1300px) {
       width: 23px;
     }
+    
     @media (min-width: 1400px) {
       width: 25px;
     }
