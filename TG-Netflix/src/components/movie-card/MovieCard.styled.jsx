@@ -18,7 +18,7 @@ export const Card = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.75);
 
     @media (min-width: 1000px) {
       font-size: 1.75rem;
@@ -50,7 +50,7 @@ export const Card = styled.div`
     @media (min-width: 700px) {
       width: 17px;
     }
-    
+
     @media (min-width: 800px) {
       width: 18px;
     }
