@@ -8,7 +8,7 @@ export const Search = styled.form`
   padding: 5px;
   overflow-x: hidden;
   border: none;
-  transition: width 300ms ease-out;
+  transition: width 0ms;
 
   @media (min-width: 600px) {
     display: flex;
@@ -46,6 +46,7 @@ export const Search = styled.form`
     width: 25rem;
     border: 1px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(0, 0, 0, 0.5);
+    transition: width 300ms ease-out;
 
     input {
       opacity: 1;
