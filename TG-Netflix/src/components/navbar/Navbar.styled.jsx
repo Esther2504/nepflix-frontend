@@ -22,7 +22,7 @@ const dropdown = css`
       padding: 10px 0;
       cursor: pointer;
 
-      @media (max-width: 885px) {
+      @media (max-width: 884px) {
         font-size: 1.3rem;
       }
     }
@@ -125,7 +125,7 @@ export const PrimaryNav = styled.div`
       white-space: nowrap;
       width: 100%;
 
-      @media (max-width: 885px) {
+      @media (max-width: 884px) {
         margin-left: 0;
       }
 
