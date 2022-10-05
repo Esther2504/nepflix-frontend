@@ -3,9 +3,9 @@ import image from '../../assets/spider-man.jpg';
 import logo from '../../assets/n_logo.ico';
 
 export default function MovieCard() {
-  const title = 'Spider-Man';
-
+  const title = 'Spider-Man: No Way Home';
   const logoArray = [logo, null];
+
   function showLogo(logoArray) {
     return logoArray[Math.floor(Math.random() * logoArray.length)];
   }

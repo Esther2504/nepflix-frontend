@@ -5,6 +5,7 @@ export const Card = styled.div`
   overflow: hidden;
   margin: 5px;
   border-radius: 5px;
+  cursor: pointer;
 
   span {
     position: absolute;
