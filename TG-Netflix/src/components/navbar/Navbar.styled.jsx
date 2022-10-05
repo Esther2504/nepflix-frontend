@@ -109,7 +109,7 @@ export const PrimaryNav = styled.div`
   ul {
     width: 20rem;
     top: 7rem;
-    left: 34px;
+    left: 46px;
     border-top: 2px solid white;
 
     img {
