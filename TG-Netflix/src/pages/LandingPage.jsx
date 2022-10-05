@@ -1,21 +1,19 @@
 import React from "react";
 import SignIn from "../components/landing-page/SignIn";
 import {
+  Container,
   Background,
   Footer,
   Logo,
-  Wrapper,
-  Spacer,
 } from "../components/landing-page/style";
-import bgImage from "../components/landing-page/NetflixBg2.jpg";
 
 const LandingPage = () => {
   return (
     <>
       <Background>
-        {/* <img src={bgImage}></img> */}
-        <Wrapper>
+        <Container>
           <Logo>
+            {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 999.99755 268.67481"
@@ -29,9 +27,8 @@ const LandingPage = () => {
             </svg>
           </Logo>
           <SignIn />
-        </Wrapper>
-        <Spacer />
-        <Footer>I am a placeholder footer</Footer>
+          <Footer> I am a placeholder footer</Footer>
+        </Container>
       </Background>
     </>
   );

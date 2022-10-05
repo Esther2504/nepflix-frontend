@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Container,
+  Wrapper,
+  LoginBody,
+  LoginCard,
   Form,
   Input,
-  LoginCard,
-  SubForm,
+  Subform,
   ExtraInfo,
-  Logo,
 } from "./style";
 
 const SignIn = () => {
@@ -24,42 +24,44 @@ const SignIn = () => {
 
   return (
     <>
-      <Container>
-        <LoginCard>
-          <h1>Welcome.</h1>
-          <Form onSubmit={handleSubmit}>
-            <Input>
-              <label>
-                Email:
-                <input type="email" placeholder="test@hotmail.com" />
-              </label>
-              <label>
-                Password:
-                <input type="password" placeholder="test123" />
-              </label>
-              <button type="submit">Login</button>
-            </Input>
+      <Wrapper>
+        <LoginBody>
+          <LoginCard>
+            <h1>Welcome.</h1>
+            <Form onSubmit={handleSubmit}>
+              <Input>
+                <label>
+                  Email:
+                  <input type="email" placeholder="test@hotmail.com" />
+                </label>
+                <label>
+                  Password:
+                  <input type="password" placeholder="test123" />
+                </label>
+                <button type="submit">Login</button>
+              </Input>
 
-            <SubForm>
-              <label>
-                <input type="checkbox" />
-                Remember me
-              </label>
-              <a href="#">Need Help?</a>
-            </SubForm>
-          </Form>
-          <ExtraInfo>
-            <p>
-              New to CloneFlix? <a href="#">Sign up now</a>
-            </p>
-            <br />
-            <p>
-              This product is not the real thing. It is a project made by a
-              group of developers. <a href="#">Learn more</a>
-            </p>
-          </ExtraInfo>
-        </LoginCard>
-      </Container>
+              <Subform>
+                <label>
+                  <input type="checkbox" />
+                  Remember me
+                </label>
+                <a href="#">Need Help?</a>
+              </Subform>
+            </Form>
+            <ExtraInfo>
+              <p>
+                New to CloneFlix? <a href="#">Sign up now</a>
+              </p>
+              <br />
+              <p>
+                This product is not the real thing. It is a project made by a
+                group of developers. <a href="#">Learn more</a>
+              </p>
+            </ExtraInfo>
+          </LoginCard>
+        </LoginBody>
+      </Wrapper>
     </>
   );
 };
