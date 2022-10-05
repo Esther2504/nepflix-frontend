@@ -105,10 +105,6 @@ export const PrimaryNav = styled.div`
     @media (min-width: 950px) {
       width: 120px;
     }
-
-    @media (min-width: 1150px) {
-      margin-right: 8px;
-    }
   }
 
   ul {

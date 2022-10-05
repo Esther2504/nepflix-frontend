@@ -34,7 +34,7 @@ export default function NavbarAccount() {
             </li>
             <hr />
             <li>
-              <a href="#">Sign out of Netflix</a>
+              <a href="/">Sign out of Netflix</a>
             </li>
           </ul>
         </S.Menu>
