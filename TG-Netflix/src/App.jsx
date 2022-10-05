@@ -1,5 +1,3 @@
-import GridLayout from "./components/grid-layout/GridLayout";
-
 
 function App() {
   return (
