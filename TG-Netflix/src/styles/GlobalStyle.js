@@ -28,7 +28,6 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
-  background-color: black;
 }
 
 img,
