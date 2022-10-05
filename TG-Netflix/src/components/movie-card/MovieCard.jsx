@@ -1,6 +1,6 @@
 import { Card } from './MovieCard.styled';
-import image from '../../assets/spider-man.jpg';
-import logo from '../../assets/n_logo.ico';
+import image from '../../assets/movie-card-images/spider-man.jpg';
+import logo from '../../assets/movie-card-images/n_logo.ico';
 
 export default function MovieCard() {
   const title = 'Spider-Man: No Way Home';
