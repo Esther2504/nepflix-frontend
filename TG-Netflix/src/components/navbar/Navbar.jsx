@@ -7,11 +7,11 @@ import { BiHelpCircle } from 'react-icons/bi';
 import Searchbar from './Searchbar';
 import * as S from './Navbar.styled';
 import { BellIcon } from './Navbar.styled';
-import logo from '../../assets/netflix_logo.png';
-import profile from '../../assets/profile-icon.png';
-import kids from '../../assets/kids-icon.png';
-import arrowup from '../../assets/arrow-up.png';
-import arrowdown from '../../assets/arrow-down.png';
+import logo from '../../assets/navbar-images/netflix_logo.png';
+import profile from '../../assets/navbar-images/profile-icon.png';
+import kids from '../../assets/navbar-images/kids-icon.png';
+import arrowup from '../../assets/navbar-images/arrow-up.png';
+import arrowdown from '../../assets/navbar-images/arrow-down.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -118,7 +118,6 @@ export default function Navbar() {
           </ul>
         </S.SecondaryNav>
       </S.Nav>
-      <S.VerticalSpacer />
     </>
   );
 }

@@ -305,7 +305,3 @@ export function BellIcon() {
     </svg>
   );
 }
-
-export const VerticalSpacer = styled.div`
-  height: 2000px;
-`;

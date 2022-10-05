@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import * as S from './NavbarAccount.styled';
-import logo from '../../assets/netflix_logo.png';
-import profile from '../../assets/profile-icon.png';
-import kids from '../../assets/kids-icon.png';
-import arrowdown from '../../assets/arrow-down.png';
-import arrowup from '../../assets/arrow-up.png';
+import logo from '../../assets/navbar-images/netflix_logo.png';
+import profile from '../../assets/navbar-images/profile-icon.png';
+import kids from '../../assets/navbar-images/kids-icon.png';
+import arrowdown from '../../assets/navbar-images/arrow-down.png';
+import arrowup from '../../assets/navbar-images/arrow-up.png';
 
 export default function NavbarAccount() {
   return (
