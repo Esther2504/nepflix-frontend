@@ -1,5 +1,3 @@
-import Account from "./pages/account/AccountPage";
-
 
 function App() {
   return (
