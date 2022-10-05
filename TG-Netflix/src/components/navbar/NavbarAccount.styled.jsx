@@ -62,7 +62,7 @@ export const Menu = styled.div`
     right: 0px;
 
     border-radius: 2px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.97);
 
     @media (min-width: 740px) {
       top: 7.2rem;

@@ -50,7 +50,7 @@ export const Nav = styled.nav`
   width: 100%;
   height: 4.1rem;
   padding: 0 46px 0 25px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: white;
   z-index: 1;
   background-image: linear-gradient(
@@ -66,7 +66,6 @@ export const Nav = styled.nav`
   @media (min-width: 950px) {
     height: 6.8rem;
     padding: 0 70px 0 35px;
-    font-size: 0.9rem;
   }
 
   @media (min-width: 1035px) {
@@ -99,7 +98,7 @@ export const PrimaryNav = styled.div`
   align-items: center;
 
   img {
-    width: 70px;
+    width: 80px;
     margin-right: 0px;
 
     @media (min-width: 950px) {
@@ -169,8 +168,8 @@ export const Browse = styled.div`
 
   img {
     position: absolute;
-    top: 1px;
-    left: 35px;
+    top: 3px;
+    left: 38px;
     width: 10px;
   }
 
