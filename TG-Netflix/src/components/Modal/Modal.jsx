@@ -1,12 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Trailer from "../Modal/testTrailer.webm";
+import PreviewModal from "../Modal/PreviewModal";
 import {
   SmallModal,
   SmallModalTop,
   SmallModalBottom,
   ModalContainer,
   ModalContent,
-  ModalClose,
   ModalPreview,
   VideoPlayer,
   VideoControlsContainer,
@@ -21,17 +21,50 @@ import {
   VolumeIcon,
   CloseButton,
   MoreLikeThisContainer,
+  MetaData,
+  Rating,
+  ReleaseYear,
+  MaturityRating,
+  Duration,
+  VidQuality,
+  AudDesc,
+  Cast,
+  Genres,
+  Tags,
+  Summary,
   VideoInfoContainer,
+  VideoInfoContainerLeft,
+  VideoInfoContainerRight,
+  MoreLikeThisWrapper,
+  MoreLikeThisToggle,
+  AboutContainer,
+  AboutTitle,
 } from "../Modal/Modal.style";
-
 
 function Modal() {
   const modalRef = useRef();
   const modalRefContent = useRef();
   const modalRefVideo = useRef();
-  
+  const modalRefVideoSmall = useRef();
+  const refMoreLikeThisWrapper = useRef();
+
+  const [toggleViewMore, setToggleViewMore] = useState(false);
+
+  useEffect(() => {
+    //allways show, for dev
+    modalRef.current.style.display = "block";
+
+    const videoSmall = modalRefVideoSmall.current;
+    videoSmall.addEventListener("mouseover", (e) => {
+      videoSmall.play();
+    });
+    videoSmall.addEventListener("mouseout", (e) => {
+      videoSmall.pause();
+    });
+  }, []);
+
   window.onclick = (e) => {
-    if ((e.target.className === modalRef.current.className)) {
+    if (e.target.className === modalRef.current.className) {
       modalRef.current.style.display = "none";
       modalRefVideo.current.pause();
     }
@@ -45,6 +78,17 @@ function Modal() {
   const handleOnclick = () => {
     modalRef.current.style.display = "block";
     modalRefVideo.current.play();
+  };
+
+  const handleOnClickToggleMore = () => {
+    setToggleViewMore(!toggleViewMore);
+    if (!toggleViewMore) {
+      refMoreLikeThisWrapper.current.style.height = "auto";
+      refMoreLikeThisWrapper.current.style.overflow = "visible";
+    } else if (toggleViewMore) {
+      refMoreLikeThisWrapper.current.style.height = "50rem";
+      refMoreLikeThisWrapper.current.style.overflow = "hidden";
+    }
   };
 
   return (
@@ -67,19 +111,76 @@ function Modal() {
                 <RateIcons />
                 <VolumeIcon />
               </VideoControls>
-              <VideoInfoContainer>
-
-              </VideoInfoContainer>
             </VideoControlsContainer>
-            <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo}/>
+            <VideoPlayer
+              muted
+              src={Trailer}
+              type="video/webm"
+              ref={modalRefVideo}
+            />
+            <VideoInfoContainer>
+              <VideoInfoContainerLeft>
+                <MetaData>
+                  <Rating>93% Match</Rating>
+                  <ReleaseYear>2022</ReleaseYear>
+                  <MaturityRating></MaturityRating>
+                  <Duration>1h 58m</Duration>
+                </MetaData>
+                <Summary>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Pellentesque at ex non metus consequat hendrerit. Sed euismod,
+                  nibh sed interdum blandit, quam metus tempus libero, quis
+                  vestibulum nisi leo at lacus.
+                </Summary>
+              </VideoInfoContainerLeft>
+              <VideoInfoContainerRight>
+                <Cast>
+                  <span>Cast:</span> Pietje, Jantje, Loesje, Keesje
+                </Cast>
+                <Genres>
+                  <span>Genres:</span> Period piece, Drama, Thriller
+                </Genres>
+                <Tags>
+                  <span>This programme is:</span> Exciting, Funny
+                </Tags>
+              </VideoInfoContainerRight>
+            </VideoInfoContainer>
             <MoreLikeThisContainer>
-
+              <span>More Like This</span>
+              <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+              </MoreLikeThisWrapper>
+              <MoreLikeThisToggle onClick={handleOnClickToggleMore} />
             </MoreLikeThisContainer>
+            <AboutContainer>
+              <AboutTitle>About GoT: House Of The Dragon</AboutTitle>
+            </AboutContainer>
           </ModalPreview>
         </ModalContent>
       </ModalContainer>
+
       <SmallModal onClick={handleOnclick}>
-        <SmallModalTop></SmallModalTop>
+        <SmallModalTop>
+          <VideoPlayer
+            muted
+            src={Trailer}
+            type="video/webm"
+            ref={modalRefVideoSmall}
+          />
+        </SmallModalTop>
         <SmallModalBottom></SmallModalBottom>
       </SmallModal>
     </>
