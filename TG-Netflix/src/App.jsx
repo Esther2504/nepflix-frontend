@@ -4,14 +4,13 @@ import NavbarAccount from './components/navbar/NavbarAccount';
 
 function App() {
   const location = useLocation();
+  const navbarRoutes = ['/browse', '/films'];
+  const navbarAccountRoutes = ['/account'];
 
   return (
     <>
-      {location.pathname === '/' ? null : location.pathname === '/account' ? (
-        <NavbarAccount />
-      ) : (
-        <Navbar />
-      )}
+      {navbarRoutes.includes(location.pathname) && <Navbar />}
+      {navbarAccountRoutes.includes(location.pathname) && <NavbarAccount />}
       <Outlet />
     </>
   );
