@@ -1,5 +1,4 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-
 import * as S from './NotFound.styled';
 import logo from '../../assets/navbar-images/netflix_logo.png';
 
