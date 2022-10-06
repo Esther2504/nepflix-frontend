@@ -17,7 +17,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault(),
       setTimeout(() => {
-        navigate("/discover");
+        navigate("/Discover");
       }, 500),
       console.log("I work");
   };

@@ -5,11 +5,6 @@ import  Discover  from "./pages/TestDiscoverPage";
 function App() {
   return (
     <>
-    {/* Routes for testing  */}
-     <Routes>
-        <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/Discover" element={<Discover />}></Route>
-      </Routes>
     </>
   );
 }

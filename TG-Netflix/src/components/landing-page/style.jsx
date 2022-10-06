@@ -1,5 +1,5 @@
 import style from "styled-components";
-import bgImage from "./NetflixBg2.jpg";
+import bgImage from "../../assets/landing-page/NetflixBg2.jpg";
 
 // Variables for Netflix' color pallet 
 // https://www.color-hex.com/color-palette/22942 
