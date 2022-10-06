@@ -5,8 +5,9 @@ import bgImage from "../../assets/landing-page/NetflixBg2.jpg";
 // https://www.color-hex.com/color-palette/22942 
 
 export const Container = style.div`
-    background-color: rgb(0,0,0, 0.6);
+    min-height: 100vh;
     height: 100%;
+    padding-bottom: 300px;
     @media only screen and (max-width: 750px){
     background-color: black;
     }
@@ -17,17 +18,7 @@ background-image: url(${bgImage});
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
-padding-bottom: 10px;
-
-
-    img {
-        min-height: 100%;
-        min-width: 100%;
-        position: absolute;
-        @media only screen and (max-width: 750px){
-            display: none;
-        }
-    }
+min-width: 100%;
 `;
 
 export const Logo = style.div`
@@ -49,33 +40,13 @@ svg {
 `;
 
 export const Wrapper = style.div`
+    height: 100%;
+    position: relative;
     min-height: 100vh;
-    max-width: 450px;
-    margin: 0 auto -230px;
-    padding: 10px;
+    background-color: rgb(0,0,0, 0.6);
+    width: 100%;
 `;
 
-export const LoginBody = style.div`
-
-    &:before{
-        content: "";
-        height: 50px;
-        display: block;
-        @media only screen and (max-width: 700px){
-            height: 15px;
-        }
-    }
-
-    &:after{
-        content: "";
-        height: 200px;
-        margin: 0 auto 55px;
-        display: block;
-        @media only screen and (max-width: 700px){
-            height: 35px;
-        }
-    }
-`;
 
 export const LoginCard = style.div`
 background-color: rgb(0,0,0);
@@ -86,14 +57,11 @@ min-height: 650px;
 margin: 0 auto;
 text-align: center;
 font-size: 1.7rem;
-position: relative;
-z-index: 5;
 
 @media only screen and (max-width: 750px) {
-    background-color: transparent;
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     border-radius: 0;
 }
 
@@ -217,9 +185,10 @@ font-size: 1.10rem;
 
 export const Footer = style.div`
     background-color: pink;
-    display: block;
+    opacity: 0.6;
     width: 100%;
-    height: 220px;
-    position: relative;
-    bottom: -10px;
+    height: 250px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 `;

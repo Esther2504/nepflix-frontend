@@ -1,6 +1,7 @@
 import React from "react";
 import SignIn from "../components/landing-page/SignIn";
 import {
+  Wrapper,
   Container,
   Background,
   Footer,
@@ -11,6 +12,7 @@ const LandingPage = () => {
   return (
     <>
       <Background>
+        <Wrapper>
         <Container>
           <Logo>
             {" "}
@@ -27,8 +29,9 @@ const LandingPage = () => {
             </svg>
           </Logo>
           <SignIn />
-          <Footer> I am a placeholder footer</Footer>
         </Container>
+        <Footer>Placeholder</Footer>
+        </Wrapper>
       </Background>
     </>
   );

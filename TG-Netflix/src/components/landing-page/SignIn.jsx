@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Wrapper,
-  LoginBody,
   LoginCard,
   Form,
   Input,
@@ -18,14 +16,11 @@ const SignIn = () => {
     e.preventDefault(),
       setTimeout(() => {
         navigate("/Discover");
-      }, 500),
-      console.log("I work");
+      }, 500)
   };
 
   return (
     <>
-      <Wrapper>
-        <LoginBody>
           <LoginCard>
             <h1>Welcome.</h1>
             <Form onSubmit={handleSubmit}>
@@ -60,8 +55,6 @@ const SignIn = () => {
               </p>
             </ExtraInfo>
           </LoginCard>
-        </LoginBody>
-      </Wrapper>
     </>
   );
 };
