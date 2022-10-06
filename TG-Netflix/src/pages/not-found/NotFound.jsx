@@ -9,7 +9,7 @@ export default function NotFound() {
     <>
       <S.Container>
         <S.Navbar>
-          <NavLink to="/">
+          <NavLink to="/browse">
             <img src={logo} alt="Netflix logo" />
           </NavLink>
         </S.Navbar>
