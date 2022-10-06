@@ -8,6 +8,7 @@ import {
 import { BsFillPlayFill, BsHandThumbsUp } from "react-icons/bs";
 import { TbVolume3 } from "react-icons/tb";
 
+//START SMALLMODAL (will be replaced with carousel)
 const SmallModalTop = styled.div`
   height: 100%;
   width: 100%;
@@ -52,84 +53,37 @@ const SmallModal = styled.div`
     }
   }
 `;
+//END SMALLMODAL
 
-const ModalContainer = styled.div`
-  display: none;
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  text-align: center;
-  overflow-y: scroll;
-`;
-
-const ModalContent = styled.div`
-  position: relative;
-  display: flex;
-  margin: 0 auto;
-  margin-top: 3rem;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  width: 85rem;
-  background-color: #181818;
-  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  @keyframes blowUpModal {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-`;
-const ModalClose = styled.div`
-  position: absolute;
-  right: 0;
-  border-radius: 50px;
-  background-color: white;
-  z-index: 2;
-  margin-top: 1.5rem;
-  margin-right: 1.5rem;
-  color: white;
-`;
-
-const ModalPreview = styled.div`
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-`;
-
+//START VIDEOPLAYER (will be replaced by videomodal)
 const VideoPlayer = styled.video`
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  _aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
 `;
 
 const VideoControlsContainer = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
+  margin-top: -18rem;
   height: 18rem;
   z-index: 3;
-  margin-top: 30rem;
   display: flex;
   flex-direction: column;
   padding-left: 3rem;
   background: linear-gradient(0deg, #181818, transparent 50%);
 `;
-
 const VideoTitle = styled.div`
   height: 8rem;
   background-image: url(${vidTitle});
   background-repeat: no-repeat;
   background-size: contain;
 `;
-
 const VideoControls = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
-
 const VideoPlay = styled.button`
   display: flex;
   justify-content: center;
@@ -144,8 +98,6 @@ const VideoPlay = styled.button`
     background-color: #cccccc;
   }
 `;
-const CloseButton = styled.div``;
-
 const CloseCircle = styled(AiFillCloseCircle)`
   position: absolute;
   right: 0;
@@ -198,6 +150,58 @@ const VolumeIcon = styled(TbVolume3)`
     border-color: white;
   }
 `;
+//END VIDEOPLAYER
+
+//START MODAL
+const ModalContainer = styled.div`
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  overflow-y: scroll;
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  max-width: 85rem;
+  padding-bottom: 2rem;
+  background-color: #181818;
+  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  @keyframes blowUpModal {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
+const ModalClose = styled.div`
+  position: absolute;
+  right: 0;
+  border-radius: 50px;
+  background-color: white;
+  z-index: 2;
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+  color: white;
+`;
+
+const ModalPreview = styled.div`
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
 const VideoInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -211,13 +215,12 @@ const VideoInfoContainer = styled.div`
 `;
 const VideoInfoContainerLeft = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   width: 70%;
 `;
 const VideoInfoContainerRight = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-size: 1.5rem;
   text-align: left;
   color: #ffffff;
@@ -236,9 +239,7 @@ const Rating = styled.div`
 const ReleaseYear = styled.div`
   margin-left: 0.5rem;
 `;
-const MaturityRating = styled.div`
-  margin-left: 0.5rem;
-`;
+const MaturityRating = styled.div``;
 const Duration = styled.div`
   margin-left: 0.5rem;
 `;
@@ -271,6 +272,12 @@ const MoreLikeThisContainer = styled.div`
 const MoreLikeThisWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 823px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 353px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   gap: 1rem;
   border-bottom: 1px solid #777777;
   height: 75rem;
@@ -291,15 +298,21 @@ const MoreLikeThisToggle = styled(AiOutlineDown)`
   }
 `;
 const AboutContainer = styled.div`
-  color:#ffffff;
-  font-size:2rem;
-  font-weight:700;
-  text-align:left;
-  padding-left:3rem;
-  padding:right:3rem;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-align: left;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  h1 {
+    margin-bottom: 1rem;
+  }
+  span {
+    color: #777777;
+  }
 `;
-const AboutTitle = styled.div`
-`
+const AboutTitle = styled.div``;
+//END MODAL
+
 export {
   SmallModal,
   SmallModalTop,
@@ -319,7 +332,6 @@ export {
   ThumbsUp,
   RateIcons,
   VolumeIcon,
-  CloseButton,
   VideoInfoContainer,
   VideoInfoContainerLeft,
   VideoInfoContainerRight,
@@ -338,5 +350,5 @@ export {
   MoreLikeThisWrapper,
   MoreLikeThisToggle,
   AboutContainer,
-  AboutTitle
+  AboutTitle,
 };

@@ -7,7 +7,6 @@ const VideoPlayer = styled.video`
   border-top-right-radius: 1rem;
   _aspect-ratio: 16 / 9;
 `;
-
 const PreviewMetaData = styled.div`
   display: grid;
   grid-template-row: 3;
@@ -63,7 +62,6 @@ const PreviewReleaseYear = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
 `;
-
 const PreviewAddToList = styled(AiOutlinePlusCircle)`
   grid-row: 1 / span 2;
   grid-column: 2;
