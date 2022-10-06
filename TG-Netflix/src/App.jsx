@@ -1,18 +1,13 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar';
-import NavbarAccount from './components/navbar/NavbarAccount';
+import { NotFound } from "./pages";
+import TestCarousel from './components/movie-card/TestCarousel'
 
 function App() {
-  const location = useLocation();
+
 
   return (
     <>
-      {location.pathname === '/' ? null : location.pathname === '/account' ? (
-        <NavbarAccount />
-      ) : (
-        <Navbar />
-      )}
-      <Outlet />
+    <TestCarousel/>
+   {/* <NotFound/> */}
     </>
   );
 }
