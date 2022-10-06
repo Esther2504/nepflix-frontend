@@ -7,6 +7,7 @@ import PlanSection from "../../components/account-page/PlanSection";
 import ProfileSection from "../../components/account-page/ProfileSection";
 import SettingsSection from "../../components/account-page/SettingsSection";
 import HeaderSection from "../../components/account-page/HeaderSection";
+import AccountFooter from "../../components/footer/AccountFooter";
 
 export default function AccountPage() {
   return (
@@ -20,6 +21,7 @@ export default function AccountPage() {
         </ProfileStyling>
         <SettingsSection />
       </div>
+      <AccountFooter />
     </Wrapper>
   );
 }
