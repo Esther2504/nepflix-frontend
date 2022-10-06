@@ -63,6 +63,7 @@ font-size: 1.7rem;
     padding: 0;
     margin: 0 auto;
     border-radius: 0;
+    min-height: 100%;
 }
 
 h1, h2 {
