@@ -21,7 +21,6 @@ export default function AccountPage() {
         </ProfileStyling>
         <SettingsSection />
       </div>
-      <AccountFooter />
     </Wrapper>
   );
 }
