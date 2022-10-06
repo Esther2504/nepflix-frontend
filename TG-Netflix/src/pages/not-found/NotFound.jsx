@@ -19,7 +19,7 @@ export default function NotFound() {
             Sorry, we can't find that page. You'll find loads to explore on the
             home page.
           </p>
-          <button onClick={() => navigate('/')}>Netflix Home</button>
+          <button onClick={() => navigate('/browse')}>Netflix Home</button>
         </S.Message>
         <S.Error>
           {' '}

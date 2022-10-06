@@ -3,7 +3,7 @@ import bg from '../../assets/not-found-images/bg-lost-in-space.png';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 6.8rem 10fr 4fr 4rem;
+  grid-template-rows: 6.8rem 10fr 4fr 6rem;
   height: 100vh;
   color: white;
   background-image: url(${bg});
@@ -29,6 +29,7 @@ export const Message = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 5rem;
   background-image: radial-gradient(
     40% 40% at center,
     rgba(0, 0, 0, 0.5),
@@ -36,18 +37,18 @@ export const Message = styled.div`
   );
 
   h1 {
+    margin-bottom: 2rem;
     font-size: 5rem;
-    text-shadow: 1px 1px 1px black;
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   button {
-    margin-top: 2rem;
     width: 15rem;
     height: 4rem;
+    margin-top: 2rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: black;
@@ -82,10 +83,11 @@ export const Error = styled.div`
 
 export const Credit = styled.div`
   grid-row-start: 4;
-  padding-right: 2rem;
+  padding-right: 5rem;
 
   span {
     float: right;
+    font-size: 1.3rem;
     font-weight: bold;
   }
 `;
