@@ -56,7 +56,7 @@ function Modal() {
 
   useEffect(() => {
     //allways show, for dev purpose only
-    modalRef.current.style.display = "block";
+    //modalRef.current.style.display = "block";
 
     //Start/pause video on mouseover/mouseout smallmodal
     const videoSmall = modalRefVideoSmall.current;
