@@ -1,8 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 import * as S from './NotFound.styled';
 import logo from '../../assets/navbar-images/netflix_logo.png';
 
 export default function NotFound() {
+  const navigate = useNavigate();
+
   return (
     <>
       <S.Container>
@@ -17,10 +20,18 @@ export default function NotFound() {
             Sorry, we can't find that page. You'll find loads to explore on the
             home page.
           </p>
-          <button>Netflix Home</button>
+          <button onClick={() => navigate('/')}>Netflix Home</button>
         </S.Message>
-        <S.Error>Error Code. NSES-404</S.Error>
-        <S.Credit>FROM LOST IN SPACE</S.Credit>
+        <S.Error>
+          {' '}
+          <div>
+            {' '}
+            Error Code <span>NSES-404</span>
+          </div>
+        </S.Error>
+        <S.Credit>
+          <span>FROM: LOST IN SPACE</span>
+        </S.Credit>
       </S.Container>
     </>
   );
