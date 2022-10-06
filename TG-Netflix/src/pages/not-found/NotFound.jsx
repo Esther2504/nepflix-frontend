@@ -19,7 +19,7 @@ export default function NotFound() {
           </p>
           <button>Netflix Home</button>
         </S.Message>
-        <S.Error>Error Code NSES-404</S.Error>
+        <S.Error>Error Code. NSES-404</S.Error>
         <S.Credit>FROM LOST IN SPACE</S.Credit>
       </S.Container>
     </>
