@@ -1,20 +1,19 @@
-import Footer from "./components/footer/Footer"
-import LandingFooter from "./components/footer/LandingFooter"
-import AccountFooter from "./components/footer/AccountFooter"
+import { Outlet, useLocation } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
+import NavbarAccount from './components/navbar/NavbarAccount';
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
-      <div className="App">
-        <h1>Welcome to Netflix</h1>
-
-
-      </div>
-      <Footer/>
-      <LandingFooter/>
-      <AccountFooter/>
+      {location.pathname === '/' ? null : location.pathname === '/account' ? (
+        <NavbarAccount />
+      ) : (
+        <Navbar />
+      )}
+      <Outlet />
     </>
-
   );
 }
 
