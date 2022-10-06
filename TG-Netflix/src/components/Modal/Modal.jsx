@@ -134,6 +134,8 @@ function Modal() {
                   <ReleaseYear>2022</ReleaseYear>
                   <MaturityRating></MaturityRating>
                   <Duration>1h 58m</Duration>
+                  <VidQuality>HD</VidQuality>
+                  <AudDesc>Aud</AudDesc>
                 </MetaData>
                 <Summary>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
