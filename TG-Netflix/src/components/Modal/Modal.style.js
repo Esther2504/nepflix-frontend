@@ -206,7 +206,7 @@ export const VideoInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-top: 1rem;
   color: #ffffff;
   padding-left: 3rem;
@@ -224,7 +224,7 @@ export const VideoInfoContainerLeft = styled.div`
 export const VideoInfoContainerRight = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: left;
   color: #ffffff;
   span {
@@ -257,8 +257,9 @@ export const Genres = styled.div``;
 export const Tags = styled.div``;
 export const Summary = styled.div`
   grid-row: 2;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: left;
+  margin-top:1rem;
 `;
 export const MoreLikeThisContainer = styled.div`
   text-align: left;
@@ -268,7 +269,7 @@ export const MoreLikeThisContainer = styled.div`
   padding-bottom: 1rem;
   span {
     color: #ffffff;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 700;
   }
 `;

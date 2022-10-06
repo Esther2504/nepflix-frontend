@@ -40,6 +40,7 @@ import {
   AboutContainer,
   AboutTitle,
 } from "../Modal/Modal.style";
+import { TbRotate } from "react-icons/tb";
 
 function Modal() {
   //REF's
@@ -56,7 +57,7 @@ function Modal() {
 
   useEffect(() => {
     //allways show, for dev purpose only
-    //modalRef.current.style.display = "block";
+    modalRef.current.style.display = "block";
 
     //Start/pause video on mouseover/mouseout smallmodal
     const videoSmall = modalRefVideoSmall.current;
@@ -174,7 +175,7 @@ function Modal() {
                 <PreviewModal />
                 <PreviewModal />
               </MoreLikeThisWrapper>
-              <MoreLikeThisToggle onClick={handleOnClickToggleMore} />
+              <MoreLikeThisToggle onClick={handleOnClickToggleMore} style={toggleViewMore === true ? {transform: 'rotate(180deg)'} : undefined}/>
             </MoreLikeThisContainer>
             <AboutContainer>
               <AboutTitle>

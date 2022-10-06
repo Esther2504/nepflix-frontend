@@ -49,7 +49,7 @@ export const PreviewRating = styled.div`
   grid-row: 1;
   grid-column: 1;
   color: #46d369;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
 `;
 export const PreviewMaturityRating = styled.div`
@@ -59,7 +59,7 @@ export const PreviewMaturityRating = styled.div`
 export const PreviewReleaseYear = styled.div`
   grid-row: 2;
   grid-column: 1;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
 `;
 export const PreviewAddToList = styled(AiOutlinePlusCircle)`
@@ -75,7 +75,7 @@ export const PreviewAddToList = styled(AiOutlinePlusCircle)`
 export const PreviewSummary = styled.div`
   grid-row: 3;
   grid-column: 1 / span 2;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: left;
   margin-top: 1rem;
 `;
