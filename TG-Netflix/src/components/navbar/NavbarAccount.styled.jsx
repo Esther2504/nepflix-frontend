@@ -18,7 +18,7 @@ export const Container = styled.nav`
   }
 
   img:nth-of-type(1) {
-    width: 150px;
+    width: 120px;
   }
 `;
 
