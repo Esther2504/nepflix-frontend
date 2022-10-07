@@ -1,14 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import GlobalStyle from "./styles/GlobalStyle";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import GlobalStyle from './styles/GlobalStyle';
+import App from './App';
+import { Landing, Discover, Films, Account, NotFound } from './pages';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter>
-      <App />
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<Landing />} />
+          <Route path="browse" element={<Discover />} />
+          <Route path="films" element={<Films />} />
+          <Route path="account" element={<Account />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

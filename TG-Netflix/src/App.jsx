@@ -1,14 +1,19 @@
-import LandingPage from "./pages/LandingPage";
-import { Route, Routes } from "react-router-dom";
-import Discover from "./pages/TestDiscoverPage";
+
+import { Outlet, useLocation } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
+import NavbarAccount from './components/navbar/NavbarAccount';
+
 
 function App() {
+  const location = useLocation();
+  const navbarRoutes = ['/browse', '/films'];
+  const navbarAccountRoutes = ['/account'];
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/Discover" element={<Discover />}></Route>
-      </Routes>
+      {navbarRoutes.includes(location.pathname) && <Navbar />}
+      {navbarAccountRoutes.includes(location.pathname) && <NavbarAccount />}
+      <Outlet />
     </>
   );
 }

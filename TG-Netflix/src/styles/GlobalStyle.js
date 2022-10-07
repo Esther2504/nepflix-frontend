@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -28,6 +28,7 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
+  background-color: rgb(14,14,14);
 }
 
 img,
@@ -61,4 +62,30 @@ h6 {
   isolation: isolate;
 }
 
-`;
+//footer styling - icons
+.socialIcons {
+margin-right: 25px;
+margin-top: 2px;
+user-select: none;
+cursor:pointer;
+text-decoration: none;
+}
+
+.select-globe {
+  position: relative;
+  top: 40px;
+  left: 12px;
+  scale: 2;
+
+}
+.select-caret {
+  position: relative;
+  top: 30px;
+  left: 130px;
+  scale: 2;
+}`
+
+
+
+
+
