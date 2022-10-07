@@ -40,7 +40,7 @@ a:hover {
 
 .account-container {
   width: 80%;
-  margin: 4rem auto auto;
+  margin: 0 auto;
   padding-top: 5rem;
   padding-bottom: 7rem;
 }
