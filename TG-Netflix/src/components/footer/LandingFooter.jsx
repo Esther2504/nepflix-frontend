@@ -47,11 +47,11 @@ min-width: 190px;
 display: block;
 align-items: center;
 justify-content: center;
-background-color: #000; 
+background-color: rgba(0,0,0,.75);
 `
 
 const Container = styled.div`
-background-color: rgba(0,0,0,.75);
+background-color: transparent;
 max-width: 980px; 
 display: block;
 padding: 30px 4%;
