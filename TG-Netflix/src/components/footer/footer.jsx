@@ -58,6 +58,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 background: black; // pink for testing purposes
+position: absolute;
+bottom: 0;
+width: 100%;
 `
 
 const Container = styled.div`
