@@ -60,7 +60,7 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink to="grid-layout"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>[Grid Layout]</NavLink>
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}>(Grid Layout)</NavLink>
             </li>
           </ul>
         </S.PrimaryNav>
