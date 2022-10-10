@@ -10,16 +10,13 @@ export default function GridLayout() {
       <MovieCard />
       <MovieCard />
       <MovieCard />
+
       <MovieCard />
       <MovieCard />
       <MovieCard />
       <MovieCard />
       <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+
       <MovieCard />
       <MovieCard />
       <MovieCard />

@@ -1,5 +1,4 @@
 import GridLayout from '../../components/grid-layout/GridLayout';
-import Footer from '../../components/footer/footer';
 
 export default function Grid() {
   return (
@@ -7,7 +6,6 @@ export default function Grid() {
       <main style={{ paddingTop: '9rem' }}>
         <GridLayout />
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,10 +1,10 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
-import NavbarAccount from './components/navbar/NavbarAccount';
+import Footer from './components/footer/footer';
 
 function App() {
   const location = useLocation();
-  const navbarRoutes = [
+  const mainUIRoutes = [
     '/browse',
     '/films',
     '/my-list',
@@ -12,13 +12,12 @@ function App() {
     '/modal',
     '/grid-layout',
   ];
-  const navbarAccountRoutes = ['/account'];
 
   return (
     <>
-      {navbarRoutes.includes(location.pathname) && <Navbar />}
-      {navbarAccountRoutes.includes(location.pathname) && <NavbarAccount />}
+      {mainUIRoutes.includes(location.pathname) && <Navbar />}
       <Outlet />
+      {mainUIRoutes.includes(location.pathname) && <Footer />}
     </>
   );
 }

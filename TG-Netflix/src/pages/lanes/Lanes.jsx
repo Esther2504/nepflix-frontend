@@ -1,5 +1,4 @@
 import LaneHandler from '../../components/lane/LaneHandler';
-import Footer from '../../components/footer/footer';
 
 export default function Lanes() {
   return (
@@ -7,7 +6,6 @@ export default function Lanes() {
       <main style={{ paddingTop: '9rem' }}>
         <LaneHandler />
       </main>
-      <Footer />
     </>
   );
 }

@@ -41,7 +41,7 @@ a:hover {
 .account-container {
   width: 80%;
   margin: 0 auto;
-  padding-top: 5rem;
+  padding-top: 10rem;
   padding-bottom: 7rem;
 }
 
