@@ -1,12 +1,17 @@
-
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import NavbarAccount from './components/navbar/NavbarAccount';
 
-
 function App() {
   const location = useLocation();
-  const navbarRoutes = ['/browse', '/films', '/my-list', '/grid-layout'];
+  const navbarRoutes = [
+    '/browse',
+    '/films',
+    '/my-list',
+    '/lanes',
+    '/modal',
+    '/grid-layout',
+  ];
   const navbarAccountRoutes = ['/account'];
 
   return (

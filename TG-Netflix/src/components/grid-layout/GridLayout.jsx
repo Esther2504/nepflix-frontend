@@ -4,7 +4,7 @@ import MovieCard from '../movie-card/MovieCard';
 
 export default function GridLayout() {
   return (
-    <GridContainer style={{ paddingTop: '9rem'}}>
+    <GridContainer>
       <MovieCard />
       <MovieCard />
       <MovieCard />

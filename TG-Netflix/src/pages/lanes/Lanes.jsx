@@ -1,11 +1,11 @@
-import GridLayout from '../../components/grid-layout/GridLayout';
+import LaneHandler from '../../components/lane/LaneHandler';
 import Footer from '../../components/footer/footer';
 
-export default function Grid() {
+export default function Lanes() {
   return (
     <>
       <main style={{ paddingTop: '9rem' }}>
-        <GridLayout />
+        <LaneHandler />
       </main>
       <Footer />
     </>

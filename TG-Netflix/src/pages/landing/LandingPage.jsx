@@ -29,8 +29,9 @@ const LandingPage = () => {
               </svg>
             </Logo>
             <SignIn />
+            <LandingFooter />
           </Container>
-          <LandingFooter />
+          
         </Wrapper>
       </Background>
     </>

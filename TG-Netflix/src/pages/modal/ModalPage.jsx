@@ -1,11 +1,11 @@
-import GridLayout from '../../components/grid-layout/GridLayout';
+import Modal from '../../components/Modal/Modal';
 import Footer from '../../components/footer/footer';
 
-export default function Grid() {
+export default function ModalPage() {
   return (
     <>
       <main style={{ paddingTop: '9rem' }}>
-        <GridLayout />
+        <Modal />
       </main>
       <Footer />
     </>
