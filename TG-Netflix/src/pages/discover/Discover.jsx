@@ -1,10 +1,11 @@
+import Lane from '../../components/lane/Lane';
 import Footer from '../../components/footer/footer';
 
-export default function Home() {
+export default function Discover() {
   return (
     <>
-    <Footer/>
+      <Lane />
+      <Footer />
     </>
-
-  )
+  );
 }
