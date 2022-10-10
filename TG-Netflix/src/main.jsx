@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import App from './App';
-import { Landing, Discover, Films, Account, NotFound } from './pages';
+import { Landing, Discover, Films, MyList, Account, NotFound } from './pages';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route index element={<Landing />} />
           <Route path="browse" element={<Discover />} />
           <Route path="films" element={<Films />} />
+          <Route path="my-list" element={<MyList />} />
           <Route path="account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Route>

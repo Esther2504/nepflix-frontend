@@ -6,7 +6,7 @@ import NavbarAccount from './components/navbar/NavbarAccount';
 
 function App() {
   const location = useLocation();
-  const navbarRoutes = ['/browse', '/films'];
+  const navbarRoutes = ['/browse', '/films', '/my-list'];
   const navbarAccountRoutes = ['/account'];
 
   return (
