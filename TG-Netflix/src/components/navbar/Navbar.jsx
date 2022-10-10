@@ -58,6 +58,10 @@ export default function Navbar() {
               <NavLink to="my-list"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}>My List</NavLink>
             </li>
+            <li>
+              <NavLink to="grid-layout"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}>[Grid Layout]</NavLink>
+            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
