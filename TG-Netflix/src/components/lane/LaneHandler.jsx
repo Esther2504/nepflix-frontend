@@ -1,4 +1,5 @@
 import Lane from "./Lane";
+import useWindowSize from './WindowSizeHook'
 
 const genresPlaceholder = [
   {
@@ -262,17 +263,21 @@ const movies = [
 const screenWidth = document.getElementById("root").clientWidth;
 
 function LaneHandler() {
+  const size = useWindowSize();
+  console.log(size.width)
+  console.log(screenWidth)
+
   function getAmount() {
-    if (screenWidth < 500) {
+    if (size.width < 500) {
       return 2;
     }
-    if (screenWidth < 800 && screenWidth > 500) {
+    if (size.width < 800 && size.width > 500) {
       return 3;
     }
-    if (screenWidth < 1100 && screenWidth > 800) {
+    if (size.width < 1100 && size.width > 800) {
       return 4;
     }
-    if (screenWidth > 1100) {
+    if (size.width > 1100) {
       return 6;
     }
   }
@@ -285,8 +290,13 @@ function LaneHandler() {
       slices.push(movies.slice(i * amount, amount + i * amount));
     }
     console.log(slices);
+    console.log(number)
     return slices;
   }
+
+  console.log(getSlices())
+
+
   return (
     <div>
       <Lane slices={getSlices()} itemsPerLane={getAmount()}></Lane>
