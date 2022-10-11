@@ -1,4 +1,4 @@
-import Modal from "../src/components/Modal/Modal";
+import Modal from "../src/components/modal/Modal";
 
 function App() {
   return (

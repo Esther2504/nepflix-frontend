@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
-import Trailer from "../Modal/testTrailer.webm";
-import PreviewModal from "../Modal/PreviewModal";
+import Trailer from "../modal/testTrailer.webm";
+import PreviewModal from "../modal/PreviewModal";
 import {
   SmallModal,
   SmallModalTop,
@@ -39,8 +39,7 @@ import {
   MoreLikeThisToggle,
   AboutContainer,
   AboutTitle,
-} from "../Modal/Modal.style";
-import { TbRotate } from "react-icons/tb";
+} from "../modal/Modal.style";
 
 function Modal() {
   //REF's
@@ -49,15 +48,20 @@ function Modal() {
   const modalRefVideo = useRef();
   const modalRefVideoSmall = useRef();
   const refMoreLikeThisWrapper = useRef();
+  const modalRefSmall = useRef();
   //END REF's
 
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
+  const [offsetLeft, setoffsetLeft] = useState(0);
+  const [offsetTop, setoffsetTop] = useState(0);
   //END STATE
+
+  
 
   useEffect(() => {
     //allways show, for dev purpose only
-    modalRef.current.style.display = "block";
+    //modalRef.current.style.display = "block";
 
     //Start/pause video on mouseover/mouseout smallmodal
     const videoSmall = modalRefVideoSmall.current;
@@ -68,6 +72,7 @@ function Modal() {
       videoSmall.pause();
     });
   }, []);
+
 
   //Close modal when outside click
   window.onclick = (e) => {
@@ -84,11 +89,13 @@ function Modal() {
   };
 
   //Open modal
-  const handleOnclick = () => {
+  const handleOnclick = (e) => {
     modalRef.current.style.display = "block";
     modalRefVideo.current.play();
+    setoffsetLeft(e.currentTarget.getBoundingClientRect().left );
+    setoffsetTop(e.currentTarget.getBoundingClientRect().top);
   };
-
+  
   //Toggle "more like this"
   const handleOnClickToggleMore = () => {
     setToggleViewMore(!toggleViewMore);
@@ -104,7 +111,7 @@ function Modal() {
   return (
     <>
       <ModalContainer ref={modalRef}>
-        <ModalContent ref={modalRefContent}>
+        <ModalContent ref={modalRefContent} offsetLeft={offsetLeft} offsetTop={offsetTop}>
           <CloseButton onClick={handleClose}>
             <CloseCircle />
           </CloseButton>
@@ -175,7 +182,14 @@ function Modal() {
                 <PreviewModal />
                 <PreviewModal />
               </MoreLikeThisWrapper>
-              <MoreLikeThisToggle onClick={handleOnClickToggleMore} style={toggleViewMore === true ? {transform: 'rotate(180deg)'} : undefined}/>
+              <MoreLikeThisToggle
+                onClick={handleOnClickToggleMore}
+                style={
+                  toggleViewMore === true
+                    ? { transform: "rotate(180deg)" }
+                    : undefined
+                }
+              />
             </MoreLikeThisContainer>
             <AboutContainer>
               <AboutTitle>
@@ -199,7 +213,7 @@ function Modal() {
         </ModalContent>
       </ModalContainer>
 
-      <SmallModal onClick={handleOnclick}>
+      <SmallModal onClick={handleOnclick} ref={modalRefSmall}>
         <SmallModalTop>
           <VideoPlayer
             muted
@@ -208,7 +222,49 @@ function Modal() {
             ref={modalRefVideoSmall}
           />
         </SmallModalTop>
-        <SmallModalBottom></SmallModalBottom>
+        <SmallModalBottom>
+          <VideoControls>
+            <VideoPlay>
+              <PlayButton />
+              Play
+            </VideoPlay>
+            <PlusCircle />
+            <ThumbsUp />
+            <RateIcons />
+            <VolumeIcon />
+          </VideoControls>
+        </SmallModalBottom>
+      </SmallModal>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+      <SmallModal onClick={handleOnclick} ref={modalRefSmall}>
+        <SmallModalTop>
+          <VideoPlayer
+            muted
+            src={Trailer}
+            type="video/webm"
+            ref={modalRefVideoSmall}
+          />
+        </SmallModalTop>
+        <SmallModalBottom>
+          <VideoControls>
+            <VideoPlay>
+              <PlayButton />
+              Play
+            </VideoPlay>
+            <PlusCircle />
+            <ThumbsUp />
+            <RateIcons />
+            <VolumeIcon />
+          </VideoControls>
+        </SmallModalBottom>
       </SmallModal>
     </>
   );

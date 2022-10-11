@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import vidTitle from "../Modal/House_of_the_Dragon_logo.webp";
+import { keyframes } from "styled-components";
+import vidTitle from "../modal/House_of_the_Dragon_logo.webp";
 import {
   AiFillCloseCircle,
   AiOutlinePlusCircle,
@@ -14,42 +15,29 @@ export const SmallModalTop = styled.div`
   width: 100%;
 `;
 export const SmallModalBottom = styled.div`
-  display: none;
-  visibility: hidden;
-  height: 100%;
-  transform-origin: 0% 100%;
   background-color: #181818;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  transition: opacity ease-in-out 150ms, height 100ms ease-in-out;
+  transition-delay: 300ms;
 `;
 export const SmallModal = styled.div`
-  width: 15rem;
+  width: 25rem;
   margin-left: 2rem;
-  transition: scale linear 0.3s;
-  -transform-origin: 0% 100%;
+  transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
+  transition-delay: 300ms;
+  transform-origin: 0% 100%;
   border-radius: 0.5rem;
-  width: 15rem;
   aspect-ratio: 16/9;
   background-color: #181818;
 
   &:hover {
     scale: 1.3;
-
     ${SmallModalBottom} {
-      display: block;
-      visibility: visible;
-      border-radius: 0.5rem;
-      animation: fade_in_show 0.1s;
-
-      @keyframes fade_in_show {
-        0% {
-          opacity: 0;
-          transform: scale(0);
-        }
-
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
+      border-radius: 0 0 0.5rem 0.5rem;
+      opacity: 1;
+      height: 5rem;
     }
   }
 `;
@@ -57,15 +45,14 @@ export const SmallModal = styled.div`
 
 //START VIDEOPLAYER (will be replaced by videomodal)
 export const VideoPlayer = styled.video`
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 1rem;
   aspect-ratio: 16/9;
 `;
 
 export const VideoControlsContainer = styled.div`
   position: relative;
   width: 100%;
-  margin-top:-12rem;
+  margin-top: -12rem;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -166,21 +153,24 @@ export const ModalContainer = styled.div`
 export const ModalContent = styled.div`
   position: relative;
   display: flex;
-  margin: 0 auto;
+  -margin: 0 auto;
   margin-top: 3rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   max-width: 85rem;
-
   padding-bottom: 2rem;
   background-color: #181818;
-  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  transform-origin: ${props => props.offsetLeft + 'px'} ${props => props.offsetTop + 'px'};
+  animation: blowUpModal 0.75s ease-in-out forwards;
+
   @keyframes blowUpModal {
     0% {
       transform: scale(0);
+      
     }
     100% {
       transform: scale(1);
+      margin-left:calc((100vw - 85rem)/2);
     }
   }
 `;
@@ -259,7 +249,7 @@ export const Summary = styled.div`
   grid-row: 2;
   font-size: 1.4rem;
   text-align: left;
-  margin-top:1rem;
+  margin-top: 1rem;
 `;
 export const MoreLikeThisContainer = styled.div`
   text-align: left;
