@@ -15,10 +15,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="browse" element={<Discover />} />
           <Route path="films" element={<Films />} />
           <Route path="my-list" element={<MyList />} />
+          <Route path="account" element={<Account />} />
           <Route path="lanes" element={<Lanes />} />
           <Route path="modal" element={<Modal />} />
           <Route path="grid-layout" element={<Grid />} />
-          <Route path="account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

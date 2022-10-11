@@ -1,6 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/footer';
 
 function App() {
   const location = useLocation();
@@ -17,7 +16,6 @@ function App() {
     <>
       {mainUIRoutes.includes(location.pathname) && <Navbar />}
       <Outlet />
-      {mainUIRoutes.includes(location.pathname) && <Footer />}
     </>
   );
 }

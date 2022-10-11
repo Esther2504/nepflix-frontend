@@ -1,14 +1,17 @@
-import style from "styled-components";
-import bgImage from "../../assets/landing-page/NetflixBg2.jpg";
+import style from 'styled-components';
+import bgImage from '../../assets/landing-page/NetflixBg2.jpg';
 
-// Variables for Netflix' color pallet 
-// https://www.color-hex.com/color-palette/22942 
+// Variables for Netflix' color pallet
+// https://www.color-hex.com/color-palette/22942
 
 export const Container = style.div`
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    height: 100%;
-    padding-bottom: 300px;
-    @media only screen and (max-width: 750px){
+    background-color: rgb(0,0,0, 0.6);
+    width: 100%;
+
+    @media only screen and (max-width: 800px){
     background-color: black;
     }
 `;
@@ -26,7 +29,7 @@ width:100%;
 height: 90px;
 padding: 2rem;
 position: relative;
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 800px){
     margin: 0;
     padding: 1rem;
     top: 0;
@@ -39,15 +42,6 @@ svg {
 }
 `;
 
-export const Wrapper = style.div`
-    height: 100%;
-    position: relative;
-    min-height: 100vh;
-    background-color: rgb(0,0,0, 0.6);
-    width: 100%;
-`;
-
-
 export const LoginCard = style.div`
 background-color: rgb(0,0,0);
 color: rgb(255,255,255);
@@ -55,21 +49,22 @@ border-radius: 2%;
 max-width: 450px;
 min-height: 650px;
 margin: 0 auto;
+margin-bottom: 5rem;
 text-align: center;
 font-size: 1.7rem;
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
     width: 100%;
     padding: 0;
     margin: 0 auto;
     border-radius: 0;
-    min-height: 100%;
+    
 }
 
 h1, h2 {
     padding: 0.35rem;
     margin: 0.35rem;
-    @media only screen and (max-width: 750px) {
+    @media only screen and (max-width: 800px) {
         padding: 0.25rem;
         margin: 0.25rem;
     }
@@ -82,7 +77,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 padding: 30px 40px 20px;
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
     margin: auto;
     min-width: 90%;
     padding: 20px 30px 10px;
@@ -118,7 +113,7 @@ input{
     width: 100%;
     line-height: 50px;
     padding: 5px 10px 0;
-    @media only screen and (max-width: 750px){
+    @media only screen and (max-width: 800px){
     padding: 0.35rem;
     margin: 0.20rem;
     }
@@ -176,20 +171,9 @@ text-align: left;
 padding: 1rem 3rem;
 margin: 1.5rem;
 font-size: 1.10rem;
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 800px){
     padding: 0 2rem;
     margin: 0 1.5rem;
 }
 `;
 
-///////////Placeholder
-
-export const Footer = style.div`
-    background-color: pink;
-    opacity: 0.6;
-    width: 100%;
-    height: 250px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-`;

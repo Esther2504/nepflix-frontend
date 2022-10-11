@@ -1,11 +1,13 @@
 import LaneHandler from '../../components/lane/LaneHandler';
+import Footer from '../../components/footer/footer';
 
 export default function Lanes() {
   return (
     <>
-      <main style={{ paddingTop: '9rem' }}>
+      <div className="members-container">
         <LaneHandler />
-      </main>
+        <Footer />
+      </div>
     </>
   );
 }

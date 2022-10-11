@@ -1,3 +1,11 @@
+import Footer from '../../components/footer/footer';
+
 export default function MyList() {
-  return <></>;
+  return (
+    <>
+      <div className="members-container">
+        <Footer />
+      </div>
+    </>
+  );
 }

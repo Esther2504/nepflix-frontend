@@ -55,20 +55,36 @@ export default function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="my-list"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>My List</NavLink>
+              <NavLink
+                to="my-list"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                My List
+              </NavLink>
             </li>
             <li>
-              <NavLink to="lanes"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>(Lanes)</NavLink>
+              <NavLink
+                to="lanes"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                (Lanes)
+              </NavLink>
             </li>
             <li>
-              <NavLink to="modal"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>(Modal)</NavLink>
+              <NavLink
+                to="modal"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                (Modal)
+              </NavLink>
             </li>
             <li>
-              <NavLink to="grid-layout"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}>(Grid Layout)</NavLink>
+              <NavLink
+                to="grid-layout"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                (Grid)
+              </NavLink>
             </li>
           </ul>
         </S.PrimaryNav>

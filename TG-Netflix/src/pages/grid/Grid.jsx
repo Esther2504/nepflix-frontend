@@ -1,11 +1,14 @@
 import GridLayout from '../../components/grid-layout/GridLayout';
+import Footer from '../../components/footer/footer';
+
 
 export default function Grid() {
   return (
     <>
-      <main style={{ paddingTop: '9rem' }}>
+      <div className="members-container">
         <GridLayout />
-      </main>
+        <Footer />
+      </div>
     </>
   );
 }

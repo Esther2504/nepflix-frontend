@@ -83,9 +83,18 @@ text-decoration: none;
   top: 30px;
   left: 130px;
   scale: 2;
-}`
+}
 
+// container for the members' area pages: aligns the content directly below the navbar and keeps the footer at the bottom.
+.members-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 4.1rem;
 
+  @media (min-width: 950px) {
+   padding-top: 6.8rem;
+  }
+}
 
-
-
+`;
