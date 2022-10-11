@@ -1,6 +1,6 @@
 import Footer from '../../components/footer/footer';
 
-export default function Films() {
+export default function MyList() {
   return (
     <>
       <div className="members-container">

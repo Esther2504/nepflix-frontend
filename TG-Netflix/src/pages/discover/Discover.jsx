@@ -1,7 +1,11 @@
-import React from 'react'
+import Footer from "../../components/footer/footer";
 
-export default function Home() {
+export default function Discover() {
   return (
-    <div>Home</div>
-  )
+    <>
+      <div className='members-container'>
+        <Footer />
+      </div>
+    </>
+  );
 }

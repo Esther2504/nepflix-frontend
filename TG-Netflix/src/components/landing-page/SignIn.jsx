@@ -15,7 +15,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault(),
       setTimeout(() => {
-        navigate("/Discover");
+        navigate("/browse");
       }, 500)
   };
 

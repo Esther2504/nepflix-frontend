@@ -1,21 +1,19 @@
-import React from "react";
-import SignIn from "../components/landing-page/SignIn";
+import React from 'react';
+import SignIn from '../../components/landing-page/SignIn';
 import {
-  Wrapper,
   Container,
   Background,
-  Footer,
   Logo,
-} from "../components/landing-page/style";
+} from '../../components/landing-page/style';
+import LandingFooter from '../../components/footer/LandingFooter';
 
 const LandingPage = () => {
   return (
     <>
       <Background>
-        <Wrapper>
         <Container>
           <Logo>
-            {" "}
+            {' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 999.99755 268.67481"
@@ -29,9 +27,8 @@ const LandingPage = () => {
             </svg>
           </Logo>
           <SignIn />
+          <LandingFooter />
         </Container>
-        <Footer>Placeholder</Footer>
-        </Wrapper>
       </Background>
     </>
   );

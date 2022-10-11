@@ -10,6 +10,7 @@ export const Container = styled.nav`
   height: 5rem;
   padding: 0;
   color: white;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.97);
 
   @media (min-width: 740px) {
