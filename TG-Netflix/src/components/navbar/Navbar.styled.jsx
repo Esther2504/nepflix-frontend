@@ -3,14 +3,14 @@ import styled, { css } from 'styled-components';
 // utility classes
 
 const dropdown = css`
-  display: flex;
   position: relative;
+  display: flex;
   padding: 21px 0;
 
   ul {
+    position: absolute;
     display: none;
     flex-direction: column;
-    position: absolute;
     top: 7.2rem;
     padding: 1rem 0;
     background-color: rgba(0, 0, 0, 0.8);
@@ -42,30 +42,31 @@ const dropdown = css`
 // styled components
 
 export const Nav = styled.nav`
+  position: ${(props) => (props.isFilmsPage ? 'static ' : 'fixed')};
   display: flex;
-  position: fixed;
   justify-content: space-between;
   align-items: center;
-  top: 0;
   width: 100%;
   height: 4.1rem;
+  margin-bottom: ${(props) => (props.isFilmsPage ? '-4.1rem ' : 'none')};
   padding: 0 46px 0 25px;
   font-size: 1rem;
-  color: white;
   z-index: 1;
+  color: white;
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0.4)
   );
-  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
+  transition: background-color 1000ms; // return transition
   transition: ${(props) =>
     props.isScrolled ? 'background-color 1000ms;' : ''};
-  transition: background-color 1000ms; // return transition
+  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
 
   @media (min-width: 950px) {
     height: 6.8rem;
     padding: 0 70px 0 35px;
+    margin-bottom: ${(props) => (props.isFilmsPage ? '-6.8rem ' : 'none')};
   }
 
   @media (min-width: 1035px) {
@@ -140,9 +141,9 @@ export const PrimaryNav = styled.div`
     }
 
     @media (min-width: 885px) {
+      position: static;
       display: flex;
       flex-direction: row;
-      position: static;
       background-color: transparent;
       border-top: none;
       width: auto;
@@ -161,8 +162,8 @@ export const PrimaryNav = styled.div`
 `;
 
 export const Browse = styled.div`
-  display: flex;
   position: relative;
+  display: flex;
   height: 100%;
   margin-left: 2rem;
 

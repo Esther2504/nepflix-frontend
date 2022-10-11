@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { RiPencilLine, RiAccountCircleLine } from 'react-icons/ri';
 import { BiHelpCircle } from 'react-icons/bi';
@@ -15,10 +15,19 @@ import arrowdown from '../../assets/navbar-images/arrow-down.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isFilmsPage, setIsFilmsPage] = useState(false);
+  const location = useLocation();
+
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => window.onscroll === null;
   };
+
+  useEffect(() => {
+    return location.pathname === '/films'
+      ? setIsFilmsPage(true)
+      : setIsFilmsPage(false);
+  }, [location]);
 
   const activeStyle = {
     fontWeight: 'bold',
@@ -26,7 +35,7 @@ export default function Navbar() {
 
   return (
     <>
-      <S.Nav isScrolled={isScrolled}>
+      <S.Nav isScrolled={isScrolled} isFilmsPage={isFilmsPage}>
         <S.PrimaryNav>
           <NavLink to="browse">
             {' '}
