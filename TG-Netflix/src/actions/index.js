@@ -1,4 +1,4 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import requests from '../apis/requests';
 
 export const fetchShowAndTrailer = () => async (dispatch, getState) => {
