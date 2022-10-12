@@ -85,15 +85,15 @@ text-decoration: none;
   scale: 2;
 }
 
-// keeps the footer at the bottom.
+// content is displayed behind the see-through navbar. keeps the footer at the bottom. 
 .members-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-// container for the My List-page: aligns the content directly below the navbar and keeps the footer at the bottom.
-.mylist-container {
+// aligns the content directly below the navbar. keeps the footer at the bottom.
+.padding-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
