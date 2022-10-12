@@ -55,25 +55,36 @@ function Banner() {
         }
     }
 
+    // FAKE INFO
+    const title = 'Bullet Train';
+    const logo = 'https://images.fanart.tv/fanart/bullet-train-622f4573a070d.png';
+    const trailer = '0IOsk2Vlc4o';
+    const backdrop_path = 'y2Ca1neKke2mGPMaHzlCNDVZqsK.jpg'
+    const description = "Unlucky assassin Ladybug is determined to do his job peacefully after one too many gigs gone off the rails. Fate, however, may have other plans, as Ladybug's latest mission puts him on a collision course with lethal adversaries from around the globe—all with connected, yet conflicting, objectives—on the world's fastest train.";
+
+
     return (
         <>
             <BannerStyles>
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
-                            backgroundImage: `url('https://image.tmdb.org/t/p/original/${show?.backdrop_path}')`
+                            // backgroundImage: `url('https://image.tmdb.org/t/p/original/${show?.backdrop_path}')`
+                            backgroundImage: `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`
                         }}
                     >
                     </div>
                     <div className='overlay'>
                         <div className='banner-contents'>
                             <h1 className='banner-title'>
-                                {show?.title || show?.name || show?.original_name}
+                                {/* {show?.title || show?.name || show?.original_name} */}
                                 {/* {logo} replace show?.title || show?.name || show?.original_name*/}
+                                <img src={logo} />
                             </h1>
                             <div className='banner-description'>
-                                <p>{truncate(show?.overview, 150)}</p>
+                                {/* <p>{truncate(show?.overview, 150)}</p> */}
                                 {/* {description} replace show?.overview*/}
+                                <p>{truncate(description, 150)}</p>
                             </div>
                             <div className='button-container'>
                                 <div className='play-button-container'>
@@ -106,8 +117,8 @@ function Banner() {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    <YouTube title='test vid' videoId='4-YNrsiWikM' ref={playerRef} opts={opts} />
-                    {/* <YouTube title={title} videoId={trailer} ref={playerRef} opts={opts} /> */}
+                    {/* <YouTube title='test vid' videoId={trailer} ref={playerRef} opts={opts} /> */}
+                    <YouTube title={title} videoId={trailer} ref={playerRef} opts={opts} />
 
                 </div>
             </BannerStyles>
