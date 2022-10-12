@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 import instance from '../apisTest/tmdb';
-import requests from '../apisTest/requests';
+// import requests from '../apisTest/requests';
 import { connect } from 'react-redux';
 
 // CSS & BUTTONS
@@ -15,16 +15,16 @@ import muted from '../assets/muted.svg';
 function Banner() {
     const [show, setShow] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const request = await instance.get(requests.fetchNetflixOriginals);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const request = await instance.get(requests.fetchNetflixOriginals);
 
-            setShow(
-                request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]
-            );
-        }
-        fetchData();
-    }, []);
+    //         setShow(
+    //             request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]
+    //         );
+    //     }
+    //     fetchData();
+    // }, []);
 
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
