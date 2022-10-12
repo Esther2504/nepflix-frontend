@@ -67,14 +67,14 @@ ___
 ## PR reviews Sprint 2:
 
 02: Sander, Esther  
-15: Bart, Luisa
-23: Szymon, Lex
-24: Lex, Luisa
-27: Esther, Sander
-46: Bart, Szymon
-47: Luisa, Szymon
-48: Bart, Lex
-51: Sander, Esther
+15: Bart, Luisa  
+23: Szymon, Lex  
+24: Lex, Luisa  
+27: Esther, Sander  
+46: Bart, Szymon  
+47: Luisa, Szymon  
+48: Bart, Lex  
+51: Sander, Esther  
 
 
 ---
