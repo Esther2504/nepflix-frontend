@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import YouTube from 'react-youtube';
-import instance from '../apis/tmdb';
-import requests from '../apis/requests';
+import instance from '../apisTest/tmdb';
+import requests from '../apisTest/requests';
 import { connect } from 'react-redux';
 
 // CSS & BUTTONS
-import { BannerStyles } from './styles/BannerStyles'
+import { BannerStyles } from '../styles/BannerStyles';
 import play from '../assets/play-button.svg';
 import info from '../assets/info.svg';
 import replay from '../assets/replay.svg';
@@ -122,4 +122,5 @@ const mapStateToProps = (state) => {
         playTime: state.playTime
     }
 }
+
 export default connect(mapStateToProps, {})(Banner);
