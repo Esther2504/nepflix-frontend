@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { keyframes } from "styled-components";
 import vidTitle from "../modal/House_of_the_Dragon_logo.webp";
 import {
   AiFillCloseCircle,
@@ -38,6 +37,7 @@ export const SmallModal = styled.div`
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
       height: 5rem;
+      
     }
   }
 `;

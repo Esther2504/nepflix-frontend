@@ -57,8 +57,6 @@ function Modal() {
   const [offsetTop, setoffsetTop] = useState(0);
   //END STATE
 
-  
-
   useEffect(() => {
     //allways show, for dev purpose only
     //modalRef.current.style.display = "block";
@@ -72,7 +70,6 @@ function Modal() {
       videoSmall.pause();
     });
   }, []);
-
 
   //Close modal when outside click
   window.onclick = (e) => {
@@ -92,10 +89,10 @@ function Modal() {
   const handleOnclick = (e) => {
     modalRef.current.style.display = "block";
     modalRefVideo.current.play();
-    setoffsetLeft(e.currentTarget.getBoundingClientRect().left );
+    setoffsetLeft(e.currentTarget.getBoundingClientRect().left);
     setoffsetTop(e.currentTarget.getBoundingClientRect().top);
   };
-  
+
   //Toggle "more like this"
   const handleOnClickToggleMore = () => {
     setToggleViewMore(!toggleViewMore);
@@ -111,7 +108,11 @@ function Modal() {
   return (
     <>
       <ModalContainer ref={modalRef}>
-        <ModalContent ref={modalRefContent} offsetLeft={offsetLeft} offsetTop={offsetTop}>
+        <ModalContent
+          ref={modalRefContent}
+          offsetLeft={offsetLeft}
+          offsetTop={offsetTop}
+        >
           <CloseButton onClick={handleClose}>
             <CloseCircle />
           </CloseButton>
@@ -212,60 +213,50 @@ function Modal() {
           </ModalPreview>
         </ModalContent>
       </ModalContainer>
-
-      <SmallModal onClick={handleOnclick} ref={modalRefSmall}>
-        <SmallModalTop>
-          <VideoPlayer
-            muted
-            src={Trailer}
-            type="video/webm"
-            ref={modalRefVideoSmall}
-          />
-        </SmallModalTop>
-        <SmallModalBottom>
-          <VideoControls>
-            <VideoPlay>
-              <PlayButton />
-              Play
-            </VideoPlay>
-            <PlusCircle />
-            <ThumbsUp />
-            <RateIcons />
-            <VolumeIcon />
-          </VideoControls>
-        </SmallModalBottom>
-      </SmallModal>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-      <SmallModal onClick={handleOnclick} ref={modalRefSmall}>
-        <SmallModalTop>
-          <VideoPlayer
-            muted
-            src={Trailer}
-            type="video/webm"
-            ref={modalRefVideoSmall}
-          />
-        </SmallModalTop>
-        <SmallModalBottom>
-          <VideoControls>
-            <VideoPlay>
-              <PlayButton />
-              Play
-            </VideoPlay>
-            <PlusCircle />
-            <ThumbsUp />
-            <RateIcons />
-            <VolumeIcon />
-          </VideoControls>
-        </SmallModalBottom>
-      </SmallModal>
+        <SmallModal onClick={handleOnclick} ref={modalRefSmall}>
+          <SmallModalTop>
+            <VideoPlayer
+              muted
+              src={Trailer}
+              type="video/webm"
+              ref={modalRefVideoSmall}
+            />
+          </SmallModalTop>
+          <SmallModalBottom>
+            <VideoControls>
+              <VideoPlay>
+                <PlayButton />
+                Play
+              </VideoPlay>
+              <PlusCircle />
+              <ThumbsUp />
+              <RateIcons />
+              <VolumeIcon />
+            </VideoControls>
+          </SmallModalBottom>
+        </SmallModal>
+        <SmallModal onClick={handleOnclick} ref={modalRefSmall}>
+          <SmallModalTop>
+            <VideoPlayer
+              muted
+              src={Trailer}
+              type="video/webm"
+              ref={modalRefVideoSmall}
+            />
+          </SmallModalTop>
+          <SmallModalBottom>
+            <VideoControls>
+              <VideoPlay>
+                <PlayButton />
+                Play
+              </VideoPlay>
+              <PlusCircle />
+              <ThumbsUp />
+              <RateIcons />
+              <VolumeIcon />
+            </VideoControls>
+          </SmallModalBottom>
+        </SmallModal>
     </>
   );
 }
