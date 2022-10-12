@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import FilterLinks from "./FilterLinks";
 import arrowdown from "../../assets/navbar-images/arrow-down.png";
@@ -20,7 +20,13 @@ import {
 } from "./FilterMenu.styled";
 
 const FilterMenu = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [toggle, setToggle] = useState(false);
+
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => window.onscroll === null;
+  };
 
   const handleToggle = () => {
     console.log("clicked");
@@ -28,7 +34,7 @@ const FilterMenu = () => {
   };
 
   return (
-    <FilterWrapper>
+    <FilterWrapper isScrolled={isScrolled}>
       <FilterTitle>Movies</FilterTitle>
       <FilterGenreWrapper>
         <FilterGenreButton onClick={handleToggle}>

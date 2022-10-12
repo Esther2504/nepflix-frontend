@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import FilterKnop from "./components/filterknop/FilterMenu";
+
 import Navbar from "./components/navbar/Navbar";
 import NavbarAccount from "./components/navbar/NavbarAccount";
 
@@ -12,6 +12,7 @@ function App() {
     <>
       {navbarRoutes.includes(location.pathname) && <Navbar />}
       {navbarAccountRoutes.includes(location.pathname) && <NavbarAccount />}
+
       <Outlet />
     </>
   );

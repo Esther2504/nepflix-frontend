@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
 export const FilterWrapper = styled.section`
-  margin-top: 8rem;
-  /* margin-top is nu even nodig om het genremenu los te koppelen van nav menu */
+  position: fixed;
+  top: 6.8rem;
   height: 40px;
   width: 100%;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.4)
+  );
+  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20)' : '')};
+  transition: ${(props) =>
+    props.isScrolled ? 'background-color 1000ms;' : ''};
+  transition: background-color 1000ms; // return transition
   padding: 3rem 7rem 3rem 4.5rem;
 
   @media (max-width: 950px) {
