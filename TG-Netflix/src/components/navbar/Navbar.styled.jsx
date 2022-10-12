@@ -42,13 +42,13 @@ const dropdown = css`
 // styled components
 
 export const Nav = styled.nav`
-  position: ${(props) => (props.isFilmsPage ? 'static ' : 'fixed')};
+  position: ${(props) => (props.staticNavbar ? 'static ' : 'fixed')};
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 4.1rem;
-  margin-bottom: ${(props) => (props.isFilmsPage ? '-4.1rem ' : 'none')};
+  margin-bottom: ${(props) => (props.staticNavbar ? '-4.1rem ' : 'none')};
   padding: 0 46px 0 25px;
   font-size: 1rem;
   z-index: 1;
@@ -60,13 +60,13 @@ export const Nav = styled.nav`
   );
   transition: background-color 1000ms; // return transition
   transition: ${(props) =>
-    props.isScrolled ? 'background-color 1000ms;' : ''};
-  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20) ' : '')};
+    props.blackNavbar ? 'background-color 1000ms;' : ''};
+  background-color: ${(props) => (props.blackNavbar ? 'rgb(20,20,20) ' : '')};
 
   @media (min-width: 950px) {
     height: 6.8rem;
     padding: 0 70px 0 35px;
-    margin-bottom: ${(props) => (props.isFilmsPage ? '-6.8rem ' : 'none')};
+    margin-bottom: ${(props) => (props.staticNavbar ? '-6.8rem ' : 'none')};
   }
 
   @media (min-width: 1035px) {
@@ -115,7 +115,7 @@ export const PrimaryNav = styled.div`
 
     img {
       position: absolute;
-      top: -13px;
+      top: -12px;
       left: 90px;
       width: 15px;
     }
@@ -214,8 +214,8 @@ export const Notifications = styled.div`
 
     img {
       position: absolute;
-      top: -13px;
-      left: 325px;
+      top: -12px;
+      left: 324px;
       width: 13px;
     }
   }
@@ -277,7 +277,7 @@ export const Account = styled.div`
     .arrow-up {
       width: 15px;
       position: absolute;
-      top: -13px;
+      top: -12px;
       left: 160px;
     }
 

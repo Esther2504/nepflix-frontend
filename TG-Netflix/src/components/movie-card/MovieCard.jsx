@@ -6,7 +6,7 @@ export default function MovieCard() {
   const title = 'Spider-Man: No Way Home';
   const logoArray = [logo, null];
 
-  function showLogo() {
+  function showLogo(logoArray) {
     return logoArray[Math.floor(Math.random() * logoArray.length)];
   }
 
