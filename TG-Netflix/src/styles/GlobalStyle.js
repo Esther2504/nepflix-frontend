@@ -85,8 +85,15 @@ text-decoration: none;
   scale: 2;
 }
 
-// container for the members' area pages: aligns the content directly below the navbar and keeps the footer at the bottom.
+// keeps the footer at the bottom.
 .members-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// container for the My List-page: aligns the content directly below the navbar and keeps the footer at the bottom.
+.mylist-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
