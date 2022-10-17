@@ -96,7 +96,7 @@ export const FilterGenreSubMenu = styled.section`
   width: 250%;
   color: white;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   padding: 1rem;
   gap: 4rem;
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};

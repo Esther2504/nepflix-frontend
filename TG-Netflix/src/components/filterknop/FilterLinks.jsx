@@ -6,31 +6,28 @@ const FilterLinks = () => {
     <>
       <div>
         <GenreLink href="">Action</GenreLink>
-        <GenreLink href="">Anime</GenreLink>
-        <GenreLink href="">Comedies</GenreLink>
+        <GenreLink href="">Adventure</GenreLink>
+        <GenreLink href="">Animation</GenreLink>
+        <GenreLink href="">Comedy</GenreLink>
         <GenreLink href="">Crime</GenreLink>
-        <GenreLink href="">Critics's Picks</GenreLink>
-        <GenreLink href="">Documentaries</GenreLink>
-        <GenreLink href="">Dramas</GenreLink>
-        <GenreLink href="">Dutch</GenreLink>
+        <GenreLink href="">Documentary</GenreLink>
+        <GenreLink href="">Drama</GenreLink>
+        <GenreLink href="">Family</GenreLink>
       </div>
       <div>
-        <GenreLink href="">European Films</GenreLink>
         <GenreLink href="">Fantasy</GenreLink>
-        <GenreLink href="">Halloween</GenreLink>
+        <GenreLink href="">History</GenreLink>
         <GenreLink href="">Horror</GenreLink>
-        <GenreLink href="">Independent</GenreLink>
-        <GenreLink href="">International</GenreLink>
-        <GenreLink href="">Kids and Family</GenreLink>
-        <GenreLink href="">Music and Musicals</GenreLink>
+        <GenreLink href="">Music</GenreLink>
+        <GenreLink href="">Mystery</GenreLink>
+        <GenreLink href="">Romance</GenreLink>
+        <GenreLink href="">Science Fiction</GenreLink>
+        <GenreLink href="">TV movie</GenreLink>
       </div>
       <div>
-        <GenreLink href="">Romance</GenreLink>
-        <GenreLink href="">Sci-Fi</GenreLink>
-        <GenreLink href="">Shorts</GenreLink>
-        <GenreLink href="">Sports</GenreLink>
-        <GenreLink href="">Stand-up Comedy</GenreLink>
         <GenreLink href="">Thriller</GenreLink>
+        <GenreLink href="">War</GenreLink>
+        <GenreLink href="">Western</GenreLink>
       </div>
     </>
   );
