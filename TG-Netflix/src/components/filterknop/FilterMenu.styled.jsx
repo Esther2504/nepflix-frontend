@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FilterWrapper = styled.section`
   position: fixed;
   top: 6.8rem;
-  height: 40px;
+  height: 4.1rem;
   width: 100%;
   z-index: 10;
   display: flex;
@@ -14,9 +14,9 @@ export const FilterWrapper = styled.section`
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 0.4)
   );
-  background-color: ${(props) => (props.isScrolled ? 'rgb(20,20,20)' : '')};
+  background-color: ${(props) => (props.isScrolled ? "rgb(20,20,20)" : "")};
   transition: ${(props) =>
-    props.isScrolled ? 'background-color 1000ms;' : ''};
+    props.isScrolled ? "background-color 1000ms;" : ""};
   transition: background-color 1000ms; // return transition
   padding: 3rem 7rem 3rem 4.5rem;
 
