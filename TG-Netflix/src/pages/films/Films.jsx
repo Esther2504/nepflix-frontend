@@ -1,11 +1,9 @@
-import Footer from '../../components/footer/footer';
-import Spinner from '../../components/spinner-animation/Spinner';
+import Footer from "../../components/footer/footer";
 
 export default function Films() {
   return (
     <>
       <div className="members-container">
-        <Spinner/>
         <Footer />
       </div>
     </>

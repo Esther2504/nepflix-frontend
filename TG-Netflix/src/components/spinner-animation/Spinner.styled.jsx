@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-export const rotate = keyframes`
+const rotate = keyframes`
  0% {
         transform: translate3d(-50%, -50%, 0) rotate(0deg);
     }
@@ -17,7 +17,7 @@ export const Spinning = styled.div`
   height: 5rem;
 
   &::before {
-    animation: ${rotate} 2s linear infinite;
+    animation: ${rotate} 1s linear infinite;
     border: solid 3px #eee;
     border-bottom-color: #db0000;
     border-radius: 50%;

@@ -1,5 +1,5 @@
 import React from "react";
-import {rotate, Spinning} from "./Spinner.styled";
+import {Spinning} from "./Spinner.styled";
 
 const Spinner = () => {
   return <Spinning></Spinning>;
