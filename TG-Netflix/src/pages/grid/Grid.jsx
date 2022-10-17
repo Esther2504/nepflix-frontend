@@ -5,7 +5,7 @@ import Footer from '../../components/footer/footer';
 export default function Grid() {
   return (
     <>
-      <div className="members-container">
+      <div className="padding-container">
         <GridLayout />
         <Footer />
       </div>
