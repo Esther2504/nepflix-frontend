@@ -16,7 +16,23 @@ export const BannerStyles = styled.div`
     width: 100vw;
     background-size: cover;
     background-position: center center;
-    animation: cssAnimation .25s ease-out 2s forwards, cssAnimation2 .25s ease-out 10s forwards;
+    animation: cssAnimation .25s ease-out 0.5s forwards, cssAnimation2 .25s ease-out 15.5s forwards;
+    }
+
+    .fade-out {
+        animation-name: cssAnimation
+        animation-delay: 0.25
+        animation-duration: 2s
+        animation-timing-function: eas-out
+        animation-fill-mode: forwards
+    }
+
+    .fade-in {
+        animation-name: cssAnimation2
+        animation-delay: 10s
+        animation-duration: 0.25s
+        animation-timing-function: eas-out
+        animation-fill-mode: forwards
     }
 
     .overlay {
@@ -136,10 +152,10 @@ export const BannerStyles = styled.div`
     }
 
     .Hawkins-icon {
-        width: 2.188rem;
-        height: 2.188rem;
+        width: 25px;
+        height: 25px;
         fill: white;
-        font-size: 0.9rem;
+        font-size: 19.44px;
         line-height: 0px;
         text-align: center;
     }
@@ -166,29 +182,29 @@ export const BannerStyles = styled.div`
     .side-button-container {
         justify-content: flex-end;
         align-items: center;
-        width: 12.188rem;
-        height: 2.875rem;        
+        width: 300px;
+        height: 55px;        
         color: rgba(255, 255, 255, 1);
         display: flex;
-        font-size: 0.9rem;
-        line-height: 1.08rem;
+        font-size: 14.4px;
+        line-height: 17.28px;
     }
 
     .side-button {
-        width: 3.188rem;
-        height: 3.188rem;
+        width: 50px;
+        height: 50px;
         align-items: center;
         background-color: rgba(255, 255, 255, 0.1);
         border-color: rgba(255, 255, 255, 0.7);
         border-radius: 50%;
         border-style: solid;
-        border-width: 0.063rem;
+        border-width: 1px;
         color: rgba(255, 255, 255, 1);
         display: flex;
-        font-size: 1.215rem;
+        font-size: 19.44px;
         justify-content: center;
-        line-height: 1.458rem;
-        padding: 0.72rem;
+        line-height: 23.328px;
+        padding: 11.52px;
         cursor: pointer;
         text-align: center;
     }
@@ -198,21 +214,21 @@ export const BannerStyles = styled.div`
     }
 
     .side-button:focus{
-        padding: 0.625rem;
-        border: 0.125rem solid;
+        padding: 10px;
+        border: 3px solid;
     }
 
     .maturity-rating {
-        width: 8rem;
-        height: 2.875rem;
+        width: 130px;
+        height: 45px;
         align-items: center;
         background-color: rgba( 51, 51, 51, 0.6);
         color: rgba(255, 255, 255, 1);
         display: flex;
-        font-size: 1.32rem;
-        line-height: 1.584rem;
+        font-size: 21.12px;
+        line-height: 25.334px;
         border-left: 5px solid rgba(255, 255, 255, 0.75);
-        padding: 0.6rem 4.2rem 0.6rem 0.96rem;
+        padding: 9.6px 67.2px 9.6px 15.36px;
     }
 
     .banner-fadeBottom {
@@ -302,17 +318,17 @@ export const BannerStyles = styled.div`
         .side-button-container {
             justify-content: flex-end;
             align-items: center;
-            width: 12.188rem;
-            height: 2.875rem;        
+            width: 195px;
+            height: 45px;        
             color: rgba(255, 255, 255, 1);
             display: flex;
-            font-size: 0.9rem;
-            line-height: 1.08rem;
+            font-size: 15px;
+            line-height: 17px;
         }
     
         .side-button {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 40px;
+            height: 40px;
             align-items: center;
             background-color: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.7);
@@ -334,13 +350,13 @@ export const BannerStyles = styled.div`
         }
     
         .side-button:focus{
-            padding: 0.625rem;
-            border: 0.125rem solid;
+            padding: 10px;
+            border: 2px solid;
         }
     
         .maturity-rating {
-            width: 8rem;
-            height: 2.875rem;
+            width: 110px;
+            height: 45px;
             align-items: center;
             background-color: rgba( 51, 51, 51, 0.6);
             color: rgba(255, 255, 255, 1);

@@ -40,18 +40,23 @@ function Banner() {
     }
     const rePlayVideo = () => {
         playerRef.current.internalPlayer.playVideo();
-
+        document.querySelector('.banner').style.animation = 'none';
+        document.querySelector('.banner').offsetWidth;
+        document.querySelector('.banner').style.animation = '';
     }
+
     const opts = {
         playerVars: {
-            width: '150%',
-            height: '150%',
+            width: '560',
+            height: '315',
             autoplay: 1,
             mute: 1,
             controls: 0,
             disablekb: 1,
-            end: 9,
+            end: 16,
             rel: 0,
+            frameborder: '0',
+            allowfullscreen: '',
         }
     }
 
