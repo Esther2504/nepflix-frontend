@@ -4,7 +4,7 @@ import Footer from '../../components/footer/footer';
 export default function ModalPage() {
   return (
     <>
-      <div className="members-container">
+      <div className="padding-container">
         <Modal />
         <Footer />
       </div>
