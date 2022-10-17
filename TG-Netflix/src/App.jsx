@@ -16,6 +16,8 @@ function App() {
     <>
       {mainUIRoutes.includes(location.pathname) && <Navbar />}
       <Outlet />
+      
+      
     </>
   );
 }
