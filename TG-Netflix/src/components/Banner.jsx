@@ -45,7 +45,6 @@ function Banner() {
     }
     const rePlayVideo = () => {
         playerRef.current.internalPlayer.playVideo();
-
         document.querySelector('.banner').style.animation = 'none';
         document.querySelector('.banner').offsetWidth;
         document.querySelector('.banner').style.animation = '';
@@ -66,12 +65,12 @@ function Banner() {
     }
 
     // BUTTONS STATE
-    const remove = () => {
+    const removeVolume = () => {
         document.getElementById('rePlay').style.visibility = 'visible';
         document.getElementById('volume-mute').style.visibility = 'hidden';
         document.getElementById('volume-unmute').style.visibility = 'hidden';
     }
-    const add = () => {
+    const addVolume = () => {
         document.getElementById('rePlay').style.visibility = 'hidden';
         document.getElementById('volume-unmute').style.visibility = 'visible';
     }
@@ -83,6 +82,7 @@ function Banner() {
     const logo = 'https://images.fanart.tv/fanart/bullet-train-622f4573a070d.png';
     const trailer = '0IOsk2Vlc4o';
     const backdrop_path = 'y2Ca1neKke2mGPMaHzlCNDVZqsK.jpg'
+    const background_img = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
     const description = "Unlucky assassin Ladybug is determined to do his job peacefully after one too many gigs gone off the rails. Fate, however, may have other plans, as Ladybug's latest mission puts him on a collision course with lethal adversaries from around the globe—all with connected, yet conflicting, objectives—on the world's fastest train.";
 
 
@@ -92,21 +92,16 @@ function Banner() {
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
-                            // backgroundImage: `url('https://image.tmdb.org/t/p/original/${show?.backdrop_path}')`
-                            backgroundImage: `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`
+                            backgroundImage: background_img
                         }}
                     >
                     </div>
                     <div className='overlay'>
                         <div className='banner-contents'>
                             <h1 className='banner-title'>
-                                {/* {show?.title || show?.name || show?.original_name} */}
-                                {/* {logo} replace show?.title || show?.name || show?.original_name */}
                                 <img src={logo} />
                             </h1>
                             <div className='banner-description'>
-                                {/* <p>{truncate(show?.overview, 150)}</p> */}
-                                {/* {description} replace show?.overview*/}
                                 <p>{truncate(description, 150)}</p>
                             </div>
                             <div className='button-container'>
@@ -155,7 +150,7 @@ function Banner() {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={remove} onPlay={add} />
+                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={removeVolume} onPlay={addVolume} />
 
                 </div>
             </BannerStyles>
