@@ -20,19 +20,19 @@ export const PlayerStyles = styled.div`
     }
 
     .fade-out {
-        animation-name: cssAnimation
-        animation-delay: 0.25
-        animation-duration: 2s
-        animation-timing-function: eas-out
-        animation-fill-mode: forwards
+        animation-name: cssAnimation;
+        animation-delay: 0.25;
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
     }
 
     .fade-in {
-        animation-name: cssAnimation2
-        animation-delay: 10s
-        animation-duration: 0.25s
-        animation-timing-function: eas-out
-        animation-fill-mode: forwards
+        animation-name: cssAnimation2;
+        animation-delay: 10s;
+        animation-duration: 0.25s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
     }
 
     .overlay {
