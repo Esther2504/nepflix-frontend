@@ -4,11 +4,11 @@ import YouTube from 'react-youtube';
 
 // CSS & BUTTONS
 import { PlayerStyles } from './PlayerStyles';
-import play from '../assets/play-button.svg';
-import info from '../assets/info.svg';
-import replay from '../assets/replay.svg';
-import volume from '../assets/volume.svg';
-import muted from '../assets/muted.svg';
+import play from '../../assets/play-button.svg';
+import info from '../../assets/info.svg';
+import replay from '../../assets/replay.svg';
+import volume from '../../assets/volume.svg';
+import muted from '../../assets/muted.svg';
 
 function Player() {
     const [muteIsVisible, setMuteIsVisible] = useState(false);
