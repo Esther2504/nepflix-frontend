@@ -3,14 +3,14 @@ import YouTube from 'react-youtube';
 // import { connect } from 'react-redux';
 
 // CSS & BUTTONS
-import { DiscoverStyles } from './DiscoverStyles';
-import play from '../assets/play-button.svg';
-import info from '../assets/info.svg';
-import replay from '../assets/replay.svg';
-import volume from '../assets/volume.svg';
-import muted from '../assets/muted.svg';
+import { PlayerStyles } from './PlayerStyles';
+import play from '../../assets/play-button.svg';
+import info from '../../assets/info.svg';
+import replay from '../../assets/replay.svg';
+import volume from '../../assets/volume.svg';
+import muted from '../../assets/muted.svg';
 
-function Banner() {
+function Player() {
     const [muteIsVisible, setMuteIsVisible] = useState(false);
     const [unMuteIsVisible, setUnMuteIsVisible] = useState(true);
 
@@ -88,7 +88,7 @@ function Banner() {
 
     return (
         <>
-            <DiscoverStyles>
+            <PlayerStyles>
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
@@ -153,7 +153,7 @@ function Banner() {
                     <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={removeVolume} onPlay={addVolume} />
 
                 </div>
-            </DiscoverStyles>
+            </PlayerStyles>
         </>
     )
 }
@@ -167,4 +167,4 @@ function Banner() {
 // }
 
 // export default connect(mapStateToProps, {})(Banner);
-export default Banner;
+export default Player;
