@@ -16,7 +16,7 @@ export default function Lane(props) {
   const transitionSpeed = 500;
   const [visibleSlide, setVisibleSlide] = useState(1);
   const [hasTransitionClass, setHasTransitionClass] = useState(true);
-  const [stateSlides, setStateSlides] = useState(props.slices);
+  // const [stateSlides, setStateSlides] = useState(props.slices);
   const [leftAndRightDisabled, setLeftAndRightDisabled] = useState(false);
   const laneWidth = document.getElementById("root").clientWidth * 0.9;
   const slides = props.slices;
@@ -31,7 +31,7 @@ export default function Lane(props) {
   }, [slides]);
 
   useEffect(() => {
-    if (visibleSlide == stateSlides.length - 1) {
+    if (visibleSlide == slides.length - 1) {
       setLeftAndRightDisabled(true);
       setTimeout(() => {
         setHasTransitionClass(false);
@@ -49,11 +49,11 @@ export default function Lane(props) {
       setLeftAndRightDisabled(true);
       setTimeout(() => {
         setHasTransitionClass(false);
-        setVisibleSlide(stateSlides.length - 2);
+        setVisibleSlide(slides.length - 2);
       }, transitionSpeed);
     }
 
-    if (visibleSlide == stateSlides.length - 2) {
+    if (visibleSlide == slides.length - 2) {
       setTimeout(() => {
         setHasTransitionClass(true);
       }, transitionSpeed);
@@ -87,8 +87,8 @@ export default function Lane(props) {
   const dotIsActive = (index) => {
     return (
       index === visibleSlide ||
-      (index === 1 && visibleSlide === stateSlides.length - 1) ||
-      (index === stateSlides.length - 2 && visibleSlide === 0)
+      (index === 1 && visibleSlide === slides.length - 1) ||
+      (index === slides.length - 2 && visibleSlide === 0)
     );
   };
 
