@@ -1,9 +1,9 @@
-import Banner from './components/Banner'
+import Discover from './pages/Discover'
 
 function App() {
   return (
     <div className="App">
-      <Banner />
+      <Discover />
     </div>
   );
 }

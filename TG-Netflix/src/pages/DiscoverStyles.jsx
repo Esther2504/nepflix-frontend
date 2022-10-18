@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const BannerStyles = styled.div`
+export const DiscoverStyles = styled.div`
 
     .banner-container {
     position: relative;

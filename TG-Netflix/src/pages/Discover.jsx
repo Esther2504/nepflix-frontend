@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import YouTube from 'react-youtube';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 // CSS & BUTTONS
-import { BannerStyles } from './BannerStyles';
+import { DiscoverStyles } from './DiscoverStyles';
 import play from '../assets/play-button.svg';
 import info from '../assets/info.svg';
 import replay from '../assets/replay.svg';
@@ -88,7 +88,7 @@ function Banner() {
 
     return (
         <>
-            <BannerStyles>
+            <DiscoverStyles>
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
@@ -153,7 +153,7 @@ function Banner() {
                     <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={removeVolume} onPlay={addVolume} />
 
                 </div>
-            </BannerStyles>
+            </DiscoverStyles>
         </>
     )
 }
