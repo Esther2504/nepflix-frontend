@@ -1,4 +1,5 @@
 import Lane from "./Lane";
+import useWindowSize from "../../features/useWindowSize";
 
 const genresPlaceholder = [
   {
@@ -117,163 +118,22 @@ const movies = [
     title: "Dogville",
     id: 553,
   },
-  {
-    backdrop_path: "/1qwXItFKqvKYyW1CwbYhxyUC8Pj.jpg",
-    title: "The Cuckoo",
-    id: 554,
-  },
-  {
-    backdrop_path: "/1fJSyFhvxBjyLZsBnYs4641YXu1.jpg",
-    title: "Basquiat",
-    id: 549,
-  },
-  {
-    backdrop_path: "/zyO6j74DKMWfp5snWg6Hwo0T3Mz.jpg",
-    title: "Rashomon",
-    id: 548,
-  },
-  {
-    backdrop_path: "/ww9pokP6M6gp2Iu0o3sT5B7eN66.jpg",
-    title: "The Horse Whisperer",
-    id: 547,
-  },
-  {
-    backdrop_path: "/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
-    title: "Fight Club",
-    id: 550,
-  },
-  {
-    backdrop_path: "/v1QEIuBM1vvpvfqalahhIyXY0Cm.jpg",
-    title: "The Poseidon Adventure",
-    id: 551,
-  },
-  {
-    backdrop_path: "/k4JIHyAXaGHwAwT7y5Skd17f0Wl.jpg",
-    title: "Pane e tulipani",
-    id: 552,
-  },
-  {
-    backdrop_path: "/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
-    title: "Dogville",
-    id: 553,
-  },
-  {
-    backdrop_path: "/1qwXItFKqvKYyW1CwbYhxyUC8Pj.jpg",
-    title: "The Cuckoo",
-    id: 554,
-  },
-  {
-    backdrop_path: "/1fJSyFhvxBjyLZsBnYs4641YXu1.jpg",
-    title: "Basquiat",
-    id: 549,
-  },
-  {
-    backdrop_path: "/zyO6j74DKMWfp5snWg6Hwo0T3Mz.jpg",
-    title: "Rashomon",
-    id: 548,
-  },
-  {
-    backdrop_path: "/ww9pokP6M6gp2Iu0o3sT5B7eN66.jpg",
-    title: "The Horse Whisperer",
-    id: 547,
-  },
-  {
-    backdrop_path: "/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
-    title: "Fight Club",
-    id: 550,
-  },
-  {
-    backdrop_path: "/v1QEIuBM1vvpvfqalahhIyXY0Cm.jpg",
-    title: "The Poseidon Adventure",
-    id: 551,
-  },
-  {
-    backdrop_path: "/k4JIHyAXaGHwAwT7y5Skd17f0Wl.jpg",
-    title: "Pane e tulipani",
-    id: 552,
-  },
-  {
-    backdrop_path: "/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
-    title: "Dogville",
-    id: 553,
-  },
-  {
-    backdrop_path: "/1qwXItFKqvKYyW1CwbYhxyUC8Pj.jpg",
-    title: "The Cuckoo",
-    id: 554,
-  },
-  {
-    backdrop_path: "/1fJSyFhvxBjyLZsBnYs4641YXu1.jpg",
-    title: "Basquiat",
-    id: 549,
-  },
-  {
-    backdrop_path: "/zyO6j74DKMWfp5snWg6Hwo0T3Mz.jpg",
-    title: "Rashomon",
-    id: 548,
-  },
-  {
-    backdrop_path: "/ww9pokP6M6gp2Iu0o3sT5B7eN66.jpg",
-    title: "The Horse Whisperer",
-    id: 547,
-  },
-  {
-    backdrop_path: "/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
-    title: "Fight Club",
-    id: 550,
-  },
-  {
-    backdrop_path: "/v1QEIuBM1vvpvfqalahhIyXY0Cm.jpg",
-    title: "The Poseidon Adventure",
-    id: 551,
-  },
-  {
-    backdrop_path: "/k4JIHyAXaGHwAwT7y5Skd17f0Wl.jpg",
-    title: "Pane e tulipani",
-    id: 552,
-  },
-  {
-    backdrop_path: "/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
-    title: "Dogville",
-    id: 553,
-  },
-  {
-    backdrop_path: "/1qwXItFKqvKYyW1CwbYhxyUC8Pj.jpg",
-    title: "The Cuckoo",
-    id: 554,
-  },
-  {
-    backdrop_path: "/1fJSyFhvxBjyLZsBnYs4641YXu1.jpg",
-    title: "Basquiat",
-    id: 549,
-  },
-  {
-    backdrop_path: "/zyO6j74DKMWfp5snWg6Hwo0T3Mz.jpg",
-    title: "Rashomon",
-    id: 548,
-  },
-  {
-    backdrop_path: "/ww9pokP6M6gp2Iu0o3sT5B7eN66.jpg",
-    title: "The Horse Whisperer",
-    id: 547,
-  },
 ];
 
-const screenWidth = document.getElementById("root").clientWidth;
-
 function LaneHandler() {
+  const size = useWindowSize();
   function getAmount() {
-    if (screenWidth < 500) {
+    if (size.width <= 600) {
       return 2;
     }
-    if (screenWidth < 800 && screenWidth > 500) {
-      return 3;
-    }
-    if (screenWidth < 1100 && screenWidth > 800) {
+    // if (size.width <= 800 && size.width > 500) {
+    //   return 3;
+    // }
+    if (size.width <= 1100 && size.width > 600) {
       return 4;
     }
-    if (screenWidth > 1100) {
-      return 6;
+    if (size.width > 1100) {
+      return 5;
     }
   }
 
@@ -284,12 +144,26 @@ function LaneHandler() {
     for (let i = 0; i < number; i++) {
       slices.push(movies.slice(i * amount, amount + i * amount));
     }
-    console.log(slices);
     return slices;
   }
+
+  let someSlices = getSlices();
+
   return (
     <div>
-      <Lane slices={getSlices()} itemsPerLane={getAmount()}></Lane>
+      {genresPlaceholder.map((item, index) => {
+        return (
+          <>
+            {someSlices.length > 0 && (
+              <Lane
+                categoryTitle={item.name}
+                slices={getSlices()}
+                itemsPerLane={getAmount()}
+              ></Lane>
+            )}
+          </>
+        );
+      })}
     </div>
   );
 }
