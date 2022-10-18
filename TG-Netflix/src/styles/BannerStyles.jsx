@@ -180,9 +180,8 @@ export const BannerStyles = styled.div`
     }
 
     .side-button-container {
-        justify-content: flex-end;
-        align-items: center;
-        width: 300px;
+        justify-content: space-between;
+        width: 200px;
         height: 55px;        
         color: rgba(255, 255, 255, 1);
         display: flex;
@@ -191,6 +190,7 @@ export const BannerStyles = styled.div`
     }
 
     .side-button {
+        position: absolute;
         width: 50px;
         height: 50px;
         align-items: center;
@@ -316,9 +316,8 @@ export const BannerStyles = styled.div`
         }
           
         .side-button-container {
-            justify-content: flex-end;
-            align-items: center;
-            width: 195px;
+            justify-content: space-between;
+            width: 175px;
             height: 45px;        
             color: rgba(255, 255, 255, 1);
             display: flex;

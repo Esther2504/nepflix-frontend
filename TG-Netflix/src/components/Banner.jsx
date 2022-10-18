@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import YouTube from 'react-youtube';
 import instance from '../apisTest/tmdb';
-// import requests from '../apisTest/requests';
 import { connect } from 'react-redux';
 
 // CSS & BUTTONS
@@ -13,8 +12,10 @@ import volume from '../assets/volume.svg';
 import muted from '../assets/muted.svg';
 
 function Banner() {
-    const [show, setShow] = useState([]);
+    const [muteIsVisible, setMuteIsVisible] = useState(false);
+    const [unMuteIsVisible, setUnMuteIsVisible] = useState(true);
 
+    // LOADS RANDOM TOP20 
     // useEffect(() => {
     //     async function fetchData() {
     //         const request = await instance.get(requests.fetchNetflixOriginals);
@@ -30,13 +31,17 @@ function Banner() {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     }
 
-    // CONTROLS YOUTUBE 
+    // CONTROLS YOUTUBE & VISIBILITY
     const playerRef = useRef(null);
     const muteVideo = () => {
         playerRef.current.internalPlayer.mute();
+        setUnMuteIsVisible(current => !current);
+        setMuteIsVisible(current => !current);
     }
     const unMuteVideo = () => {
         playerRef.current.internalPlayer.unMute();
+        setMuteIsVisible(current => !current);
+        setUnMuteIsVisible(current => !current);
     }
     const rePlayVideo = () => {
         playerRef.current.internalPlayer.playVideo();
@@ -44,7 +49,6 @@ function Banner() {
         document.querySelector('.banner').offsetWidth;
         document.querySelector('.banner').style.animation = '';
     }
-
     const opts = {
         playerVars: {
             width: '560',
@@ -59,6 +63,16 @@ function Banner() {
             allowfullscreen: '',
         }
     }
+
+    // BUTTONS STATE
+    // const onPlayerStateChange = () => {
+    //     if (YouTube.PlayerState.CUED) {
+    //         document.getElementById('rePlay').style.visibility = 'visible';
+    //         document.getElementById('volume-mute').style.visibility = 'hidden';
+    //         document.getElementById('volume-unmute').style.visibility = 'hidden';
+    //     }
+    // }
+
 
     // FAKE INFO
     const title = 'Bullet Train';
@@ -83,7 +97,7 @@ function Banner() {
                         <div className='banner-contents'>
                             <h1 className='banner-title'>
                                 {/* {show?.title || show?.name || show?.original_name} */}
-                                {/* {logo} replace show?.title || show?.name || show?.original_name*/}
+                                {/* {logo} replace show?.title || show?.name || show?.original_name */}
                                 <img src={logo} />
                             </h1>
                             <div className='banner-description'>
@@ -105,16 +119,32 @@ function Banner() {
                             </div>
                         </div>
                         <div className='side-button-container'>
-                            <button className="side-button" onClick={rePlayVideo}>
-                                <img src={replay} alt="replay" className="Hawkins-icon" />
-                            </button>
-                            <button className="side-button" onClick={muteVideo}>
-                                <img src={muted} alt="muted" className="Hawkins-icon" />
-                            </button>
-                            <button className="side-button" onClick={unMuteVideo}>
-                                <img src={volume} alt="un-muted" className="Hawkins-icon" />
-                            </button>
-                            <div></div>
+                            <div>
+                                {/* <button
+                                    id='rePlay'
+                                    className="side-button"
+                                    onClick={rePlayVideo}
+                                    style={{ visibility: YouTube.PlayerState.UNSTARTED ? 'visible' : 'hidden' }}
+                                >
+                                    <img src={replay} alt="replay" className="Hawkins-icon" />
+                                </button> */}
+                                <button
+                                    id='volume-mute'
+                                    className="side-button"
+                                    onClick={muteVideo}
+                                    style={{ visibility: muteIsVisible ? 'visible' : 'hidden' }}
+                                >
+                                    <img src={muted} alt="muted" className="Hawkins-icon" />
+                                </button>
+                                <button
+                                    id='volume-unmute'
+                                    className="side-button"
+                                    onClick={unMuteVideo}
+                                    style={{ visibility: unMuteIsVisible ? 'visible' : 'hidden' }}
+                                >
+                                    <img src={volume} alt="un-muted" className="Hawkins-icon" />
+                                </button>
+                            </div>
                             <span className="maturity-rating">
                                 <span className="maturity-graphic">
                                 </span>
@@ -122,8 +152,7 @@ function Banner() {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    {/* <YouTube title='test vid' videoId={trailer} ref={playerRef} opts={opts} /> */}
-                    <YouTube title={title} videoId={trailer} ref={playerRef} opts={opts} />
+                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} state />
 
                 </div>
             </BannerStyles>
