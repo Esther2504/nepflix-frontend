@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { RiPencilLine, RiAccountCircleLine } from 'react-icons/ri';
 import { BiHelpCircle } from 'react-icons/bi';
@@ -14,19 +14,26 @@ import arrowup from '../../assets/navbar-images/arrow-up.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  window.onscroll = () => {
-    setIsScrolled(window.pageYOffset === 0 ? false : true);
-    return () => window.onscroll === null;
-  };
-
+  const [blackNavbar, setBlackNavbar] = useState(false);
+  const [staticNavbar, setStaticNavbar] = useState(false);
+  const location = useLocation();
   const activeStyle = {
     fontWeight: 'bold',
   };
 
+  useEffect(() => {
+    window.onscroll = () => {
+      setBlackNavbar(window.pageYOffset === 0 ? false : true);
+    };
+  }, []);
+
+  useEffect(() => {
+    setStaticNavbar(location.pathname !== '/films' ? false : true);
+  }, [location]);
+
   return (
     <>
-      <S.Nav isScrolled={isScrolled}>
+      <S.Nav blackNavbar={blackNavbar} staticNavbar={staticNavbar}>
         <S.PrimaryNav>
           <NavLink to="browse">
             {' '}
@@ -108,12 +115,12 @@ export default function Navbar() {
             <li>
               {' '}
               <S.Account>
-                <img src={profile} alt="Profile icon" />
+                <img src={profile} alt="Profile" />
                 <img src={arrowdown} />
                 <ul className="dropdown-text">
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    <img src={kids} alt="Kids icon" />
+                    <img src={kids} alt="Kids" />
                     <a href="#">Kids</a>
                   </li>
                   <li>

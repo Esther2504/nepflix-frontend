@@ -64,23 +64,17 @@ ___
 5.  Informeer Lex dat je klaar bent
 
 --
-## PR reviews Sprint 1:
+## PR reviews Sprint 2:
 
-Luisa: Bart, Lex
-
-Lex: Luisa, Sander
-
-Sander: Lex, Nathaniel
-
-Nathaniel: Sander, Esther, Szymon
-
-Esther: Nathaniel, Marko
-
-Marko: Esther, Joost, Szymon
-
-Joost: Marko, Bart, Jens
-
-Marijana, Hiu-Chee: Jens
+02: Sander, Esther  
+15: Bart, Luisa  
+23: Szymon, Lex  
+24: Lex, Luisa  
+27: Esther, Sander  
+46: Bart, Szymon  
+47: Luisa, Szymon  
+48: Bart, Lex  
+51: Sander, Esther  
 
 
 ---

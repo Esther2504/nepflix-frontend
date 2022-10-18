@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 // nav en footer placeholders
-nav {
+/* nav {
   width: 100%;
   height: 7rem;
   background-color: black;
@@ -11,7 +11,7 @@ nav {
   position: fixed;
   top: 0;
   text-align: center;
-}
+} */
 
 footer {
   width: 100%;
@@ -41,7 +41,7 @@ a:hover {
 .account-container {
   width: 80%;
   margin: 0 auto;
-  padding-top: 10rem;
+  padding-top: 4rem;
   padding-bottom: 7rem;
 }
 
