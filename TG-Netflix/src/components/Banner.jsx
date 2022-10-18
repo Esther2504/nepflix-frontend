@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import YouTube from 'react-youtube';
-import instance from '../apisTest/tmdb';
 import { connect } from 'react-redux';
 
 // CSS & BUTTONS
-import { BannerStyles } from '../styles/BannerStyles';
+import { BannerStyles } from './BannerStyles';
 import play from '../assets/play-button.svg';
 import info from '../assets/info.svg';
 import replay from '../assets/replay.svg';
