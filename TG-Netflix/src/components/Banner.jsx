@@ -23,6 +23,7 @@ function Banner() {
     //             request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]
     //         );
     //     }
+
     //     fetchData();
     // }, []);
 
@@ -44,6 +45,7 @@ function Banner() {
     }
     const rePlayVideo = () => {
         playerRef.current.internalPlayer.playVideo();
+
         document.querySelector('.banner').style.animation = 'none';
         document.querySelector('.banner').offsetWidth;
         document.querySelector('.banner').style.animation = '';
@@ -64,13 +66,16 @@ function Banner() {
     }
 
     // BUTTONS STATE
-    // const onPlayerStateChange = () => {
-    //     if (YouTube.PlayerState.CUED) {
-    //         document.getElementById('rePlay').style.visibility = 'visible';
-    //         document.getElementById('volume-mute').style.visibility = 'hidden';
-    //         document.getElementById('volume-unmute').style.visibility = 'hidden';
-    //     }
-    // }
+    const remove = () => {
+        document.getElementById('rePlay').style.visibility = 'visible';
+        document.getElementById('volume-mute').style.visibility = 'hidden';
+        document.getElementById('volume-unmute').style.visibility = 'hidden';
+    }
+    const add = () => {
+        document.getElementById('rePlay').style.visibility = 'hidden';
+        document.getElementById('volume-unmute').style.visibility = 'visible';
+    }
+
 
 
     // FAKE INFO
@@ -119,14 +124,13 @@ function Banner() {
                         </div>
                         <div className='side-button-container'>
                             <div>
-                                {/* <button
+                                <button
                                     id='rePlay'
                                     className="side-button"
                                     onClick={rePlayVideo}
-                                    style={{ visibility: YouTube.PlayerState.UNSTARTED ? 'visible' : 'hidden' }}
                                 >
                                     <img src={replay} alt="replay" className="Hawkins-icon" />
-                                </button> */}
+                                </button>
                                 <button
                                     id='volume-mute'
                                     className="side-button"
@@ -151,7 +155,7 @@ function Banner() {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} state />
+                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={remove} onPlay={add} />
 
                 </div>
             </BannerStyles>
