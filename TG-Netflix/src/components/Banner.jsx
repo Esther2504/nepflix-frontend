@@ -158,12 +158,13 @@ function Banner() {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        show: state.show,
-        trailer: state.trailer,
-        playTime: state.playTime
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         show: state.show,
+//         trailer: state.trailer,
+//         playTime: state.playTime
+//     }
+// }
 
-export default connect(mapStateToProps, {})(Banner);
+// export default connect(mapStateToProps, {})(Banner);
+export default Banner;
