@@ -1,10 +1,26 @@
-import Discover from './pages/Discover'
+
+import { Outlet, useLocation } from "react-router-dom";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
+  const location = useLocation();
+  const mainUIRoutes = [
+    "/browse",
+    "/films",
+    "/my-list",
+    "/lanes",
+    "/modal",
+    "/grid-layout",
+  ];
+
   return (
-    <div className="App">
-      <Discover />
-    </div>
+    <>
+      {mainUIRoutes.includes(location.pathname) && <Navbar />}
+
+      <Outlet />
+      
+      
+    </>
   );
 }
 

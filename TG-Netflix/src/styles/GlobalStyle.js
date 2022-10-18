@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -28,6 +28,7 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
+  background-color: silver;
 }
 
 img,
@@ -59,6 +60,48 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+//footer styling - icons
+.socialIcons {
+margin-right: 25px;
+margin-top: 2px;
+user-select: none;
+cursor:pointer;
+text-decoration: none;
+}
+
+.select-globe {
+  position: relative;
+  top: 40px;
+  left: 12px;
+  scale: 2;
+
+}
+.select-caret {
+  position: relative;
+  top: 30px;
+  left: 130px;
+  scale: 2;
+}
+
+// content is displayed behind the see-through navbar. keeps the footer at the bottom. 
+.members-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// aligns the content directly below the navbar. keeps the footer at the bottom.
+.padding-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 4.1rem;
+
+  @media (min-width: 950px) {
+   padding-top: 6.8rem;
+  }
 }
 
 `;
