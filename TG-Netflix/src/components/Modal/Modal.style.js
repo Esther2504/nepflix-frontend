@@ -72,11 +72,12 @@ export const VideoControlsContainer = styled.div`
   padding-left: 3rem;
   background: linear-gradient(0deg, #181818, transparent 50%);
 `;
-export const VideoTitle = styled.div`
+export const VideoTitle = styled.img`
   height: 8rem;
-  background-image: url(${vidTitle});
+  width: max-content;
+  /* background-image: url(${vidTitle});
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain; */
 `;
 export const VideoControls = styled.div`
   display: flex;

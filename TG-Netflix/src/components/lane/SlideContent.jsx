@@ -20,7 +20,7 @@ export default function SlideContent(props) {
     <Container>
       {props.list.map((item, index) => {
         return (
-          <Container>
+          <Container key={index}>
             <Card style={{ margin: "0px 3px" }}>
               <span>{item.title}</span>
               <img

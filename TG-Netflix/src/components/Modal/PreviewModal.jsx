@@ -13,23 +13,27 @@ import {
     PreviewSummary
   } from "../Modal/PreviewModal.style";
 
-function PreviewModal() {
+function PreviewModal({movie}) {
+  // console.log(data)
     const modalRefVideo = useRef();
   return (
     <PreviewModalContainer>
-      <PreviewDuration>2h 10m</PreviewDuration>
+      <PreviewDuration>{Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m</PreviewDuration>
       <PreviewPlay />
-      <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} />
+      {/* Hier hoort een image met title in plaats van video (Styling moet nog aangepast worden)*/}
+      <span Style="position:absolute">{movie.title}</span>
+      <img src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path}></img>
+      {/* <VideoPlayer
+        muted
+        src={""}
+        type="video/webm"
+        ref={modalRefVideo} /> */}
       <PreviewMetaData>
         <PreviewRating>93% Match</PreviewRating>
         <PreviewMaturityRating></PreviewMaturityRating>
-        <PreviewReleaseYear>2022</PreviewReleaseYear>
+        <PreviewReleaseYear>{movie.release_year}</PreviewReleaseYear>
         <PreviewAddToList></PreviewAddToList>
-        <PreviewSummary>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          at ex non metus consequat hendrerit. Sed euismod, nibh sed interdum
-          blandit, quam metus tempus libero, quis vestibulum nisi leo at lacus.
-        </PreviewSummary>
+        <PreviewSummary>{movie.description}</PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>
   );
