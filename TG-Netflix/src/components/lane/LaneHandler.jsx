@@ -159,6 +159,7 @@ function LaneHandler() {
                 categoryTitle={item.name}
                 slices={getSlices()}
                 itemsPerLane={getAmount()}
+                key={index}
               ></Lane>
             )}
           </>

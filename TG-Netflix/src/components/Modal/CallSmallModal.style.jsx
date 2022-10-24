@@ -7,6 +7,15 @@ import {
 import { BsFillPlayFill, BsHandThumbsUp } from "react-icons/bs";
 import { TbVolume3 } from "react-icons/tb";
 
+export const SmallModalContainer = styled.div`
+${props=> console.log(props)};
+  position: absolute;
+  left: ${(props) => props.coords.left + "px"};
+  top: ${(props) => props.coords.top + "px"};
+  width: ${(props) => props.coords.width + "px"};
+  height: ${(props) => props.coords.height + "px"};
+`;
+
 //START SMALLMODAL
 export const SmallModalTop = styled.div`
   height: 100%;
@@ -22,14 +31,15 @@ export const SmallModalBottom = styled.div`
 `;
 export const SmallModal = styled.div`
   position: absolute;
+  height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
   transition-delay: 300ms;
-  transform-origin: ${(props) =>
+  /* transform-origin: ${(props) =>
     props.bounds === "center"
       ? "center"
       : props.bounds === "left"
       ? "left center"
-      : "right center"};
+      : "right center"}; */
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
@@ -37,7 +47,7 @@ export const SmallModal = styled.div`
   background-size: cover;
   z-index: 999;
   &:hover {
-    scale: 1.3;
+    scale: 1.5;
     ${SmallModalBottom} {
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;

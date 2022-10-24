@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "React";
-import { Child } from "../test/CallModal.styled";
+import { Child } from "./CallModal.style";
 
 import CallSmallModal from "./CallSmallModal";
-import CallBigModal from "./CallBigModal";
+
 
 function CallModal(props) {
 
@@ -33,8 +33,7 @@ function CallModal(props) {
 
   return (
     <Child>
-      <CallSmallModal {...props} ref={forwardRefSmallModal} />
-      <CallBigModal {...props} ref={forwardRefBigModal} />
+      <CallSmallModal {...props} />
     </Child>
   );
 }

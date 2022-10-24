@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Card = styled.div`
   position: relative;
   overflow: hidden;
@@ -12,7 +13,6 @@ export const Card = styled.div`
     width: 100%;
     padding: 0 5px;
     bottom: 7px;
-
     font-family: Futura;
     text-align: center;
     line-height: 0.9;

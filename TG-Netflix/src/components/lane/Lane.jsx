@@ -16,7 +16,7 @@ export default function Lane(props) {
   const transitionSpeed = 500;
   const [visibleSlide, setVisibleSlide] = useState(1);
   const [hasTransitionClass, setHasTransitionClass] = useState(true);
-  // const [stateSlides, setStateSlides] = useState(props.slices);
+  const [stateSlides, setStateSlides] = useState(props.slices);
   const [leftAndRightDisabled, setLeftAndRightDisabled] = useState(false);
   const laneWidth = document.getElementById("root").clientWidth * 0.9;
   const slides = props.slices;
@@ -158,6 +158,7 @@ export default function Lane(props) {
                     imageWidth={laneWidth / itemsPerLane - 6 + "px"}
                     imageHeight={slideHeight + "px"}
                     title={props.title}
+                    key={index}
                   ></SlideContent>
                 </div>
               );

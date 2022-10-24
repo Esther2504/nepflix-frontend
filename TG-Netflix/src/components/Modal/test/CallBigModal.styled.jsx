@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import VidTitle from "../House_of_the_dragon_logo.webp";
+
 import {
   AiFillCloseCircle,
   AiOutlinePlusCircle,
@@ -25,7 +25,7 @@ export const VideoControlsContainer = styled.div`
   background: linear-gradient(0deg, #181818, transparent 50%);
 `;
 export const VideoTitle = styled.div`
-  background-image: url(VidTitle);
+
   height: 8rem;
   background-repeat: no-repeat;
   background-size: contain;
