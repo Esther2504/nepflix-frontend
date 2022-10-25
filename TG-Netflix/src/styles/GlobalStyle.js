@@ -29,6 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
   background-color: silver;
+  overflow-x: hidden;
 }
 
 img,

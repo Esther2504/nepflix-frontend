@@ -20,9 +20,11 @@ export default function SlideContent(props) {
   return (
     <Container>
       {props.list.map((item, index) => {
+        // console.log(item)
         return (
           <Card
             data-backdrop={item.backdrop_path}
+            data-video={item.video}
             style={{ margin: "0px 3px" }}
             key={index}
             id="movie"

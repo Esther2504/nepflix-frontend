@@ -8,10 +8,9 @@ import { BsFillPlayFill, BsHandThumbsUp } from "react-icons/bs";
 import { TbVolume3 } from "react-icons/tb";
 
 export const SmallModalContainer = styled.div`
-${props=> console.log(props)};
   position: absolute;
   left: ${(props) => props.coords.left + "px"};
-  top: ${(props) => props.coords.top + "px"};
+  top: ${(props) => props.coords.top + window.scrollY + "px"};
   width: ${(props) => props.coords.width + "px"};
   height: ${(props) => props.coords.height + "px"};
 `;
@@ -20,6 +19,8 @@ ${props=> console.log(props)};
 export const SmallModalTop = styled.div`
   height: 100%;
   width: 100%;
+  background-image: url(${(props) => props.bg});
+  background-size: cover;
 `;
 export const SmallModalBottom = styled.div`
   background-color: #181818;
@@ -33,7 +34,7 @@ export const SmallModal = styled.div`
   position: absolute;
   height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
-  transition-delay: 300ms;
+  transition-delay: 600ms;
   /* transform-origin: ${(props) =>
     props.bounds === "center"
       ? "center"
@@ -43,7 +44,7 @@ export const SmallModal = styled.div`
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
-  background-image: url(${(props) => props.bg});
+  // background-image: url(${(props) => props.bg});
   background-size: cover;
   z-index: 999;
   &:hover {
@@ -61,7 +62,8 @@ export const SmallModal = styled.div`
 export const VideoPlayer = styled.video`
   border-radius: 1rem;
   aspect-ratio: 16/9;
-  display: none;
+  // display: none;
+  z-index: 999;
 `;
 
 export const VideoControlsContainer = styled.div`

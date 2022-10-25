@@ -8,31 +8,46 @@ export default function Lanes() {
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
 
+  console.log(dataset)
+
+ 
+
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
-      film.addEventListener("mouseover", (e) => {
+      film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
         }
         setCoords(e.target.getBoundingClientRect());
       });
+
       // film.addEventListener("mouseleave", (e) => {
       //   if (e.target.getAttribute("id")) {
+      //     setDataset();
       //     setIsHovering(false);
       //   }
       //   setCoords(e.target.getBoundingClientRect());
-
       // });
     });
+
+    window.addEventListener("click", (e) => {
+      e.stopPropagation();
+        setIsHovering(false);
+      })
   }, []);
+
+
+
+  console.log(isHovering)
+
 
   return (
     <>
       <div className="padding-container">
         {isHovering && (
-          <CallModal data={{ coords: coords, dataset: dataset }} />
+          <CallModal onMouseLeave={() => setIsHovering(false)} hover={isHovering} data={{ coords: coords, dataset: dataset }} />
         )}
         <LaneHandler />
         <Footer />
