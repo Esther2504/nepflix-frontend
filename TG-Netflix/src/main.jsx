@@ -17,6 +17,8 @@ import {
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./reducers/store";
+import browseMockData from './mock-data/browse_categories_banner.mock.json'
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
