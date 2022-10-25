@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { Card } from "../movie-card/MovieCard.styled";
-import CallModal from "../Modal/test/CallModal";
+
 const Container = styled.div`
   display: flex;
   position: relative;

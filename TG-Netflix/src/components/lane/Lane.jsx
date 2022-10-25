@@ -79,6 +79,7 @@ export default function Lane(props) {
     return { width: laneWidth + "px", height: slideHeight + "px" };
   };
 
+
   const scrollLeft = () => {
     setVisibleSlide(visibleSlide - 1);
   };

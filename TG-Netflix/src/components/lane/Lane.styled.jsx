@@ -65,9 +65,9 @@ export const ScrollLeftButton = styled.span`
   border-top-left-radius: 4px;
   cursor: pointer;
   width: inherit;
-  height: 12.5rem;
+  ${props => console.log(props)}
+  height: 100%;
   background-color: #14141440;
-  position: absolute;
   z-index: 10;
   display: flex;
   justify-content: center;
