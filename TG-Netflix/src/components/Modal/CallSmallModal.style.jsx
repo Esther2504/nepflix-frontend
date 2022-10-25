@@ -47,15 +47,37 @@ export const SmallModal = styled.div`
   // background-image: url(${(props) => props.bg});
   background-size: cover;
   z-index: 999;
+  animation:out 400ms ease-in-out;
+  
   &:hover {
-    scale: 1.5;
+    animation: in 400ms ease-in-out;
+    animation-fill-mode: forwards;
     ${SmallModalBottom} {
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
       height: 5rem;
     }
   }
+  @keyframes in {
+  0% {
+    scale:1;
+  }
+  100% {
+    scale:1.5
+  }
+}
+@keyframes out {
+  0% {
+    scale:1.5;
+  }
+  100% {
+    scale:1
+  }
+}
+
 `;
+
+
 //END SMALLMODAL
 
 //START VIDEOPLAYER (will be replaced by videomodal)
