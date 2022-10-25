@@ -41,7 +41,7 @@ const dropdown = css`
 
 // styled components
 
-export const Nav = styled.nav`
+export const Nav = styled.header`
   position: ${(props) => (props.staticNavbar ? 'static ' : 'fixed')};
   display: flex;
   justify-content: space-between;
@@ -93,7 +93,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const PrimaryNav = styled.div`
+export const PrimaryNav = styled.nav`
   ${dropdown}
   display: flex;
   align-items: center;
@@ -179,7 +179,7 @@ export const Browse = styled.div`
   }
 `;
 
-export const SecondaryNav = styled.div`
+export const SecondaryNav = styled.nav`
   display: flex;
   align-items: center;
 `;
