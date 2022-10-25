@@ -35,20 +35,21 @@ export const SmallModal = styled.div`
   height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
   transition-delay: 600ms;
-  /* transform-origin: ${(props) =>
-    props.bounds === "center"
-      ? "center"
-      : props.bounds === "left"
+  transform-origin: ${(props) =>
+    props.coords.left < props.coords.width
       ? "left center"
-      : "right center"}; */
+      : props.sWidth - props.coords.right < props.coords.width
+      ? "right center"
+      : "center"};
+
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
   // background-image: url(${(props) => props.bg});
   background-size: cover;
   z-index: 999;
-  animation:out 400ms ease-in-out;
-  
+  animation: out 400ms ease-in-out;
+
   &:hover {
     animation: in 400ms ease-in-out;
     animation-fill-mode: forwards;
@@ -59,24 +60,22 @@ export const SmallModal = styled.div`
     }
   }
   @keyframes in {
-  0% {
-    scale:1;
+    0% {
+      scale: 1;
+    }
+    100% {
+      scale: 1.5;
+    }
   }
-  100% {
-    scale:1.5
+  @keyframes out {
+    0% {
+      scale: 1.5;
+    }
+    100% {
+      scale: 1;
+    }
   }
-}
-@keyframes out {
-  0% {
-    scale:1.5;
-  }
-  100% {
-    scale:1
-  }
-}
-
 `;
-
 
 //END SMALLMODAL
 
