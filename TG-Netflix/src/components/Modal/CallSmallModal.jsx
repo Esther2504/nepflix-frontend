@@ -66,7 +66,7 @@ const CallModal = (props) => {
   const opts = {
     playerVars: {
         width: '20%',
-        autoplay: 1,
+        autoplay: 0,
         mute: 1,
         controls: 0,
         disablekb: 1,
