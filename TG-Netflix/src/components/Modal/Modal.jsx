@@ -118,7 +118,6 @@ function Modal({movie}) {
               ref={modalRefVideo}
             />
             <VideoControlsContainer>
-              {console.log(movie.logo)}
               <VideoTitle src={movie.logo} />
               <VideoControls>
                 <VideoPlay>
@@ -135,7 +134,7 @@ function Modal({movie}) {
               <VideoInfoContainerLeft>
                 <MetaData>
                   <Rating>93% Match</Rating>
-                  <ReleaseYear>2022</ReleaseYear>
+                  <ReleaseYear>{movie.release_year}</ReleaseYear>
                   <MaturityRating></MaturityRating>
                   <Duration>{Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m</Duration>
                   <VidQuality>HD</VidQuality>
