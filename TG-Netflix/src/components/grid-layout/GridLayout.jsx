@@ -3,7 +3,6 @@ import { GridContainer } from './GridLayout.styled';
 import MovieCard from '../movie-card/MovieCard';
 
 export default function GridLayout({movies}) {
-  console.log(movies)
   return (
     <GridContainer>
       {movies.map((movie, index) => {
