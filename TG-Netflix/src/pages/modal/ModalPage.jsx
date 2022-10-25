@@ -5,7 +5,6 @@ import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // props worden uiteindelijk doorgegeven met Params of elders
 export default function ModalPage(movie) {
   movie = movieDetailsMock
-  console.log(movie)
   return (
     <>
       <div className="padding-container">
