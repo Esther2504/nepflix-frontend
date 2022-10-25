@@ -40,8 +40,7 @@ export const SmallModal = styled.div`
       ? "left center"
       : props.sWidth - props.coords.right < props.coords.width
       ? "right center"
-      : "center"};
-
+      : "center center"};
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;

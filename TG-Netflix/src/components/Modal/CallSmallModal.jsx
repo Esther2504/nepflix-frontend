@@ -22,7 +22,7 @@ const CallModal = (props) => {
   useEffect(()=>{
     setsWidth(window.innerWidth)
   },[sWidth])
-  console.log(props.data.dataset);
+
   const refVideoPlayer = useRef()
   const bg =
     "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
@@ -41,8 +41,6 @@ const CallModal = (props) => {
   };
 
   const [videoState, setVideoState] = useState(false);
-  
-  console.log(Trailer);
 
   // Als de small modal verschijnt, duurt het nog twee seconden tot de video speelt
   if (props.hover) {

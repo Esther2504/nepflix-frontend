@@ -8,10 +8,6 @@ export default function Lanes() {
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
 
-  console.log(dataset)
-
- 
-
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
@@ -34,20 +30,19 @@ export default function Lanes() {
 
     window.addEventListener("click", (e) => {
       e.stopPropagation();
-        setIsHovering(false);
-      })
+      setIsHovering(false);
+    });
   }, []);
-
-
-
-  console.log(isHovering)
-
 
   return (
     <>
       <div className="padding-container">
         {isHovering && (
-          <CallModal onMouseLeave={() => setIsHovering(false)} hover={isHovering} data={{ coords: coords, dataset: dataset }} />
+          <CallModal
+            onMouseLeave={() => setIsHovering(false)}
+            hover={isHovering}
+            data={{ coords: coords, dataset: dataset }}
+          />
         )}
         <LaneHandler />
         <Footer />
