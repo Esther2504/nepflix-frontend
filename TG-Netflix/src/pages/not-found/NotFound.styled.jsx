@@ -3,7 +3,7 @@ import bg from '../../assets/not-found-images/bg-lost-in-space.png';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 6.8rem 10fr 4fr 6rem;
+  grid-template-rows: 6.8rem 7fr 4fr 6rem;
   height: 100vh;
   color: white;
   background-image: url(${bg});
@@ -89,5 +89,6 @@ export const Credit = styled.div`
     float: right;
     font-size: 1.3rem;
     font-weight: bold;
+    color: #bababa;
   }
 `;

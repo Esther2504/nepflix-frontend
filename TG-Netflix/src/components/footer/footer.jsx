@@ -57,6 +57,7 @@ min-width: 190px;
 display: flex;
 align-items: center;
 justify-content: center;
+margin-top: auto;
 background: black; // pink for testing purposes
 `
 

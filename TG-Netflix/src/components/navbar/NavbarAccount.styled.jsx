@@ -10,15 +10,16 @@ export const Container = styled.nav`
   height: 5rem;
   padding: 0;
   color: white;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.97);
 
   @media (min-width: 740px) {
-    height: 7rem;
-    padding: 0 70px 0 30px;
+    height: 6.8rem;
+    padding: 0 70px 0 35px;
   }
 
   img:nth-of-type(1) {
-    width: 150px;
+    width: 120px;
   }
 `;
 
