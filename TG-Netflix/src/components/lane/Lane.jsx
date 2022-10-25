@@ -31,7 +31,7 @@ export default function Lane(props) {
   }, [slides]);
 
   useEffect(() => {
-    if (visibleSlide == slides.length - 1) {
+    if (visibleSlide == stateSlides.length - 1) {
       setLeftAndRightDisabled(true);
       setTimeout(() => {
         setHasTransitionClass(false);
@@ -49,11 +49,11 @@ export default function Lane(props) {
       setLeftAndRightDisabled(true);
       setTimeout(() => {
         setHasTransitionClass(false);
-        setVisibleSlide(slides.length - 2);
+        setVisibleSlide(stateSlides.length - 2);
       }, transitionSpeed);
     }
 
-    if (visibleSlide == slides.length - 2) {
+    if (visibleSlide == stateSlides.length - 2) {
       setTimeout(() => {
         setHasTransitionClass(true);
       }, transitionSpeed);
@@ -87,8 +87,8 @@ export default function Lane(props) {
   const dotIsActive = (index) => {
     return (
       index === visibleSlide ||
-      (index === 1 && visibleSlide === slides.length - 1) ||
-      (index === slides.length - 2 && visibleSlide === 0)
+      (index === 1 && visibleSlide === stateSlides.length - 1) ||
+      (index === stateSlides.length - 2 && visibleSlide === 0)
     );
   };
 
@@ -158,7 +158,6 @@ export default function Lane(props) {
                     imageWidth={laneWidth / itemsPerLane - 6 + "px"}
                     imageHeight={slideHeight + "px"}
                     title={props.title}
-                    key={index}
                   ></SlideContent>
                 </div>
               );
