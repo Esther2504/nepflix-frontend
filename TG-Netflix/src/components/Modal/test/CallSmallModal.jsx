@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useEffect, useState } from "React";
+import React, { useRef, forwardRef, useEffect, useState } from "react";
 import {
   SmallModal,
   SmallModalTop,

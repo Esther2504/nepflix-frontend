@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "React";
+import React, { useRef, useEffect, useState } from "react";
 import { Child } from "./CallModal.style";
 
 import CallSmallModal from "./CallSmallModal";
