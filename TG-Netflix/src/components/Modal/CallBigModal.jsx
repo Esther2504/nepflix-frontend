@@ -40,7 +40,7 @@ import {
 } from "./CallBigModal.styled";
 import { openModal, closeModal } from "../../reducers/modalReducer";
 
-const CallBigModal = forwardRef((props) => {
+const CallBigModal = forwardRef((props, ref) => {
   //REF's
   const modalRef = useRef();
   const modalRefContent = useRef();
