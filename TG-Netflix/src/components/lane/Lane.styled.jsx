@@ -27,6 +27,10 @@ export const LaneTitle = styled.div`
   padding-right: 3rem;
 `;
 
+export const ScrollBtns = styled.div`
+  display:flex;
+`
+
 export const SlideIndicator = styled.div`
   /* child of LaneContainer */
   width: 50%;
@@ -47,16 +51,45 @@ export const IndicatorRect = styled.div`
   margin: 0 1px;
 `;
 
+export const ScrollLeftButtonContainer = styled.div`
+  height:inherit;
+  width:5vw;
+`
+export const ScrollRightButtonContainer = styled.div`
+  height:inherit;
+  width:5vw;
+`
 export const ScrollLeftButton = styled.span`
   left: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  cursor: pointer;
+  width: inherit;
+  height: 100%;
+  background-color: #14141440;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: transparent;
+  transition: font-size 70ms linear;
+  opacity: 0;
+  pointer-events: none;
+  &:hover {
+    font-size: 28px;
+  }
+`;
+
+export const ScrollRightButton = styled.span`
   left: auto;
+ 
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   cursor: pointer;
-  width: 4.8rem;
+  width: inherit;
   height: 100%;
   background-color: #14141440;
-  position: absolute;
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -68,11 +101,6 @@ export const ScrollLeftButton = styled.span`
   &:hover {
     font-size: 28px;
   }
-`;
-
-export const ScrollRightButton = styled(ScrollLeftButton)`
-  right: 0;
-  left: auto;
 `;
 
 export const Slides = styled.div`

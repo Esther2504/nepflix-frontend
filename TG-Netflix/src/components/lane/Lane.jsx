@@ -9,6 +9,9 @@ import {
   Slides,
   LaneTitle,
   TopWrapper,
+  ScrollBtns,
+  ScrollLeftButtonContainer,
+  ScrollRightButtonContainer,
 } from "./Lane.styled";
 import SlideContent from "./SlideContent";
 
@@ -76,6 +79,7 @@ export default function Lane(props) {
     return { width: laneWidth + "px", height: slideHeight + "px" };
   };
 
+
   const scrollLeft = () => {
     setVisibleSlide(visibleSlide - 1);
   };
@@ -117,54 +121,62 @@ export default function Lane(props) {
           })}
         </SlideIndicator>
       </TopWrapper>
-      <LaneWrapper
+      <ScrollBtns
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <ScrollRightButton
-          onClick={!leftAndRightDisabled ? scrollRight : null}
-          onMouseDown={() => setIsScrolled(true)}
-          disabled={leftAndRightDisabled}
-          style={{
-            opacity: isHovered ? "1" : "",
-            color: isHovered ? "white" : "",
-            backgroundColor: isHovered ? "#14141480" : "",
-          }}
-        >
-          ❯
-        </ScrollRightButton>
-        <ScrollLeftButton
-          onClick={!leftAndRightDisabled ? scrollLeft : null}
-          disabled={leftAndRightDisabled}
-          style={{
-            zIndex: !isScrolled ? "-10" : "",
-            opacity: isHovered && isScrolled ? "1" : "",
-            color: isHovered ? "white" : "",
-            backgroundColor: isHovered ? "#14141480" : "",
-          }}
-        >
-          ❮
-        </ScrollLeftButton>
-        <div className="lane_container" style={slideDimensionStyles()}>
-          <Slides
-            hasTransitionClass={hasTransitionClass}
-            style={{ left: calculateLeftMargin() }}
+        <ScrollLeftButtonContainer>
+          <ScrollLeftButton
+            onClick={!leftAndRightDisabled ? scrollLeft : null}
+            disabled={leftAndRightDisabled}
+            style={{
+              pointerEvents: !isScrolled ? "" : "all",
+              zIndex: !isScrolled ? "-10" : "",
+              opacity: isHovered && isScrolled ? "1" : "",
+              color: isHovered ? "white" : "",
+              backgroundColor: isHovered ? "#14141480" : "",
+            }}
           >
-            {stateSlides.map((slide, index) => {
-              return (
-                <div key={index} style={slideDimensionStyles()}>
-                  <SlideContent
-                    list={Array.from(slide)}
-                    imageWidth={laneWidth / itemsPerLane - 6 + "px"}
-                    imageHeight={slideHeight + "px"}
-                    title={props.title}
-                  ></SlideContent>
-                </div>
-              );
-            })}
-          </Slides>
-        </div>
-      </LaneWrapper>
+            ❮
+          </ScrollLeftButton>
+        </ScrollLeftButtonContainer>
+
+        <LaneWrapper>
+          <div className="lane_container" style={slideDimensionStyles()}>
+            <Slides
+              hasTransitionClass={hasTransitionClass}
+              style={{ left: calculateLeftMargin() }}
+            >
+              {stateSlides.map((slide, index) => {
+                return (
+                  <div key={index} style={slideDimensionStyles()}>
+                    <SlideContent
+                      list={Array.from(slide)}
+                      imageWidth={laneWidth / itemsPerLane - 6 + "px"}
+                      imageHeight={slideHeight + "px"}
+                      title={props.title}
+                    ></SlideContent>
+                  </div>
+                );
+              })}
+            </Slides>
+          </div>
+        </LaneWrapper>
+        <ScrollRightButtonContainer>
+          <ScrollRightButton
+            onClick={!leftAndRightDisabled ? scrollRight : null}
+            onMouseDown={() => setIsScrolled(true)}
+            disabled={leftAndRightDisabled}
+            style={{
+              opacity: isHovered ? "1" : "",
+              color: isHovered ? "white" : "",
+              backgroundColor: isHovered ? "#14141480" : "",
+            }}
+          >
+            ❯
+          </ScrollRightButton>
+        </ScrollRightButtonContainer>
+      </ScrollBtns>
     </div>
   );
 }
