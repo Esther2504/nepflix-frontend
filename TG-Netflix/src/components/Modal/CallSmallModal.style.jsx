@@ -51,7 +51,8 @@ export const SmallModal = styled.div`
   animation: out 400ms ease-in-out;
 
   &:hover {
-    animation: in 400ms ease-in-out;
+    animation-duration: 1000ms;
+    animation: in 1400ms ease-in-out;
     animation-fill-mode: forwards;
     ${SmallModalBottom} {
       border-radius: 0 0 0.5rem 0.5rem;
@@ -61,6 +62,9 @@ export const SmallModal = styled.div`
   }
   @keyframes in {
     0% {
+      scale: 1;
+    }
+    90% {
       scale: 1;
     }
     100% {

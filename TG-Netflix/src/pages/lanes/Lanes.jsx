@@ -14,12 +14,7 @@ export default function Lanes() {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
-          
-            setTimeout(function () {
-              setIsHovering(true);
-            }, 500);
-          
-         
+              setIsHovering(true); 
         }
         setCoords(e.target.getBoundingClientRect());
       });
