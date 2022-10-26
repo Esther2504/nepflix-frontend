@@ -75,6 +75,7 @@ export const ScrollLeftButton = styled.span`
   color: transparent;
   transition: font-size 70ms linear;
   opacity: 0;
+  pointer-events: none;
   &:hover {
     font-size: 28px;
   }
