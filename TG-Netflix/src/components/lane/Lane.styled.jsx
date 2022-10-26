@@ -101,6 +101,8 @@ export const ScrollRightButton = styled.span`
   &:hover {
     font-size: 28px;
   }
+
+
 `;
 
 export const Slides = styled.div`

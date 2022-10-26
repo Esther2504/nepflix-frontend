@@ -7,6 +7,7 @@ const Container = styled.div`
   position: relative;
   top: 0;
   left: 0;
+
   img:nth-of-type(2) {
     position: absolute;
     top: 8px;

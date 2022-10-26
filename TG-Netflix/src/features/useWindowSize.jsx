@@ -13,14 +13,14 @@ function useWindowSize() {
         height: window.innerHeight,
       });
     }
-    window.addEventListener("resize", handleResize);
-    screen.orientation.addEventListener("change", handleResize);
+    // window.addEventListener("resize", handleResize);
+    // screen.orientation.addEventListener("change", handleResize);
 
-    handleResize();
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      screen.orientation.removeEventListener("change", handleResize);
-    };
+    // handleResize();
+    // return () => {
+    //   window.removeEventListener("resize", handleResize);
+    //   screen.orientation.removeEventListener("change", handleResize);
+    // };
   }, []);
 
   return windowSize;
