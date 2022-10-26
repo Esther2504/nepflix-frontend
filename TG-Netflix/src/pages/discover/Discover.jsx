@@ -1,12 +1,16 @@
-import Footer from '../../components/footer/footer';
+import Player from "../../components/player/Player";
+import Footer from "../../components/footer/Footer";
 
-export default function Discover() {
-  return (
-    <>
-      <div className="members-container">
-        {/* CONTENT GOES HERE */}
-        <Footer />
-      </div>
-    </>
-  );
+// props kunnen worden doorgegeven worden vanaf main om content te laden voordat
+// bezoeker inlogt
+export default function Discover({banner, categories}) {
+    return (
+        <>
+            <div className="members-container">
+                {/* CONTENT GOES HERE */}
+                <Player data={banner}/>
+                <Footer />
+            </div>
+        </>
+    );
 }

@@ -56,7 +56,6 @@ const CallBigModal = forwardRef((props, ref) => {
     if (e.target.className === ref.current.className) {
       ref.current.style.display = "none";
       modalRefContent.current.style.display = "none";
-
     }
   };
 
@@ -87,12 +86,13 @@ const CallBigModal = forwardRef((props, ref) => {
           <ModalPreview>
             <VideoPlayer
               muted
-              src={Trailer}
+              src={`https://www.youtube.com/embed/${movie.trailer}?controls=0&autoplay=1`}
               type="video/webm"
+              allow="autoplay"
               ref={modalRefVideo}
             />
             <VideoControlsContainer>
-              <VideoTitle />
+              <VideoTitle src={movie.logo} />
               <VideoControls>
                 <VideoPlay>
                   <PlayButton />
@@ -108,25 +108,24 @@ const CallBigModal = forwardRef((props, ref) => {
               <VideoInfoContainerLeft>
                 <MetaData>
                   <Rating>93% Match</Rating>
-                  <ReleaseYear>2022</ReleaseYear>
+                  <ReleaseYear>{movie.release_year}</ReleaseYear>
                   <MaturityRating></MaturityRating>
-                  <Duration>1h 58m</Duration>
+                  <Duration>
+                    {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
+                  </Duration>
                   <VidQuality>HD</VidQuality>
                   <AudDesc>Aud</AudDesc>
                 </MetaData>
-                <Summary>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque at ex non metus consequat hendrerit. Sed euismod,
-                  nibh sed interdum blandit, quam metus tempus libero, quis
-                  vestibulum nisi leo at lacus.
-                </Summary>
+                <Summary>{movie.description}</Summary>
               </VideoInfoContainerLeft>
               <VideoInfoContainerRight>
                 <Cast>
-                  <span>Cast:</span> Pietje, Jantje, Loesje, Keesje
+                  <span>Cast:</span>
+                  {movie.actors.join(", ")}
                 </Cast>
                 <Genres>
-                  <span>Genres:</span> Period piece, Drama, Thriller
+                  <span>Genres:</span>
+                  {movie.genres.join(", ")}
                 </Genres>
                 <Tags>
                   <span>This programme is:</span> Exciting, Funny
@@ -137,20 +136,9 @@ const CallBigModal = forwardRef((props, ref) => {
               <span>More Like This</span>
 
               <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
+                {movie.similar.map((data, index) => {
+                  return <PreviewModal key={index} movie={data} />;
+                })}
               </MoreLikeThisWrapper>
               <MoreLikeThisToggle
                 onClick={handleOnClickToggleMore}
@@ -166,17 +154,19 @@ const CallBigModal = forwardRef((props, ref) => {
                 <h1>About GoT: House Of The Dragon</h1>
               </AboutTitle>
               <Cast>
-                <span>Cast:</span> Pietje, Jantje, Loesje, Keesje
+                <span>Cast:</span>
+                {movie.actors.join(", ")}
               </Cast>
               <Genres>
-                <span>Genres:</span> Period piece, Drama, Thriller
+                <span>Genres:</span>
+                {movie.genres.join(", ")}
               </Genres>
               <Tags>
                 <span>This programme is:</span> Exciting, Funny
               </Tags>
               <MaturityRating>
-                <span>Maturity Rating:</span> Depics violence, May cause fear
-                and anxiety
+                <span>Maturity Rating:</span>
+                {movie.age_certificate}
               </MaturityRating>
             </AboutContainer>
           </ModalPreview>
