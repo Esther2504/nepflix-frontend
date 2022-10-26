@@ -2,11 +2,17 @@ import React, { useState, useEffect } from "react";
 import LaneHandler from "../../components/lane/LaneHandler";
 import Footer from "../../components/footer/footer";
 import CallModal from "../../components/Modal/CallModal";
-
+import CallBigModal from "../../components/Modal/CallBigModal";
+import { useSelector, useDispatch } from "react-redux";
+import {openModal, closeModal} from '../../reducers/modalReducer'
 export default function Lanes() {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
+
+  const dispatch = useDispatch();
+
+  const globalModalState = useSelector((state) => state.modal.modalState);
 
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
@@ -19,13 +25,6 @@ export default function Lanes() {
         setCoords(e.target.getBoundingClientRect());
       });
 
-      // film.addEventListener("mouseleave", (e) => {
-      //   if (e.target.getAttribute("id")) {
-      //     setDataset();
-      //     setIsHovering(false);
-      //   }
-      //   setCoords(e.target.getBoundingClientRect());
-      // });
     });
 
     window.addEventListener("click", (e) => {
@@ -34,6 +33,17 @@ export default function Lanes() {
     });
   }, []);
 
+
+
+  const openBigModal = () => {
+    console.log("openbigmodal");
+
+    dispatch(openModal({modalState: true, coords:coords}))
+    // setOpenBModal(<CallBigModal/>)
+  };
+  useEffect(()=>{
+    console.log('state change');
+  },[globalModalState])
   return (
     <>
       <div className="padding-container">
@@ -42,7 +52,11 @@ export default function Lanes() {
             onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
             data={{ coords: coords, dataset: dataset }}
+            onClick={openBigModal}
           />
+        )}
+        {globalModalState.modalState &&(
+          <CallBigModal data={coords}/>
         )}
         <LaneHandler />
         <Footer />
