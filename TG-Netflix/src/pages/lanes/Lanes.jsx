@@ -8,8 +8,6 @@ export default function Lanes({categories, movie}) {
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
 
-  console.log(categories)
-
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
