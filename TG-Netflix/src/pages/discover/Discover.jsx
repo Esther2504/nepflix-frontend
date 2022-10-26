@@ -9,8 +9,8 @@ export default function Discover({banner, categories, movie}) {
         <>
             <div className="members-container">
                 {/* CONTENT GOES HERE */}
-                <Player data={banner} categories={categories} movie={movie}/>
-                <Lanes />
+                <Player data={banner} />
+                <Lanes categories={categories} movie={movie} />
                 <Footer />
             </div>
         </>
