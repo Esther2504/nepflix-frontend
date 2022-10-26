@@ -130,6 +130,7 @@ export default function Lane(props) {
             onClick={!leftAndRightDisabled ? scrollLeft : null}
             disabled={leftAndRightDisabled}
             style={{
+              pointerEvents: !isScrolled ? "" : "all",
               zIndex: !isScrolled ? "-10" : "",
               opacity: isHovered && isScrolled ? "1" : "",
               color: isHovered ? "white" : "",

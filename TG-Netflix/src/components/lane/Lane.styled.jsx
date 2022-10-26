@@ -61,6 +61,29 @@ export const ScrollRightButtonContainer = styled.div`
 `
 export const ScrollLeftButton = styled.span`
   left: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  cursor: pointer;
+  width: inherit;
+  height: 100%;
+  background-color: #14141440;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: transparent;
+  transition: font-size 70ms linear;
+  opacity: 0;
+  pointer-events: none;
+  &:hover {
+    font-size: 28px;
+  }
+`;
+
+export const ScrollRightButton = styled.span`
+  left: auto;
+ 
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   cursor: pointer;
@@ -78,10 +101,7 @@ export const ScrollLeftButton = styled.span`
   &:hover {
     font-size: 28px;
   }
-`;
 
-export const ScrollRightButton = styled(ScrollLeftButton)`
-  left: auto;
 
 `;
 
