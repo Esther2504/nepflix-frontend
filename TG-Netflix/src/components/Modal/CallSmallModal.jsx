@@ -56,7 +56,7 @@ const CallModal = (props) => {
     height: "100%",
 
     playerVars: {
-      autoplay: 0,
+      autoplay: 1,
       mute: 1,
       controls: 0,
       disablekb: 1,
