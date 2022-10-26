@@ -28,14 +28,14 @@ export const SmallModalBottom = styled.div`
   height: 0;
   opacity: 0;
   transition: opacity ease-in-out 150ms, height 100ms ease-in-out;
-  transition-delay: 300ms;
+  transition-delay: 0ms;
 `;
 
 export const SmallModal = styled.div`
   position: absolute;
   height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
-  transition-delay: 600ms;
+  transition-delay:1300ms;
   transform-origin: ${(props) =>
     props.coords.left < props.coords.width
       ? "left center"
@@ -48,13 +48,13 @@ export const SmallModal = styled.div`
   // background-image: url(${(props) => props.bg});
   background-size: cover;
   z-index: 999;
-  animation: out 400ms ease-in-out;
-
+  animation: out 500ms ease-in-out;
   &:hover {
-    animation-duration: 1000ms;
-    animation: in 1400ms ease-in-out;
+    animation-duration: 1300ms;
+    animation: in 1300ms ease-in-out;
     animation-fill-mode: forwards;
     ${SmallModalBottom} {
+      transition-delay: 1300ms;
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
       height: 5rem;
