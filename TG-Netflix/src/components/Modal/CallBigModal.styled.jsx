@@ -105,7 +105,7 @@ export const VolumeIcon = styled(TbVolume3)`
 
 //START MODAL
 export const ModalContainer = styled.div`
-${props => console.log(props)}
+
   display: block;
   position: absolute;
   z-index: 999;
@@ -128,10 +128,11 @@ export const ModalContent = styled.div`
   max-width: 85rem;
   padding-bottom: 2rem;
   background-color: #181818;
-  /* transform-origin:${props => props.children.props.coords.left + 'px ' + props.children.props?.coords.top + 'px'}; */
+
+transform-origin:${props => props.coords} ;
   /* transform-origin:0px 0px; */
 
-  animation: blowUpModal 3.75s ease-in-out forwards;
+  animation: blowUpModal .75s ease-in-out forwards;
 
   @keyframes blowUpModal {
     0% {

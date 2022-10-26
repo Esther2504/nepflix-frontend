@@ -4,7 +4,7 @@ import Footer from "../../components/footer/footer";
 import CallModal from "../../components/Modal/CallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { useSelector, useDispatch } from "react-redux";
-import {openModal, closeModal} from '../../reducers/modalReducer'
+import { openModal, closeModal } from "../../reducers/modalReducer";
 export default function Lanes() {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
@@ -21,10 +21,10 @@ export default function Lanes() {
         if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
+          setCoords(e.target.getBoundingClientRect());
+          dispatch(openModal({ modalState:false, coords: coords }));
         }
-        setCoords(e.target.getBoundingClientRect());
       });
-
     });
 
     window.addEventListener("click", (e) => {
@@ -33,17 +33,11 @@ export default function Lanes() {
     });
   }, []);
 
-
-
   const openBigModal = () => {
-    console.log("openbigmodal");
 
-    dispatch(openModal({modalState: true, coords:coords}))
-    // setOpenBModal(<CallBigModal/>)
+    dispatch(openModal({ modalState: true, coords }));
   };
-  useEffect(()=>{
-    console.log('state change');
-  },[globalModalState])
+
   return (
     <>
       <div className="padding-container">
@@ -55,9 +49,7 @@ export default function Lanes() {
             onClick={openBigModal}
           />
         )}
-        {globalModalState.modalState &&(
-          <CallBigModal data={coords}/>
-        )}
+        {globalModalState.modalState && <CallBigModal />}
         <LaneHandler />
         <Footer />
       </div>

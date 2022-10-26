@@ -1,5 +1,5 @@
 import React, { useRef, forwardRef, useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PreviewModal from "./PreviewModal";
 import Trailer from "./testTrailer.webm";
 import {
@@ -38,10 +38,9 @@ import {
   AboutContainer,
   AboutTitle,
 } from "./CallBigModal.styled";
-import {openModal, closeModal} from '../../reducers/modalReducer'
+import { openModal, closeModal } from "../../reducers/modalReducer";
 
 const CallBigModal = forwardRef((props) => {
-
   //REF's
   const modalRef = useRef();
   const modalRefContent = useRef();
@@ -51,29 +50,19 @@ const CallBigModal = forwardRef((props) => {
   //END REF's
   const dispatch = useDispatch();
 
-  
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
-
+  const globalModalState = useSelector((state) => state.modal.modalState);
   //END STATE
-  const left = Math.round(props.data.x);
-  const top = Math.round(props.data.y);
 
-  const coords = {
-    left,
-    top,
-  };
-  //Close modal when outside click
-  // window.onclick = (e) => {
-  //   if (e.target.className === ref.current.className) {
-  //     ref.current.style.display = "none";
-  //     modalRefContent.current.style.display = "none";
-  //   }
-  // };
+  const left = Math.round(globalModalState.coords.left) + "px "
+  const top = Math.round(globalModalState.coords.top) + "px"
+  const coordsForBigModal = left + top;
+
 
   //Close modal button
   const handleClose = () => {
-    dispatch(closeModal({modalState: false, coords:[]}));
+    dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
   //Toggle "more like this"
@@ -90,8 +79,8 @@ const CallBigModal = forwardRef((props) => {
 
   return (
     <>
-      <ModalContainer ref={modalRef}>
-        <ModalContent ref={modalRefContent} coords={coords}>
+      <ModalContainer ref={modalRef} >
+        <ModalContent ref={modalRefContent} coords={coordsForBigModal}>
           <CloseButton onClick={handleClose}>
             <CloseCircle />
           </CloseButton>

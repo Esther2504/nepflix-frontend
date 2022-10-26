@@ -16,7 +16,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     modalState: false,
-    coords: {},
 }
 
 export const modalSlice = createSlice({
@@ -25,9 +24,8 @@ export const modalSlice = createSlice({
 
     reducers: {
         openModal(state, action) {
-            console.log(state);
             state.modalState = action.payload;
-            state.coords = action.payload.coords;
+            
         },
         closeModal(state, action) {
             state.modalState = action.payload;
