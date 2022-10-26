@@ -30,6 +30,7 @@ export const SmallModalBottom = styled.div`
   transition: opacity ease-in-out 150ms, height 100ms ease-in-out;
   transition-delay: 300ms;
 `;
+
 export const SmallModal = styled.div`
   position: absolute;
   height: inherit;
