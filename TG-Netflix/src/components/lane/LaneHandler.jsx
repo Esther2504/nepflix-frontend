@@ -140,6 +140,7 @@ const movies = [
   },
 ];
 
+function LaneHandler() {
   const size = useWindowSize();
   function getAmount() {
     if (size.width <= 600) {
@@ -156,39 +157,35 @@ const movies = [
     }
   }
 
-  function getSlices(movies) {
-    let movieArray = []
-    for (let i in movies) {
-      movieArray.push(movies[i])
-    }
+  function getSlices() {
     let slices = [];
     let amount = getAmount();
-    let number = Math.round(movieArray.length / amount);
+    let number = Math.round(movies.length / amount);
     for (let i = 0; i < number; i++) {
-      slices.push(movieArray.slice(i * amount, amount + i * amount));
+      slices.push(movies.slice(i * amount, amount + i * amount));
     }
     return slices;
   }
 
-  return (
-    <>
-      {categories.map((item, index) => {
-        let someSlices = getSlices(item.movies)
+  let someSlices = getSlices();
 
+  return (
+    <div>
+      {genresPlaceholder.map((item, index) => {
         return (
-          <div key={index}>
+          <>
             {someSlices.length > 0 && (
               <Lane
-                categoryTitle={item.name}
-                slices={someSlices}
-                itemsPerLane={getAmount()}
                 key={index}
+                categoryTitle={item.name}
+                slices={getSlices()}
+                itemsPerLane={getAmount()}
               ></Lane>
             )}
-          </div>
+          </>
         );
       })}
-    </>
+    </div>
   );
 }
 export default LaneHandler;
