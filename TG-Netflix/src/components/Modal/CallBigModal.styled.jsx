@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import VidTitle from "./House_of_the_dragon_logo.webp"
 import {
   AiFillCloseCircle,
   AiOutlinePlusCircle,
@@ -26,8 +26,10 @@ export const VideoControlsContainer = styled.div`
 `;
 export const VideoTitle = styled.div`
   height: 8rem;
+  background-image: url(${VidTitle});
   background-repeat: no-repeat;
   background-size: contain;
+   
 `;
 export const VideoControls = styled.div`
   display: flex;

@@ -90,14 +90,16 @@ const CallBigModal = forwardRef((props, ref) => {
           </CloseButton>
           <ModalPreview>
             <VideoPlayer
+              autoPlay
               muted
-              // src={`https://www.youtube.com/embed/${movie.trailer}?controls=0&autoplay=1`}
+              src={Trailer}
               type="video/webm"
               allow="autoplay"
               ref={modalRefVideo}
             />
             <VideoControlsContainer>
               {/* <VideoTitle src={movie.logo} /> */}
+              <VideoTitle />
               <VideoControls>
                 <VideoPlay>
                   <PlayButton />
@@ -144,6 +146,20 @@ const CallBigModal = forwardRef((props, ref) => {
                 {/* {movie.similar.map((data, index) => {
                   return <PreviewModal key={index} movie={data} />;
                 })} */}
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
+                <PreviewModal/>
               </MoreLikeThisWrapper>
               <MoreLikeThisToggle
                 onClick={handleOnClickToggleMore}
