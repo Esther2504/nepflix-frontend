@@ -1,16 +1,3 @@
-// export default (state = [], action) => {
-//     console.log(action.coords);
-//     switch (action.type) {
-//         case 'OPEN_MODAL':
-//             return 'OPEN_MODAL'
-//         case 'CLOSE_MODAL':
-//             return 'CLOSE_MODAL'
-//         default:
-//             return 'CLOSE_MODAL';
-//     }
-// };
-
-
 import { createSlice } from "@reduxjs/toolkit";
 
 
