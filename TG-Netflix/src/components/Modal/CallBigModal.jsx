@@ -63,12 +63,6 @@ const CallBigModal = forwardRef((props, ref) => {
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
-  // window.onclick = (e) => {
-  //   if (e.target.className === modalRefContainer.current.className) {
-  //     dispatch(closeModal({ modalState: false, coords: [] }));
-  //   }
-  // };
-
   window.addEventListener("click", (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
       dispatch(closeModal({ modalState: false, coords: [] }));
