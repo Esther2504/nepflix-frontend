@@ -71,22 +71,6 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink
-                to="lanes"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                (Lanes)
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="modal"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                (Modal)
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
                 to="grid-layout"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >

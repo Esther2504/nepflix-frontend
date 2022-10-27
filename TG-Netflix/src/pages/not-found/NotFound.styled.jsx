@@ -11,7 +11,7 @@ export const Container = styled.div`
   background-position: center;
 `;
 
-export const Navbar = styled.nav`
+export const Navbar = styled.header`
   grid-row-start: 1;
   display: flex;
   align-items: center;
