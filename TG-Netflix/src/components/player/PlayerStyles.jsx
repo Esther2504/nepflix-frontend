@@ -231,21 +231,6 @@ export const PlayerStyles = styled.div`
         padding: 9.6px 67.2px 9.6px 15.36px;
     }
 
-    .maturity-graphic {
-        display: flex;
-        background-color: black;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        align-items: center;
-        place-content: center;
-        justify-content: center;
-        border: 3px solid white;
-        font-weight: 600;
-        font-size: 20px;
-
-    }
-
     .banner-fadeBottom {
     position: absolute;
     background-image: linear-gradient( 180deg, transparent, rgba(37,37,37, 0.6), #111);

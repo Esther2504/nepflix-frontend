@@ -150,9 +150,8 @@ function Player({data}) {
                                 </button>
                             </div>
                             <span className="maturity-rating">
-                              
-                                <span className="maturity-graphic">
                                 {age_certificate}
+                                <span className="maturity-graphic">
                                 </span>
                             </span>
                         </div>
