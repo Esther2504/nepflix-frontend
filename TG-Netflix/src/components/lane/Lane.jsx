@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {
   LaneWrapper,
+  LaneContainer,
   SlideIndicator,
   IndicatorRect,
   ScrollLeftButton,
@@ -102,7 +103,7 @@ export default function Lane(props) {
     useState(false); /* set opacity obv naar rechts gescrolled */
 
   return (
-    <div>
+    <LaneContainer>
       <TopWrapper>
         <LaneTitle>
           <h2>{props.categoryTitle}</h2>
@@ -177,6 +178,6 @@ export default function Lane(props) {
           </ScrollRightButton>
         </ScrollRightButtonContainer>
       </ScrollBtns>
-    </div>
+    </LaneContainer>
   );
 }

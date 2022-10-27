@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+
+export const LaneContainer = styled.div`
+margin-bottom: 2rem;
+`;
+
 export const LaneWrapper = styled.div`
   position: relative;
   overflow: hidden;
