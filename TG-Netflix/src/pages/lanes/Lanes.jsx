@@ -3,7 +3,7 @@ import LaneHandler from "../../components/lane/LaneHandler";
 import Footer from "../../components/footer/footer";
 import CallModal from "../../components/Modal/CallModal";
 
-export default function Lanes() {
+export default function Lanes({categories, movie}) {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
@@ -14,7 +14,7 @@ export default function Lanes() {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
-          setIsHovering(true);
+              setIsHovering(true); 
         }
         setCoords(e.target.getBoundingClientRect());
       });
@@ -41,12 +41,11 @@ export default function Lanes() {
           <CallModal
             onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
-            data={{ coords: coords, dataset: dataset }}
+            data={{ coords: coords, dataset: dataset, movie: movie }}
           />
         )}
-        <LaneHandler />
+        <LaneHandler categories={categories} movie={movie}/>
         <Footer />
       </div>
-    </>
-  );
-}
+      </>
+  )}
