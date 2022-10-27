@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import CallBigModal from "./CallBigModal";
+import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 
 import CallSmallModal from "./CallSmallModal";
 
@@ -7,7 +7,7 @@ function CallModal(props) {
 
   return (
     <>
-      <CallSmallModal {...props} />
+      <CallSmallModal movie={movieDetailsMock} {...props} />
     </>
   );
 }

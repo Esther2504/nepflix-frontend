@@ -5,7 +5,7 @@ import CallModal from "../../components/Modal/CallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
-export default function Lanes() {
+export default function Lanes({categories, movie}) {
   //STATE
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
@@ -46,14 +46,13 @@ export default function Lanes() {
           <CallModal
             onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
-            data={{ coords: coords, dataset: dataset }}
+            data={{ coords: coords, dataset: dataset, movie: movie }}
             onClick={openBigModal}
           />
         )}
         {globalModalState.modalState && <CallBigModal />}
-        <LaneHandler />
+        <LaneHandler categories={categories} movie={movie}/>
         <Footer />
       </div>
-    </>
-  );
-}
+      </>
+  )}

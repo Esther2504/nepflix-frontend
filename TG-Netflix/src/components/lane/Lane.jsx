@@ -28,7 +28,7 @@ export default function Lane(props) {
 
   useEffect(() => {
     const slidesWithClones = [...slides];
-    // slidesWithClones.unshift(slidesWithClones[slidesWithClones.length - 1]);
+    slidesWithClones.unshift(slidesWithClones[slidesWithClones.length - 1]);
     slidesWithClones.push(slidesWithClones[1]);
     setStateSlides(slidesWithClones);
   }, [slides]);

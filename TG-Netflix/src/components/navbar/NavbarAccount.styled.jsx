@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.nav`
+export const Container = styled.header`
   display: flex;
   position: sticky;
   justify-content: space-between;
@@ -23,7 +23,7 @@ export const Container = styled.nav`
   }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled.nav`
   position: relative;
   display: flex;
   align-items: center;

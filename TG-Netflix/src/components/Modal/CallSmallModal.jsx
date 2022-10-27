@@ -14,7 +14,7 @@ import {
   RateIcons,
   VolumeIcon,
 } from "./CallSmallModal.style";
-// import Trailer from "./testTrailer.webm";
+import Trailer from "./testTrailer.webm";
 import YouTube from "react-youtube";
 
 const CallModal = (props) => {
@@ -26,7 +26,7 @@ const CallModal = (props) => {
   const refVideoPlayer = useRef();
   const bg =
     "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
- let Trailer = props.data.dataset.video;
+  let Trailer = props.movie.trailer;
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
@@ -41,8 +41,6 @@ const CallModal = (props) => {
   };
 
   const [videoState, setVideoState] = useState(false);
-
-  Trailer = Trailer.substring(32)
 
   // Als de small modal verschijnt, duurt het nog twee seconden tot de video speelt
   if (props.hover) {
