@@ -88,7 +88,7 @@ export const VideoPlayer = styled.video`
   border-radius: 1rem;
   aspect-ratio: 16/9;
   // display: none;
-  z-index: 999;
+  
 `;
 
 export const VideoControlsContainer = styled.div`
