@@ -25,7 +25,6 @@ export const VideoControlsContainer = styled.div`
   background: linear-gradient(0deg, #181818, transparent 50%);
 `;
 export const VideoTitle = styled.div`
-
   height: 8rem;
   background-repeat: no-repeat;
   background-size: contain;
@@ -105,7 +104,6 @@ export const VolumeIcon = styled(TbVolume3)`
 
 //START MODAL
 export const ModalContainer = styled.div`
-
   display: block;
   position: absolute;
   z-index: 999;
@@ -119,7 +117,6 @@ export const ModalContainer = styled.div`
 `;
 
 export const ModalContent = styled.div`
-
   display: flex;
   -margin: 0 auto;
   margin-top: 3rem;
@@ -128,12 +125,9 @@ export const ModalContent = styled.div`
   max-width: 85rem;
   padding-bottom: 2rem;
   background-color: #181818;
+  transform-origin: ${(props) => props.coords};
 
-transform-origin:${props => props.coords} ;
-  /* transform-origin:0px 0px; */
-
-  animation: blowUpModal .75s ease-in-out forwards;
-
+  animation: blowUpModal 0.75s ease-in-out forwards;
   @keyframes blowUpModal {
     0% {
       transform: scale(0);
