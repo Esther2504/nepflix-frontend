@@ -38,32 +38,36 @@ import {
   AboutContainer,
   AboutTitle,
 } from "./CallBigModal.styled";
-import { openModal, closeModal } from "../../reducers/modalReducer";
+import { closeModal } from "../../reducers/modalReducer";
 
 const CallBigModal = forwardRef((props, ref) => {
   //REF's
-  const modalRef = useRef();
-  const modalRefContent = useRef();
   const modalRefVideo = useRef();
-
   const refMoreLikeThisWrapper = useRef();
+  const modalRefContent = useRef();
+  const modalRefContainer = useRef();
   //END REF's
   const dispatch = useDispatch();
-
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
   //END STATE
 
-  const left = Math.round(globalModalState.coords.left) + "px "
-  const top = Math.round(globalModalState.coords.top) + "px"
+  //coords for big modal
+  const left = Math.round(globalModalState.coords.left) + "px ";
+  const top = Math.round(globalModalState.coords.top) + "px";
   const coordsForBigModal = left + top;
-
 
   //Close modal button
   const handleClose = () => {
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
+  if (globalModalState)
+    window.onclick = (e) => {
+      if (e.target.className === modalRefContainer.current.className) {
+        dispatch(closeModal({ modalState: false, coords: [] }));
+      }
+    };
 
   //Toggle "more like this"
   const handleOnClickToggleMore = () => {
@@ -79,7 +83,7 @@ const CallBigModal = forwardRef((props, ref) => {
 
   return (
     <>
-      <ModalContainer ref={modalRef} >
+      <ModalContainer ref={modalRefContainer}>
         <ModalContent ref={modalRefContent} coords={coordsForBigModal}>
           <CloseButton onClick={handleClose}>
             <CloseCircle />

@@ -6,14 +6,15 @@ import CallBigModal from "../../components/Modal/CallBigModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
 export default function Lanes() {
+  //STATE
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
-
   const dispatch = useDispatch();
-
   const globalModalState = useSelector((state) => state.modal.modalState);
+  //END STATE
 
+  //add evenlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
