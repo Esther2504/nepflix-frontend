@@ -65,7 +65,7 @@ const CallModal = (props) => {
   };
 
   return (
-    <SmallModalContainer coords={coords} bg={bg}>
+    <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
@@ -77,13 +77,13 @@ const CallModal = (props) => {
             //   ref={refVideoPlayer}
             //   type="video/webm"
             // />
-            <YouTube videoId={Trailer} opts={opts} />
-            // <iframe
-            //   width="100%"
-            //   height="100%"
-            //   src={`https://www.youtube.com/embed/0IOsk2Vlc4o?autoplay=1`}
-            //   frameBorder="0"
-            // />
+            // <YouTube videoId={Trailer} opts={opts} />
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/0IOsk2Vlc4o?autoplay=1`}
+              frameBorder="0"
+            />
           )}
         </SmallModalTop>
 
