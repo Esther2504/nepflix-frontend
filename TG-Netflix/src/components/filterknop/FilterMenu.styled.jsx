@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const FilterWrapper = styled.section`
   position: sticky;
-  top: 6.8rem;
-  /* top:  ${(props) => (props.isScrolled ? '0' : '6.8rem')}; */
+  top: 0;
   height: 4.1rem;
   width: 100%;
   z-index: 10;
@@ -15,7 +14,6 @@ export const FilterWrapper = styled.section`
 
   @media (max-width: 950px) {
     padding: 3rem 4.6rem 3rem 3.5rem;
-    /* top: 4.1rem; */
   }
 `;
 
