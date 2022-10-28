@@ -1,11 +1,13 @@
-import Modal from '../../components/Modal/Modal';
-import Footer from '../../components/footer/footer';
+import Footer from "../../components/footer/footer";
+import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
 
-export default function ModalPage() {
+// props worden uiteindelijk doorgegeven met Params of elders
+export default function ModalPage(movie) {
+  movie = movieDetailsMock;
   return (
     <>
       <div className="padding-container">
-        <Modal />
+        <Modal movie={movie} />
         <Footer />
       </div>
     </>

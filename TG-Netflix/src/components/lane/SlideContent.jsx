@@ -1,43 +1,46 @@
 import styled from "styled-components";
+import React, { useState } from "react";
+import { Card } from "../movie-card/MovieCard.styled";
 
 const Container = styled.div`
   display: flex;
-  /* height: ${(props) => props.setheight}; */
-  width: 100%;
   position: relative;
   top: 0;
   left: 0;
-  background-color: transparent;
-`;
 
-const Title = styled.p`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  color: white;
-  padding: 1rem;
-`;
-
-const SlideImg = styled.img`
-  padding-inline: 2px;
-  border-radius: 0.3vw;
+  img:nth-of-type(2) {
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    width: 1.3vw;
+  }
 `;
 
 export default function SlideContent(props) {
   return (
-    <Container setheight={props.imageHeight}>
+    <Container>
       {props.list.map((item, index) => {
+        // console.log(item)
         return (
-          <Container>
-            <Title>{item.title}</Title>
-            <SlideImg
-              src={"https://image.tmdb.org/t/p/original" + item.backdrop_path}
+          <Card
+            data-backdrop={item.backdrop_path}
+            data-video={item.video}
+            style={{ margin: "0px 3px" }}
+            key={index}
+            id="movie"
+          >
+            <span>{item.title}</span>
+            <img
               width={props.imageWidth}
               height={props.imageHeight}
-            ></SlideImg>
-          </Container>
+              src={"https://image.tmdb.org/t/p/original" + item.backdrop_path}
+              alt={item.title}
+              id={item.id}
+            />
+          </Card>
         );
       })}
     </Container>
   );
 }
+

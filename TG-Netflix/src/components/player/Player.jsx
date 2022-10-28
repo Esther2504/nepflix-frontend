@@ -10,11 +10,11 @@ import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 
-function Player({ data }) {
-    const { backdrop_path, description, id, logo, title, trailer, age_certificate } = data
-
-    const [muteIsVisible, setMuteIsVisible] = useState(false);
-    const [unMuteIsVisible, setUnMuteIsVisible] = useState(true);
+function Player({data}) {
+    const {backdrop_path, description, id, logo, title, trailer, age_certificate} = data
+    
+    const [muteIsVisible, setMuteIsVisible] = useState(true);
+    const [unMuteIsVisible, setUnMuteIsVisible] = useState(false);
 
     // LOADS RANDOM TOP20 
     // useEffect(() => {
@@ -74,7 +74,11 @@ function Player({ data }) {
     }
     const addVolume = () => {
         document.getElementById('rePlay').style.visibility = 'hidden';
+        if (muteIsVisible) {
         document.getElementById('volume-unmute').style.visibility = 'visible';
+        } else if (unMuteIsVisible) {
+            document.getElementById('volume-mute').style.visibility = 'visible';
+        }
     }
 
 
@@ -129,25 +133,25 @@ function Player({ data }) {
                                     <img src={replay} alt="replay" className="Hawkins-icon" />
                                 </button>
                                 <button
-                                    id='volume-mute'
-                                    className="side-button"
-                                    onClick={muteVideo}
-                                    style={{ visibility: muteIsVisible ? 'visible' : 'hidden' }}
-                                >
-                                    <img src={volume} alt="muted" className="Hawkins-icon" />
-                                </button>
-                                <button
                                     id='volume-unmute'
                                     className="side-button"
                                     onClick={unMuteVideo}
-                                    style={{ visibility: unMuteIsVisible ? 'visible' : 'hidden' }}
+                                    style={{ visibility: muteIsVisible ? 'visible' : 'hidden' }}
                                 >
                                     <img src={muted} alt="un-muted" className="Hawkins-icon" />
                                 </button>
+                                <button
+                                    id='volume-mute'
+                                    className="side-button"
+                                    onClick={muteVideo}
+                                    style={{ visibility: unMuteIsVisible ? 'visible' : 'hidden' }}
+                                >
+                                    <img src={volume} alt="muted" className="Hawkins-icon" />
+                                </button>
                             </div>
                             <span className="maturity-rating">
-                                {age_certificate}
                                 <span className="maturity-graphic">
+                                {age_certificate}
                                 </span>
                             </span>
                         </div>

@@ -28,7 +28,8 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
-  background-color: silver;
+  background-color: rgb(14,14,14);
+  overflow-x: hidden;
 }
 
 img,
