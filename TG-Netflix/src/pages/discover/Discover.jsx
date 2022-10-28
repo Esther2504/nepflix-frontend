@@ -49,7 +49,7 @@ export default function Discover({ banner, categories, movie }) {
 
   return (
     <>
-      <div className="padding-container">
+      <div className="members-container">
         <Player data={banner} />
         {isHovering && (
           <CallModal
@@ -60,7 +60,9 @@ export default function Discover({ banner, categories, movie }) {
           />
         )}
         {globalModalState.modalState && <CallBigModal />}
-        <LaneHandler categories={categories} movie={movie} />
+        <div className="fadeContainer">
+          <LaneHandler categories={categories} movie={movie} />
+        </div>
         <Footer />
       </div>
     </>
