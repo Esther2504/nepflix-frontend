@@ -6,6 +6,7 @@ const dropdown = css`
   position: relative;
   display: flex;
   padding: 21px 0;
+  z-index: 10;
 
   ul {
     position: absolute;
@@ -51,7 +52,7 @@ export const Nav = styled.header`
   margin-bottom: ${(props) => (props.staticNavbar ? '-4.1rem ' : 'none')};
   padding: 0 46px 0 25px;
   font-size: 1rem;
-  z-index: 1;
+  z-index: 99;
   color: white;
   background-image: linear-gradient(
     to top,
