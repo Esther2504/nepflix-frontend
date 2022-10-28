@@ -18,8 +18,6 @@ export default function Discover({ banner, categories, movie }) {
   const [dataset, setDataset] = useState();
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
-  const globalScrollY = useSelector((state) => state.modal.modalState.coords.top);
-  console.log(globalScrollY);
   //END STATE
 
   //add evenlistener for small modal
