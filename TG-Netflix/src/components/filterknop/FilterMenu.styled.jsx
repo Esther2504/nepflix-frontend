@@ -5,7 +5,7 @@ export const FilterWrapper = styled.section`
   top: 0;
   height: 4.1rem;
   width: 100%;
-  z-index: 10;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
