@@ -39,7 +39,7 @@ export const ScrollBtns = styled.div`
 export const SlideIndicator = styled.div`
   /* child of LaneContainer */
   width: 50%;
-  z-index: 10;
+  z-index: 1;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -72,7 +72,7 @@ export const ScrollLeftButton = styled.span`
   width: inherit;
   height: 100%;
   background-color: #14141440;
-  z-index: 10;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +95,7 @@ export const ScrollRightButton = styled.span`
   width: inherit;
   height: 100%;
   background-color: #14141440;
-  z-index: 10;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,7 +138,7 @@ export const Card = styled.div`
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.75);
-    z-index: 99;
+    z-index: 0;
   }
   img:nth-of-type(2) {
     position: absolute;

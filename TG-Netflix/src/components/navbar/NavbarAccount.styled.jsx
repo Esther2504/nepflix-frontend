@@ -10,7 +10,7 @@ export const Container = styled.header`
   height: 5rem;
   padding: 0;
   color: white;
-  z-index: 1;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.97);
 
   @media (min-width: 740px) {
