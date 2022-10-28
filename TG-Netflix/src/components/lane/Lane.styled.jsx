@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 export const LaneContainer = styled.div`
 margin-bottom: 2rem;
+/* margin-top: -10rem; */
+/* transform: translateY(-12vw); */
 `;
 
 export const LaneWrapper = styled.div`
