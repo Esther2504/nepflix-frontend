@@ -6,14 +6,18 @@ export const PlayerStyles = styled.div`
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: inset 0 -10vw 5vw -5vw #fff; */
+    /* z-index: -1; */
     }
-     
     .banner {
     position: absolute;
     color: #fff;
     object-fit: cover;
-    height: 100vh;
-    width: 100vw;
     background-size: cover;
     background-position: center center;
     animation: cssAnimation .25s ease-out 0.5s forwards, cssAnimation2 .25s ease-out 15.5s forwards;
@@ -37,7 +41,7 @@ export const PlayerStyles = styled.div`
 
     .overlay {
         width: 100vw;
-        height: 80vh;
+        height: 33.3%;
         position: absolute;
         display: flex;
         justify-content: space-between;
@@ -271,8 +275,9 @@ export const PlayerStyles = styled.div`
 
     
     iframe {
-        height: 90vh;
-        width: 100vw
+        height: 100vw;
+        width: 140vw;
+        align-self: center;
     }
 
     @media only screen and (max-width: 800px) {

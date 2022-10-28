@@ -169,7 +169,7 @@ function LaneHandler({ categories, movie }) {
   }
 
   return (
-    <div>
+    <div className="laneContainer">
       {categories.map((item, index) => {
         let someSlices = getSlices(item.movies);
 
