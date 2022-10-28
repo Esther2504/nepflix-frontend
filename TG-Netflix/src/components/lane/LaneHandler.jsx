@@ -1,5 +1,5 @@
-import Lane from "./Lane";
-import useWindowSize from "../../features/useWindowSize";
+import Lane from './Lane';
+import useWindowSize from '../../features/useWindowSize';
 
 // const genresPlaceholder = [
 //   {
@@ -155,9 +155,9 @@ function LaneHandler({ categories, movie }) {
   }
 
   function getSlices(movies) {
-    let movieArray = []
+    let movieArray = [];
     for (let i in movies) {
-      movieArray.push(movies[i])
+      movieArray.push(movies[i]);
     }
     let slices = [];
     let amount = getAmount();
@@ -174,16 +174,15 @@ function LaneHandler({ categories, movie }) {
         let someSlices = getSlices(item.movies);
 
         return (
-          <>
+          <div key={index}>
             {someSlices.length > 0 && (
               <Lane
-                key={index}
                 categoryTitle={item.name}
                 slices={getSlices(item.movies)}
                 itemsPerLane={getAmount()}
               ></Lane>
             )}
-          </>
+          </div>
         );
       })}
     </div>
