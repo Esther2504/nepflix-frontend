@@ -99,7 +99,6 @@ text-decoration: none;
   flex-direction: column;
   min-height: 100vh;
   padding-top: 4.1rem;
-
   @media (min-width: 950px) {
    padding-top: 6.8rem;
   }

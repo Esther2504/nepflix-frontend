@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../../reducers/modalReducer';
+import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal, closeModal } from "../../reducers/modalReducer";
 
-import Player from '../../components/player/Player';
-import LaneHandler from '../../components/lane/LaneHandler';
-import Footer from '../../components/footer/footer';
-import CallModal from '../../components/Modal/CallModal';
-import CallBigModal from '../../components/Modal/CallBigModal';
+import Player from "../../components/player/Player";
+import LaneHandler from "../../components/lane/LaneHandler";
+import Footer from "../../components/footer/footer";
+import CallModal from "../../components/Modal/CallModal";
+import CallBigModal from "../../components/Modal/CallBigModal";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -22,25 +22,27 @@ export default function Discover({ banner, categories, movie }) {
 
   //add evenlistener for small modal
   useEffect(() => {
-    const films = document.querySelectorAll('#movie');
+    const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
-      film.addEventListener('mouseenter', (e) => {
-        if (e.target.getAttribute('id')) {
+      film.addEventListener("mouseenter", (e) => {
+        if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
-          dispatch(openModal({ modalState: false, coords: coords }));
+          // dispatch(openModal({ modalState: false, coords: coords }));
         }
       });
     });
 
-    window.addEventListener('click', (e) => {
+    window.addEventListener("click", (e) => {
       e.stopPropagation();
       setIsHovering(false);
     });
   }, []);
 
+
   const openBigModal = () => {
+    document.body.style.position = "fixed";
     dispatch(openModal({ modalState: true, coords }));
   };
 
