@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import VidTitle from "./House_of_the_dragon_logo.webp"
+import VidTitle from "./House_of_the_dragon_logo.webp";
 import {
   AiFillCloseCircle,
   AiOutlinePlusCircle,
@@ -29,7 +29,6 @@ export const VideoTitle = styled.div`
   background-image: url(${VidTitle});
   background-repeat: no-repeat;
   background-size: contain;
-   
 `;
 export const VideoControls = styled.div`
   display: flex;
@@ -107,15 +106,13 @@ export const VolumeIcon = styled(TbVolume3)`
 //START MODAL
 export const ModalContainer = styled.div`
   display: block;
-  position: absolute;
+  position:fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
-  overflow-y: scroll;
-  top: 0;
-  left: 0;
+  overflow:auto;
 `;
 
 export const ModalContent = styled.div`

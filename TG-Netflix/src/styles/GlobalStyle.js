@@ -28,7 +28,7 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
-  background-color: black;
+  background-color: rgb(14,14,14);
   overflow-x: hidden;
 }
 
@@ -99,7 +99,6 @@ text-decoration: none;
   flex-direction: column;
   min-height: 100vh;
   padding-top: 4.1rem;
-
   @media (min-width: 950px) {
    padding-top: 6.8rem;
   }
