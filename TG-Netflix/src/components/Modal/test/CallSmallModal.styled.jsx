@@ -35,7 +35,7 @@ export const SmallModal = styled.div`
   background-color: #181818;
   background-image: url(${(props) => props.bg});
   background-size: cover;
-  z-index: 999;
+  z-index: 7;
   &:hover {
     scale: 1.3;
     ${SmallModalBottom} {

@@ -98,7 +98,7 @@ function Player({data}) {
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
-                            backgroundImage: "https://image.tmdb.org/t/p/original" + backdrop_path
+                            backgroundImage: `url("https://image.tmdb.org/t/p/original/${backdrop_path}")`
                         }}
                     >
                     </div>
@@ -150,8 +150,8 @@ function Player({data}) {
                                 </button>
                             </div>
                             <span className="maturity-rating">
-                                {age_certificate}
                                 <span className="maturity-graphic">
+                                {age_certificate}
                                 </span>
                             </span>
                         </div>

@@ -1,23 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FilterWrapper = styled.section`
-  position: fixed;
-  top: 6.8rem;
+  position: sticky;
+  top: 0;
   height: 4.1rem;
   width: 100%;
-  z-index: 10;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.4)
-  );
-  background-color: ${(props) => (props.isScrolled ? "rgb(20,20,20)" : "")};
-  transition: ${(props) =>
-    props.isScrolled ? "background-color 1000ms;" : ""};
-  transition: background-color 1000ms; // return transition
+  background-color: rgb(14, 14, 14);
   padding: 3rem 7rem 3rem 4.5rem;
 
   @media (max-width: 950px) {
@@ -99,7 +91,7 @@ export const FilterGenreSubMenu = styled.section`
   background-color: rgba(0, 0, 0, 0.9);
   padding: 1rem;
   gap: 4rem;
-  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
 
   @media (max-width: 650px) {
     width: 100%;
