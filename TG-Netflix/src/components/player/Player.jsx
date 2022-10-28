@@ -10,7 +10,9 @@ import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 
-function Player() {
+function Player({ data }) {
+    const { backdrop_path, description, id, logo, title, trailer, age_certificate } = data
+
     const [muteIsVisible, setMuteIsVisible] = useState(false);
     const [unMuteIsVisible, setUnMuteIsVisible] = useState(true);
 
@@ -78,12 +80,12 @@ function Player() {
 
 
     // FAKE INFO
-    const title = 'Bullet Train';
-    const logo = 'https://images.fanart.tv/fanart/bullet-train-622f4573a070d.png';
-    const trailer = '0IOsk2Vlc4o';
-    const backdrop_path = 'y2Ca1neKke2mGPMaHzlCNDVZqsK.jpg'
-    const background_img = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
-    const description = "Unlucky assassin Ladybug is determined to do his job peacefully after one too many gigs gone off the rails. Fate, however, may have other plans, as Ladybug's latest mission puts him on a collision course with lethal adversaries from around the globe—all with connected, yet conflicting, objectives—on the world's fastest train.";
+    // const title = 'Bullet Train';
+    // const logo = 'https://images.fanart.tv/fanart/bullet-train-622f4573a070d.png';
+    // const trailer = '0IOsk2Vlc4o';
+    // const backdrop_path = 'y2Ca1neKke2mGPMaHzlCNDVZqsK.jpg'
+    // const background_img = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
+    // const description = "Unlucky assassin Ladybug is determined to do his job peacefully after one too many gigs gone off the rails. Fate, however, may have other plans, as Ladybug's latest mission puts him on a collision course with lethal adversaries from around the globe—all with connected, yet conflicting, objectives—on the world's fastest train.";
 
 
     return (
@@ -92,7 +94,7 @@ function Player() {
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
-                            backgroundImage: background_img
+                            backgroundImage: `url("https://image.tmdb.org/t/p/original/${backdrop_path}")`
                         }}
                     >
                     </div>
@@ -132,7 +134,7 @@ function Player() {
                                     onClick={muteVideo}
                                     style={{ visibility: muteIsVisible ? 'visible' : 'hidden' }}
                                 >
-                                    <img src={muted} alt="muted" className="Hawkins-icon" />
+                                    <img src={volume} alt="muted" className="Hawkins-icon" />
                                 </button>
                                 <button
                                     id='volume-unmute'
@@ -140,10 +142,11 @@ function Player() {
                                     onClick={unMuteVideo}
                                     style={{ visibility: unMuteIsVisible ? 'visible' : 'hidden' }}
                                 >
-                                    <img src={volume} alt="un-muted" className="Hawkins-icon" />
+                                    <img src={muted} alt="un-muted" className="Hawkins-icon" />
                                 </button>
                             </div>
                             <span className="maturity-rating">
+                                {age_certificate}
                                 <span className="maturity-graphic">
                                 </span>
                             </span>
