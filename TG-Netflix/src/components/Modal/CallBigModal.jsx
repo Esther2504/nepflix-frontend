@@ -66,6 +66,7 @@ const CallBigModal = forwardRef((props, ref) => {
 
   window.addEventListener("click", (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
+      document.body.style.position = null;
       dispatch(closeModal({ modalState: false, coords: [] }));
     }
   });
