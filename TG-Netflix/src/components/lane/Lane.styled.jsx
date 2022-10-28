@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const LaneContainer = styled.div`
-margin-bottom: 2rem;
+margin-bottom: 3.5rem;
 `;
 
 export const LaneWrapper = styled.div`
@@ -22,7 +22,7 @@ export const TopWrapper = styled.div`
 export const LaneTitle = styled.div`
   color: #e5e5e5;
   width: 90vw;
-  font-size: 1.2vw;
+  font-size: 1.3rem;
   margin: 0 auto;
   height: 40px;
   display: flex;
@@ -30,6 +30,25 @@ export const LaneTitle = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding-right: 3rem;
+
+  @media (min-width: 600px) {
+      font-size: 1.4rem;
+    }
+    @media (min-width: 700px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 800px) {
+      font-size: 1.6rem;
+    }
+    @media (min-width: 900px) {
+      font-size: 1.7rem;
+    }
+    @media (min-width: 1000px) {
+      font-size: 1.8rem;
+    }
+    @media (min-width: 1100px) {
+      font-size: 2rem;
+    }
 `;
 
 export const ScrollBtns = styled.div`
