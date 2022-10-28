@@ -55,16 +55,18 @@ const CallBigModal = forwardRef((props, ref) => {
 
   //coords for big modal
   const left = Math.round(globalModalState.coords.left) + "px ";
-  const top = Math.round(globalModalState.coords.top) + "px";
+  const top = Math.round(globalModalState.coords.top) + window.scrollY + "px";
   const coordsForBigModal = left + top;
 
   //Close modal button
   const handleClose = () => {
+    document.body.style.position = null;
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
   window.addEventListener("click", (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
+      document.body.style.position = null;
       dispatch(closeModal({ modalState: false, coords: [] }));
     }
   });
@@ -146,20 +148,20 @@ const CallBigModal = forwardRef((props, ref) => {
                 {/* {movie.similar.map((data, index) => {
                   return <PreviewModal key={index} movie={data} />;
                 })} */}
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
-                <PreviewModal/>
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
+                <PreviewModal />
               </MoreLikeThisWrapper>
               <MoreLikeThisToggle
                 onClick={handleOnClickToggleMore}

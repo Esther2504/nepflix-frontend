@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../../reducers/modalReducer';
+import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal, closeModal } from "../../reducers/modalReducer";
 
-import Player from '../../components/player/Player';
-import LaneHandler from '../../components/lane/LaneHandler';
-import Footer from '../../components/footer/footer';
-import CallModal from '../../components/Modal/CallModal';
-import CallBigModal from '../../components/Modal/CallBigModal';
+import Player from "../../components/player/Player";
+import LaneHandler from "../../components/lane/LaneHandler";
+import Footer from "../../components/footer/footer";
+import CallModal from "../../components/Modal/CallModal";
+import CallBigModal from "../../components/Modal/CallBigModal";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -22,10 +22,10 @@ export default function Discover({ banner, categories, movie }) {
 
   //add evenlistener for small modal
   useEffect(() => {
-    const films = document.querySelectorAll('#movie');
+    const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
-      film.addEventListener('mouseenter', (e) => {
-        if (e.target.getAttribute('id')) {
+      film.addEventListener("mouseenter", (e) => {
+        if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
@@ -34,19 +34,21 @@ export default function Discover({ banner, categories, movie }) {
       });
     });
 
-    window.addEventListener('click', (e) => {
+    window.addEventListener("click", (e) => {
       e.stopPropagation();
       setIsHovering(false);
     });
   }, []);
 
+
   const openBigModal = () => {
+    document.body.style.position = "fixed";
     dispatch(openModal({ modalState: true, coords }));
   };
 
   return (
     <>
-      <div className="padding-container">
+      <div className="members-container">
         <Player data={banner} />
         {isHovering && (
           <CallModal
@@ -57,7 +59,9 @@ export default function Discover({ banner, categories, movie }) {
           />
         )}
         {globalModalState.modalState && <CallBigModal />}
-        <LaneHandler categories={categories} movie={movie} />
+        <div className="fadeContainer">
+          <LaneHandler categories={categories} movie={movie} />
+        </div>
         <Footer />
       </div>
     </>

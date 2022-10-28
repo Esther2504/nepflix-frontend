@@ -93,13 +93,17 @@ text-decoration: none;
   min-height: 100vh;
 }
 
+.laneContainer {
+  /* box-shadow: 0 -6vw 4vw 2vw rgb(14,14,14); */
+  z-index: 1;
+}
+
 // aligns the content directly below the navbar. keeps the footer at the bottom.
 .padding-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   padding-top: 4.1rem;
-
   @media (min-width: 950px) {
    padding-top: 6.8rem;
   }
