@@ -94,7 +94,7 @@ text-decoration: none;
 }
 
 .laneContainer {
-  box-shadow: 0 -6vw 4vw 2vw rgb(14,14,14);
+  /* box-shadow: 0 -6vw 4vw 2vw rgb(14,14,14); */
   z-index: 1;
 }
 
