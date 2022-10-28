@@ -253,8 +253,17 @@ export const PlayerStyles = styled.div`
     //     height: 100%;
     //     border: none;
     // }
-
+    .PlayerWrapper {
+        display: flex;
+    overflow: hidden;
+    max-width: 100vw;
+    height: auto;
+    margin-top: -12rem;
     
+    }
+    
+  
+
     iframe {
         height: 90vh;
         width: 100vw

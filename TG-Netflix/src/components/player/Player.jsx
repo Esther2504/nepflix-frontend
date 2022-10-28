@@ -95,7 +95,9 @@ function Player({data}) {
     return (
         <>
             <PlayerStyles>
-                <div className='banner-container'>
+            <div className='PlayerWrapper'>
+                        <div className='InnerWrapper'>
+             
                     <div className='banner'
                         style={{
                             backgroundImage: "https://image.tmdb.org/t/p/original" + backdrop_path
@@ -157,9 +159,12 @@ function Player({data}) {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={removeVolume} onPlay={addVolume} />
-
+                 
+                            <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={removeVolume} onPlay={addVolume} />
+                       
                 </div>
+                </div>
+            
             </PlayerStyles>
         </>
     )

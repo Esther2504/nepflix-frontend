@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const LaneContainer = styled.div`
-margin-bottom: 2rem;
+margin-bottom: 3.5rem;
 `;
 
 export const LaneWrapper = styled.div`
@@ -131,7 +131,7 @@ export const Card = styled.div`
     width: 100%;
     padding: 0 5px;
     bottom: 7px;
-    font-family: Futura;
+    font-family: Manrope;
     text-align: center;
     line-height: 0.9;
     font-size: 1.5vw;
@@ -146,4 +146,4 @@ export const Card = styled.div`
     left: 3px;
     width: 1.3vw;
   }
-`;
+`
