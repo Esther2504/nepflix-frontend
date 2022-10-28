@@ -47,7 +47,7 @@ export const SmallModal = styled.div`
   background-color: #181818;
   // background-image: url(${(props) => props.bg});
   background-size: cover;
-  z-index: 999;
+  z-index: 2;
   animation: out 500ms ease-in-out;
   &:hover {
     animation-duration: 1300ms;
