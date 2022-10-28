@@ -117,7 +117,6 @@ export const ModalContainer = styled.div`
 
 export const ModalContent = styled.div`
   display: flex;
-
   -margin: 0 auto;
   margin-top: 3rem;
   border-top-left-radius: 1rem;

@@ -60,7 +60,7 @@ const CallBigModal = forwardRef((props, ref) => {
 
   //Close modal button
   const handleClose = () => {
-    document.body.style.position = "";
+    document.body.style.position = null;
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
