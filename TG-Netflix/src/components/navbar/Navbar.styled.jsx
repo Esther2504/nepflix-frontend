@@ -62,7 +62,7 @@ export const Nav = styled.header`
   transition: background-color 1000ms; // return transition
   transition: ${(props) =>
     props.blackNavbar ? 'background-color 1000ms;' : ''};
-  background-color: ${(props) => (props.blackNavbar ? 'rgb(20,20,20) ' : '')};
+  background-color: ${(props) => (props.blackNavbar ? 'rgb(14,14,14) ' : '')};
 
   @media (min-width: 950px) {
     height: 6.8rem;

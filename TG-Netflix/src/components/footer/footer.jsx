@@ -58,11 +58,11 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin-top: auto;
-background: black; // pink for testing purposes
+background: rgb(14,14,14); 
 `
 
 const Container = styled.div`
-background-color: rgba(0,0,0,.75);
+background-color: rgb(14,14,14);
 max-width: 980px;
 display: block;
 padding: 0 4%;
