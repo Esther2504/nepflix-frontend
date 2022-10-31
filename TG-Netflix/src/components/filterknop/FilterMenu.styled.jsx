@@ -11,6 +11,7 @@ export const FilterWrapper = styled.section`
   justify-content: space-between;
   background-color: rgb(14, 14, 14);
   padding: 3rem 7rem 3rem 4.5rem;
+  margin-top: 6.5rem;
 
   @media (max-width: 950px) {
     padding: 3rem 4.6rem 3rem 3.5rem;
