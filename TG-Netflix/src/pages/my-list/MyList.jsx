@@ -7,10 +7,11 @@ export default function MyList() {
     <>
       <div className="padding-container">
 
-        
+        <Wrapper>
         <Title>My List</Title>
         <GridLayout movies={categoriesMock.categories[0].movies} />
         <Footer />
+        </Wrapper>
       </div>
     </>
   );
