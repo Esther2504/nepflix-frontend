@@ -6,7 +6,7 @@ export default function GridLayout({movies}) {
   return (
     <GridContainer>
       {movies.map((movie, index) => {
-        return <MovieCard key={index} movie={movie}/>
+        return <MovieCard id="movie" key={index} movie={movie}/>
       })}
       {/* <MovieCard /> */}
     </GridContainer>

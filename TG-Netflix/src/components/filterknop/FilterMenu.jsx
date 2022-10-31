@@ -19,7 +19,7 @@ import {
   OptionIcon,
 } from "./FilterMenu.styled";
 
-const FilterMenu = () => {
+const FilterMenu = (props) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [toggle, setToggle] = useState(false);
 
@@ -42,7 +42,7 @@ const FilterMenu = () => {
           <ArrowIcon src={arrowdown} alt="" />
         </FilterGenreButton>
         <FilterGenreSubMenu visible={toggle}>
-          <FilterLinks />
+          <FilterLinks setGenre={props.setGenre} />
         </FilterGenreSubMenu>
       </FilterGenreWrapper>
       <FilterOptionWrapper>
