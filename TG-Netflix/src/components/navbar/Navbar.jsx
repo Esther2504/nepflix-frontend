@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { RiPencilLine, RiAccountCircleLine } from 'react-icons/ri';
-import { BiHelpCircle } from 'react-icons/bi';
+import { RiAccountCircleLine } from 'react-icons/ri';
 
 import Searchbar from './Searchbar';
 import * as S from './Navbar.styled';
-import { BellIcon } from './Navbar.styled';
 import logo from '../../assets/navbar-images/netflix_logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
 import kids from '../../assets/navbar-images/kids-icon.png';
@@ -84,42 +82,16 @@ export default function Navbar() {
             <li>
               <Searchbar />
             </li>
-            <S.Children>
-              <NavLink to="">Children</NavLink>
-            </S.Children>
             <li>
-              <S.Notifications>
-                <BellIcon />
-                <ul className="dropdown-text">
-                  <img src={arrowup} />
-                  <li>No recent notifications</li>
-                </ul>
-              </S.Notifications>
-            </li>
-            <li>
-              {' '}
               <S.Account>
                 <img src={profile} alt="Profile" />
                 <img src={arrowdown} />
                 <ul className="dropdown-text">
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    <img src={kids} alt="Kids" />
-                    <a href="#">Kids</a>
-                  </li>
-                  <li>
-                    <RiPencilLine size={20} />
-                    <a href="#">Manage Profiles</a>
-                  </li>
-                  <li>
                     <RiAccountCircleLine size={20} />
                     <a href="/account">Account</a>
                   </li>
-                  <li>
-                    <BiHelpCircle size={20} />
-                    <a href="#">Help Centre</a>
-                  </li>
-                  <hr />
                   <li>
                     <a href="/">Sign out of Netflix</a>
                   </li>
