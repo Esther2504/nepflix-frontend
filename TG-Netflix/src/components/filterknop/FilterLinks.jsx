@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FilterLinks = ( {setGenre} ) => {
-
   return (
     <>
-      {/* <div>
-        <GenreLink onClick={(e) => setGenre("action")} href="">Action</GenreLink>
+      {/* <div> */}
+        {/* <Link onClick={(e) => setGenre("action")} to="./action" href="">Action</Link>
         <GenreLink href="">Adventure</GenreLink>
         <GenreLink href="">Animation</GenreLink>
         <GenreLink href="">Comedy</GenreLink>
@@ -47,8 +47,8 @@ const FilterLinks = ( {setGenre} ) => {
         <GenreLink onClick={(e) => setGenre("music")}>Music</GenreLink>
         <GenreLink onClick={(e) => setGenre("mystery")}>Mystery</GenreLink>
         <GenreLink onClick={(e) => setGenre("romance")}>Romance</GenreLink>
-        <GenreLink onClick={(e) => setGenre("science fiction")}>Science Fiction</GenreLink>
-        <GenreLink onClick={(e) => setGenre("TV movie")}>TV movie</GenreLink>
+        <GenreLink onClick={(e) => setGenre("science_fiction")}>Science Fiction</GenreLink>
+        <GenreLink onClick={(e) => setGenre("tv_movie")}>TV movie</GenreLink>
       </div>
       <div>
         <GenreLink onClick={(e) => setGenre("thriller")}>Thriller</GenreLink>

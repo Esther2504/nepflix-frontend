@@ -30,7 +30,7 @@ export default function Films({ banner, categories, movie }) {
   const [genre, setGenre] = useState("");
   //END STATE
 
-  let movies = categoriesMock.categories[0].movies
+  let movies = categoriesMock.categories
 
   //add eventlistener for small modal
   useEffect(() => {
@@ -58,6 +58,8 @@ export default function Films({ banner, categories, movie }) {
   };
 
   console.log(genre)
+
+  console.log(movies)
 
   return (
     <>
@@ -88,7 +90,7 @@ export default function Films({ banner, categories, movie }) {
             />
           )}
           {globalModalState.modalState && <CallBigModal />} */}
-          <GridLayout movies={movies} />
+          <GridLayout genre={genre} movies={movies} />
       {/* {movies.map((movie, index) => {
         return <MovieCard id="movies" key={index} movie={movie}/>
       })}
