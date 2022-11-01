@@ -96,9 +96,14 @@ text-decoration: none;
   min-height: 100vh;
 }
 
-.laneContainer {
-  /* box-shadow: 0 -6vw 4vw 2vw rgb(14,14,14); */
+.fade-container {
+  margin-top: -14vw;
   z-index: 1;
+
+  // sets the Position of the lanes on smaller devices (when the banner is not displayed)
+  @media (max-width: 644px) {
+    margin-top: 9vw; 
+  }
 }
 
 // aligns the content directly below the navbar. keeps the footer at the bottom.
