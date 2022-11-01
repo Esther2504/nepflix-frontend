@@ -41,19 +41,19 @@ const FilterLinks = ( {setGenre} ) => {
         <GenreLink onClick={(e) => setGenre("family")}>Family</GenreLink>
       </div>
       <div>
-        <GenreLink href="">Fantasy</GenreLink>
-        <GenreLink href="">History</GenreLink>
-        <GenreLink href="">Horror</GenreLink>
-        <GenreLink href="">Music</GenreLink>
-        <GenreLink href="">Mystery</GenreLink>
-        <GenreLink href="">Romance</GenreLink>
-        <GenreLink href="">Science Fiction</GenreLink>
-        <GenreLink href="">TV movie</GenreLink>
+        <GenreLink onClick={(e) => setGenre("fantasy")}>Fantasy</GenreLink>
+        <GenreLink onClick={(e) => setGenre("history")}>History</GenreLink>
+        <GenreLink onClick={(e) => setGenre("horror")}>Horror</GenreLink>
+        <GenreLink onClick={(e) => setGenre("music")}>Music</GenreLink>
+        <GenreLink onClick={(e) => setGenre("mystery")}>Mystery</GenreLink>
+        <GenreLink onClick={(e) => setGenre("romance")}>Romance</GenreLink>
+        <GenreLink onClick={(e) => setGenre("science fiction")}>Science Fiction</GenreLink>
+        <GenreLink onClick={(e) => setGenre("TV movie")}>TV movie</GenreLink>
       </div>
       <div>
-        <GenreLink href="">Thriller</GenreLink>
-        <GenreLink href="">War</GenreLink>
-        <GenreLink href="">Western</GenreLink>
+        <GenreLink onClick={(e) => setGenre("thriller")}>Thriller</GenreLink>
+        <GenreLink onClick={(e) => setGenre("war")}>War</GenreLink>
+        <GenreLink onClick={(e) => setGenre("western")}>Western</GenreLink>
       </div>
     </>
   );

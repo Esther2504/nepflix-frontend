@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FilterWrapper = styled.section`
   position: sticky;
-  top: 0;
+  top: ${(props) => (props.isScrolled ? "-2px" : "0")};
   height: 4.1rem;
   width: 100%;
   z-index: 2;
@@ -45,23 +45,40 @@ export const FilterTitle = styled.h2`
   }
 `;
 
-export const GenreTitle = styled.p`
-  font-size: 3.8rem;
-  color: #fff;
+export const FilmsLink = styled.a`
+  font-size: 1.8rem;
+  color: grey;
   margin-right: 15px;
+  cursor: pointer;
 
-  @media (max-width: 884px) {
-    font-size: 2.2rem;
+  &:after {
+    content: ">";
+    padding-left: 10px;
+   font-size: 20px;
   }
 
-  @media (max-width: 725px) {
-    font-size: 1.8rem;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 1.4rem;
-  }
 `;
+
+export const GenreTitle = styled(FilterTitle)`
+line-height: 3.8rem;
+cursor: default;
+
+@media (max-width: 884px) {
+  line-height: 2.2rem;
+}
+
+@media (max-width: 725px) {
+  line-height: 1.8rem;
+}
+
+@media (max-width: 400px) {
+  line-height: 1.4rem;
+}
+
+&:first-letter {
+  text-transform: capitalize;
+}
+`
 
 export const FilterOptionButton = styled.button`
   display: flex;

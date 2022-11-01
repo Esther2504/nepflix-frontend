@@ -14,6 +14,7 @@ import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
 import { GridContainer } from "../../components/grid-layout/GridLayout.styled";
 import MovieCard from "../../components/movie-card/MovieCard";
 import categoriesMock from '../../mock-data/browse_categories_banner.mock.json'
+import GridLayout from "../../components/grid-layout/GridLayout";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -78,7 +79,7 @@ export default function Films({ banner, categories, movie }) {
           </>
         ) : (
           <>
-          {isHovering && (
+          {/* {isHovering && (
             <CallModal
               onMouseLeave={() => setIsHovering(false)}
               hover={isHovering}
@@ -86,12 +87,12 @@ export default function Films({ banner, categories, movie }) {
               onClick={openBigModal}
             />
           )}
-          {globalModalState.modalState && <CallBigModal />}
-          <GridContainer>
-      {movies.map((movie, index) => {
+          {globalModalState.modalState && <CallBigModal />} */}
+          <GridLayout movies={movies} />
+      {/* {movies.map((movie, index) => {
         return <MovieCard id="movies" key={index} movie={movie}/>
       })}
-    </GridContainer>
+    </GridContainer> */}
           </>
          
         )}

@@ -11,6 +11,7 @@ import {
   FilterGenreWrapper,
   FilterOptionWrapper,
   FilterTitle,
+  FilmsLink,
   GenreTitle,
   FilterOptionButton,
   FilterGenreButton,
@@ -36,16 +37,26 @@ const FilterMenu = (props) => {
 
   return (
     <FilterWrapper isScrolled={isScrolled}>
-      <FilterTitle>Movies <GenreTitle>> {props.genre}</GenreTitle></FilterTitle>
-      <FilterGenreWrapper>
-        <FilterGenreButton onClick={handleToggle}>
-          <ButtonText>Genres</ButtonText>
-          <ArrowIcon src={arrowdown} alt="" />
-        </FilterGenreButton>
-        <FilterGenreSubMenu visible={toggle}>
-          <FilterLinks setGenre={props.setGenre} />
-        </FilterGenreSubMenu>
-      </FilterGenreWrapper>
+      {props.genre === "" ? (
+        <>
+          <FilterTitle>Films</FilterTitle>
+          <FilterGenreWrapper>
+            <FilterGenreButton onClick={handleToggle}>
+              <ButtonText>Genres</ButtonText>
+              <ArrowIcon src={arrowdown} alt="" />
+            </FilterGenreButton>
+            <FilterGenreSubMenu visible={toggle}>
+              <FilterLinks setGenre={props.setGenre} />
+            </FilterGenreSubMenu>
+          </FilterGenreWrapper>
+        </>
+      ) : (
+        <>
+          <FilmsLink onClick={(e) => props.setGenre("")}>Films</FilmsLink>
+          <GenreTitle>{props.genre}</GenreTitle>
+        </>
+      )}
+
       <FilterOptionWrapper>
         <FilterOptionButton>
           <OptionIcon src={listIcon} alt="" />
