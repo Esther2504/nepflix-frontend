@@ -7,12 +7,13 @@ import { useEffect } from 'react';
 export default function Search() {
   const [search, setSearch] = useSearchParams();
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
+  const query = search.get('q')
 
   const byTitle = (title) => (data) =>
     data.title.toLowerCase().includes((title || '').toLowerCase());
 
-  const handleTitle = (event) => {
+  const handleChange = (event) => {
     setSearch({ q: event.target.value });
   };
 
@@ -28,13 +29,13 @@ export default function Search() {
         <S.Container>
           <input
             type="search"
-            value={search.get('q')}
-            onChange={handleTitle}
+            value={query}
+            onChange={handleChange}
           />
           <h3>Search results:</h3>
 
           <ul>
-            {Films.filter(byTitle(search.get('q'))).map((data) => (
+            {Films.filter(byTitle(query)).map((data) => (
               <li key={data.id}>{data.title}</li>
             ))}
           </ul>
