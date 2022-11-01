@@ -74,9 +74,10 @@ export default function Films({ banner, categories, movie }) {
                 onClick={openBigModal}
               />
             )}
+         
             {globalModalState.modalState && <CallBigModal />}
+          
             <LaneHandler categories={categories} movie={movie} />
-            {/* <Lanes categories={browseMockData.categories} movie={movieDetailsMock} /> */}
           </>
         ) : (
           <>

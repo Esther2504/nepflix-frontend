@@ -36,6 +36,14 @@ const FilterMenu = (props) => {
     setToggle(!toggle);
   };
 
+  // Voor de genretitel die op de pagina verschijnt nadat je een genre kiest
+  let genreTitle = props.genre;
+  if (props.genre == "science_fiction") {
+    genreTitle = "Science Fiction";
+  } else if (props.genre == "tv_movie") {
+    genreTitle = "TV Movie";
+  }
+
   return (
     <FilterWrapper isScrolled={isScrolled}>
       {props.genre === "" ? (
@@ -54,15 +62,29 @@ const FilterMenu = (props) => {
       ) : (
         <>
           <FilmsLink onClick={(e) => props.setGenre("")}>Films</FilmsLink>
-          <GenreTitle>{props.genre}</GenreTitle>
+          <GenreTitle>{genreTitle}</GenreTitle>
         </>
       )}
       <FilterOptionWrapper>
-        <FilterOptionButton style={{ border: props.genre == "" ? '1px solid white': '1px solid grey'}}>
-          <OptionIcon src={props.genre == "" ? listIconView : listIcon} alt="" />
+        <FilterOptionButton
+          style={{
+            border: props.genre == "" ? "1px solid white" : "1px solid grey",
+          }}
+        >
+          <OptionIcon
+            src={props.genre == "" ? listIconView : listIcon}
+            alt=""
+          />
         </FilterOptionButton>
-        <FilterOptionButton style={{ border: props.genre == "" ? '1px solid grey': '1px solid white'}}>
-          <OptionIcon src={props.genre == "" ? gridIcon : gridIconView} alt="" />
+        <FilterOptionButton
+          style={{
+            border: props.genre == "" ? "1px solid grey" : "1px solid white",
+          }}
+        >
+          <OptionIcon
+            src={props.genre == "" ? gridIcon : gridIconView}
+            alt=""
+          />
         </FilterOptionButton>
       </FilterOptionWrapper>
     </FilterWrapper>
