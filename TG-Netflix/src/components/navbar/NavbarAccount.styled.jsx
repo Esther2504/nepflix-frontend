@@ -11,7 +11,7 @@ export const Container = styled.header`
   padding: 0;
   color: white;
   z-index: 10;
-  background-color: rgb(14,14,14);
+  background-color: var(--black);
 
   @media (min-width: 740px) {
     height: 6.8rem;

@@ -58,11 +58,11 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin-top: auto;
-background: rgb(14,14,14); 
+background: var(--black); 
 `
 
 const Container = styled.div`
-background-color: rgb(14,14,14);
+background-color: var(--black);
 max-width: 980px;
 display: block;
 padding: 0 4%;

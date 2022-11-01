@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
+:root {
+    --black: #141414; // de zwarte achtergrondkleur =>  var(--black)
+  }
 
 *,
 *::before,
@@ -28,7 +31,7 @@ body {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-family: "Manrope", sans-serif;
-  background-color: rgb(14,14,14);
+  background-color: var(--black);
   overflow-x: hidden;
 }
 
