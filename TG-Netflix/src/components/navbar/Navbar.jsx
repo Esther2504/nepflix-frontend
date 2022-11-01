@@ -3,11 +3,10 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 import { RiAccountCircleLine } from 'react-icons/ri';
 
-import Searchbar from './Searchbar';
+import Searchbar from '../search/Searchbar';
 import * as S from './Navbar.styled';
 import logo from '../../assets/navbar-images/netflix_logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
-import kids from '../../assets/navbar-images/kids-icon.png';
 import arrowup from '../../assets/navbar-images/arrow-up.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
 

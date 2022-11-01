@@ -8,7 +8,7 @@ export const Search = styled.form`
   padding: 5px;
   overflow-x: hidden;
   border: none;
-  transition: width 0ms;
+  transition: width 300ms;
 
   @media (min-width: 600px) {
     display: flex;
