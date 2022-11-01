@@ -86,10 +86,10 @@ export default function Navbar() {
               <S.Account>
                 <img src={profile} alt="Profile" />
                 <img src={arrowdown} />
-                <ul className="dropdown-text">
+                <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    <RiAccountCircleLine size={20} />
+                    {/* <RiAccountCircleLine size={20} /> */}
                     <a href="/account">Account</a>
                   </li>
                   <li>

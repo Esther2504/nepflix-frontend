@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 // utility classes
 
@@ -14,17 +15,25 @@ const dropdown = css`
     flex-direction: column;
     top: 7.2rem;
     padding: 1rem 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     border-radius: 2px;
+    border-top: 2px solid white;
 
     li {
       display: flex;
-      margin-left: 20px;
-      padding: 10px 0;
-      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(30, 30, 30, 0.5);
+      }
 
       @media (max-width: 884px) {
         font-size: 1.3rem;
+      }
+
+      a {
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
       }
     }
   }
@@ -33,10 +42,6 @@ const dropdown = css`
     ul {
       display: flex;
     }
-  }
-
-  .dropdown-text {
-    font-size: 1.3rem;
   }
 `;
 
@@ -84,7 +89,7 @@ export const Nav = styled.header`
     list-style: none;
 
     li {
-      margin-left: 1.5rem;
+      margin-left: 2.5rem;
 
       a {
         text-decoration: none;
@@ -112,7 +117,7 @@ export const PrimaryNav = styled.nav`
     width: 20rem;
     top: 7rem;
     left: 46px;
-    border-top: 2px solid white;
+
 
     img {
       position: absolute;
@@ -130,9 +135,8 @@ export const PrimaryNav = styled.nav`
         margin-left: 0;
       }
 
-      &:hover {
-        background-color: rgba(20, 20, 20, 0.5);
-      }
+
+
       a {
         &:hover {
           color: #b8b8b8;
@@ -187,7 +191,6 @@ export const SecondaryNav = styled.nav`
 
 export const Account = styled.div`
   ${dropdown}
-  cursor: pointer;
 
   img:nth-of-type(1) {
     width: 32px;
@@ -215,20 +218,18 @@ export const Account = styled.div`
   }
 
   ul {
-    left: -150px;
-    width: 20rem;
-    align-items: flex-start;
+    left: -130px;
+    width: 19rem;
 
     li {
       display: flex;
       align-items: center;
+      width:100%;
+      margin-left: 0rem;
 
       a {
-        padding-left: 1rem;
+        width:100%;
 
-        &:hover {
-          text-decoration: underline;
-        }
       }
     }
 
@@ -236,7 +237,7 @@ export const Account = styled.div`
       width: 15px;
       position: absolute;
       top: -12px;
-      left: 160px;
+      left: 140px;
     }
   }
 `;
