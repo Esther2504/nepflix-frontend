@@ -11,6 +11,7 @@ import {
   FilterGenreWrapper,
   FilterOptionWrapper,
   FilterTitle,
+  GenreTitle,
   FilterOptionButton,
   FilterGenreButton,
   FilterGenreSubMenu,
@@ -35,7 +36,7 @@ const FilterMenu = (props) => {
 
   return (
     <FilterWrapper isScrolled={isScrolled}>
-      <FilterTitle>Movies</FilterTitle>
+      <FilterTitle>Movies <GenreTitle>> {props.genre}</GenreTitle></FilterTitle>
       <FilterGenreWrapper>
         <FilterGenreButton onClick={handleToggle}>
           <ButtonText>Genres</ButtonText>

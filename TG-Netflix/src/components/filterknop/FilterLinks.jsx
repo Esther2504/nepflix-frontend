@@ -32,13 +32,13 @@ const FilterLinks = ( {setGenre} ) => {
       </div> */}
       <div>
         <GenreLink onClick={(e) => setGenre("action")} href="">Action</GenreLink>
-        <GenreLink href="">Adventure</GenreLink>
-        <GenreLink href="">Animation</GenreLink>
-        <GenreLink href="">Comedy</GenreLink>
-        <GenreLink href="">Crime</GenreLink>
-        <GenreLink href="">Documentary</GenreLink>
-        <GenreLink href="">Drama</GenreLink>
-        <GenreLink href="">Family</GenreLink>
+        <GenreLink onClick={(e) => setGenre("adventure")} href="">Adventure</GenreLink>
+        <GenreLink onClick={(e) => setGenre("animation")}>Animation</GenreLink>
+        <GenreLink onClick={(e) => setGenre("comedy")}>Comedy</GenreLink>
+        <GenreLink onClick={(e) => setGenre("crime")} href="">Crime</GenreLink>
+        <GenreLink onClick={(e) => setGenre("documentary")}>Documentary</GenreLink>
+        <GenreLink onClick={(e) => setGenre("drama")}>Drama</GenreLink>
+        <GenreLink onClick={(e) => setGenre("family")}>Family</GenreLink>
       </div>
       <div>
         <GenreLink href="">Fantasy</GenreLink>

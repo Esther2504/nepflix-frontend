@@ -45,6 +45,24 @@ export const FilterTitle = styled.h2`
   }
 `;
 
+export const GenreTitle = styled.p`
+  font-size: 3.8rem;
+  color: #fff;
+  margin-right: 15px;
+
+  @media (max-width: 884px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 725px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 1.4rem;
+  }
+`;
+
 export const FilterOptionButton = styled.button`
   display: flex;
   justify-content: center;

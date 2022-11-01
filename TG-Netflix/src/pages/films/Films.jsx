@@ -26,7 +26,7 @@ export default function Films({ banner, categories, movie }) {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
 
-  const [genre, setGenre] = useState("none");
+  const [genre, setGenre] = useState("");
   //END STATE
 
   let movies = categoriesMock.categories[0].movies
@@ -61,8 +61,8 @@ export default function Films({ banner, categories, movie }) {
   return (
     <>
       <div className="members-container">
-        <FilterMenu setGenre={setGenre} />
-        {genre == "none" ? (
+        <FilterMenu setGenre={setGenre} genre={genre} />
+        {genre == "" ? (
           <>
             {isHovering && (
               <CallModal
