@@ -31,7 +31,7 @@ export default function Searchbar() {
 
         <input
           type="search"
-          value={query}
+          value={query || ''}
           onChange={handleChange}
           placeholder="Titles, people, genres"
         />
