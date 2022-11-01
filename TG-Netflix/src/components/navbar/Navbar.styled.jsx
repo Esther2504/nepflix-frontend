@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 // utility classes
 
@@ -14,13 +13,13 @@ const dropdown = css`
     display: none;
     flex-direction: column;
     top: 7.2rem;
-    padding: 1rem 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     border-radius: 2px;
     border-top: 2px solid white;
 
     li {
       display: flex;
+      border-bottom: 1px solid transparent;
 
       &:hover {
         background-color: rgba(30, 30, 30, 0.5);
@@ -32,7 +31,7 @@ const dropdown = css`
 
       a {
         width: 100%;
-        padding: 10px 0;
+        padding: 15px 0;
         text-align: center;
       }
     }
@@ -118,7 +117,6 @@ export const PrimaryNav = styled.nav`
     top: 7rem;
     left: 46px;
 
-
     img {
       position: absolute;
       top: -12px;
@@ -133,15 +131,6 @@ export const PrimaryNav = styled.nav`
 
       @media (max-width: 884px) {
         margin-left: 0;
-      }
-
-
-
-      a {
-        &:hover {
-          color: #b8b8b8;
-          transition: 300ms;
-        }
       }
     }
 
@@ -224,13 +213,8 @@ export const Account = styled.div`
     li {
       display: flex;
       align-items: center;
-      width:100%;
+      width: 100%;
       margin-left: 0rem;
-
-      a {
-        width:100%;
-
-      }
     }
 
     .arrow-up {
