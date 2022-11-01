@@ -9,7 +9,7 @@ export const FilterWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(14, 14, 14);
+  background-color: var(--black);
   padding: 3rem 7rem 3rem 4.5rem;
   margin-top: 6.5rem;
 
