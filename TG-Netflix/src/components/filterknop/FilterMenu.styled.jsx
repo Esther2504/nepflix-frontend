@@ -86,7 +86,7 @@ export const FilterOptionButton = styled.button`
   align-items: center;
   width: 40px;
   height: 30px;
-  border: 1 px solid white;
+  border: 1px solid white;
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
   border: 1px solid #fff;

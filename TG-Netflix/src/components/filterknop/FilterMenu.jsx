@@ -5,6 +5,8 @@ import FilterLinks from "./FilterLinks";
 import arrowdown from "../../assets/navbar-images/arrow-down.png";
 import listIcon from "../../assets/filter-menu-images/list.svg";
 import gridIcon from "../../assets/filter-menu-images/grid.svg";
+import listIconView from "../../assets/filter-menu-images/list-view.svg";
+import gridIconView from "../../assets/filter-menu-images/grid-view.svg";
 
 import {
   FilterWrapper,
@@ -58,11 +60,11 @@ const FilterMenu = (props) => {
       )}
 
       <FilterOptionWrapper>
-        <FilterOptionButton>
-          <OptionIcon src={listIcon} alt="" />
+        <FilterOptionButton style={{ border: props.genre == "" ? '1px solid white': '1px solid grey'}}>
+          <OptionIcon src={props.genre == "" ? listIconView : listIcon} alt="" />
         </FilterOptionButton>
-        <FilterOptionButton>
-          <OptionIcon src={gridIcon} alt="" />
+        <FilterOptionButton style={{ border: props.genre == "" ? '1px solid grey': '1px solid white'}}>
+          <OptionIcon src={props.genre == "" ? gridIcon : gridIconView} alt="" />
         </FilterOptionButton>
       </FilterOptionWrapper>
     </FilterWrapper>
