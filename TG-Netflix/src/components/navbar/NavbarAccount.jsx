@@ -20,19 +20,8 @@ export default function NavbarAccount() {
           <ul>
             <img src={arrowup} className="arrow-up" />
             <li>
-              <img src={kids} alt="Kids icon" />
-              <a href="#">Kids</a>
+              <a href="/browse">Home</a>
             </li>
-            <li>
-              <a href="#">Manage Profiles</a>
-            </li>
-            <li>
-              <a href="/account">Account</a>
-            </li>
-            <li>
-              <a href="#">Help Centre</a>
-            </li>
-            <hr />
             <li>
               <a href="/">Sign out of Netflix</a>
             </li>

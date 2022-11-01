@@ -57,11 +57,10 @@ export const Menu = styled.nav`
     position: absolute;
     display: none;
     flex-direction: column;
-    align-items: flex-start;
     top: 5.2rem;
-    width: 16rem;
+    width: 19rem;
     right: 0px;
-
+    padding: 10px 0;
     border-radius: 2px;
     background-color: rgba(0, 0, 0, 0.97);
 
@@ -72,29 +71,18 @@ export const Menu = styled.nav`
 
     li {
       display: flex;
-      align-items: center;
-      padding: 10px 0;
-      padding-left: 1rem;
       font-size: 1.3rem;
 
-      &:nth-of-type(5) {
-        align-self: center;
-        padding-left: 0;
-      }
-
-      img:nth-of-type(1) {
-        width: 32px;
-        margin-right: 1rem;
-        border-radius: 5px;
+      &:hover {
+        background-color: rgba(20, 20, 20, 0.5);
       }
 
       a {
+        width: 100%;
+        padding: 10px 0;
         color: white;
+        text-align: center;
         text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
       }
     }
 
@@ -109,11 +97,6 @@ export const Menu = styled.nav`
       @media (min-width: 740px) {
         display: block;
       }
-    }
-
-    hr {
-      width: 100%;
-      margin: 1rem 0;
     }
   }
 
