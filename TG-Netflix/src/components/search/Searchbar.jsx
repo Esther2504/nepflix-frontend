@@ -13,18 +13,22 @@ export default function Searchbar() {
     setSearch({ q: event.target.value });
   }
 
-  function handleSubmit() {}
+  useEffect(() => {
+    if (query !== null) {
+      navigate(`/search?q=${query}`);
+    } 
+    
+    // else if (location.pathname === '/search' && query === null);
+    // {
+    //   navigate('/browse');
+    // }
+  }, [query]);
 
-  //   useEffect(() => {
-  //     if (query !== null) {
-  //       navigate('/search');
-  //     }
-
-  // }, [query]);
+  console.log(query);
 
   return (
     <>
-      <S.Search onSubmit={handleSubmit}>
+      <S.Search>
         <button type="submit">
           <SearchIcon />
         </button>
