@@ -5,6 +5,7 @@ export default function MyList() {
     <>
       <div className="padding-container">
         {/* CONTENT GOES HERE */}
+
         <Footer />
       </div>
     </>
