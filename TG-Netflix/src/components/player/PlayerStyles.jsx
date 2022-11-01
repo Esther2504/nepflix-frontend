@@ -390,6 +390,7 @@ export const PlayerStyles = styled.div`
     }
 
     @media only screen and (max-width: 644px) {
+        display: none;
         .banner-fadeBottom {
             display: none;
         }
