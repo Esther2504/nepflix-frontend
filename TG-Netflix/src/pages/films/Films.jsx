@@ -24,10 +24,9 @@ export default function Films({ banner, categories, movie }) {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
+  const [genre, setGenre] = useState("");
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
-
-  const [genre, setGenre] = useState("");
   //END STATE
 
   let movies = categoriesMock.categories
@@ -38,7 +37,7 @@ export default function Films({ banner, categories, movie }) {
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
-          console.log("hello")
+          console.log("hovered")
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
