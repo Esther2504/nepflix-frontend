@@ -1,7 +1,7 @@
-import React, { useRef, forwardRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import PreviewModal from "./PreviewModal";
-import Trailer from "./testTrailer.webm";
+import React, { useRef, forwardRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import PreviewModal from './PreviewModal';
+import Trailer from './testTrailer.webm';
 import {
   ModalContainer,
   ModalContent,
@@ -37,8 +37,8 @@ import {
   MoreLikeThisToggle,
   AboutContainer,
   AboutTitle,
-} from "./CallBigModal.styled";
-import { closeModal } from "../../reducers/modalReducer";
+} from './CallBigModal.styled';
+import { closeModal } from '../../reducers/modalReducer';
 
 const CallBigModal = forwardRef((props, ref) => {
   //REF's
@@ -54,17 +54,19 @@ const CallBigModal = forwardRef((props, ref) => {
   //END STATE
 
   //coords for big modal
-  const left = Math.round(globalModalState.coords.left) + "px ";
-  const top = Math.round(globalModalState.coords.top) + window.scrollY + "px";
+  const offset = document.querySelector('.banner-container').offsetHeight;
+  const left = Math.round(globalModalState.coords.left) + 'px ';
+  const top = Math.round(globalModalState.coords.top) + window.scrollY + 'px';
   const coordsForBigModal = left + top;
-
+  
   //Close modal button
   const handleClose = () => {
     document.body.style.position = null;
+    
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
-  window.addEventListener("click", (e) => {
+  window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
       document.body.style.position = null;
       dispatch(closeModal({ modalState: false, coords: [] }));
@@ -75,11 +77,11 @@ const CallBigModal = forwardRef((props, ref) => {
   const handleOnClickToggleMore = () => {
     setToggleViewMore(!toggleViewMore);
     if (!toggleViewMore) {
-      refMoreLikeThisWrapper.current.style.height = "auto";
-      refMoreLikeThisWrapper.current.style.overflow = "visible";
+      refMoreLikeThisWrapper.current.style.height = 'auto';
+      refMoreLikeThisWrapper.current.style.overflow = 'visible';
     } else if (toggleViewMore) {
-      refMoreLikeThisWrapper.current.style.height = "50rem";
-      refMoreLikeThisWrapper.current.style.overflow = "hidden";
+      refMoreLikeThisWrapper.current.style.height = '50rem';
+      refMoreLikeThisWrapper.current.style.overflow = 'hidden';
     }
   };
 
@@ -167,7 +169,7 @@ const CallBigModal = forwardRef((props, ref) => {
                 onClick={handleOnClickToggleMore}
                 style={
                   toggleViewMore === true
-                    ? { transform: "rotate(180deg)" }
+                    ? { transform: 'rotate(180deg)' }
                     : undefined
                 }
               />

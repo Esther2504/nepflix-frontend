@@ -117,7 +117,6 @@ export const ModalContainer = styled.div`
 
 export const ModalContent = styled.div`
   display: flex;
-  -margin: 0 auto;
   margin-top: 3rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -125,6 +124,7 @@ export const ModalContent = styled.div`
   padding-bottom: 2rem;
   background-color: #181818;
   transform-origin: ${(props) => props.coords};
+  ${(props) => console.log(props.coords)}
 
   animation: blowUpModal 0.75s ease-in-out forwards;
   @keyframes blowUpModal {
