@@ -33,7 +33,6 @@ const FilterMenu = (props) => {
   };
 
   const handleToggle = () => {
-    console.log("clicked");
     setToggle(!toggle);
   };
 
@@ -47,7 +46,7 @@ const FilterMenu = (props) => {
               <ButtonText>Genres</ButtonText>
               <ArrowIcon src={arrowdown} alt="" />
             </FilterGenreButton>
-            <FilterGenreSubMenu visible={toggle}>
+            <FilterGenreSubMenu onClick={handleToggle} visible={toggle}>
               <FilterLinks setGenre={props.setGenre} />
             </FilterGenreSubMenu>
           </FilterGenreWrapper>
@@ -58,7 +57,6 @@ const FilterMenu = (props) => {
           <GenreTitle>{props.genre}</GenreTitle>
         </>
       )}
-
       <FilterOptionWrapper>
         <FilterOptionButton style={{ border: props.genre == "" ? '1px solid white': '1px solid grey'}}>
           <OptionIcon src={props.genre == "" ? listIconView : listIcon} alt="" />
