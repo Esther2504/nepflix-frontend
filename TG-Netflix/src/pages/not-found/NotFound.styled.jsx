@@ -16,7 +16,7 @@ export const Navbar = styled.header`
   display: flex;
   align-items: center;
   padding-left: 30px;
-  background-color: rgba(0, 0, 0, 0.97);
+  background-color: var(--black);
 
   img {
     width: 115px;
