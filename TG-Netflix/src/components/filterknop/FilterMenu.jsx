@@ -44,6 +44,8 @@ const FilterMenu = (props) => {
     genreTitle = "TV Movie";
   }
 
+  // Bij fetchen op basis van genre, kan je hier een useEffect op basis van de genre maken
+
   return (
     <FilterWrapper isScrolled={isScrolled}>
       {props.genre === "" ? (

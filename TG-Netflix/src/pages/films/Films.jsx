@@ -90,7 +90,7 @@ export default function Films({ banner, categories, movie }) {
             />
           )}
           {globalModalState.modalState && <CallBigModal />} */}
-          <GridLayout genre={genre} movies={movies} />
+          <GridLayout genre={genre} movies={movies} categories={categories} movie={movie} />
       {/* {movies.map((movie, index) => {
         return <MovieCard id="movies" key={index} movie={movie}/>
       })}
