@@ -13,7 +13,7 @@ import browseMockData from "../../mock-data/browse_categories_banner.mock.json";
 import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
 import { GridContainer } from "../../components/grid-layout/GridLayout.styled";
 import MovieCard from "../../components/movie-card/MovieCard";
-import categoriesMock from '../../mock-data/browse_categories_banner.mock.json'
+import categoriesMock from "../../mock-data/browse_categories_banner.mock.json";
 import GridLayout from "../../components/grid-layout/GridLayout";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
@@ -29,7 +29,7 @@ export default function Films({ banner, categories, movie }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
   //END STATE
 
-  let movies = categoriesMock.categories
+  let movies = categoriesMock.categories;
 
   //add eventlistener for small modal
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function Films({ banner, categories, movie }) {
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
-          console.log("hovered")
+          console.log("hovered");
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
@@ -56,9 +56,9 @@ export default function Films({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
-  console.log(genre)
+  console.log(genre);
 
-  console.log(movies)
+  console.log(movies);
 
   return (
     <>
@@ -74,29 +74,20 @@ export default function Films({ banner, categories, movie }) {
                 onClick={openBigModal}
               />
             )}
-         
+
             {globalModalState.modalState && <CallBigModal />}
-          
+
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
           <>
-          {/* {isHovering && (
-            <CallModal
-              onMouseLeave={() => setIsHovering(false)}
-              hover={isHovering}
-              data={{ coords: coords, dataset: dataset, movie: movie }}
-              onClick={openBigModal}
+            <GridLayout
+              genre={genre}
+              movies={movies}
+              categories={categories}
+              movie={movie}
             />
-          )}
-          {globalModalState.modalState && <CallBigModal />} */}
-          <GridLayout genre={genre} movies={movies} categories={categories} movie={movie} />
-      {/* {movies.map((movie, index) => {
-        return <MovieCard id="movies" key={index} movie={movie}/>
-      })}
-    </GridContainer> */}
           </>
-         
         )}
 
         <Footer />
