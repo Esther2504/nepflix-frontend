@@ -57,12 +57,12 @@ export const Nav = styled.header`
   background-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.4)
+    rgba(0, 0, 0, 0.6)
   );
   transition: background-color 1000ms; // return transition
   transition: ${(props) =>
     props.blackNavbar ? 'background-color 1000ms;' : ''};
-  background-color: ${(props) => (props.blackNavbar ? 'rgb(20,20,20) ' : '')};
+  background-color: ${(props) => (props.blackNavbar ? 'var(--black)' : '')};
 
   @media (min-width: 950px) {
     height: 6.8rem;
@@ -185,43 +185,6 @@ export const SecondaryNav = styled.nav`
   align-items: center;
 `;
 
-export const Children = styled.li`
-  display: none;
-
-  @media (min-width: 1100px) {
-    display: block;
-  }
-`;
-
-export const Notifications = styled.div`
-  ${dropdown};
-  cursor: pointer;
-
-  ul {
-    left: -317px;
-    width: 35rem;
-    height: 10rem;
-    text-align: center;
-    border-top: 2px solid white;
-
-    &:hover {
-      background-color: rgb(20, 20, 20);
-    }
-
-    li {
-      margin: auto;
-      color: #b8b8b8;
-    }
-
-    img {
-      position: absolute;
-      top: -12px;
-      left: 324px;
-      width: 13px;
-    }
-  }
-`;
-
 export const Account = styled.div`
   ${dropdown}
   cursor: pointer;
@@ -267,12 +230,6 @@ export const Account = styled.div`
           text-decoration: underline;
         }
       }
-
-      &:nth-of-type(5) {
-        align-self: center;
-        margin-left: 0;
-        padding-left: 0;
-      }
     }
 
     .arrow-up {
@@ -281,28 +238,5 @@ export const Account = styled.div`
       top: -12px;
       left: 160px;
     }
-
-    hr {
-      width: 100%;
-    }
   }
 `;
-
-export function BellIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="Hawkins-Icon Hawkins-Icon-Standard"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M13 4.57092C16.3922 5.05624 18.9998 7.9736 18.9998 11.5V15.2538C20.0486 15.3307 21.0848 15.4245 22.107 15.5347L21.8926 17.5232C18.7219 17.1813 15.409 17 11.9998 17C8.59056 17 5.27764 17.1813 2.10699 17.5232L1.89258 15.5347C2.91473 15.4245 3.95095 15.3307 4.99978 15.2538V11.5C4.99978 7.97345 7.6076 5.05599 11 4.57086V2H13V4.57092ZM8.62568 19.3712C8.6621 20.5173 10.1509 22 11.9993 22C13.8477 22 15.3365 20.5173 15.373 19.3712C15.38 19.1489 15.1756 19 14.9531 19H9.04555C8.82308 19 8.61862 19.1489 8.62568 19.3712Z"
-        fill="white"
-      ></path>
-    </svg>
-  );
-}
