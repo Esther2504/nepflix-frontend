@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
+import { TbBuildingFortress } from "react-icons/tb";
 
 
 const initialState = {
@@ -63,7 +64,15 @@ const NetflixSlice = createSlice({
             state.movies = action.payload;
             state.moviesLoaded = true;
             state.moviesError = '';
+        })
+            
+        builder.addCase(getUser.fulfilled, (state, action) => {
+            state.user = action.payload;
+            state.userLoaded = true;
+            state.userError = '';
+            // added user Reducer for My-list
         });
+
     },
 });
 
