@@ -44,7 +44,7 @@ export default function Discover({ banner, categories, movie }) {
   }, []);
 
   const openBigModal = () => {
-    document.body.style.position = 'fixed';
+    // document.body.style.position = "fixed";
     dispatch(openModal({ modalState: true, coords }));
   };
  

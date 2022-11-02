@@ -5,6 +5,8 @@ import CallSmallModal from "./CallSmallModal";
 
 function CallModal(props) {
 
+  console.log(movieDetailsMock)
+
   return (
     <>
       <CallSmallModal movie={movieDetailsMock} {...props} />
