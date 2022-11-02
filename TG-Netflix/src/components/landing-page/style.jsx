@@ -10,6 +10,7 @@ export const Container = style.div`
     min-height: 100vh;
     background-color: rgb(0,0,0, 0.6);
     width: 100%;
+    
 
     @media only screen and (max-width: 800px){
     background-color: black;
@@ -47,9 +48,12 @@ background-color: rgb(0,0,0);
 color: rgb(255,255,255);
 border-radius: 2%;
 max-width: 450px;
-min-height: 650px;
+min-height: 350px;
 margin: 0 auto;
+margin-top: 15rem;
 margin-bottom: 5rem;
+padding-top: 5rem;
+padding-bottom: 5rem;
 text-align: center;
 font-size: 1.7rem;
 
@@ -58,10 +62,12 @@ font-size: 1.7rem;
     padding: 0;
     margin: 0 auto;
     border-radius: 0;
-    
+    margin-top: 10rem;
+    margin-bottom: 10rem;
 }
 
 h1, h2 {
+    
     padding: 0.35rem;
     margin: 0.35rem;
     @media only screen and (max-width: 800px) {
@@ -71,7 +77,7 @@ h1, h2 {
 }
 `;
 
-export const Form = style.form`
+export const WelcomeButton = style.div`
 text-align: left;
 display: flex;
 flex-direction: column;
@@ -99,72 +105,72 @@ button {
 }
 `;
 
-export const Input = style.div`
-label{
-    margin: 0.75rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+// export const Input = style.div`
+// label{
+//     margin: 0.75rem 0;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+// }
 
-input{
-    border: none;
-    border-radius: 4px;
-    width: 100%;
-    line-height: 50px;
-    padding: 5px 10px 0;
-    @media only screen and (max-width: 800px){
-    padding: 0.35rem;
-    margin: 0.20rem;
-    }
+// input{
+//     border: none;
+//     border-radius: 4px;
+//     width: 100%;
+//     line-height: 50px;
+//     padding: 5px 10px 0;
+//     @media only screen and (max-width: 800px){
+//     padding: 0.35rem;
+//     margin: 0.20rem;
+//     }
 
-    &:focus {
-        background-color: rgb(211,211,211);
-        outline: none;
-    }
-}
-`;
+//     &:focus {
+//         background-color: rgb(211,211,211);
+//         outline: none;
+//     }
+// }
+// `;
 
-export const Subform = style.div`
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-margin: 0.5rem;
-font-size: 1.25rem;
+// export const Subform = style.div`
+// display: flex;
+// justify-content: space-between;
+// flex-wrap: wrap;
+// margin: 0.5rem;
+// font-size: 1.25rem;
 
-input[type= checkbox]{
-    appearance: none;
-    position: relative;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.35rem;
-    border: (255,255,255);
-    background-color: grey;
-    color: rgb(255,255,255);
-    vertical-align: -3px;
+// input[type= checkbox]{
+//     appearance: none;
+//     position: relative;
+//     width: 1.5rem;
+//     height: 1.5rem;
+//     margin-right: 0.35rem;
+//     border: (255,255,255);
+//     background-color: grey;
+//     color: rgb(255,255,255);
+//     vertical-align: -3px;
 
-    &: hover{
-        cursor: pointer;
-    }
+//     &: hover{
+//         cursor: pointer;
+//     }
 
-    &::before {
-        content: "";
-        visibility: hidden;
-        width: 1.5rem;
-        height: 1.5rem;
-        position: absolute;
-        font-size: 1.5rem;
-        right: -1px;
-        top: -1px;
-        background-color: rgba(219,0,0);
-        border: 1px solid rgba(255, 255, 255);
-      }
+//     &::before {
+//         content: "";
+//         visibility: hidden;
+//         width: 1.5rem;
+//         height: 1.5rem;
+//         position: absolute;
+//         font-size: 1.5rem;
+//         right: -1px;
+//         top: -1px;
+//         background-color: rgba(219,0,0);
+//         border: 1px solid rgba(255, 255, 255);
+//       }
 
-     &:checked::before{
-        visibility: visible;
-     } 
-}
-`;
+//      &:checked::before{
+//         visibility: visible;
+//      } 
+// }
+// `;
 
 export const ExtraInfo = style.div`
 text-align: left;
@@ -174,6 +180,10 @@ font-size: 1.10rem;
 @media only screen and (max-width: 800px){
     padding: 0 2rem;
     margin: 0 1.5rem;
+}
+
+.landingpage-link {
+    color: white;
 }
 `;
 

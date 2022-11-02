@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import * as S from './NavbarAccount.styled';
-import logo from '../../assets/navbar-images/netflix_logo.png';
+import logo from '../../assets/navbar-images/nepflix-logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
 import kids from '../../assets/navbar-images/kids-icon.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
@@ -12,7 +12,7 @@ export default function NavbarAccount() {
       <S.Container>
         <NavLink to="/browse">
           {' '}
-          <img src={logo} alt="Netflix logo" />
+          <img src={logo} alt="Nepflix logo" />
         </NavLink>
         <S.Menu>
           <img src={profile} alt="Profile icon" />
@@ -23,7 +23,7 @@ export default function NavbarAccount() {
               <a href="/browse">Home</a>
             </li>
             <li>
-              <a href="/">Sign out of Netflix</a>
+              <a href="/">Sign out of Nepflix</a>
             </li>
           </ul>
         </S.Menu>

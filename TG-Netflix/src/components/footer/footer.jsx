@@ -42,7 +42,7 @@ export default function Footer() {
                     </ServiceCodeWrapper>
 
                     <CopyrightWrapper>
-                        <span>© 1997-2022 Netflix, Inc.</span>
+                        {/* <span>© 1997-2022 Netflix, Inc.</span> */}
                     </CopyrightWrapper>
                 </Container>
             </Wrapper>
