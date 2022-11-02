@@ -5,34 +5,34 @@ import { SearchIcon } from './Searchbar.styled';
 import * as S from './Searchbar.styled';
 
 export default function Searchbar() {
-  const location = useLocation();
-  const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
   const query = search.get('q');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.pathname.indexOf('/search') < 0 && query) {
       navigate(`/search?q=${query}`);
-    } else if (location.pathname.indexOf('/search') > -1 && !query) {
+    } else if (!query) {
       navigate(`/browse`);
     }
-  }, [query, navigate]);
-
-  // memoize query and set debounce time
-  const debouncedResults = useMemo(() => {
-    return debounce(handleChange, 1000);
-  }, []);
+  }, [query]);
 
   function handleChange(e) {
     setSearch({ q: e.target.value });
   }
 
-  // cleanup memoized query on unmount
+  const debouncedHandleChange = useMemo(
+    () => debounce(handleChange, 1000),
+    console.log(),
+    []
+  );
+
   useEffect(() => {
     return () => {
-      debouncedResults.cancel();
+      debouncedHandleChange.cancel();
     };
-  });
+  }, []);
 
   return (
     <>
@@ -42,7 +42,7 @@ export default function Searchbar() {
         </button>
         <input
           type="search"
-          onChange={debouncedResults}
+          onChange={debouncedHandleChange}
           placeholder="Enter film title.."
         />
       </S.Container>
