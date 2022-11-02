@@ -2,11 +2,11 @@ import { Title, TitleWrapper} from './MyList.styled'
 import Footer from '../../components/footer/footer';
 
 import categoriesMock from '../../mock-data/browse_categories_banner.mock.json';
-import MovieCard from "../../components/movie-card/MovieCard"
+import GridLayout from '../../components/grid-layout/GridLayout';
 
 
 
-export default function MyList({user}) {
+export default function MyList() {
   return (
     <>
       <div className="padding-container">
@@ -15,7 +15,7 @@ export default function MyList({user}) {
           <Title>My List</Title>
         </TitleWrapper>
 
-
+        <GridLayout movies={categoriesMock.categories[0].movies} />
 
      
        
