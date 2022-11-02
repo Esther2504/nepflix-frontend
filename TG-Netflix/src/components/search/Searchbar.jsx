@@ -11,14 +11,12 @@ export default function Searchbar() {
   const query = search.get('q');
 
   useEffect(() => {
-    if (query && location.pathname !== './search') {
+    if (location.pathname.indexOf('/search') < 0 && query) {
       navigate(`/search?q=${query}`);
-    } 
-    
-    else if (!query) {
+    } else if (location.pathname.indexOf('/search') > -1 && !query) {
       navigate(`/browse`);
     }
-  }, [query]);
+  }, [query, navigate]);
 
   // memoize query and set debounce time
   const debouncedResults = useMemo(() => {
