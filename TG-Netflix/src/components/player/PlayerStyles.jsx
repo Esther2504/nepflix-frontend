@@ -17,6 +17,8 @@ export const PlayerStyles = styled.div`
     .banner {
     position: absolute;
     color: #fff;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     background-size: cover;
     background-position: center center;
