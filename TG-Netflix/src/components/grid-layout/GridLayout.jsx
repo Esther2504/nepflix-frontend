@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
 import CallBigModal from "../Modal/CallBigModal";
 
-export default function GridLayout({ movies, genre, movie, categories }) {
+export default function GridLayout({ movies, genre, setGenre, movie, categories }) {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
@@ -15,6 +15,12 @@ export default function GridLayout({ movies, genre, movie, categories }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
 
   const { moviegenre } = useParams();
+
+  console.log(moviegenre)
+
+//   useEffect(() => {
+// setGenre(moviegenre)
+//   }, [moviegenre])
 
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
@@ -44,9 +50,7 @@ export default function GridLayout({ movies, genre, movie, categories }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
-  
-
-  return (
+    return (
     <>
       {isHovering && (
         <CallModal

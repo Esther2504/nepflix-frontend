@@ -18,6 +18,9 @@ export default function Films({ banner, categories, movie }) {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
+  const [path, setPath] = useState(
+    window.location.href.slice(window.location.href.lastIndexOf("/"))
+  );
   const [genre, setGenre] = useState("");
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
@@ -51,7 +54,7 @@ export default function Films({ banner, categories, movie }) {
   };
 
   if (genre != "") {
-    // Hier de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
+    // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
     // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
     if (movies.find((item) => item.name === `${genre}`)) {
       movies = movies.find((item) => item.name === `${genre}`);
@@ -63,6 +66,14 @@ export default function Films({ banner, categories, movie }) {
   movies = movies.movies;
 
   console.log(movies);
+
+// Om met een directe naar een genrepagina te gaan & zodat de filter blijft bij refresh
+  useEffect(() => {
+    if (path != "/films") {
+      let genreName = path.slice(1);
+      setGenre(genreName);
+    }
+  }, [path]);
 
   return (
     <>
@@ -84,6 +95,7 @@ export default function Films({ banner, categories, movie }) {
         ) : (
           <GridLayout
             genre={genre}
+            setGenre={setGenre}
             movies={movies}
             categories={categories}
             movie1={movie}
