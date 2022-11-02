@@ -24,6 +24,7 @@ export default function SlideContent(props) {
           <Card
             data-backdrop={item.backdrop_path}
             data-video={item.video}
+            data-id={item.id}
             style={{ margin: "0px 3px" }}
             key={index}
             id="movie"
