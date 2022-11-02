@@ -12,7 +12,6 @@ import muted from '../../assets/muted.svg';
 
 function Player({data}) {
     const {backdrop_path, description, id, logo, title, trailer, age_certificate} = data
-    
     const [muteIsVisible, setMuteIsVisible] = useState(true);
     const [unMuteIsVisible, setUnMuteIsVisible] = useState(false);
 

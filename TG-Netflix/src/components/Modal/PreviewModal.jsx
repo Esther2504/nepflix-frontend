@@ -13,23 +13,22 @@ import {
   PreviewSummary,
 } from "./PreviewModal.style";
 
-function PreviewModal() {
+function PreviewModal(data) {
+  console.log(data);
   const modalRefVideo = useRef();
   return (
     <PreviewModalContainer>
-      <PreviewDuration>2h 10m</PreviewDuration>
+      <PreviewDuration>{data.movie.runtime}</PreviewDuration>
       <PreviewPlay />
       <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} />
 
       <PreviewMetaData>
-        <PreviewRating>93% Match</PreviewRating>
-        <PreviewMaturityRating></PreviewMaturityRating>
-        <PreviewReleaseYear>2022</PreviewReleaseYear>
+        <PreviewRating></PreviewRating>
+        <PreviewMaturityRating>{data.movie.age_certificate}</PreviewMaturityRating>
+        <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
         <PreviewAddToList></PreviewAddToList>
         <PreviewSummary>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          at ex non metus consequat hendrerit. Sed euismod, nibh sed interdum
-          blandit, quam metus tempus libero, quis vestibulum nisi leo at lacus.
+          {data.movie.description}
         </PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>

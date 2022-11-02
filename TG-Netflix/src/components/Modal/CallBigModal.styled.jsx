@@ -26,7 +26,7 @@ export const VideoControlsContainer = styled.div`
 `;
 export const VideoTitle = styled.div`
   height: 8rem;
-  background-image: url(${VidTitle});
+  background-image: url(${props=> props.src});
   background-repeat: no-repeat;
   background-size: contain;
 `;
@@ -121,7 +121,6 @@ export const ModalContainer = styled.div`
 
 export const ModalContent = styled.div`
   display: flex;
-
   -margin: 0 auto;
   margin-top: 3rem;
   border-top-left-radius: 1rem;
@@ -130,7 +129,6 @@ export const ModalContent = styled.div`
   padding-bottom: 2rem;
   background-color: #181818;
   transform-origin: ${(props) => props.coords};
-  ${(props) => console.log(props.coords)}
 
   animation: blowUpModal 0.75s ease-in-out forwards;
   @keyframes blowUpModal {
@@ -171,6 +169,7 @@ export const VideoInfoContainer = styled.div`
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1rem;
+  text-align: justify;
   @media (max-width: 353px) {
     flex-direction: column;
   }
@@ -186,6 +185,7 @@ export const VideoInfoContainerRight = styled.div`
   font-size: 1.4rem;
   text-align: left;
   color: #ffffff;
+  padding-left:0.5rem;
   span {
     color: #777777;
   }
@@ -215,6 +215,7 @@ export const Cast = styled.div``;
 export const Genres = styled.div``;
 export const Tags = styled.div``;
 export const Summary = styled.div`
+
   grid-row: 2;
   font-size: 1.4rem;
   text-align: left;
@@ -243,7 +244,7 @@ export const MoreLikeThisWrapper = styled.div`
   }
   gap: 1rem;
   border-bottom: 1px solid #777777;
-  height: 75rem;
+  height: 90rem;
   overflow: hidden;
   padding-bottom: 5rem;
 `;
