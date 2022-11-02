@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="lanes" element={<Lanes categories={browseMockData.categories} movie={movieDetailsMock} />} />
               <Route path="modal" element={<Modal />} />
               <Route path="grid-layout" element={<Grid />} />
-              <Route path="search" element={<Search />} />
+              <Route path="search" element={<Search categories={browseMockData.categories} />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

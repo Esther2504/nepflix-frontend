@@ -10,12 +10,12 @@ export default function Searchbar() {
   const [search, setSearch] = useSearchParams();
   const query = search.get('q');
 
-  // redirect to '/search' url when user is not searching on the search results page.
-  // redirect to '/browse' when input field is empty.
   useEffect(() => {
     if (query && location.pathname !== './search') {
       navigate(`/search?q=${query}`);
-    } else if (!query) {
+    } 
+    
+    else if (!query) {
       navigate(`/browse`);
     }
   }, [query]);
@@ -25,7 +25,6 @@ export default function Searchbar() {
     return debounce(handleChange, 1000);
   }, []);
 
-  // add query to searchparams
   function handleChange(e) {
     setSearch({ q: e.target.value });
   }
