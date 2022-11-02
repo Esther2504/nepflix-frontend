@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setStaticNavbar(location.pathname !== '/films' ? false : true);
+    setStaticNavbar(location.pathname.includes('/films') ? true : false);
   }, [location]);
 
   return (
