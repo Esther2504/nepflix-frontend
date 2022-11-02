@@ -57,7 +57,9 @@ export default function Films({ banner, categories, movie }) {
   };
 
   if (genre != "") {
-      // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
+    // Hier de films van het gekozen genre fetchen?
+
+    // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
     if (movies.find((item) => item.name === `${genre}`)) {
       movies = movies.find((item) => item.name === `${genre}`);
     } else {
@@ -66,7 +68,7 @@ export default function Films({ banner, categories, movie }) {
   }
 
   movies = movies.movies;
-  
+
   console.log(movies);
 
   return (
@@ -89,14 +91,12 @@ export default function Films({ banner, categories, movie }) {
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
-          
-            <GridLayout
-              genre={genre}
-              movies={movies}
-              categories={categories}
-              movie={movie}
-            />
-          
+          <GridLayout
+            genre={genre}
+            movies={movies}
+            categories={categories}
+            movie={movie}
+          />
         )}
 
         <Footer />
