@@ -54,7 +54,7 @@ const CallBigModal = forwardRef((props, ref) => {
   //END STATE
 
   //coords for big modal
-  const offset = document.querySelector('.banner-container').offsetHeight;
+  // const offset = document.querySelector('.banner-container').offsetHeight;
   const left = Math.round(globalModalState.coords.left) + 'px ';
   const top = Math.round(globalModalState.coords.top) + window.scrollY + 'px';
   const coordsForBigModal = left + top;
@@ -62,7 +62,6 @@ const CallBigModal = forwardRef((props, ref) => {
   //Close modal button
   const handleClose = () => {
     document.body.style.position = null;
-    
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
