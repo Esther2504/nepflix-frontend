@@ -41,6 +41,8 @@ export default function Films({ banner, categories, movie }) {
           dispatch(openModal({ modalState: false, coords: coords }));
         }
       });
+
+    
     });
 
     window.addEventListener("click", (e) => {
@@ -85,6 +87,7 @@ export default function Films({ banner, categories, movie }) {
               <CallModal
                 onMouseLeave={() => setIsHovering(false)}
                 hover={isHovering}
+                setIsHovering={setIsHovering}
                 data={{ coords: coords, dataset: dataset, movie: movie }}
                 onClick={openBigModal}
               />

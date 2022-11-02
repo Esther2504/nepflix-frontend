@@ -67,8 +67,36 @@ const CallModal = (props) => {
     },
   };
 
+  // useEffect(() => {
+  //   const modalss = document.getElementById("")
+  //   films.forEach((film) => {
+  //     film.addEventListener("mouseenter", (e) => {
+  //       if (e.target.getAttribute("id")) {
+  //         console.log("hovered");
+  //         setDataset(film.dataset);
+  //         setIsHovering(true);
+  //         setCoords(e.target.getBoundingClientRect());
+  //         dispatch(openModal({ modalState: false, coords: coords }));
+  //       }
+  //     });
+
+    
+  //   });
+
+  //   window.addEventListener("click", (e) => {
+  //     e.stopPropagation();
+  //     setIsHovering(false);
+  //   });
+  // }, []);
+
+  // onMouseLeave={props.setIsHovering(false)}
+
+const mouseLeaver = () => {
+  setTimeout(function () {props.setIsHovering(false)}, 10);
+}
+
   return (
-    <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
+    <SmallModalContainer onMouseLeave={mouseLeaver} coords={coords} bg={bg} onClick={props.onClick}>
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
