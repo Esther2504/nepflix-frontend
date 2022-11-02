@@ -33,7 +33,7 @@ export default function Footer() {
                             </LangSelector>
 
                         </LangPicker>
-                        <FooterCountry>Netflix Netherlands</FooterCountry>
+                        <FooterCountry>Nepflix Netherlands</FooterCountry>
                     </LangSelectContainer>
                 </Container>
             </Wrapper>

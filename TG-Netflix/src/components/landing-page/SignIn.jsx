@@ -2,10 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
   LoginCard,
-  Form,
-  Input,
-  Subform,
+  // Form,
+  // Input,
+  // Subform,
   ExtraInfo,
+  WelcomeButton
 } from "./style";
 
 const SignIn = () => {
@@ -22,36 +23,36 @@ const SignIn = () => {
   return (
     <>
           <LoginCard>
-            <h1>Welcome.</h1>
-            <Form onSubmit={handleSubmit}>
-              <Input>
-                <label>
+            <h1>Welcome</h1>
+            <WelcomeButton>
+              {/* <Input> */}
+                {/* <label>
                   Email:
                   <input type="email" placeholder="test@hotmail.com" />
                 </label>
                 <label>
                   Password:
                   <input type="password" placeholder="test123" />
-                </label>
-                <button type="submit">Login</button>
-              </Input>
+                </label> */}
+                <button onClick={handleSubmit}>Enter Nepflix</button>
+              {/* </Input> */}
 
-              <Subform>
+              {/* <Subform>
                 <label>
                   <input type="checkbox" />
                   Remember me
                 </label>
                 <a href="#">Need Help?</a>
-              </Subform>
-            </Form>
+              </Subform> */}
+            </WelcomeButton>
             <ExtraInfo>
-              <p>
-                New to CloneFlix? <a href="#">Sign up now</a>
+              {/* <p>
+                New to NepFlix? <a href="#" className="landingpage-link">Sign up now</a>
               </p>
-              <br />
+              <br /> */}
               <p>
-                This product is not the real thing. It is a project made by a
-                group of developers. <a href="#">Learn more</a>
+                <em>Disclaimer: this site is not the real thing. It is a project made by a group of developers to practice their React skills.</em>
+                {/* <a href="#" className="landingpage-link">Learn more</a> */}
               </p>
             </ExtraInfo>
           </LoginCard>
