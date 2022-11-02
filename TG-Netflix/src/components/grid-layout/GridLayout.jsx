@@ -13,14 +13,6 @@ export default function GridLayout({ movies, genre, movie, categories }) {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
 
-  // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
-  if (movies.find((item) => item.name === `${genre}`)) {
-    movies = movies.find((item) => item.name === `${genre}`);
-  } else {
-    movies = movies.find((item) => item.name === `Popular`);
-  }
-  movies = movies.movies;
-
   useEffect(() => {
   const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
@@ -59,7 +51,7 @@ export default function GridLayout({ movies, genre, movie, categories }) {
     {globalModalState.modalState && <CallBigModal />}
     <GridContainer>
       {movies.map((movie, index) => {
-        return <MovieCard  key={index} movie={movie} />;
+        return <MovieCard key={index} movie={movie} />;
       })}
     </GridContainer>
     </>

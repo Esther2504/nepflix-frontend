@@ -56,8 +56,17 @@ export default function Films({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
-  console.log(genre);
+  if (genre != "") {
+      // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
+    if (movies.find((item) => item.name === `${genre}`)) {
+      movies = movies.find((item) => item.name === `${genre}`);
+    } else {
+      movies = movies.find((item) => item.name === `Popular`);
+    }
+  }
 
+  movies = movies.movies;
+  
   console.log(movies);
 
   return (
@@ -80,14 +89,14 @@ export default function Films({ banner, categories, movie }) {
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
-          <>
+          
             <GridLayout
               genre={genre}
               movies={movies}
               categories={categories}
               movie={movie}
             />
-          </>
+          
         )}
 
         <Footer />
