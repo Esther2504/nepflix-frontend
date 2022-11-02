@@ -40,7 +40,7 @@ export const getUser = createAsyncThunk("netflix/user" , async () => {
     const {
         data,
     } = await axios.get(`https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`);
-    // .... movie has to be changed to 'user'
+    // .... movie has to be changed to 'user'(?)
     const user = data;
     console.log(user);
     return user;

@@ -14,7 +14,7 @@ flex-direction: row;
   align-items: center;
   width: 90vw;
   padding-left: 5%;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   margin-top: 1rem;
   
   @media (min-width: 600px) {

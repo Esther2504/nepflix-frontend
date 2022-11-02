@@ -5,6 +5,10 @@ import CallModal from "../../components/Modal/CallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
+
+
+
+
 export default function Lanes({categories, movie}) {
   //STATE
   const [isHovering, setIsHovering] = useState(false);
