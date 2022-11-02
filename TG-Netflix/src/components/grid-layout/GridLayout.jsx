@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { GridContainer } from "./GridLayout.styled";
 import MovieCard from "../movie-card/MovieCard";
 import CallModal from "../Modal/CallSmallModal";
@@ -14,15 +14,17 @@ export default function GridLayout({ movies, genre, movie, categories }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
 
   useEffect(() => {
-  const films = document.querySelectorAll("#movie");
+    const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
-          console.log("hovered!")
+          console.log("hovered!");
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
-          dispatch(openModal({ modalState: false, coords: coords, movie: movie }));
+          dispatch(
+            openModal({ modalState: false, coords: coords, movie: movie })
+          );
         }
       });
     });
@@ -31,8 +33,9 @@ export default function GridLayout({ movies, genre, movie, categories }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-    
-  }, [])
+  }, []);
+
+  console.log(dataset);
 
   const openBigModal = () => {
     dispatch(openModal({ modalState: true, coords }));
@@ -40,20 +43,20 @@ export default function GridLayout({ movies, genre, movie, categories }) {
 
   return (
     <>
-    {isHovering && (
-      <CallModal
-        onMouseLeave={() => setIsHovering(false)}
-        hover={isHovering}
-        data={{ coords: coords, dataset: dataset, movie: movie }}
-        onClick={openBigModal}
-      />
-    )}
-    {globalModalState.modalState && <CallBigModal />}
-    <GridContainer>
-      {movies.map((movie, index) => {
-        return <MovieCard key={index} movie={movie} />;
-      })}
-    </GridContainer>
+      {isHovering && (
+        <CallModal
+          onMouseLeave={() => setIsHovering(false)}
+          hover={isHovering}
+          data={{ coords: coords, dataset: dataset, movie: movie }}
+          onClick={openBigModal}
+        />
+      )}
+      {globalModalState.modalState && <CallBigModal />}
+      <GridContainer>
+        {movies.map((movie, index) => {
+          return <MovieCard key={index} movie={movie} />;
+        })}
+      </GridContainer>
     </>
   );
 }

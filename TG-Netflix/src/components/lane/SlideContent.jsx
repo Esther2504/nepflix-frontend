@@ -20,7 +20,6 @@ export default function SlideContent(props) {
   return (
     <Container>
       {props.list.map((item, index) => {
-        // console.log(item)
         return (
           <Card
             data-backdrop={item.backdrop_path}

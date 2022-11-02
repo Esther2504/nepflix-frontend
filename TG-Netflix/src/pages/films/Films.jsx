@@ -57,13 +57,12 @@ export default function Films({ banner, categories, movie }) {
   };
 
   if (genre != "") {
-    // Hier de films van het gekozen genre fetchen?
-
+    // Hier de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
     // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
     if (movies.find((item) => item.name === `${genre}`)) {
       movies = movies.find((item) => item.name === `${genre}`);
     } else {
-      movies = movies.find((item) => item.name === `Popular`);
+      movies = movies.find((item) => item.name === `Latest`);
     }
   }
 
@@ -85,9 +84,7 @@ export default function Films({ banner, categories, movie }) {
                 onClick={openBigModal}
               />
             )}
-
             {globalModalState.modalState && <CallBigModal />}
-
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
@@ -95,7 +92,7 @@ export default function Films({ banner, categories, movie }) {
             genre={genre}
             movies={movies}
             categories={categories}
-            movie={movie}
+            movie1={movie}
           />
         )}
 

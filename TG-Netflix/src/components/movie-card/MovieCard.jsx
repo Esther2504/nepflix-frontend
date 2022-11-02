@@ -13,8 +13,9 @@ export default function MovieCard({ movie }) {
   return (
     <>
       <Card
-        // data-backdrop={item.backdrop_path}
-        // data-video={item.video}
+        data-backdrop={backdrop_path}
+        data-id={id}
+        data-title={title}
         
         // key={index}
         id="movie"

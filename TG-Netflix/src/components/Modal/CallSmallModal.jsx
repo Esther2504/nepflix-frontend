@@ -23,11 +23,13 @@ const CallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
+  console.log(props.data.dataset.id)
+
   const refVideoPlayer = useRef();
   const bg =
     "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
   // let Trailer = props.movie.trailer;
-  let Trailer = "https://www.youtube.com/watch?v=0IOsk2Vlc4o&t=54s"
+  let Trailer = "0IOsk2Vlc4o"
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;

@@ -4,9 +4,6 @@ import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 import CallSmallModal from "./CallSmallModal";
 
 function CallModal(props) {
-
-  console.log(movieDetailsMock)
-
   return (
     <>
       <CallSmallModal movie={movieDetailsMock} {...props} />
