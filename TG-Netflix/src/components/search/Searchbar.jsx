@@ -10,22 +10,27 @@ export default function Searchbar() {
   const [search, setSearch] = useSearchParams();
   const query = search.get('q');
 
+  // redirect to '/search' url when user is not searching on the search results page.
+  // redirect to '/browse' when input field is empty.
   useEffect(() => {
     if (query && location.pathname !== './search') {
       navigate(`/search?q=${query}`);
-    } else {
+    } else if (!query) {
       navigate(`/browse`);
     }
   }, [query]);
 
-  function handleChange(e) {
-    setSearch({ q: e.target.value });
-  }
-
+  // memoize query and set debounce time
   const debouncedResults = useMemo(() => {
     return debounce(handleChange, 1000);
   }, []);
 
+  // add query to searchparams
+  function handleChange(e) {
+    setSearch({ q: e.target.value });
+  }
+
+  // cleanup memoized query on unmount
   useEffect(() => {
     return () => {
       debouncedResults.cancel();
@@ -40,7 +45,6 @@ export default function Searchbar() {
         </button>
         <input
           type="search"
-          // value={query || ''}
           onChange={debouncedResults}
           placeholder="Enter film title.."
         />
