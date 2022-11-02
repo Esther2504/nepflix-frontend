@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import FilterLinks from "./FilterLinks";
 import arrowdown from "../../assets/navbar-images/arrow-down.png";
@@ -65,7 +66,7 @@ const FilterMenu = (props) => {
         </>
       ) : (
         <>
-          <FilmsLink onClick={(e) => props.setGenre("")}>Films</FilmsLink>
+          <FilmsLink onClick={(e) => props.setGenre("")} to="../films">Films</FilmsLink>
           <GenreTitle>{genreTitle}</GenreTitle>
         </>
       )}

@@ -5,32 +5,32 @@ import { Link } from "react-router-dom";
 const FilterLinks = ( {setGenre} ) => {
   return (
     <>
-      {/* <div> */}
-        {/* <Link onClick={(e) => setGenre("action")} to="./action" href="">Action</Link>
-        <GenreLink href="">Adventure</GenreLink>
-        <GenreLink href="">Animation</GenreLink>
-        <GenreLink href="">Comedy</GenreLink>
-        <GenreLink href="">Crime</GenreLink>
-        <GenreLink href="">Documentary</GenreLink>
-        <GenreLink href="">Drama</GenreLink>
-        <GenreLink href="">Family</GenreLink>
+      <div>
+        <LinkStyle onClick={(e) => setGenre("action")} to="/films/action">Action</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("adventure")} to="/films/adventure">Adventure</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("animation")} to="/films/animation">Animation</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("comedy")} to="/films/comedy">Comedy</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("crime")} to="/films/crime">Crime</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("documentary")} to="/films/documentary">Documentary</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("drama")} to="/films/drama">Drama</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("family")} to="/films/family">Family</LinkStyle>
       </div>
       <div>
-        <GenreLink href="">Fantasy</GenreLink>
-        <GenreLink href="">History</GenreLink>
-        <GenreLink href="">Horror</GenreLink>
-        <GenreLink href="">Music</GenreLink>
-        <GenreLink href="">Mystery</GenreLink>
-        <GenreLink href="">Romance</GenreLink>
-        <GenreLink href="">Science Fiction</GenreLink>
-        <GenreLink href="">TV movie</GenreLink>
+        <LinkStyle onClick={(e) => setGenre("fantasy")} to="/films/fantasy">Fantasy</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("history")} to="/films/history">History</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("horror")} to="/films/horror">Horror</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("music")} to="/films/music">Music</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("mystery")} to="/films/mystery">Mystery</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("romance")} to="/films/romance">Romance</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("science_fiction")} to="/films/science_fiction">Science Fiction</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("tv_movie")} to="/films/tv_movie">TV movie</LinkStyle>
       </div>
       <div>
-        <GenreLink href="">Thriller</GenreLink>
-        <GenreLink href="">War</GenreLink>
-        <GenreLink href="">Western</GenreLink>
-      </div> */}
-      <div>
+        <LinkStyle onClick={(e) => setGenre("thriller")} to="/films/thriller">Thriller</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("war")} to="/films/war">War</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("western")} to="/films/western">Western</LinkStyle>
+      </div>
+      {/* <div>
         <GenreLink onClick={(e) => setGenre("action")} href="">Action</GenreLink>
         <GenreLink onClick={(e) => setGenre("adventure")} href="">Adventure</GenreLink>
         <GenreLink onClick={(e) => setGenre("animation")}>Animation</GenreLink>
@@ -54,7 +54,7 @@ const FilterLinks = ( {setGenre} ) => {
         <GenreLink onClick={(e) => setGenre("thriller")}>Thriller</GenreLink>
         <GenreLink onClick={(e) => setGenre("war")}>War</GenreLink>
         <GenreLink onClick={(e) => setGenre("western")}>Western</GenreLink>
-      </div>
+      </div> */}
     </>
   );
 };
@@ -87,3 +87,17 @@ export const GenreLink = styled.p`
     text-decoration: underline;
   }
 `;
+export const LinkStyle = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+

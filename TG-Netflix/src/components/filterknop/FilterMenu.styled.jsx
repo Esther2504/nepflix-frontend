@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FilterWrapper = styled.section`
   position: sticky;
@@ -45,11 +46,12 @@ export const FilterTitle = styled.h2`
   }
 `;
 
-export const FilmsLink = styled.a`
+export const FilmsLink = styled(Link)`
   font-size: 1.8rem;
   color: grey;
   margin-right: 15px;
   cursor: pointer;
+  text-decoration: none;
 
   &:after {
     content: ">";
@@ -62,6 +64,7 @@ export const FilmsLink = styled.a`
 export const GenreTitle = styled(FilterTitle)`
 line-height: 3.8rem;
 cursor: default;
+font-weight: 300;
 
 @media (max-width: 884px) {
   line-height: 2.2rem;

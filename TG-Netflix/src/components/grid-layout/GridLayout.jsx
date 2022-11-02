@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import { GridContainer } from "./GridLayout.styled";
 import MovieCard from "../movie-card/MovieCard";
 import CallModal from "../Modal/CallSmallModal";
@@ -12,6 +13,8 @@ export default function GridLayout({ movies, genre, movie, categories }) {
   const [dataset, setDataset] = useState();
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
+
+  const { moviegenre } = useParams();
 
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
@@ -40,6 +43,8 @@ export default function GridLayout({ movies, genre, movie, categories }) {
   const openBigModal = () => {
     dispatch(openModal({ modalState: true, coords }));
   };
+
+  
 
   return (
     <>
