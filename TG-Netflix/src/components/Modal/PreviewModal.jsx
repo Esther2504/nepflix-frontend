@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import Trailer from './testTrailer.webm'
+import React, { useRef } from 'react';
+import Trailer from './testTrailer.webm';
 import {
   VideoPlayer,
   PreviewModalContainer,
@@ -11,10 +11,9 @@ import {
   PreviewAddToList,
   PreviewMetaData,
   PreviewSummary,
-} from "./PreviewModal.style";
+} from './PreviewModal.style';
 
 function PreviewModal(data) {
-  console.log(data);
   const modalRefVideo = useRef();
   return (
     <PreviewModalContainer>
@@ -24,12 +23,12 @@ function PreviewModal(data) {
 
       <PreviewMetaData>
         <PreviewRating></PreviewRating>
-        <PreviewMaturityRating>{data.movie.age_certificate}</PreviewMaturityRating>
+        <PreviewMaturityRating>
+          {data.movie.age_certificate}
+        </PreviewMaturityRating>
         <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
         <PreviewAddToList></PreviewAddToList>
-        <PreviewSummary>
-          {data.movie.description}
-        </PreviewSummary>
+        <PreviewSummary>{data.movie.description}</PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>
   );

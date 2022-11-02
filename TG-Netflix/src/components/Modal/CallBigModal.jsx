@@ -64,13 +64,13 @@ const CallBigModal = forwardRef((movie,ref) => {
   
   //Close modal button
   const handleClose = () => {
-    document.body.style.position = null;
+    document.body.style.overflowY = 'scroll'
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
   window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
-      document.body.style.position = null;
+      document.body.style.overflowY = 'scroll'
       dispatch(closeModal({ modalState: false, coords: [] }));
     }
   });

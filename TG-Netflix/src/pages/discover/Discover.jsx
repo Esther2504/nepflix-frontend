@@ -39,7 +39,7 @@ export default function Discover({ banner, categories, movie }) {
   }, []);
 
   const openBigModal = () => {
-    
+    document.body.style.overflow = 'hidden'
     dispatch(openModal({ modalState: true, coords }));
   };
  
