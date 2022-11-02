@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Search = styled.form`
+export const Container = styled.div`
   position: relative;
   display: none;
   width: 3.6rem;
@@ -19,7 +19,7 @@ export const Search = styled.form`
     top: 0;
     bottom: 0;
     width: 95%;
-    padding-left: 30px;
+    padding-left: 35px;
     flex-grow: 1;
     font-size: 1.4rem;
     opacity: 0;
@@ -43,7 +43,7 @@ export const Search = styled.form`
   }
 
   &:focus-within {
-    width: 24rem;
+    width: 27rem;
     border: 1px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(0, 0, 0, 0.5);
     transition: width 300ms ease-out;

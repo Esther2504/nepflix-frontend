@@ -1,45 +1,50 @@
-import * as S from './Searchbar.styled';
-import { SearchIcon } from './Searchbar.styled';
+import { useEffect, useMemo } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { debounce } from 'lodash';
+import { SearchIcon } from './Searchbar.styled';
+import * as S from './Searchbar.styled';
 
 export default function Searchbar() {
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
   const query = search.get('q');
 
-  function handleChange(event) {
-    setSearch({ q: event.target.value });
-  }
-
   useEffect(() => {
-    if (query !== null) {
+    if (query && location.pathname !== './search') {
       navigate(`/search?q=${query}`);
-    } 
-    
-    // else if (location.pathname === '/search' && query === null);
-    // {
-    //   navigate('/browse');
-    // }
+    } else {
+      navigate(`/browse`);
+    }
   }, [query]);
 
-  console.log(query);
+  function handleChange(e) {
+    setSearch({ q: e.target.value });
+  }
+
+  const debouncedResults = useMemo(() => {
+    return debounce(handleChange, 1000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      debouncedResults.cancel();
+    };
+  });
 
   return (
     <>
-      <S.Search>
-        <button type="submit">
+      <S.Container>
+        <button>
           <SearchIcon />
         </button>
-
         <input
           type="search"
-          value={query || ''}
-          onChange={handleChange}
-          placeholder="Titles, people, genres"
+          // value={query || ''}
+          onChange={debouncedResults}
+          placeholder="Enter film title.."
         />
-      </S.Search>
+      </S.Container>
     </>
   );
 }
