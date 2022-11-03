@@ -17,7 +17,8 @@ import modalReducer from "./modalReducer";
 const persistConfig = {
   key: "data",
   storage,
-  stateReconciler: autoMergeLevel2
+  //Blacklist is for any component that is being affected by Persist that shouldn't be affected
+  blacklist: ['modal']
 };
 
 //new reducers to be added here
@@ -34,8 +35,6 @@ const persistedReducer = persistReducer(persistConfig, combined);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: [thunk],
-  //Blacklist is for any component that is being affected by Persist that shouldn't be affected
-  blacklist: ['modalReducer']
 });
 
 export const persistor = persistStore(store);
