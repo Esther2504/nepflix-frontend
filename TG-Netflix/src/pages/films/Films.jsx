@@ -32,7 +32,6 @@ export default function Films({ banner, categories, movie }) {
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
-          console.log("hovered");
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
@@ -62,8 +61,7 @@ export default function Films({ banner, categories, movie }) {
   }
 
   movies = movies.movies;
-
-  console.log(movies);
+  
   let location = useLocation();
 
   // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh

@@ -23,8 +23,6 @@ const CallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
-  console.log(props.data.dataset.id)
-
   const refVideoPlayer = useRef();
   const bg =
     "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
