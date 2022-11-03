@@ -32,6 +32,7 @@ export const Form = styled.form`
     top: 0;
     bottom: 0;
     width: 95%;
+    height: 100%;
     padding-left: 35px;
     flex-grow: 1;
     font-size: 1.4rem;
