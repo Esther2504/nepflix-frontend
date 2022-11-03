@@ -11,6 +11,10 @@ const initialState = {
     movies: [],
     moviesLoaded: false,
     moviesError: '',
+
+    liked: [],
+    likedLoaded: false,
+    likedError: '',
 };
 
 
@@ -35,15 +39,15 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
     return movie;
 });
 
-export const getUser = createAsyncThunk("netflix/user" , async () => {
+export const getLiked = createAsyncThunk("netflix/liked" , async () => {
     // fetches /user data
     const {
         data,
-    } = await axios.get(`https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`);
+    } = await axios.get(`https://stoplight.io/mocks/nepflix/nepflix-user/105131026/user/liked`);
     // .... movie has to be changed to 'user'(?)
-    const user = data;
-    console.log(user);
-    return user;
+    const liked = data;
+    console.log(liked);
+    return liked;
 });
 
 
@@ -66,10 +70,10 @@ const NetflixSlice = createSlice({
             state.moviesError = '';
         })
             
-        builder.addCase(getUser.fulfilled, (state, action) => {
-            state.user = action.payload;
-            state.userLoaded = true;
-            state.userError = '';
+        builder.addCase(getLiked.fulfilled, (state, action) => {
+            state.liked = action.payload;
+            state.likedLoaded = true;
+            state.likedError = '';
             // added user Reducer for My-list
         });
 
