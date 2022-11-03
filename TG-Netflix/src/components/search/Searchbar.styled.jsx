@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Form = styled.form`
   position: relative;
   display: none;
   width: 3.6rem;
@@ -12,6 +12,19 @@ export const Container = styled.div`
 
   @media (min-width: 600px) {
     display: flex;
+  }
+
+  &:focus-within {
+    width: 27rem;
+    border: 1px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(0, 0, 0, 0.5);
+    transition: width 300ms ease-out;
+
+    input {
+      opacity: 1;
+      color: white;
+      cursor: initial;
+    }
   }
 
   input {
@@ -39,19 +52,6 @@ export const Container = styled.div`
 
     img {
       width: 25px;
-    }
-  }
-
-  &:focus-within {
-    width: 27rem;
-    border: 1px solid rgb(255, 255, 255, 0.6);
-    background-color: rgb(0, 0, 0, 0.5);
-    transition: width 300ms ease-out;
-
-    input {
-      opacity: 1;
-      color: white;
-      cursor: initial;
     }
   }
 `;

@@ -5,18 +5,18 @@ import { SearchIcon } from './Searchbar.styled';
 import * as S from './Searchbar.styled';
 
 export default function Searchbar() {
-  const [search, setSearch] = useSearchParams();
-  const query = search.get('q');
   const location = useLocation();
   const navigate = useNavigate();
+  const [search, setSearch] = useSearchParams();
+  const searchQuery = search.get('q');
 
   useEffect(() => {
-    if (location.pathname.indexOf('/search') < 0 && query) {
-      navigate(`/search?q=${query}`);
-    } else if (!query) {
-      navigate(`/browse`);
+    if (!location.pathname.includes('/search') && searchQuery) {
+      navigate(`/search?q=${searchQuery}`);
+    } else if (!searchQuery) {
+      navigate('/browse');
     }
-  }, [query]);
+  }, [searchQuery]);
 
   function handleChange(e) {
     setSearch({ q: e.target.value });
@@ -35,16 +35,16 @@ export default function Searchbar() {
 
   return (
     <>
-      <S.Container>
+      <S.Form role="search">
         <button>
-          <SearchIcon />
+          <SearchIcon alt="Search icon" />
         </button>
         <input
           type="search"
           onChange={debouncedHandleChange}
           placeholder="Enter film title.."
         />
-      </S.Container>
+      </S.Form>
     </>
   );
 }
