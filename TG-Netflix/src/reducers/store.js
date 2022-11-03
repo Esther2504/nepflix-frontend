@@ -17,6 +17,7 @@ import modalReducer from "./modalReducer";
 const persistConfig = {
   key: "data",
   storage,
+  stateReconciler: autoMergeLevel2
 };
 
 //new reducers to be added here
