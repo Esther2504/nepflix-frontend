@@ -6,12 +6,12 @@ import Footer from '../../components/footer/footer';
 import * as S from './Search.styled';
 import categoriesMock from '../../mock-data/browse_categories_banner.mock.json';
 
-export default function Search({ categories }) {
+export default function Search() {
   const [match, setMatch] = useState(true);
   const [search] = useSearchParams();
   const query = search.get('q');
   const movies = categoriesMock.categories[0].movies;
-  
+
   const matchTitle = (query) => (movie) =>
     movie.title.toLowerCase().includes(query.toLowerCase());
 
