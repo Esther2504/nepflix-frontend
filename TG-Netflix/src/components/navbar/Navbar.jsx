@@ -5,7 +5,8 @@ import { RiAccountCircleLine } from 'react-icons/ri';
 
 import Searchbar from './Searchbar';
 import * as S from './Navbar.styled';
-import logo from '../../assets/navbar-images/netflix_logo.png';
+
+import logo from '../../assets/navbar-images/nepflix-logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
 import kids from '../../assets/navbar-images/kids-icon.png';
 import arrowup from '../../assets/navbar-images/arrow-up.png';
@@ -35,7 +36,7 @@ export default function Navbar() {
         <S.PrimaryNav>
           <NavLink to="browse">
             {' '}
-            <img src={logo} alt="Netflix logo" />
+            <img src={logo} alt="Nepflix logo" />
           </NavLink>
           <S.Browse>
             Browse
@@ -78,14 +79,14 @@ export default function Navbar() {
               <S.Account>
                 <img src={profile} alt="Profile" />
                 <img src={arrowdown} />
-                <ul className="dropdown-text">
+                <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    <RiAccountCircleLine size={20} />
+                    {/* <RiAccountCircleLine size={20} /> */}
                     <a href="/account">Account</a>
                   </li>
                   <li>
-                    <a href="/">Sign out of Netflix</a>
+                    <a href="/">Sign out of Nepflix</a>
                   </li>
                 </ul>
               </S.Account>
