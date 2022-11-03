@@ -71,7 +71,6 @@ const CallModal = (props) => {
   const mouseLeaveHandler = () => {
     setModalBottom(false);
     setVideoState(false);
-
   };
 
   const mouseEnterHandler = () => {

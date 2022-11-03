@@ -36,7 +36,9 @@ export default function Films({ banner, categories, movie }) {
         if (e.target.getAttribute("id")) {
           console.log("hovered");
           setDataset(film.dataset);
-          setIsHovering(true);
+          setTimeout(function () {
+            setIsHovering(true) 
+          }, 1500)
           setCoords(e.target.getBoundingClientRect());
           dispatch(openModal({ modalState: false, coords: coords }));
         }
