@@ -4,13 +4,14 @@ import { GridContainer } from '../../components/grid-layout/GridLayout.styled';
 import MovieCard from '../../components/movie-card/MovieCard';
 import Footer from '../../components/footer/footer';
 import * as S from './Search.styled';
+import categoriesMock from '../../mock-data/browse_categories_banner.mock.json';
 
 export default function Search({ categories }) {
   const [match, setMatch] = useState(true);
   const [search] = useSearchParams();
   const query = search.get('q');
-  const movies = categories[0].movies;
-
+  const movies = categoriesMock.categories[0].movies;
+  
   const matchTitle = (query) => (movie) =>
     movie.title.toLowerCase().includes(query.toLowerCase());
 

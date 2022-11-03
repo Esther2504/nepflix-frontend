@@ -63,14 +63,6 @@ export default function Navbar() {
                 My List
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="grid-layout"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                (Grid)
-              </NavLink>
-            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
@@ -85,7 +77,6 @@ export default function Navbar() {
                 <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    {/* <RiAccountCircleLine size={20} /> */}
                     <a href="/account">Account</a>
                   </li>
                   <li>

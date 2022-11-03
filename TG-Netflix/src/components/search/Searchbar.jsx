@@ -24,14 +24,14 @@ export default function Searchbar() {
 
   const debouncedHandleChange = useMemo(
     () => debounce(handleChange, 1000),
-    [handleChange],
+    [handleChange]
   );
 
   useEffect(() => {
     return () => {
       debouncedHandleChange.cancel();
     };
-  }, []);
+  }, [debouncedHandleChange]);
 
   return (
     <>
