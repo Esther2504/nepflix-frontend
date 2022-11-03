@@ -10,7 +10,7 @@ import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 
-function Player({data}) {
+function Player({data, modal}) {
     const {backdrop_path, description, id, logo, title, trailer, age_certificate} = data
     const [muteIsVisible, setMuteIsVisible] = useState(true);
     const [unMuteIsVisible, setUnMuteIsVisible] = useState(false);
@@ -50,10 +50,9 @@ function Player({data}) {
         document.querySelector('.banner').offsetWidth;
         document.querySelector('.banner').style.animation = '';
     }
+ 
     const opts = {
         playerVars: {
-            width: '560',
-            height: '315',
             autoplay: 1,
             mute: 1,
             controls: 0,
@@ -93,7 +92,7 @@ function Player({data}) {
 
     return (
         <>
-            <PlayerStyles>
+            <PlayerStyles modal={modal}>
                 <div className='banner-container'>
                     <div className='banner'
                         style={{

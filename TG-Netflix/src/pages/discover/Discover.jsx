@@ -11,6 +11,7 @@ import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // bezoeker inlogt
 
 export default function Discover({ banner, categories, movie }) {
+
   //STATE
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
@@ -29,7 +30,7 @@ export default function Discover({ banner, categories, movie }) {
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
         }
-      },500);
+      });
     });
 
     window.addEventListener('click', (e) => {
@@ -39,14 +40,13 @@ export default function Discover({ banner, categories, movie }) {
   }, []);
 
   const openBigModal = () => {
-    document.body.style.overflow = 'hidden'
     dispatch(openModal({ modalState: true, coords }));
   };
  
   return (
     <>
       <div className="members-container">
-        <Player data={banner} />
+        <Player data={banner} modal={false}/>
         {isHovering && (
           <CallSmallModal
             onMouseLeave={() => setIsHovering(false)}
@@ -55,7 +55,7 @@ export default function Discover({ banner, categories, movie }) {
             onClick={openBigModal}
           />
         )}
-        {globalModalState.modalState && <CallBigModal {...movieDetailsMock}/>}
+        {globalModalState.modalState && <CallBigModal {...movieDetailsMock} />}
         <div className="fadeContainer">
         <LaneHandler categories={categories} movie={movie} />
         </div>

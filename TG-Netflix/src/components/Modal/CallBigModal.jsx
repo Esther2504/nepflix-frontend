@@ -6,17 +6,7 @@ import {
   ModalContainer,
   ModalContent,
   ModalPreview,
-  VideoPlayer,
-  VideoControlsContainer,
-  VideoTitle,
-  VideoPlay,
-  VideoControls,
   CloseCircle,
-  PlayButton,
-  PlusCircle,
-  ThumbsUp,
-  RateIcons,
-  VolumeIcon,
   CloseButton,
   MoreLikeThisContainer,
   MetaData,
@@ -43,7 +33,7 @@ import Player from '../player/Player';
 
 
 const CallBigModal = forwardRef((movie,ref) => {
-
+  console.log(movie);
   //REF's
   const modalRefVideo = useRef();
   const refMoreLikeThisWrapper = useRef();
@@ -64,13 +54,11 @@ const CallBigModal = forwardRef((movie,ref) => {
   
   //Close modal button
   const handleClose = () => {
-    document.body.style.overflowY = 'scroll'
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
   window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
-      document.body.style.overflowY = 'scroll'
       dispatch(closeModal({ modalState: false, coords: [] }));
     }
   });
@@ -95,28 +83,8 @@ const CallBigModal = forwardRef((movie,ref) => {
             <CloseCircle />
           </CloseButton>
           <ModalPreview>
-            <VideoPlayer
-              autoPlay
-              muted
-              src={Trailer}
-              type="video/webm"
-              allow="autoplay"
-              ref={modalRefVideo}
-            />
-            <VideoControlsContainer>
-              <VideoTitle src={movie.logo} />
-              {/* <VideoTitle /> */}
-              <VideoControls>
-                <VideoPlay>
-                  <PlayButton />
-                  Play
-                </VideoPlay>
-                <PlusCircle />
-                <ThumbsUp />
-                <RateIcons />
-                <VolumeIcon />
-              </VideoControls>
-            </VideoControlsContainer>
+
+            <Player data={movie} modal={true}/>
             <VideoInfoContainer>
               <VideoInfoContainerLeft>
                 <MetaData>
