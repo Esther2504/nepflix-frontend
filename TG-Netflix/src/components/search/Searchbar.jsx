@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
-import {debounce} from 'lodash'
+import { debounce } from 'lodash';
 import { SearchIcon } from './Searchbar.styled';
 import * as S from './Searchbar.styled';
 
@@ -24,8 +24,7 @@ export default function Searchbar() {
 
   const debouncedHandleChange = useMemo(
     () => debounce(handleChange, 1000),
-    console.log(),
-    []
+    [handleChange],
   );
 
   useEffect(() => {

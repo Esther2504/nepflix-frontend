@@ -6,7 +6,7 @@ import Footer from '../../components/footer/footer';
 import * as S from './Search.styled';
 
 export default function Search({ categories }) {
-  const [match, setMatch] = useState(false);
+  const [match, setMatch] = useState(true);
   const [search] = useSearchParams();
   const query = search.get('q');
   const movies = categories[0].movies;
