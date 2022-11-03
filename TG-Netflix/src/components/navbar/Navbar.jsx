@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setStaticNavbar(location.pathname !== '/films' ? false : true);
+    setStaticNavbar(location.pathname.includes('/films') ? true : false);
   }, [location]);
 
   return (
@@ -66,14 +66,6 @@ export default function Navbar() {
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >
                 My List
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="grid-layout"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                (Grid)
               </NavLink>
             </li>
           </ul>
