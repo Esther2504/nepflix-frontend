@@ -5,7 +5,7 @@ import MovieCard from '../../components/movie-card/MovieCard';
 import Footer from '../../components/footer/footer';
 import * as S from './Search.styled';
 
-export default function Search({categories}) {
+export default function Search({ categories }) {
   const [match, setMatch] = useState(false);
   const [search] = useSearchParams();
   const query = search.get('q');
@@ -33,12 +33,10 @@ export default function Search({categories}) {
               })}
             </GridContainer>
           ) : (
-            <>
-              <S.NoMatch>
-                <p> Your search for "{query}" did not have any matches.</p>
-                <p>Try entering a film title.</p>
-              </S.NoMatch>
-            </>
+            <S.NoMatch>
+              <p> Your search for "{query}" did not have any matches.</p>
+              <p>Try entering a film title.</p>
+            </S.NoMatch>
           )}
         </S.Container>
         <Footer />
