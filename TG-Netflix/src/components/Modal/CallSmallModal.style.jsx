@@ -54,9 +54,9 @@ export const SmallModal = styled.div`
     animation: in 1300ms ease-in-out;
     animation-fill-mode: forwards;
     ${SmallModalBottom} {
-      transition-delay: 1300ms;
+      // transition-delay: 1300ms;
       border-radius: 0 0 0.5rem 0.5rem;
-      opacity: 1;
+      opacity: ${(props) => props.modalBottom ? "1" : "0"};
       height: 5rem;
     }
   }

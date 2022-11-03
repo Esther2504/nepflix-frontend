@@ -23,13 +23,13 @@ const CallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
-  console.log(props.data.dataset.id)
+  console.log(props.data.dataset.id);
 
   const refVideoPlayer = useRef();
   const bg =
     "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
   // let Trailer = props.movie.trailer;
-  let Trailer = "0IOsk2Vlc4o"
+  let Trailer = "0IOsk2Vlc4o";
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
@@ -44,13 +44,14 @@ const CallModal = (props) => {
   };
 
   const [videoState, setVideoState] = useState(false);
+  const [modalBottom, setModalBottom] = useState(false);
 
   // Als de small modal verschijnt, duurt het nog twee seconden tot de video speelt
-  if (props.hover) {
-    setTimeout(function () {
-      setVideoState(true);
-    }, 1500);
-  }
+  // if (props.hover) {
+  //   setTimeout(function () {
+  //     setVideoState(true);
+  //   }, 1500);
+  // }
 
   const opts = {
     width: "100%",
@@ -67,9 +68,28 @@ const CallModal = (props) => {
     },
   };
 
+  const mouseLeaveHandler = () => {
+    setModalBottom(false);
+    setVideoState(false);
+
+  };
+
+  const mouseEnterHandler = () => {
+    setTimeout(function () {
+      setVideoState(true);
+      setModalBottom(true);
+    }, 1500);
+  };
+
   return (
-    <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
-      <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
+    <SmallModalContainer
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
+      coords={coords}
+      bg={bg}
+      onClick={props.onClick}
+    >
+      <SmallModal coords={coords} bg={bg} sWidth={sWidth} modalBottom={modalBottom}>
         <SmallModalTop bg={bg}>
           {videoState && (
             // <VideoPlayer

@@ -85,7 +85,6 @@ export default function Films({ banner, categories, movie }) {
           <>
             {isHovering && (
               <CallModal
-                onMouseLeave={() => setIsHovering(false)}
                 hover={isHovering}
                 setIsHovering={setIsHovering}
                 data={{ coords: coords, dataset: dataset, movie: movie }}
