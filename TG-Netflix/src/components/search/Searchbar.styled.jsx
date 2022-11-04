@@ -10,15 +10,27 @@ export const Form = styled.form`
   border: none;
   transition: width 300ms;
 
-  @media (min-width: 600px) {
+  @media (min-width: 375px) {
     display: flex;
   }
 
   &:focus-within {
-    width: 27rem;
+    width: 150px;
     border: 1px solid rgb(255, 255, 255, 0.6);
     background-color: rgb(0, 0, 0, 0.5);
     transition: width 300ms ease-out;
+   
+    @media (min-width: 400px) {
+      width: 170px;
+    }
+    @media (min-width: 450px) {
+      width: 220px;
+    }
+
+    @media (min-width: 500px) {
+      width: 270px;
+    }
+
 
     input {
       opacity: 1;

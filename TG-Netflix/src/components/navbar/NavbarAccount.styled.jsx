@@ -53,6 +53,13 @@ export const Menu = styled.nav`
     }
   }
 
+  &:hover {
+    img:nth-of-type(2) {
+      transform: rotate(180deg);
+      transition: transform 300ms;
+    }
+  }
+
   ul {
     position: absolute;
     display: none;
@@ -90,7 +97,7 @@ export const Menu = styled.nav`
       position: absolute;
       display: none;
       top: -13px;
-      left: 100px;
+      left: 98px;
       width: 18px;
       height: 15px;
 
