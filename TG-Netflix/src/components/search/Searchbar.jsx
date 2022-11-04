@@ -13,8 +13,9 @@ export default function Searchbar() {
   useEffect(() => {
     if (!location.pathname.includes('/search') && searchQuery) {
       navigate(`/search?q=${searchQuery}`);
-    } else if (!searchQuery) {
+    } else if (location.pathname.includes('/search') && !searchQuery) {
       navigate('/browse');
+      console.log('navigate to browse');
     }
   }, [searchQuery]);
 
