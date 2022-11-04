@@ -15,7 +15,6 @@ export default function Searchbar() {
       navigate(`/search?q=${searchQuery}`);
     } else if (location.pathname.includes('/search') && !searchQuery) {
       navigate('/browse');
-      console.log('navigate to browse');
     }
   }, [searchQuery]);
 
