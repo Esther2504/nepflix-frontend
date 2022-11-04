@@ -6,9 +6,9 @@ export default function MovieCard({ movie }) {
   const { backdrop_path, id, title } = movie;
   const logoArray = [logo, null];
 
-  function showLogo(logoArray) {
-    return logoArray[Math.floor(Math.random() * logoArray.length)];
-  }
+  // function showLogo(logoArray) {
+  //   return logoArray[Math.floor(Math.random() * logoArray.length)];
+  // }
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function MovieCard({ movie }) {
           alt={title}
         />
         <span>{title}</span>
-        <img src={showLogo(logoArray)} />
+        {/* <img src={showLogo(logoArray)} /> */}
       </Card>
     </>
   );

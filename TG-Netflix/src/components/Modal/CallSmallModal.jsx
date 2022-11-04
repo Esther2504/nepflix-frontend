@@ -23,7 +23,7 @@ const CallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
-  console.log(props.data.dataset.id);
+  // console.log(props.data.dataset.id);
 
   const refVideoPlayer = useRef();
   const bg =

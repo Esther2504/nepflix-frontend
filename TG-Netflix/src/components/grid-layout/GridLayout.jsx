@@ -16,7 +16,7 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
 
   const { moviegenre } = useParams();
 
-  console.log(moviegenre)
+  // console.log(moviegenre)
 
 //   useEffect(() => {
 // setGenre(moviegenre)
@@ -27,13 +27,14 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
-          console.log("hovered!");
+          setTimeout(function () {
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
           dispatch(
             openModal({ modalState: false, coords: coords, movie: movie })
           );
+          }, 500)
         }
       });
     });
@@ -44,7 +45,7 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
     });
   }, []);
 
-  console.log(dataset);
+  // console.log(dataset);
 
   const openBigModal = () => {
     dispatch(openModal({ modalState: true, coords }));

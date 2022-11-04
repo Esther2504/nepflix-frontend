@@ -20,10 +20,12 @@ export default function Lanes({categories, movie}) {
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
+          setTimeout(function () {
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
           dispatch(openModal({ modalState:false, coords: coords }));
+          }, 500)
         }
       });
     });

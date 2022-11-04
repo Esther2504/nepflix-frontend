@@ -34,17 +34,14 @@ export default function Films({ banner, categories, movie }) {
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
-          console.log("hovered");
-          setDataset(film.dataset);
           setTimeout(function () {
-            setIsHovering(true) 
-          }, 1500)
-          setCoords(e.target.getBoundingClientRect());
-          dispatch(openModal({ modalState: false, coords: coords }));
+            setDataset(film.dataset);
+            setIsHovering(true);
+            setCoords(e.target.getBoundingClientRect());
+            dispatch(openModal({ modalState: false, coords: coords }));
+          }, 500);
         }
       });
-
-    
     });
 
     window.addEventListener("click", (e) => {
@@ -69,9 +66,9 @@ export default function Films({ banner, categories, movie }) {
 
   movies = movies.movies;
 
-  console.log(movies);
+  // console.log(movies);
 
-// Om met een directe naar een genrepagina te gaan & zodat de filter blijft bij refresh
+  // Om met een directe naar een genrepagina te gaan & zodat de filter blijft bij refresh
   useEffect(() => {
     if (path != "/films") {
       let genreName = path.slice(1);
