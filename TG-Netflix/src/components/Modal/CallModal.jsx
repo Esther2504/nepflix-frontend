@@ -7,7 +7,7 @@ function CallModal(props) {
 
   return (
     <>
-      <CallSmallModal setIsHovering={props.setIsHovering} movie={movieDetailsMock} {...props} />
+      <CallSmallModal movie={movieDetailsMock} {...props} />
     </>
   );
 }

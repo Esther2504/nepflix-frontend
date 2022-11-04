@@ -16,12 +16,6 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
 
   const { moviegenre } = useParams();
 
-  // console.log(moviegenre)
-
-//   useEffect(() => {
-// setGenre(moviegenre)
-//   }, [moviegenre])
-
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
@@ -44,9 +38,6 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
       setIsHovering(false);
     });
   }, []);
-
-  // console.log(dataset);
-
   const openBigModal = () => {
     dispatch(openModal({ modalState: true, coords }));
   };

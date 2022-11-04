@@ -9,6 +9,7 @@ import CallBigModal from "../../components/Modal/CallBigModal";
 import FilterMenu from "../../components/filterknop/FilterMenu";
 import categoriesMock from "../../mock-data/browse_categories_banner.mock.json";
 import GridLayout from "../../components/grid-layout/GridLayout";
+import { useLocation } from "react-router-dom";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -18,9 +19,6 @@ export default function Films({ banner, categories, movie }) {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
-  const [path, setPath] = useState(
-    window.location.href.slice(window.location.href.lastIndexOf("/"))
-  );
   const [genre, setGenre] = useState("");
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
@@ -65,16 +63,22 @@ export default function Films({ banner, categories, movie }) {
   }
 
   movies = movies.movies;
+  
+  let location = useLocation();
 
-  // console.log(movies);
+  // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh
+  React.useEffect(() => {
+    let path = window.location.href.slice(
+      window.location.href.lastIndexOf("/")
+    );
 
-  // Om met een directe naar een genrepagina te gaan & zodat de filter blijft bij refresh
-  useEffect(() => {
     if (path != "/films") {
       let genreName = path.slice(1);
       setGenre(genreName);
+    } else {
+      setGenre("");
     }
-  }, [path]);
+  }, [location]);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import VidTitle from "./House_of_the_dragon_logo.webp";
+import VidTitle from "./House_of_the_Dragon_logo.webp";
 import {
   AiFillCloseCircle,
   AiOutlinePlusCircle,
