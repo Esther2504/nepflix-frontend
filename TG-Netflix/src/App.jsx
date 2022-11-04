@@ -14,6 +14,7 @@ function App() {
     "/my-list",
     "/lanes",
     "/modal",
+    "/search",
     "/grid-layout",
   ];
 
