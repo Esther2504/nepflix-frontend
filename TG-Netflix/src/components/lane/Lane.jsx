@@ -22,7 +22,7 @@ export default function Lane(props) {
   const [hasTransitionClass, setHasTransitionClass] = useState(true);
   const [stateSlides, setStateSlides] = useState(props.slices);
   const [leftAndRightDisabled, setLeftAndRightDisabled] = useState(false);
-  const laneWidth = document.getElementById("root").clientWidth * 0.9;
+  const laneWidth = document.getElementById("root").clientWidth * 0.94;
   const slides = props.slices;
   const itemsPerLane = props.itemsPerLane;
   const slideHeight = (laneWidth / itemsPerLane) * (9 / 16);

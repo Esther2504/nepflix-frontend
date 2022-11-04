@@ -10,20 +10,20 @@ margin-bottom: 3.5rem;
 export const LaneWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  width: 90vw;
+  width: 94vw;
   margin: auto;
   display: flex;
 `;
 
 export const TopWrapper = styled.div`
-  width: 90vw;
+  width: 92vw;
   margin: 0 auto;
   display: flex;
 `;
 
 export const LaneTitle = styled.div`
   color: #e5e5e5;
-  width: 90vw;
+  width: 92vw;
   font-size: 1.3rem;
   margin: 0 auto;
   height: 40px;
@@ -79,11 +79,11 @@ export const IndicatorRect = styled.div`
 
 export const ScrollLeftButtonContainer = styled.div`
   height:inherit;
-  width:5vw;
+  width:3vw;
 `
 export const ScrollRightButtonContainer = styled.div`
   height:inherit;
-  width:5vw;
+  width:3vw;
 `
 export const ScrollLeftButton = styled.span`
   left: 0;
