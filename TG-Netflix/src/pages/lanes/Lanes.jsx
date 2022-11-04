@@ -5,7 +5,7 @@ import CallModal from "../../components/Modal/CallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
-export default function Lanes({categories, movie}) {
+export default function Lanes({ categories, movie }) {
   //STATE
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
@@ -23,7 +23,7 @@ export default function Lanes({categories, movie}) {
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
-          dispatch(openModal({ modalState:false, coords: coords }));
+          dispatch(openModal({ modalState: false, coords: coords }));
         }
       });
     });
@@ -35,7 +35,6 @@ export default function Lanes({categories, movie}) {
   }, []);
 
   const openBigModal = () => {
-
     dispatch(openModal({ modalState: true, coords }));
   };
 
@@ -51,8 +50,9 @@ export default function Lanes({categories, movie}) {
           />
         )}
         {globalModalState.modalState && <CallBigModal />}
-        <LaneHandler categories={categories} movie={movie}/>
+        <LaneHandler categories={categories} movie={movie} />
         <Footer />
       </div>
-      </>
-  )}
+    </>
+  );
+}

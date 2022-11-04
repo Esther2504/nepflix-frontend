@@ -63,7 +63,7 @@ export default function Films({ banner, categories, movie }) {
   }
 
   movies = movies.movies;
-  
+
   let location = useLocation();
 
   // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh

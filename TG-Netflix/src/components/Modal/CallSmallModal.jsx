@@ -86,7 +86,12 @@ const CallModal = (props) => {
       bg={bg}
       onClick={props.onClick}
     >
-      <SmallModal coords={coords} bg={bg} sWidth={sWidth} modalBottom={modalBottom}>
+      <SmallModal
+        coords={coords}
+        bg={bg}
+        sWidth={sWidth}
+        modalBottom={modalBottom}
+      >
         <SmallModalTop bg={bg}>
           {videoState && (
             // <VideoPlayer

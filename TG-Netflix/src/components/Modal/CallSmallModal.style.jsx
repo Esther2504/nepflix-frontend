@@ -35,7 +35,7 @@ export const SmallModal = styled.div`
   position: absolute;
   height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
-  transition-delay:1300ms;
+  transition-delay: 1300ms;
   transform-origin: ${(props) =>
     props.coords.left < props.coords.width
       ? "left center"
@@ -56,7 +56,7 @@ export const SmallModal = styled.div`
     ${SmallModalBottom} {
       // transition-delay: 1300ms;
       border-radius: 0 0 0.5rem 0.5rem;
-      opacity: ${(props) => props.modalBottom ? "1" : "0"};
+      opacity: ${(props) => (props.modalBottom ? "1" : "0")};
       height: 5rem;
     }
   }
@@ -88,7 +88,6 @@ export const VideoPlayer = styled.video`
   border-radius: 1rem;
   aspect-ratio: 16/9;
   // display: none;
-  
 `;
 
 export const VideoControlsContainer = styled.div`

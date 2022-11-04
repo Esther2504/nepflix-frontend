@@ -16,7 +16,6 @@ export default function MovieCard({ movie }) {
         data-backdrop={backdrop_path}
         data-id={id}
         data-title={title}
-        
         // key={index}
         id="movie"
       >
