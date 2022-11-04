@@ -1,7 +1,6 @@
 import React, { useRef, forwardRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PreviewModal from './PreviewModal';
-import Trailer from './testTrailer.webm';
 import {
   ModalContainer,
   ModalContent,
@@ -31,13 +30,10 @@ import {
 import { closeModal } from '../../reducers/modalReducer';
 import Player from '../player/Player';
 
-
 const CallBigModal = forwardRef((movie,ref) => {
-  console.log(movie);
+  
   //REF's
-  const modalRefVideo = useRef();
   const refMoreLikeThisWrapper = useRef();
-  const modalRefContent = useRef();
   const modalRefContainer = useRef();
   //END REF's
   const dispatch = useDispatch();
@@ -78,12 +74,11 @@ const CallBigModal = forwardRef((movie,ref) => {
   return (
     <>
       <ModalContainer ref={modalRefContainer}>
-        <ModalContent ref={modalRefContent} coords={coordsForBigModal}>
+        <ModalContent coords={coordsForBigModal}>
           <CloseButton onClick={handleClose}>
             <CloseCircle />
           </CloseButton>
           <ModalPreview>
-
             <Player data={movie} modal={true}/>
             <VideoInfoContainer>
               <VideoInfoContainerLeft>
@@ -115,7 +110,6 @@ const CallBigModal = forwardRef((movie,ref) => {
             </VideoInfoContainer>
             <MoreLikeThisContainer>
               <span>More Like This</span>
-
               <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
                 {movie.similar.map((data, index) => {
                   return <PreviewModal key={index} movie={data} />;
@@ -127,7 +121,7 @@ const CallBigModal = forwardRef((movie,ref) => {
                 style={
                   toggleViewMore === true
                     ? { transform: 'rotate(180deg)' }
-                    : undefined
+                    : null
                 }
               />
             </MoreLikeThisContainer>

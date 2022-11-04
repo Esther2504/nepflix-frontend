@@ -1,18 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   AiFillCloseCircle,
   AiOutlinePlusCircle,
   AiOutlineDown,
-} from "react-icons/ai";
-import { BsFillPlayFill, BsHandThumbsUp } from "react-icons/bs";
-import { TbVolume3 } from "react-icons/tb";
+} from 'react-icons/ai';
+import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs';
+import { TbVolume3 } from 'react-icons/tb';
 
 export const SmallModalContainer = styled.div`
   position: absolute;
-  left: ${(props) => props.coords.left + "px"};
-  top: ${(props) => props.coords.top + window.scrollY + "px"};
-  width: ${(props) => props.coords.width + "px"};
-  height: ${(props) => props.coords.height + "px"};
+  left: ${(props) => props.coords.left + 'px'};
+  top: ${(props) => props.coords.top + window.scrollY + 'px'};
+  width: ${(props) => props.coords.width + 'px'};
+  height: ${(props) => props.coords.height + 'px'};
 `;
 
 //START SMALLMODAL
@@ -35,13 +35,13 @@ export const SmallModal = styled.div`
   position: absolute;
   height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
-  transition-delay:1300ms;
+  transition-delay: 1300ms;
   transform-origin: ${(props) =>
     props.coords.left < props.coords.width
-      ? "left center"
+      ? 'left center'
       : props.sWidth - props.coords.right < props.coords.width
-      ? "right center"
-      : "center center"};
+      ? 'right center'
+      : 'center center'};
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
@@ -57,7 +57,7 @@ export const SmallModal = styled.div`
       transition-delay: 1300ms;
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
-      height: 5rem;
+      height: fit-content;
     }
   }
   @keyframes in {
@@ -88,7 +88,6 @@ export const VideoPlayer = styled.video`
   border-radius: 1rem;
   aspect-ratio: 16/9;
   // display: none;
-  
 `;
 
 export const VideoControlsContainer = styled.div`
@@ -177,4 +176,24 @@ export const VolumeIcon = styled(TbVolume3)`
     border-color: white;
   }
 `;
+export const InfoCon = styled.div`
+  display: flex;
+  color: #fff;
+  flex-direction: row;
+  font-size: 2rem;
+`;
+export const AgeRes = styled.div`
+  display: flex;
+  background-color: black;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  align-items: center;
+  place-content: center;
+  justify-content: center;
+  border: 3px solid white;
+  font-weight: 600;
+  font-size: 2rem;
+`;
+export const Runtime = styled.div``;
 //END VIDEOPLAYER

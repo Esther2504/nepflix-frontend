@@ -11,16 +11,19 @@ import {
   PreviewAddToList,
   PreviewMetaData,
   PreviewSummary,
+  Thumbnail,
+  Title
 } from './PreviewModal.style';
 
 function PreviewModal(data) {
+  const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
   const modalRefVideo = useRef();
   return (
     <PreviewModalContainer>
       <PreviewDuration>{data.movie.runtime}</PreviewDuration>
       <PreviewPlay />
-      <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} />
-
+      {/* <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} /> */}
+      <Thumbnail bg={bg} />
       <PreviewMetaData>
         <PreviewRating></PreviewRating>
         <PreviewMaturityRating>
@@ -28,7 +31,8 @@ function PreviewModal(data) {
         </PreviewMaturityRating>
         <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
         <PreviewAddToList></PreviewAddToList>
-        <PreviewSummary>{data.movie.description}</PreviewSummary>
+        <Title>{data.movie.title}</Title>
+        <PreviewSummary>{data.movie.overview}</PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>
   );

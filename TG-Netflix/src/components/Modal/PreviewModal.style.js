@@ -7,6 +7,11 @@ export const VideoPlayer = styled.video`
   border-top-right-radius: 1rem;
   aspect-ratio: 16 / 9;
 `;
+export const Thumbnail = styled.div`
+  background-image: url(${props=> props.bg});
+  background-size: cover;
+  aspect-ratio: 16 / 9;
+`
 export const PreviewMetaData = styled.div`
   display: grid;
   grid-template-rows: 2rem 2rem;
@@ -82,6 +87,11 @@ export const PreviewAddToList = styled(AiOutlinePlusCircle)`
     color: #ffffff;
   }
 `;
+export const Title = styled.div`
+  grid-row: 1;
+  grid-column: 1 /span 2;
+  font-size:2rem;
+`
 export const PreviewSummary = styled.div`
   grid-row: 3;
   grid-column: 1 / span 2;

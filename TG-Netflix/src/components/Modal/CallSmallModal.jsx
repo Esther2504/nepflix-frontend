@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useRef, useState } from "react";
+import React, { useEffect } from 'react';
+import { useRef, useState } from 'react';
 import {
   SmallModalContainer,
   SmallModal,
@@ -13,9 +13,12 @@ import {
   ThumbsUp,
   RateIcons,
   VolumeIcon,
-} from "./CallSmallModal.style";
-import Trailer from "./testTrailer.webm";
-import YouTube from "react-youtube";
+  InfoCon,
+  AgeRes,
+  Runtime,
+} from './CallSmallModal.style';
+
+import YouTube from 'react-youtube';
 
 const CallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -23,11 +26,10 @@ const CallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
-  const refVideoPlayer = useRef();
   const bg =
-    "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
+    'https://image.tmdb.org/t/p/original' + props.data.dataset.backdrop;
   // let Trailer = props.movie.trailer;
-  let Trailer = "https://www.youtube.com/watch?v=0IOsk2Vlc4o&t=54s"
+  let Trailer = 'https://www.youtube.com/watch?v=0IOsk2Vlc4o';
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
@@ -51,8 +53,8 @@ const CallModal = (props) => {
   }
 
   const opts = {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
 
     playerVars: {
       autoplay: 1,
@@ -61,9 +63,27 @@ const CallModal = (props) => {
       disablekb: 1,
       end: 66,
       rel: 0,
-      frameborder: "0",
+      frameborder: '0',
     },
   };
+
+  const runtime = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const min = minutes % 60;
+    const result = hours + 'h ' + min + 'm'
+    return result;
+  };
+
+  const ageCertificate = (age) =>{
+    switch (age) {
+      case 6:
+        
+        break;
+    
+      default:
+        break;
+    }
+  }
 
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
@@ -78,13 +98,17 @@ const CallModal = (props) => {
             //   ref={refVideoPlayer}
             //   type="video/webm"
             // />
-            // <YouTube videoId={Trailer} opts={opts} />
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/0IOsk2Vlc4o?autoplay=1`}
-              frameBorder="0"
+            <YouTube
+              videoId={Trailer}
+              opts={opts}
+              style={{ height: 'inherit' }}
             />
+            // <iframe
+            //   width="100%"
+            //   height="100%"
+            //   src={`https://www.youtube.com/embed/0IOsk2Vlc4o?autoplay=0`}
+            //   frameBorder="0"
+            // />
           )}
         </SmallModalTop>
 
@@ -99,6 +123,10 @@ const CallModal = (props) => {
             <RateIcons />
             <VolumeIcon />
           </VideoControls>
+          <InfoCon>
+            <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
+            <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
+          </InfoCon>
         </SmallModalBottom>
       </SmallModal>
     </SmallModalContainer>
