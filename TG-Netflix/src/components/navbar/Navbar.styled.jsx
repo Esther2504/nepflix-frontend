@@ -112,7 +112,7 @@ export const PrimaryNav = styled.nav`
   ul {
     width: 20rem;
     top: 7rem;
-    left: 53px;
+    left: 48px;
 
     img {
       position: absolute;
@@ -195,8 +195,6 @@ export const Account = styled.div`
       display: block;
     }
   }
-
-
 
   ul {
     left: -130px;
