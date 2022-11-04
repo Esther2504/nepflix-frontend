@@ -26,10 +26,12 @@ export default function Discover({ banner, categories, movie }) {
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
+          setTimeout(function () {
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
           dispatch(openModal({ modalState: false, coords: coords }));
+        }, 500);
         }
       });
     });
@@ -40,9 +42,7 @@ export default function Discover({ banner, categories, movie }) {
     });
   }, []);
 
-
   const openBigModal = () => {
-    // document.body.style.position = "fixed";
     dispatch(openModal({ modalState: true, coords }));
   };
 
