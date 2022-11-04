@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const Form = styled.div`
   position: relative;
   display: none;
   width: 3.6rem;
