@@ -6,6 +6,8 @@ import LaneHandler from '../../components/lane/LaneHandler';
 import Footer from '../../components/footer/footer';
 import CallSmallModal from '../../components/Modal/CallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -19,7 +21,17 @@ export default function Discover({ banner, categories, movie }) {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [browseMovieID, setBrowseMovieID] = useSearchParams();
   //END STATE
+
+  useEffect(() => {
+    console.log(getMovieID);
+    if (getMovieID) {
+      dispatch(openModal({ modalState: true, coords }));
+    }
+  }, []);
 
   //add evenlistener for small modal
   useEffect(() => {
@@ -30,7 +42,6 @@ export default function Discover({ banner, categories, movie }) {
           setDataset(film.dataset);
           setIsHovering(true);
           setMovieID(e.target.dataset.id);
-
           setCoords(e.target.getBoundingClientRect());
         }
       });
@@ -42,11 +53,11 @@ export default function Discover({ banner, categories, movie }) {
     });
   }, []);
 
+  //check if there is a movieID
+  const getMovieID = browseMovieID.get('movieID');
+
   const openBigModal = () => {
-    const url = window.location.search;
-    console.log(url);
-    const urlParams = new URLSearchParams(url);
-    urlParams.append('movieID', movieID);
+    setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
 

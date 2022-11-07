@@ -29,6 +29,7 @@ import {
 } from './CallBigModal.styled';
 import { closeModal } from '../../reducers/modalReducer';
 import Player from '../player/Player';
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 
 const CallBigModal = forwardRef((movie,ref) => {
   
@@ -40,6 +41,7 @@ const CallBigModal = forwardRef((movie,ref) => {
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
+  const [browseMovieID, setBrowseMovieID] = useSearchParams();
   //END STATE
 
   //coords for big modal
@@ -50,11 +52,13 @@ const CallBigModal = forwardRef((movie,ref) => {
   
   //Close modal button
   const handleClose = () => {
+    setBrowseMovieID();
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
   window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
+      setBrowseMovieID();
       dispatch(closeModal({ modalState: false, coords: [] }));
     }
   });
