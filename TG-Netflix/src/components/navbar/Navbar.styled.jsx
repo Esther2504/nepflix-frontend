@@ -25,7 +25,7 @@ const dropdown = css`
         background-color: rgba(30, 30, 30, 0.5);
       }
 
-      @media (max-width: 884px) {
+      @media (max-width: 950px) {
         font-size: 1.3rem;
       }
 
@@ -58,17 +58,16 @@ export const Nav = styled.header`
   font-size: 1.1rem;
   z-index: 99;
   color: white;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.6)
-  );
+  background-image: ${(props) =>
+    props.gradientNavbar
+      ? 'linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6))'
+      : 'none'};
   transition: background-color 1000ms; // return transition
   transition: ${(props) =>
     props.blackNavbar ? 'background-color 1000ms;' : ''};
   background-color: ${(props) => (props.blackNavbar ? 'var(--black)' : '')};
 
-  @media (min-width: 885px) {
+  @media (min-width: 950px) {
     height: 6.8rem;
     padding: 0 70px 0 35px;
     font-size: 1.3rem;
@@ -83,13 +82,17 @@ export const Nav = styled.header`
     li {
       margin-left: 1rem;
 
-      @media (min-width: 885px) {
+      @media (min-width: 950px) {
         margin-left: 2.5rem;
       }
 
       a {
         text-decoration: none;
         color: white;
+
+        :hover {
+          color: #dcdcdc;
+        }
       }
     }
   }
@@ -104,7 +107,7 @@ export const PrimaryNav = styled.nav`
     width: 80px;
     margin-right: 0px;
 
-    @media (min-width: 885px) {
+    @media (min-width: 950px) {
       width: 120px;
     }
   }
@@ -126,12 +129,12 @@ export const PrimaryNav = styled.nav`
       white-space: nowrap;
       width: 100%;
 
-      @media (max-width: 884px) {
+      @media (max-width: 950px) {
         margin-left: 0;
       }
     }
 
-    @media (min-width: 885px) {
+    @media (min-width: 950px) {
       position: static;
       display: flex;
       flex-direction: row;
@@ -165,7 +168,7 @@ export const Browse = styled.div`
     width: 10px;
   }
 
-  @media (min-width: 885px) {
+  @media (min-width: 950px) {
     display: none;
   }
 `;
@@ -191,7 +194,7 @@ export const Account = styled.div`
     width: 12px;
     transition: 400ms;
 
-    @media (min-width: 885px) {
+    @media (min-width: 950px) {
       display: block;
     }
   }

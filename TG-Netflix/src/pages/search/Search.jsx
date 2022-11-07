@@ -16,7 +16,7 @@ export default function Search() {
   const searchResults = data.filter(checkQuery(searchQuery));
 
   useEffect(() => {
-    searchResults.length > 0 ? setHasMatch(true) : setHasMatch(false);
+    setHasMatch(searchResults.length > 0 ? true : false)
   }, [searchQuery]);
 
   return (
