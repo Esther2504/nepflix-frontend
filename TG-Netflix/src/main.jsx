@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route index element={<Landing />} />
               <Route path="browse" element={<Discover banner={browseMockData.banner} categories={browseMockData.categories} movie={movieDetailsMock}/>} />
               <Route path="films" element={<Films banner={browseMockData.banner} categories={browseMockData.categories} movie={movieDetailsMock} />} />
-              <Route path="my-list" element={<MyList categories={browseMockData.categories} movie={movieDetailsMock}/>} />
+              <Route path="my-list" element={<MyList />}/>
               <Route path="account" element={<Account />} />
               <Route path="lanes" element={<Lanes categories={browseMockData.categories} movie={movieDetailsMock} />} />
               <Route path="modal" element={<Modal />} />

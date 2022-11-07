@@ -44,15 +44,14 @@ export const getLiked = createAsyncThunk("netflix/liked" , async () => {
     const {
         data,
     } = await axios.get(`https://stoplight.io/mocks/nepflix/nepflix-user/105131026/user/liked`);
-    // .... movie has to be changed to 'user'(?)
     const liked = data;
-    console.log(liked);
+    // console.log(liked);
     return liked;
 });
 
 
 const NetflixSlice = createSlice({
-    name: "Netflix",
+    name: "netflix",
     initialState,
     //make reducers to set browse and movie states
     extraReducers: (builder) => {
