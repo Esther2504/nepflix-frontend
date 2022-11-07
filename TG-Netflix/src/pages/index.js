@@ -9,4 +9,5 @@ export { default as Lanes } from './lanes/Lanes';
 export { default as Modal } from './modal/ModalPage';
 export { default as Grid } from './grid/Grid';
 export { default as Account } from './account/AccountPage';
+export { default as Search } from './search/Search';
 export { default as NotFound } from './not-found/NotFound';

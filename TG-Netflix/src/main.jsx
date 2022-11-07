@@ -12,6 +12,7 @@ import {
   Modal,
   Grid,
   Account,
+  Search,
   NotFound,
 } from "./pages";
 import { Provider } from "react-redux";
@@ -20,6 +21,7 @@ import { persistor, store } from "./reducers/store";
 import browseMockData from './mock-data/browse_categories_banner.mock.json'
 import movieDetailsMock from './mock-data/movie_details_similar.mock.json'
 import GridLayout from "./components/grid-layout/GridLayout";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -39,6 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Route path="lanes" element={<Lanes categories={browseMockData.categories} movie={movieDetailsMock} />} />
               <Route path="modal" element={<Modal />} />
               <Route path="grid-layout" element={<Grid />} />
+              <Route path="search" element={<Search />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
