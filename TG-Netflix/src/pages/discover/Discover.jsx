@@ -46,6 +46,9 @@ export default function Discover({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
+
+
+
   return (
     <>
       <div className="members-container">
