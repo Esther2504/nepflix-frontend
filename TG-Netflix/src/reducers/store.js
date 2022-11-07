@@ -1,5 +1,6 @@
 //Store import
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+// import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 
 // Persist imports
 import storage from "redux-persist/lib/storage";
@@ -12,11 +13,14 @@ import showReducer from "./showReducer";
 import trailerReducer from "./trailerReducer";
 import playTimeReducer from "./playTimeReducer";
 import modalReducer from "./modalReducer";
+import searchReducer from "./searchReducer";
 
 //Persist
 const persistConfig = {
   key: "data",
   storage,
+  // stateReconciler: autoMergeLevel2
+  // blacklist: ['results']
 };
 
 //new reducers to be added here
@@ -26,6 +30,7 @@ const combined = combineReducers({
   trailer: trailerReducer,
   playTime: playTimeReducer,
   modal: modalReducer,
+  results: searchReducer 
 });
 
 const persistedReducer = persistReducer(persistConfig, combined);

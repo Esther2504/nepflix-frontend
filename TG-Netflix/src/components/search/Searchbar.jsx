@@ -8,18 +8,18 @@ export default function Searchbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
-  const searchQuery = search.get('q');
+  const searchQuery = search.get('query');
 
   useEffect(() => {
     if (!location.pathname.includes('/search') && searchQuery) {
-      navigate(`/search?q=${searchQuery}`);
+      navigate(`/search?query=${searchQuery}`);
     } else if (location.pathname.includes('/search') && !searchQuery) {
       navigate('/browse');
     }
   }, [searchQuery]);
 
   function handleChange(e) {
-    setSearch({ q: e.target.value });
+    setSearch({ query: e.target.value });
   }
 
   const debouncedHandleChange = useMemo(
