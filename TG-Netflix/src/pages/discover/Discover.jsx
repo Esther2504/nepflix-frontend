@@ -26,8 +26,11 @@ export default function Discover({ banner, categories, movie }) {
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   //END STATE
 
+  //check if linked to a direct movie
+  const getMovieID = browseMovieID.get('movieID');
+
+  //open modal if linked to movieID
   useEffect(() => {
-    console.log(getMovieID);
     if (getMovieID) {
       dispatch(openModal({ modalState: true, coords }));
     }
@@ -46,15 +49,15 @@ export default function Discover({ banner, categories, movie }) {
         }
       });
     });
+    // https://tg-nepflix.azurewebsites.net/movie/550
+    // /movie/{id}?similar=true
+
 
     window.addEventListener('click', (e) => {
       e.stopPropagation();
       setIsHovering(false);
     });
   }, []);
-
-  //check if there is a movieID
-  const getMovieID = browseMovieID.get('movieID');
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });

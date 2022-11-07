@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useState } from 'react';
+import React, { useRef, forwardRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PreviewModal from './PreviewModal';
 import {
@@ -27,12 +27,11 @@ import {
   AboutContainer,
   AboutTitle,
 } from './CallBigModal.styled';
-import { closeModal } from '../../reducers/modalReducer';
+import { closeModal, getMovieID } from '../../reducers/modalReducer';
 import Player from '../player/Player';
-import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
-const CallBigModal = forwardRef((movie,ref) => {
-  
+const CallBigModal = forwardRef((movie, ref) => {
   //REF's
   const refMoreLikeThisWrapper = useRef();
   const modalRefContainer = useRef();
@@ -42,14 +41,32 @@ const CallBigModal = forwardRef((movie,ref) => {
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
+  const [directMovie, setDirectMovie] = useState();
   //END STATE
+
+  const fetchDirectMovie = async () => {
+    const directMovieID = browseMovieID.get('movieID');
+    const data = await getMovieID(directMovieID);
+    setDirectMovie(data);
+  };
+  
+  //fetch data direct link
+  useEffect(() => {
+    if (browseMovieID.get('movieID')) {
+      fetchDirectMovie();
+    }
+  }, []);
+  
+  if(directMovie){
+    movie = directMovie;
+  }
 
   //coords for big modal
   // const offset = document.querySelector('.banner-container').offsetHeight;
-  const left = Math.round(globalModalState.coords.left ) + 'px ';
-  const top = Math.round(globalModalState.coords.top)  + 'px';
+  const left = Math.round(globalModalState.coords.left) + 'px ';
+  const top = Math.round(globalModalState.coords.top) + 'px';
   const coordsForBigModal = left + top;
-  
+
   //Close modal button
   const handleClose = () => {
     setBrowseMovieID();
@@ -83,7 +100,7 @@ const CallBigModal = forwardRef((movie,ref) => {
             <CloseCircle />
           </CloseButton>
           <ModalPreview>
-            <Player data={movie} modal={true}/>
+            <Player data={movie} modal={true} />
             <VideoInfoContainer>
               <VideoInfoContainerLeft>
                 <MetaData>
@@ -101,11 +118,11 @@ const CallBigModal = forwardRef((movie,ref) => {
               <VideoInfoContainerRight>
                 <Cast>
                   <span>Cast:</span>
-                  {movie.actors.join(", ")}
+                  {directMovie?.actors.join(', ')}
                 </Cast>
                 <Genres>
                   <span>Genres:</span>
-                  {movie.genres.join(", ")}
+                  {movie?.genres.join(', ')}
                 </Genres>
                 <Tags>
                   <span>This programme is:</span> Exciting, Funny
@@ -118,7 +135,6 @@ const CallBigModal = forwardRef((movie,ref) => {
                 {movie.similar.map((data, index) => {
                   return <PreviewModal key={index} movie={data} />;
                 })}
-
               </MoreLikeThisWrapper>
               <MoreLikeThisToggle
                 onClick={handleOnClickToggleMore}
@@ -135,11 +151,11 @@ const CallBigModal = forwardRef((movie,ref) => {
               </AboutTitle>
               <Cast>
                 <span>Cast:</span>
-                {movie.actors.join(", ")}
+                {movie?.actors.join(', ')}
               </Cast>
               <Genres>
                 <span>Genres:</span>
-                {movie.genres.join(", ")}
+                {movie?.genres.join(', ')}
               </Genres>
               <Tags>
                 <span>This programme is:</span> Exciting, Funny
