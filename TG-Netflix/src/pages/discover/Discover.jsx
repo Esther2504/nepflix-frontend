@@ -11,11 +11,11 @@ import CallBigModal from '../../components/Modal/CallBigModal';
 // bezoeker inlogt
 
 export default function Discover({ banner, categories, movie }) {
-
   //STATE
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
+  const [movieID, setMovieID] = useState();
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
@@ -29,6 +29,8 @@ export default function Discover({ banner, categories, movie }) {
         if (e.target.getAttribute('id')) {
           setDataset(film.dataset);
           setIsHovering(true);
+          setMovieID(e.target.dataset.id);
+
           setCoords(e.target.getBoundingClientRect());
         }
       });
@@ -41,24 +43,28 @@ export default function Discover({ banner, categories, movie }) {
   }, []);
 
   const openBigModal = () => {
+    const url = window.location.search;
+    console.log(url);
+    const urlParams = new URLSearchParams(url);
+    urlParams.append('movieID', movieID);
     dispatch(openModal({ modalState: true, coords }));
   };
- 
+
   return (
     <>
       <div className="members-container">
-        <Player data={banner} modal={false}/>
+        <Player data={banner} modal={false} />
         {isHovering && (
           <CallSmallModal
             onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
-            data={{ coords: coords, dataset: movieDetails}}
+            data={{ coords: coords, dataset: movieDetails }}
             onClick={openBigModal}
           />
         )}
         {globalModalState.modalState && <CallBigModal {...movieDetails} />}
         <div className="fadeContainer">
-        <LaneHandler categories={categories} movie={movie} />
+          <LaneHandler categories={categories} movie={movie} />
         </div>
         <Footer />
       </div>
