@@ -1,8 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { useSearchParams } from 'react-router-dom';
-
-
 
 const initialState = {
   search: [],
@@ -11,15 +8,10 @@ const initialState = {
 };
 
 export const getSearch = createAsyncThunk("results/movie", async () => {
-  const [search1] = useSearchParams();
-  const searchQuery = search1.get('query');
-
-  //fetches /Browse data
   const {
     data,
-  } = await axios.get(`https://tg-nepflix.azurewebsites.net/search/movie?query=avengers`);
+  } = await axios.get(`https://stoplight.io/mocks/tg-maxserve/netclone/102025768/browse`);
   const search = data;
-  console.log(search)
   return search;
 });
 

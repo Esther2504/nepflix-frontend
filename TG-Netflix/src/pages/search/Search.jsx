@@ -5,39 +5,21 @@ import MovieCard from '../../components/movie-card/MovieCard';
 import Footer from '../../components/footer/footer';
 import * as S from './Search.styled';
 import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
-import { getSearch } from "../../reducers/searchReducer";
-
 // import MockData from '../../mock-data/browse_categories_banner.mock.json';
 
 export default function Search() {
   const [search] = useSearchParams();
   const [hasMatch, setHasMatch] = useState(true);
-  const searchQuery = search.get('query');
+  const searchQuery = search.get('q');
   const checkQuery = (searchQuery) => (movie) =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase());
-
-
-  const dispatch = useDispatch();
-
- 
-
-  useEffect(() => {
-    // dispatch(getMovies());
-    // dispatch(getBrowse());
-    dispatch(getSearch());
-
-  }, []);
-
   const backendData = useSelector((state) => state.results.search);
-  const data = backendData?.results;
-  const searchResults = data?.filter(checkQuery(searchQuery));
-
+  const data = backendData.categories[0].movies;
+  const searchResults = data.filter(checkQuery(searchQuery));
 
   useEffect(() => {
     setHasMatch(searchResults.length !== 0 ? true : false);
   }, [searchQuery]);
-
 
   return (
     <>
