@@ -21,10 +21,10 @@ export const getBrowse = createAsyncThunk("netflix/browse", async ({banner, cate
   console.log(banner, categories, page)
   //fetches /Browse data
   const { data } = await axios.get(
-    `https://stoplight.io/mocks/tg-maxserve/netclone/102025768/browse`, { params: {banner, categories, page}}
+    `https://tg-nepflix.azurewebsites.net/browse`, { params: {banner, categories, page}}
   );
   const browse = data;
-  // console.log(browse);
+  console.log(browse);
   return browse;
 });
 
