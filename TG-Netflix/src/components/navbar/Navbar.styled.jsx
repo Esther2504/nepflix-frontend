@@ -196,6 +196,13 @@ export const Account = styled.div`
     }
   }
 
+  &:hover {
+    img:nth-of-type(2) {
+      transform: rotate(180deg);
+      transition: transform 300ms;
+    }
+  }
+
   ul {
     left: -130px;
     width: 19rem;
