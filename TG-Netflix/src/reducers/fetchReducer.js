@@ -39,6 +39,7 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
     return movie;
 });
 
+
 export const getLiked = createAsyncThunk("netflix/liked" , async () => {
     // fetches /user data
     const {
