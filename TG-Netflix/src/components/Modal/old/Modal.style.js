@@ -148,7 +148,7 @@ export const ModalContainer = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   text-align: center;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 `;
 
 export const ModalContent = styled.div`

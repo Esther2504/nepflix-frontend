@@ -26,7 +26,8 @@ const CallModal = (props) => {
   const refVideoPlayer = useRef();
   const bg =
     "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
-  let Trailer = props.movie.trailer;
+  // let Trailer = props.movie.trailer;
+  let Trailer = "0IOsk2Vlc4o"
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;

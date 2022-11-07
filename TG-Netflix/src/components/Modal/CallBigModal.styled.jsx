@@ -113,10 +113,15 @@ export const ModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   overflow:auto;
+
+  &::-webkit-scrollbar { 
+    display: none;
+}
 `;
 
 export const ModalContent = styled.div`
   display: flex;
+
   -margin: 0 auto;
   margin-top: 3rem;
   border-top-left-radius: 1rem;
