@@ -27,6 +27,12 @@ export default function Search() {
         <S.Container>
           {filteredResults !== undefined && filteredResults?.length !== 0 && (
             <GridContainer>
+              <S.Results>
+                {filteredResults?.length !== 1
+                  ? 'Search results'
+                  : 'Search result'}{' '}
+                for: <span>{searchQuery}</span>
+              </S.Results>
               {filteredResults?.map((movie, id) => {
                 return <MovieCard key={id} movie={movie} />;
               })}
