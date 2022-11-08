@@ -24,9 +24,6 @@ export default function Navbar() {
 
   useEffect(() => {
     setStaticNavbar(!location.pathname.includes('/films') ? false : true);
-  }, [location]);
-
-  useEffect(() => {
     setGradientNavbar(!location.pathname.includes('/browse') ? false : true);
   }, [location]);
 
