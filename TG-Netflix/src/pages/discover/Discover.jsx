@@ -32,6 +32,7 @@ export default function Discover({ banner, categories, movie }) {
   //open modal if linked to movieID
   useEffect(() => {
     if (getMovieID) {
+      console.log(getmovieID);
       dispatch(openModal({ modalState: true, coords }));
     }
   }, []);
