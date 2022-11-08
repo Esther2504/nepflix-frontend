@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-
-import { RiAccountCircleLine } from 'react-icons/ri';
-
-import Searchbar from './Searchbar';
+import Searchbar from '../search/Searchbar';
 import * as S from './Navbar.styled';
-
 import logo from '../../assets/navbar-images/nepflix-logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
-import kids from '../../assets/navbar-images/kids-icon.png';
 import arrowup from '../../assets/navbar-images/arrow-up.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
 
@@ -27,7 +22,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setStaticNavbar(location.pathname !== '/films' ? false : true);
+    setStaticNavbar(location.pathname.includes('/films') ? true : false);
   }, [location]);
 
   return (
@@ -68,14 +63,6 @@ export default function Navbar() {
                 My List
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="grid-layout"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                (Grid)
-              </NavLink>
-            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
@@ -90,7 +77,6 @@ export default function Navbar() {
                 <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    {/* <RiAccountCircleLine size={20} /> */}
                     <a href="/account">Account</a>
                   </li>
                   <li>

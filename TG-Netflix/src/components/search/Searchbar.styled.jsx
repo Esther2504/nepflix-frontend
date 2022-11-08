@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Search = styled.form`
+export const Form = styled.div`
   position: relative;
   display: none;
   width: 3.6rem;
@@ -8,10 +8,33 @@ export const Search = styled.form`
   padding: 5px;
   overflow-x: hidden;
   border: none;
-  transition: width 0ms;
+  transition: width 300ms;
 
-  @media (min-width: 600px) {
+  @media (min-width: 375px) {
     display: flex;
+  }
+
+  &:focus-within {
+    width: 150px;
+    border: 1px solid rgb(255, 255, 255, 0.6);
+    background-color: rgb(0, 0, 0, 0.5);
+    transition: width 300ms ease-out;
+
+    @media (min-width: 400px) {
+      width: 170px;
+    }
+    @media (min-width: 450px) {
+      width: 220px;
+    }
+    @media (min-width: 500px) {
+      width: 270px;
+    }
+
+    input {
+      opacity: 1;
+      color: white;
+      cursor: initial;
+    }
   }
 
   input {
@@ -19,7 +42,8 @@ export const Search = styled.form`
     top: 0;
     bottom: 0;
     width: 95%;
-    padding-left: 30px;
+    height: 100%;
+    padding-left: 35px;
     flex-grow: 1;
     font-size: 1.4rem;
     opacity: 0;
@@ -39,19 +63,6 @@ export const Search = styled.form`
 
     img {
       width: 25px;
-    }
-  }
-
-  &:focus-within {
-    width: 24rem;
-    border: 1px solid rgb(255, 255, 255, 0.6);
-    background-color: rgb(0, 0, 0, 0.5);
-    transition: width 300ms ease-out;
-
-    input {
-      opacity: 1;
-      color: white;
-      cursor: initial;
     }
   }
 `;
