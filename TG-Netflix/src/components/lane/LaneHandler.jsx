@@ -8,7 +8,7 @@ import useCategoryFetch from "../../features/useCategoryFetch";
 
 function LaneHandler({ categories, movie }) {
   const { ref, inView } = useInView({
-    threshold: 0.9,
+    threshold: 1,
   });
 
   const [query, setQuery] = useState("");
