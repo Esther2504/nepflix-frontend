@@ -1,16 +1,18 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const FilterWrapper = styled.section`
   position: sticky;
-  top: 0;
+  top: ${(props) => (props.isScrolled ? "-2px" : "0")};
   height: 4.1rem;
   width: 100%;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(14, 14, 14);
+  background-color: var(--black);
   padding: 3rem 7rem 3rem 4.5rem;
+  margin-top: 6.5rem;
 
   @media (max-width: 950px) {
     padding: 3rem 4.6rem 3rem 3.5rem;
@@ -44,13 +46,50 @@ export const FilterTitle = styled.h2`
   }
 `;
 
+export const FilmsLink = styled(Link)`
+  font-size: 1.8rem;
+  color: grey;
+  margin-right: 15px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:after {
+    content: ">";
+    padding-left: 10px;
+   font-size: 20px;
+  }
+
+`;
+
+export const GenreTitle = styled(FilterTitle)`
+line-height: 3.8rem;
+cursor: default;
+font-weight: 300;
+
+@media (max-width: 884px) {
+  line-height: 2.2rem;
+}
+
+@media (max-width: 725px) {
+  line-height: 1.8rem;
+}
+
+@media (max-width: 400px) {
+  line-height: 1.4rem;
+}
+
+&:first-letter {
+  text-transform: capitalize;
+}
+`
+
 export const FilterOptionButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 30px;
-  border: 1 px solid white;
+  border: 1px solid white;
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
   border: 1px solid #fff;
