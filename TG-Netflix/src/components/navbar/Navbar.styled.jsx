@@ -102,6 +102,7 @@ export const PrimaryNav = styled.nav`
   ${dropdown}
   display: flex;
   align-items: center;
+  padding-right: 40px;
 
   img {
     width: 80px;
