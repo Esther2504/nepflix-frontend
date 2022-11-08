@@ -5,11 +5,16 @@ import { useInView } from "react-intersection-observer";
 import Spinner from "../spinner-animation/Spinner.jsx";
 import { useState } from "react";
 import useCategoryFetch from "../../features/useCategoryFetch";
+import { useSelector } from "react-redux";
 
-function LaneHandler({ categories, movie }) {
+function LaneHandler({ movie }) {
   const { ref, inView } = useInView({
     threshold: 1,
   });
+
+  const categories = useSelector(state => state.netflix.browse.categories)
+
+  console.log(categories)
 
   const [query, setQuery] = useState("");
   // const [categoryList, setCategoryList] = [
