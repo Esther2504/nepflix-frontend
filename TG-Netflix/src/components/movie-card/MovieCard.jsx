@@ -12,7 +12,7 @@ export default function MovieCard({movie}) {
   return (
     <>
       <Card>
-        <img src={"https://image.tmdb.org/t/p/original" + backdrop_path} alt={title} />
+        <img src={backdrop_path} alt={title} />
         <span>{title}</span>
         {/* <img src={showLogo(logoArray)} /> */}
       </Card>

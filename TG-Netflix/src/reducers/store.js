@@ -13,7 +13,6 @@ import showReducer from "./showReducer";
 import trailerReducer from "./trailerReducer";
 import playTimeReducer from "./playTimeReducer";
 import modalReducer from "./modalReducer";
-import searchReducer from "./searchReducer";
 
 //Persist
 const persistConfig = {
@@ -30,7 +29,6 @@ const combined = combineReducers({
   trailer: trailerReducer,
   playTime: playTimeReducer,
   modal: modalReducer,
-  results: searchReducer 
 });
 
 const persistedReducer = persistReducer(persistConfig, combined);

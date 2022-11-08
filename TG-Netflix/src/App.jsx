@@ -1,7 +1,6 @@
 // calls fetched data
 import { useDispatch } from "react-redux";
 import { getMovies, getBrowse} from "./reducers/fetchReducer";
-import { getSearch } from "./reducers/searchReducer";
 import { useEffect } from "react";
 
 import { Outlet, useLocation } from "react-router-dom";
@@ -20,13 +19,11 @@ function App() {
   ];
 
   //Calls data from GlobalState
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // dispatch(getMovies());
-    // dispatch(getBrowse());
-    dispatch(getSearch());
-
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   // dispatch(getMovies());
+  //   // dispatch(getBrowse());
+  // }, []);
 
   return (
     <>
