@@ -3,8 +3,7 @@ import Footer from '../../components/footer/footer';
 import { GridContainer } from '../../components/grid-layout/GridLayout.styled';
 import MovieCard from '../../components/movie-card/MovieCard';
 import { useSelector, useDispatch } from "react-redux";
-
-
+import { useSearchParams } from 'react-router-dom';
 import { openModal, closeModal } from "../../reducers/modalReducer";
 import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
@@ -16,16 +15,18 @@ export default function MyList() {
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
-
+  const [browseMovieID, setBrowseMovieID] = useSearchParams();
+  const movieDetails = useSelector((state) => state.netflix.movies);
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
-
+  const [movieID, setMovieID] = useState();
   //add eventlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
         if (e.target.getAttribute("id")) {
+          setMovieID(e.target.dataset.id);
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
@@ -38,14 +39,14 @@ export default function MyList() {
       setIsHovering(false);
     });
   }, []);
-
+// console.log(movieID)
   const openBigModal = () => {
+    setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
 
-
   const liked = useSelector(state => state.netflix.liked);
-  console.log(liked)
+  // console.log(liked)
 
   return (
     <>
@@ -64,7 +65,7 @@ export default function MyList() {
                 onClick={openBigModal}
               />
             )}
-            {globalModalState.modalState && <CallBigModal />}
+            {globalModalState.modalState && <CallBigModal  {...movieDetails}/>}
 
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />
