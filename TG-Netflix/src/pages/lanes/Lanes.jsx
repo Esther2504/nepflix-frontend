@@ -31,7 +31,6 @@ export default function Lanes({categories, movie}) {
         }
       });
     });
-
     window.addEventListener("click", (e) => {
       e.stopPropagation();
       setIsHovering(false);
@@ -39,7 +38,6 @@ export default function Lanes({categories, movie}) {
   }, []);
 
   const openBigModal = () => {
-
     dispatch(openModal({ modalState: true, coords }));
   };
 

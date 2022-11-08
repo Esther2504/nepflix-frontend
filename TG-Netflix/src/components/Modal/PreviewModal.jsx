@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import Trailer from './testTrailer.webm'
+import React, { useRef } from 'react';
+import Trailer from './testTrailer.webm';
 import {
   VideoPlayer,
   PreviewModalContainer,
@@ -11,26 +11,27 @@ import {
   PreviewAddToList,
   PreviewMetaData,
   PreviewSummary,
-} from "./PreviewModal.style";
+  Thumbnail,
+  Title
+} from './PreviewModal.style';
 
-function PreviewModal() {
-  const modalRefVideo = useRef();
+function PreviewModal(data) {
+  const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
   return (
     <PreviewModalContainer>
-      <PreviewDuration>2h 10m</PreviewDuration>
+      <PreviewDuration>{data.movie.runtime}</PreviewDuration>
       <PreviewPlay />
-      <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} />
-
+      {/* <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} /> */}
+      <Thumbnail bg={bg} />
       <PreviewMetaData>
-        <PreviewRating>93% Match</PreviewRating>
-        <PreviewMaturityRating></PreviewMaturityRating>
-        <PreviewReleaseYear>2022</PreviewReleaseYear>
+        <PreviewRating></PreviewRating>
+        <PreviewMaturityRating>
+          {data.movie.age_certificate}
+        </PreviewMaturityRating>
+        <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
         <PreviewAddToList></PreviewAddToList>
-        <PreviewSummary>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          at ex non metus consequat hendrerit. Sed euismod, nibh sed interdum
-          blandit, quam metus tempus libero, quis vestibulum nisi leo at lacus.
-        </PreviewSummary>
+        <Title>{data.movie.title}</Title>
+        <PreviewSummary>{data.movie.overview}</PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>
   );

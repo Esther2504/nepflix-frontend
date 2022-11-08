@@ -1,26 +1,32 @@
-import styled from "styled-components";
-import { AiOutlinePlusCircle } from "react-icons/ai";
-import { BsFillPlayFill } from "react-icons/bs";
+import styled from 'styled-components';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { BsFillPlayFill } from 'react-icons/bs';
 
 export const VideoPlayer = styled.video`
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  _aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9;
 `;
+export const Thumbnail = styled.div`
+  background-image: url(${props=> props.bg});
+  background-size: cover;
+  aspect-ratio: 16 / 9;
+`
 export const PreviewMetaData = styled.div`
   display: grid;
-  grid-template-row: 3;
+  grid-template-rows: 2rem 2rem;
   grid-template-columns: 2;
   color: #d2d2d2;
   padding: 1rem;
   background-color: #2f2f2f;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  height: 100%;
 `;
 export const PreviewPlay = styled(BsFillPlayFill)`
   position: absolute;
-  border:1px solid #ffffff;
-  border-radius:50%;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
   opacity: 0;
   z-index: 2;
   color: #ffffff;
@@ -30,6 +36,10 @@ export const PreviewPlay = styled(BsFillPlayFill)`
 `;
 export const PreviewModalContainer = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 100%;
   &:hover {
     ${PreviewPlay} {
       transition: opacity 0.2s linear;
@@ -44,6 +54,7 @@ export const PreviewDuration = styled.div`
   color: white;
   top: 5%;
   right: -85%;
+  width: fit-content;
 `;
 export const PreviewRating = styled.div`
   grid-row: 1;
@@ -51,14 +62,18 @@ export const PreviewRating = styled.div`
   color: #46d369;
   font-size: 1.6rem;
   font-weight: 700;
+  height: 3rem;
 `;
 export const PreviewMaturityRating = styled.div`
   grid-row: 2;
   grid-column: 1;
+  font-size: 1.6rem;
+  height: 2rem;
+
 `;
 export const PreviewReleaseYear = styled.div`
   grid-row: 2;
-  grid-column: 1;
+  grid-column: 2;
   font-size: 1.6rem;
   font-weight: 700;
 `;
@@ -72,10 +87,16 @@ export const PreviewAddToList = styled(AiOutlinePlusCircle)`
     color: #ffffff;
   }
 `;
+export const Title = styled.div`
+  grid-row: 1;
+  grid-column: 1 /span 2;
+  font-size:2rem;
+`
 export const PreviewSummary = styled.div`
   grid-row: 3;
   grid-column: 1 / span 2;
   font-size: 1.4rem;
   text-align: left;
   margin-top: 1rem;
+  height: 100%;
 `;
