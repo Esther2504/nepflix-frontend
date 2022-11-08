@@ -6,67 +6,20 @@ import Spinner from "../spinner-animation/Spinner.jsx";
 import { useState } from "react";
 import useCategoryFetch from "../../features/useCategoryFetch";
 import { useSelector } from "react-redux";
+import { categoryList } from "../../features/useCategoryFetch";
 
 function LaneHandler({ movie }) {
   const { ref, inView } = useInView({
     threshold: 1,
   });
+  const [index, setIndex] = useState(0);
 
   const categories = useSelector(state => state.netflix.browse.categories)
 
   console.log(categories)
 
   const [query, setQuery] = useState("");
-  // const [categoryList, setCategoryList] = [
-  //   "action",
-  //   "adventure",
-  //   "animation",
-  //   "comedy",
-  //   "crime",
-  //   "documentary",
-  //   "drama",
-  //   "family",
-  //   "fantasy",
-  //   "history",
-  //   "horror",
-  //   "music",
-  //   "mystery",
-  //   "romance",
-  //   "science_fiction",
-  //   "tv_movie",
-  //   "thriller",
-  //   "war",
-  //   "action",
-  //   "adventure",
-  //   "western",
-  // ];
-
-
-
-  // let categoryList = [
-  //   "action",
-  //   "adventure",
-  //   "animation",
-  //   "comedy",
-  //   "crime",
-  //   "documentary",
-  //   "drama",
-  //   "family",
-  //   "fantasy",
-  //   "history",
-  //   "horror",
-  //   "music",
-  //   "mystery",
-  //   "romance",
-  //   "science_fiction",
-  //   "tv_movie",
-  //   "thriller",
-  //   "war",
-  //   "action",
-  //   "adventure",
-  //   "western",
-  // ];
-
+  
   // useEffect(() => {
 // let threeCategories = categoryList.slice(0, 3)
 // // De eerste 3 categorieën pakken
@@ -79,7 +32,7 @@ function LaneHandler({ movie }) {
 
   // console.log(query)
 
-  const { loadedCategories } = useCategoryFetch(categories, inView);
+  const { loadedCategories } = useCategoryFetch(categories, inView, index, setIndex);
 
 
   const size = useWindowSize();
@@ -138,9 +91,13 @@ function LaneHandler({ movie }) {
           </div>
         );
       })}
+
+{index <= categoryList.length - 1 ? 
       <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
         <Spinner />
       </div>
+: null
+}
     </div>
   );
 }

@@ -3,35 +3,37 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getBrowse } from "../reducers/fetchReducer";
 
-export default function useCategoryFetch(categories, inView) {
+export const categoryList = [
+  "action",
+  "adventure",
+  "animation",
+  "comedy",
+  "crime",
+  "documentary",
+  "drama",
+  "family",
+  "fantasy",
+  "history",
+  "horror",
+  "music",
+  "mystery",
+  "romance",
+  "science fiction",
+  "tv movie",
+  "thriller",
+  "war",
+  "action",
+  "adventure",
+  "western",
+];
+
+export default function useCategoryFetch(categories, inView, index, setIndex) {
   const [loadedCategories, setCategories] = useState(categories);
-  const [index, setIndex] = useState(0);
+ 
   const dispatch = useDispatch();
 
   const [query, setQuery] = useState("");
-  let categoryList = [
-    "action",
-    "adventure",
-    "animation",
-    "comedy",
-    "crime",
-    "documentary",
-    "drama",
-    "family",
-    "fantasy",
-    "history",
-    "horror",
-    "music",
-    "mystery",
-    "romance",
-    "science_fiction",
-    "tv_movie",
-    "thriller",
-    "war",
-    "action",
-    "adventure",
-    "western",
-  ];
+  
 
   let test = {
     page: 1,
@@ -85,20 +87,21 @@ export default function useCategoryFetch(categories, inView) {
     ],
   };
 
-  // console.log(categories);
-  // console.log(loadedCategories);
-
   useEffect(() => {
-    let categorySelection = categoryList.slice(index, index + 3);
+    let categorySelection = categoryList.slice(index, index + 4);
     categorySelection = categorySelection.toString()
-    setIndex(index + 3);
+    setIndex(index + 4);
+
+    console.log(index)
     // Fetch categorySelection
     const categories = categorySelection
 
-    dispatch(getBrowse({ categories }));
+    if (index <= categoryList.length - 1) {
+    // dispatch(getBrowse({ categories }));
 
     // console.log(categorySelection);
-    // setCategories([...loadedCategories, categories]);
+    setCategories([...loadedCategories, test]);
+    }
   }, [inView]);
 
   // console.log(categoryList)
