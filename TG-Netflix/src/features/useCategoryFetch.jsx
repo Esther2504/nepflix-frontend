@@ -33,8 +33,6 @@ export default function useCategoryFetch(categories, inView) {
     "western",
   ];
 
-  console.log(index);
-
   let test = {
     page: 1,
     name: "Crime",
@@ -87,8 +85,8 @@ export default function useCategoryFetch(categories, inView) {
     ],
   };
 
-  console.log(categories);
-  console.log(loadedCategories);
+  // console.log(categories);
+  // console.log(loadedCategories);
 
   useEffect(() => {
     let categorySelection = categoryList.slice(index, index + 3);
@@ -99,8 +97,8 @@ export default function useCategoryFetch(categories, inView) {
 
     dispatch(getBrowse({ categories }));
 
-    console.log(categorySelection);
-    setCategories([...loadedCategories, categories]);
+    // console.log(categorySelection);
+    // setCategories([...loadedCategories, categories]);
   }, [inView]);
 
   // console.log(categoryList)

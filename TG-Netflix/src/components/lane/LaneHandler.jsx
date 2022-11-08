@@ -77,7 +77,7 @@ function LaneHandler({ movie }) {
 //     console.log(categoryList)
   // }, [inView])
 
-  console.log(query)
+  // console.log(query)
 
   const { loadedCategories } = useCategoryFetch(categories, inView);
 
@@ -119,7 +119,7 @@ function LaneHandler({ movie }) {
   //   }
   // }, [inView]);
 
-  console.log(inView);
+  // console.log(inView);
 
   return (
     <div className="laneContainer">
