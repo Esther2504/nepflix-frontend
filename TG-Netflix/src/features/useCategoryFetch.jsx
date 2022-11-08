@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getBrowse } from "../reducers/fetchReducer";
 
 export default function useCategoryFetch(categories, inView) {
   const [loadedCategories, setCategories] = useState(categories);
   const [index, setIndex] = useState(0);
+  const dispatch = useDispatch();
 
   const [query, setQuery] = useState("");
   let categoryList = [
@@ -89,11 +92,15 @@ export default function useCategoryFetch(categories, inView) {
 
   useEffect(() => {
     let categorySelection = categoryList.slice(index, index + 3);
+    categorySelection = categorySelection.toString()
     setIndex(index + 3);
     // Fetch categorySelection
+    const categories = categorySelection
+
+    dispatch(getBrowse({ categories }));
 
     console.log(categorySelection);
-    return setCategories([...loadedCategories, test]);
+    setCategories([...loadedCategories, categories]);
   }, [inView]);
 
   // console.log(categoryList)
