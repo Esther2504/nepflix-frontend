@@ -73,42 +73,16 @@ const CallModal = (props) => {
     const result = hours + 'h ' + min + 'm'
     return result;
   };
-
-  const ageCertificate = (age) =>{
-    switch (age) {
-      case 6:
-        
-        break;
-    
-      default:
-        break;
-    }
-  }
-
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
-            // <VideoPlayer
-            //   autoplay
-            //   loop
-            //   muted
-            //   src={Trailer}
-            //   ref={refVideoPlayer}
-            //   type="video/webm"
-            // />
             <YouTube
               videoId={Trailer}
               opts={opts}
               style={{ height: 'inherit' }}
             />
-            // <iframe
-            //   width="100%"
-            //   height="100%"
-            //   src={`https://www.youtube.com/embed/0IOsk2Vlc4o?autoplay=0`}
-            //   frameBorder="0"
-            // />
           )}
         </SmallModalTop>
 

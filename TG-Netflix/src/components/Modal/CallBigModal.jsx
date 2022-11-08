@@ -60,7 +60,7 @@ const CallBigModal = forwardRef((movie, ref) => {
   if(directMovie){
     movie = directMovie;
   }
-
+  console.log(movie);
   //coords for big modal
   // const offset = document.querySelector('.banner-container').offsetHeight;
   const left = Math.round(globalModalState.coords.left) + 'px ';
@@ -105,15 +105,14 @@ const CallBigModal = forwardRef((movie, ref) => {
               <VideoInfoContainerLeft>
                 <MetaData>
                   <Rating>93% Match</Rating>
-                  <ReleaseYear>{movie.release_year}</ReleaseYear>
+                  <ReleaseYear>{movie.release_date}</ReleaseYear>
                   <MaturityRating></MaturityRating>
                   <Duration>
                     {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
                   </Duration>
-                  <VidQuality>HD</VidQuality>
-                  <AudDesc>Aud</AudDesc>
+
                 </MetaData>
-                <Summary>{movie.description}</Summary>
+                <Summary>{movie.overview}</Summary>
               </VideoInfoContainerLeft>
               <VideoInfoContainerRight>
                 <Cast>
@@ -125,7 +124,7 @@ const CallBigModal = forwardRef((movie, ref) => {
                   {movie?.genres.join(', ')}
                 </Genres>
                 <Tags>
-                  <span>This programme is:</span> Exciting, Funny
+                  <span>This programme is:</span>{movie.keywords + ""}
                 </Tags>
               </VideoInfoContainerRight>
             </VideoInfoContainer>
@@ -158,7 +157,7 @@ const CallBigModal = forwardRef((movie, ref) => {
                 {movie?.genres.join(', ')}
               </Genres>
               <Tags>
-                <span>This programme is:</span> Exciting, Funny
+                <span>This programme is:</span> {movie.keywords + ""}
               </Tags>
               <MaturityRating>
                 <span>Maturity Rating:</span>

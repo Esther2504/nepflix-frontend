@@ -193,7 +193,7 @@ export const AgeRes = styled.div`
   justify-content: center;
   border: 3px solid white;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1rem;
 `;
 export const Runtime = styled.div``;
 //END VIDEOPLAYER

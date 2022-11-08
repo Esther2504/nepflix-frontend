@@ -17,7 +17,6 @@ import {
 
 function PreviewModal(data) {
   const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
-  const modalRefVideo = useRef();
   return (
     <PreviewModalContainer>
       <PreviewDuration>{data.movie.runtime}</PreviewDuration>

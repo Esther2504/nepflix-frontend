@@ -21,8 +21,6 @@ export default function Discover({ banner, categories, movie }) {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
-  const location = useLocation();
-  const navigate = useNavigate();
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   //END STATE
 
@@ -31,10 +29,7 @@ export default function Discover({ banner, categories, movie }) {
 
   //open modal if linked to movieID
   useEffect(() => {
-    if (getMovieID) {
-      console.log(getmovieID);
-      dispatch(openModal({ modalState: true, coords }));
-    }
+    if (getMovieID) dispatch(openModal({ modalState: true, coords }));
   }, []);
 
   //add evenlistener for small modal
@@ -50,9 +45,6 @@ export default function Discover({ banner, categories, movie }) {
         }
       });
     });
-    // https://tg-nepflix.azurewebsites.net/movie/550
-    // /movie/{id}?similar=true
-
 
     window.addEventListener('click', (e) => {
       e.stopPropagation();
