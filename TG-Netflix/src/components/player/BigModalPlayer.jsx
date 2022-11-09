@@ -11,11 +11,10 @@ import { PlayerStyles } from './BigModalPlayer.style';
 import play from '../../assets/play-button.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
-import { getCurrentPlayTime, TrailerSlice } from '../../reducers/trailerReducer';
+import { getCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
 
 function BigModalPlayer({ modal }) {
     const { logo, overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
-    console.log(logo)
     const dispatch = useDispatch();
     // REF
     const modalPlayerRef = useRef(null);
