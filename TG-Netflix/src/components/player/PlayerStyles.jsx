@@ -11,9 +11,7 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* box-shadow: inset 0 -10vw 5vw -5vw #fff; */
-    /* z-index: -1; */
-    }
+
     .banner {
     position: absolute;
     color: #fff;
@@ -22,23 +20,34 @@ export const PlayerStyles = styled.div`
     object-fit: cover;
     background-size: cover;
     background-position: center center;
-    animation: cssAnimation .25s ease-out 0.5s forwards, cssAnimation2 .25s ease-out 15.5s forwards;
+    // ${props => props.active ? 'animation: fadeOut .25s ease-out 0.5s forwards' : ''}
+    // , fadeIn .25s ease-out 15.5s forwards;
     }
 
-    .fade-out {
-        animation-name: cssAnimation;
-        animation-delay: 0.25;
-        animation-duration: 2s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
+    // ANIMATIONS AT START
+    .banner-fade-out-start {
+        animation: fadeOut .25s ease-out 0.5s forwards;
     }
 
-    .fade-in {
-        animation-name: cssAnimation2;
-        animation-delay: 10s;
-        animation-duration: 0.25s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
+    .title-shrink-start {
+        animation: shrink .5s ease-in-out 5s forwards
+    }
+
+    .desc-fade-out-start {
+       animation: fadeOut .25s ease-out 5s forwards
+    }
+
+
+    // ANIMATION AT END
+    .banner-fade-in-end {
+        animation: fadeIn ease-out 0.1s forwards;
+    }
+
+    .title-grow-end {
+        animation: grow ease-in-out 1.5s forwards;
+    }
+    .desc-fade-in-end {
+        animation: fadeIn ease-in 1.5s;
     }
 
     .overlay {
@@ -62,14 +71,22 @@ export const PlayerStyles = styled.div`
     font-weight: 800;
     padding-bottom: 0.3rem;
     max-width: 500px;
-    animation: shrink .5s ease-in-out 5s forwards;
     }
+    
     @keyframes shrink {
         from {
             transform: scale(1);
         }
         to {
             transform: translate(-15%, 50%) scale(0.65);
+        }
+    }
+    @keyframes grow {
+        from {
+            transform: translate(-15%, 50%) scale(0.65);
+        }
+        to {
+            trasform: scale(1);
         }
     }
 
@@ -79,11 +96,10 @@ export const PlayerStyles = styled.div`
     line-height: 1.3;
     padding-top: 1rem;
     font-size: 1.44rem;
-    text-shadow: rgba(0,0,0 0.45) 0.125rem 0.125rem 0.25rem;
-    animation: cssAnimation .25s ease-out 5s forwards;
+    text-shadow: rgba(0,0,0 0.45) 0.125rem 0.125rem 0.25rem;    
     }
 
-    @keyframes cssAnimation {
+    @keyframes fadeOut {
         from {
             opacity: 1;
         }
@@ -91,7 +107,7 @@ export const PlayerStyles = styled.div`
             opacity: 0;
         }
     }
-    @keyframes cssAnimation2 {
+    @keyframes fadeIn {
         from {
             opacity: 0;
         }
@@ -188,7 +204,7 @@ export const PlayerStyles = styled.div`
     .side-button-container {
         justify-content: space-between;
         width: 200px;
-        height: 55px;        
+        height: 65px;        
         color: rgba(255, 255, 255, 1);
         display: flex;
         font-size: 14.4px;
@@ -226,7 +242,7 @@ export const PlayerStyles = styled.div`
 
     .maturity-rating {
         width: 130px;
-        height: 45px;
+        height: 55px;
         align-items: center;
         background-color: rgba( 51, 51, 51, 0.6);
         color: rgba(255, 255, 255, 1);
@@ -259,23 +275,6 @@ export const PlayerStyles = styled.div`
     width: 100%;
     bottom: 0;
     }
-
-    // .iframe-container {
-    //     position: relative;
-    //     width: 100%;
-    //     overflow: hidden;
-    //     padding-top: 56.25%;
-    // }
-    // .responsive-iframe {
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     bottom: 0;
-    //     right: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     border: none;
-    // }
 
     
     iframe {

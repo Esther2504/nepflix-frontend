@@ -39,6 +39,7 @@ import {
   AboutTitle,
 } from "./CallBigModal.styled";
 import { closeModal } from "../../reducers/modalReducer";
+import BigModalPlayer from "../player/BigModalPlayer";
 
 const CallBigModal = forwardRef((props, ref) => {
   //REF's
@@ -91,28 +92,7 @@ const CallBigModal = forwardRef((props, ref) => {
             <CloseCircle />
           </CloseButton>
           <ModalPreview>
-            <VideoPlayer
-              autoPlay
-              muted
-              src={Trailer}
-              type="video/webm"
-              allow="autoplay"
-              ref={modalRefVideo}
-            />
-            <VideoControlsContainer>
-              {/* <VideoTitle src={movie.logo} /> */}
-              <VideoTitle />
-              <VideoControls>
-                <VideoPlay>
-                  <PlayButton />
-                  Play
-                </VideoPlay>
-                <PlusCircle />
-                <ThumbsUp />
-                <RateIcons />
-                <VolumeIcon />
-              </VideoControls>
-            </VideoControlsContainer>
+            <BigModalPlayer />
             <VideoInfoContainer>
               <VideoInfoContainerLeft>
                 <MetaData>
