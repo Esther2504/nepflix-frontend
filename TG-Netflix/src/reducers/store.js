@@ -1,5 +1,6 @@
 //Store import
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+// import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 
 // Persist imports
 import storage from "redux-persist/lib/storage";
@@ -17,6 +18,8 @@ import modalReducer from "./modalReducer";
 const persistConfig = {
   key: "data",
   storage,
+  // stateReconciler: autoMergeLevel2
+  // blacklist: ['results']
 };
 
 //new reducers to be added here

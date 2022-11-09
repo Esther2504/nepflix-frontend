@@ -1,40 +1,54 @@
-import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { GridContainer } from '../../components/grid-layout/GridLayout.styled';
+import useFetch from '../../hooks/useFetch';
 import MovieCard from '../../components/movie-card/MovieCard';
 import Footer from '../../components/footer/footer';
+import Spinner from '../../components/spinner-animation/Spinner';
 import * as S from './Search.styled';
-import MockData from '../../mock-data/browse_categories_banner.mock.json';
 
 export default function Search() {
-  const data = MockData.categories[0].movies;
   const [search] = useSearchParams();
-  const [hasMatch, setHasMatch] = useState(true);
   const searchQuery = search.get('q');
-  const checkQuery = (searchQuery) => (movie) =>
-    movie.title.toLowerCase().includes(searchQuery.toLowerCase());
-  const searchResults = data.filter(checkQuery(searchQuery));
 
-  useEffect(() => {
-    searchResults.length > 0 ? setHasMatch(true) : setHasMatch(false);
-  }, [searchQuery]);
+  const { data, isLoading, error } = useFetch(
+    `https://tg-nepflix.azurewebsites.net/search/movie?query=${searchQuery}`
+  );
+  const searchResults = data?.results;
+
+  // remove the films that have a generic background image
+  const filteredResults = searchResults?.filter(
+    (result) =>
+      result.backdrop_path !== 'https://images3.alphacoders.com/678/678085.jpg'
+  );
 
   return (
     <>
       <div className="padding-container">
         <S.Container>
-          {hasMatch ? (
+          {filteredResults !== undefined && filteredResults?.length !== 0 && (
             <GridContainer>
-              {searchResults.map((movie, index) => {
-                return <MovieCard key={index} movie={movie} />;
+              <S.Results>
+                {filteredResults?.length !== 1
+                  ? 'Search results'
+                  : 'Search result'}{' '}
+                for: <span>{searchQuery}</span>
+              </S.Results>
+              {filteredResults?.map((movie, id) => {
+                return <MovieCard key={id} movie={movie} />;
               })}
             </GridContainer>
-          ) : (
-            <S.NoMatch>
-              <p> Your search for "{searchQuery}" did not have any matches.</p>
-              <p>Try entering a film title.</p>
-            </S.NoMatch>
           )}
+
+          <S.Alert>
+            {isLoading && <Spinner />}
+            {error && { error }}
+            {filteredResults?.length === 0 && (
+              <>
+                <p>Your search for "{searchQuery}" did not have any matches.</p>
+                <p>Try entering a film title.</p>
+              </>
+            )}
+          </S.Alert>
         </S.Container>
         <Footer />
       </div>

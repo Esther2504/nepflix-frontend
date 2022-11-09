@@ -10,6 +10,7 @@ import arrowdown from '../../assets/navbar-images/arrow-down.png';
 export default function Navbar() {
   const [blackNavbar, setBlackNavbar] = useState(false);
   const [staticNavbar, setStaticNavbar] = useState(false);
+  const [gradientNavbar, setGradientNavbar] = useState(false);
   const location = useLocation();
   const activeStyle = {
     fontWeight: 'bold',
@@ -22,12 +23,17 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setStaticNavbar(location.pathname.includes('/films') ? true : false);
+    setStaticNavbar(!location.pathname.includes('/films') ? false : true);
+    setGradientNavbar(!location.pathname.includes('/browse') ? false : true);
   }, [location]);
 
   return (
     <>
-      <S.Nav blackNavbar={blackNavbar} staticNavbar={staticNavbar}>
+      <S.Nav
+        blackNavbar={blackNavbar}
+        staticNavbar={staticNavbar}
+        gradientNavbar={gradientNavbar}
+      >
         <S.PrimaryNav>
           <NavLink to="browse">
             {' '}
