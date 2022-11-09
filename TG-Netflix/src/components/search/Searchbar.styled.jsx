@@ -8,6 +8,7 @@ export const Form = styled.div`
   padding: 5px;
   overflow-x: hidden;
   border: none;
+  border-radius: 3px;
   transition: width 300ms;
 
   @media (min-width: 375px) {

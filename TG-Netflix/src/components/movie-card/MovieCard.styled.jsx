@@ -12,10 +12,12 @@ export const Card = styled.div`
     width: 100%;
     padding: 0 5px;
     bottom: 7px;
-    font-family: Manrope;
+
+    font-family: manrope;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     line-height: 0.9;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.75);
@@ -39,7 +41,7 @@ export const Card = styled.div`
       font-size: 2rem;
     }
   }
-
+  
   img:nth-of-type(2) {
     position: absolute;
     top: 8px;
