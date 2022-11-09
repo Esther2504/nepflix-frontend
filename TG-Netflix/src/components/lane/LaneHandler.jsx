@@ -5,8 +5,9 @@ import { useInView } from "react-intersection-observer";
 import Spinner from "../spinner-animation/Spinner.jsx";
 import { useState } from "react";
 import useCategoryFetch from "../../features/useCategoryFetch";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { categoryList } from "../../features/useCategoryFetch";
+import { getBrowse } from "../../reducers/fetchReducer";
 
 function LaneHandler({ movie }) {
   const { ref, inView } = useInView({
@@ -14,26 +15,54 @@ function LaneHandler({ movie }) {
   });
   const [index, setIndex] = useState(0);
 
-  const categories = useSelector(state => state.netflix.browse.categories)
+  const dispatch = useDispatch();
 
-  console.log(categories)
+  const categoryList = [
+    "action",
+    "adventure",
+    "animation",
+    "comedy",
+    "crime",
+    "documentary",
+    "drama",
+    "family",
+    "fantasy",
+    "history",
+    "horror",
+    "music",
+    "mystery",
+    "romance",
+    "science fiction",
+    "tv movie",
+    "thriller",
+    "war",
+    "action",
+    "adventure",
+    "western",
+  ];
 
-  const [query, setQuery] = useState("");
-  
-  // useEffect(() => {
-// let threeCategories = categoryList.slice(0, 3)
-// // De eerste 3 categorieën pakken
-//     setQuery(threeCategories)
+  const categories = useSelector((state) => state.netflix.browse[0]);
 
-//     let test = categoryList.splice(0, 3)
-//     setCategoryList(test)
-//     console.log(categoryList)
-  // }, [inView])
+  console.log(categories);
 
-  // console.log(query)
+  useEffect(() => {
+    let categorySelection = categoryList.slice(index, index + 4);
+    categorySelection = categorySelection.toString();
+    setIndex(index + 4);
+    // console.log(index)
+    const categories = categorySelection;
 
-  const { loadedCategories } = useCategoryFetch(categories, inView, index, setIndex);
+    if (index <= categoryList.length - 1) {
+      dispatch(getBrowse({ categories }));
+      // dispatch(scrollReducer( dispatch(getBrowse({ categories })) ))
 
+      // console.log(categorySelection);
+      // setCategories([...loadedCategories, test]);
+    }
+  }, [inView]);
+
+
+  // const { loadedCategories } = useCategoryFetch(categories, inView, index, setIndex);
 
   const size = useWindowSize();
   function getAmount() {
@@ -76,7 +105,7 @@ function LaneHandler({ movie }) {
 
   return (
     <div className="laneContainer">
-      {loadedCategories?.map((item, index) => {
+      {categories?.map((item, index) => {
         let someSlices = getSlices(item.movies);
 
         return (
@@ -92,12 +121,11 @@ function LaneHandler({ movie }) {
         );
       })}
 
-{index <= categoryList.length - 1 ? 
-      <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
-        <Spinner />
-      </div>
-: null
-}
+      {index <= categoryList.length - 1 ? (
+        <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
+          <Spinner />
+        </div>
+      ) : null}
     </div>
   );
 }

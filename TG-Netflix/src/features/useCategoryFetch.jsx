@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getBrowse } from "../reducers/fetchReducer";
+import { scrollReducer } from "../reducers/fetchReducer";
+
 
 export const categoryList = [
   "action",
@@ -40,47 +42,47 @@ export default function useCategoryFetch(categories, inView, index, setIndex) {
     name: "Crime",
     movies: [
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
       {
-        backdrop_path: "/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
+        backdrop_path: "https://image.tmdb.org/t/p/original/cOF0InT1qQVUeNjqxjF7gtEtL5L.jpg",
         id: 985897,
         title: "Movie",
       },
@@ -91,13 +93,12 @@ export default function useCategoryFetch(categories, inView, index, setIndex) {
     let categorySelection = categoryList.slice(index, index + 4);
     categorySelection = categorySelection.toString()
     setIndex(index + 4);
-
-    console.log(index)
-    // Fetch categorySelection
+    // console.log(index)
     const categories = categorySelection
 
     if (index <= categoryList.length - 1) {
-    // dispatch(getBrowse({ categories }));
+    dispatch(getBrowse({ categories }));
+    // dispatch(scrollReducer( dispatch(getBrowse({ categories })) ))
 
     // console.log(categorySelection);
     setCategories([...loadedCategories, test]);
