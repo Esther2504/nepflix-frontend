@@ -17,6 +17,8 @@ import modalReducer from "./modalReducer";
 const persistConfig = {
   key: "data",
   storage,
+  //Blacklist is for any component that is being affected by Persist that shouldn't be affected
+  blacklist: ['modal']
 };
 
 //new reducers to be added here
