@@ -58,6 +58,7 @@ export const SmallModal = styled.div`
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
       height: fit-content;
+      margin-top: -1rem;
     }
   }
   @keyframes in {
@@ -136,9 +137,6 @@ export const PlayButton = styled(BsPlayFill)`
   }
 `;
 
-
-
-
 export const CloseButton = styled.div``;
 export const CloseCircle = styled(AiFillCloseCircle)`
   position: absolute;
@@ -153,7 +151,6 @@ export const CloseCircle = styled(AiFillCloseCircle)`
     background-color: white;
   }
 `;
-
 
 export const PlusCircle = styled(BsPlusLg)`
   border: 2px solid #b6b6b6;
@@ -209,16 +206,17 @@ export const InfoCon = styled.div`
 `;
 export const AgeRes = styled.div`
   display: flex;
-  background-color: black;
-  width: 35px;
-  height: 35px;
+  background-color: transparent;
+  max-width: 33px;
+  padding: 0.25rem;
+  max-height: 33px;
   border-radius: 50%;
   align-items: center;
   place-content: center;
   justify-content: center;
-  border: 3px solid white;
+  border: 2px solid white;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 3rem;
 `;
 export const Runtime = styled.div``;
 //END VIDEOPLAYER

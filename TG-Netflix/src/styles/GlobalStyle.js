@@ -110,6 +110,8 @@ text-decoration: none;
 .padding-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
   padding-top: 4.1rem;
   @media (min-width: 950px) {

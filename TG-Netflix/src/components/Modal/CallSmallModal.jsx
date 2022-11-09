@@ -103,6 +103,7 @@ const CallModal = (props) => {
           
           </VideoControls>
           <InfoCon>
+          
             <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
             <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
           </InfoCon>
