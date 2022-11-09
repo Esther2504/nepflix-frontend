@@ -248,7 +248,7 @@ export const PlayerStyles = styled.div`
         color: rgba(255, 255, 255, 1);
         display: flex;
         font-size: 21.12px;
-        line-height: 25.334px;
+        line-height: 20px;
         border-left: 5px solid rgba(255, 255, 255, 0.75);
         padding: 9.6px 67.2px 9.6px 15.36px;
     }
@@ -258,7 +258,7 @@ export const PlayerStyles = styled.div`
         background-color: black;
         width: 40px;
         height: 40px;
-        border-radius: 50%;
+        border: 2px;
         align-items: center;
         place-content: center;
         justify-content: center;

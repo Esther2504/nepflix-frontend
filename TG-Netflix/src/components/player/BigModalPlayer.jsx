@@ -13,7 +13,7 @@ import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 import { getCurrentPlayTime, TrailerSlice } from '../../reducers/trailerReducer';
 
-function BigModalPlayer({ }) {
+function BigModalPlayer({ modal }) {
     const { logo, overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
     console.log(logo)
     const dispatch = useDispatch();
@@ -23,8 +23,6 @@ function BigModalPlayer({ }) {
     const bannerTitleRef = useRef(null);
     const bannerDescRef = useRef(null);
     const playButtonRef = useRef(null);
-    const moreInfoButtonRef = useRef(null);
-
 
     // VOLUME STATE
     const [muteIsVisible, setMuteIsVisible] = useState(true);
