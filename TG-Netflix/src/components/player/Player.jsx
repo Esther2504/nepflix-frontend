@@ -13,11 +13,10 @@ import info from '../../assets/info.svg';
 import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
-import { getCurrentPlayTime, TrailerSlice } from '../../reducers/trailerReducer';
+import { getCurrentTime, setCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
 
 function Player() {
     const { logo, overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
-    console.log(logo)
     const dispatch = useDispatch();
     // REF
     const playerRef = useRef(null);
@@ -92,7 +91,9 @@ function Player() {
     const moreInfoButton = () => {
         dispatch(openModal({ modalState: true, coords: coords }))
         playerRef.current.internalPlayer.pauseVideo();
+        const playtime = playerRef.current.internalPlayer.getCurrentTime();
         document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out 0.5s forwards';
+        console.log(playtime);
     }
 
     const unPauseVideo = () => {
