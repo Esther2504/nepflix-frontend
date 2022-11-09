@@ -4,9 +4,7 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Spinner from "../spinner-animation/Spinner.jsx";
 import { useState } from "react";
-import useCategoryFetch from "../../features/useCategoryFetch";
 import { useSelector, useDispatch } from "react-redux";
-import { categoryList } from "../../features/useCategoryFetch";
 import { getBrowse } from "../../reducers/fetchReducer";
 
 function LaneHandler({ movie }) {
@@ -41,28 +39,20 @@ function LaneHandler({ movie }) {
 
   const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
-  // console.log(categories);
-
   useEffect(() => {
     if (inView) {
     let categorySelection = categoryList.slice(index, index + 4);
     categorySelection = categorySelection.toString();
+
     setIndex(index + 4);
-    // console.log(index)
+
     const categories = categorySelection;
 
     if (loadedCategories.length < 21) {
       dispatch(getBrowse({ categories }));
-      // dispatch(scrollReducer( dispatch(getBrowse({ categories })) ))
-
-      // console.log(categorySelection);
-      // setCategories([...loadedCategories, test]);
     }
   }
   }, [inView]);
-
-
-  // const { loadedCategories } = useCategoryFetch(categories, inView, index, setIndex);
 
   const size = useWindowSize();
   function getAmount() {

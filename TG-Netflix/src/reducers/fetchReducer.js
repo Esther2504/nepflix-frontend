@@ -7,14 +7,9 @@ import axios from "axios";
 //Map each in there respective locations. Remove props passed in components
 
 const initialState = {
-  browse: [
-    // banner = {},
-    // categories = []
-  ],
+  browse: [],
   browseLoaded: false,
   browseError: "",
-
-  // scroll: [],
 
   movies: [],
   moviesLoaded: false,
@@ -51,12 +46,6 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
 const NetflixSlice = createSlice({
   name: "Netflix",
   initialState,
-  //   reducers: {
-  //     scrollReducer(state, action) {
-  //       const previous = state.browse
-  //         state.scroll = previous + action.payload;
-  //     },
-  // },
 
   //make reducers to set browse and movie states
   extraReducers: (builder) => {
@@ -65,57 +54,19 @@ const NetflixSlice = createSlice({
       const categorypayload = action.payload.categories;
       const bannerpayload = action.payload.banner;
 
-      // state.browse = [];
-      // console.log(state.browse)
       if (state.browse == [] || state.browse.length == 0) {
-        // state.browse = []
-        // state.browse.push(categorypayload, bannerpayload);
         state.browse = [categorypayload, bannerpayload];
       } else {
-        // state.browse[0].push("test")
         for (let i = 0; i < categorypayload.length; i++) {
           const found = state.browse[0].find(
             (element) => element == categorypayload[i]
           );
           console.log(!found);
           if (!found) {
-            // state.browse[0].push("test")
             state.browse[0].push(categorypayload[i])
-            // state.browse.categories.push(action.payload.categories[i]);
-            // state.browse.categories += action.payload.categories
           }
         }
       }
-
-        // state.browse.push(categorypayload, bannerpayload);
-      // }
-
-      // else {
-      //   if (action.payload.banner) state.browse.banner = action.payload.banner
-      //   if (action.payload.categories) state.browse.categories.push(action.payload.categories)
-      // }
-      console.log(state.browse[0]);
-
-      // state.browse.banner = {};
-      // if (action.payload.banner) state.browse.banner = action.payload.banner
-
-      // if (action.payload.categories) state.browse.categories = action.payload.categories
-
-      // if (state.browse.categories == undefined) state.browse.categories = action.payload.categories
-
-      //       console.log(state.browse.categories)
-
-      //       for (let i = 0; i < action.payload.categories.length; i++) {
-
-      //         const found = state.browse.categories.find((element) => element == action.payload.categories[i])
-      //         console.log(!found)
-      //         if (!found) {
-      //           state.browse.categories.push(action.payload.categories[i])
-      // // state.browse.categories += action.payload.categories
-      //         }
-
-      //       }
-      // action.payload.categories
 
       // loop through payload.categories
       // check for each: does it exist in state.browse
