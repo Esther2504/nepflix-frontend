@@ -88,20 +88,27 @@ const CallModal = (props) => {
 
         <SmallModalBottom>
           <VideoControls>
+          
             <VideoPlay>
               <PlayButton />
-              Play
             </VideoPlay>
+            
             <PlusCircle />
+            
             <ThumbsUp />
+            
             <RateIcons />
+            
             <VolumeIcon />
+          
           </VideoControls>
           <InfoCon>
             <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
             <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
           </InfoCon>
         </SmallModalBottom>
+      
+      
       </SmallModal>
     </SmallModalContainer>
   );

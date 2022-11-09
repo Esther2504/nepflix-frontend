@@ -40,10 +40,13 @@ export default function MyList() {
     });
   }, []);
 // console.log(movieID)
+
+
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
+
 
   const liked = useSelector(state => state.netflix.liked);
   // console.log(liked)

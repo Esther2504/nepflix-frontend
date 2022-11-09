@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import {
   AiFillCloseCircle,
-  AiOutlinePlusCircle,
   AiOutlineDown,
 } from 'react-icons/ai';
-import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs';
+import { BsPlayFill, BsHandThumbsUp, BsPlusLg} from 'react-icons/bs';
 import { TbVolume3 } from 'react-icons/tb';
 
 export const SmallModalContainer = styled.div`
@@ -45,6 +44,7 @@ export const SmallModal = styled.div`
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
+
   // background-image: url(${(props) => props.bg});
   background-size: cover;
   z-index: 2;
@@ -109,21 +109,36 @@ export const VideoControls = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 0.5rem;
 `;
-export const VideoPlay = styled.button`
+export const VideoPlay = styled.div`
   display: flex;
+  padding-top:0.25rem;
+  padding-bottom:0.25rem;
+  padding-left:0.28rem;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
-  width: 10rem;
-  height: 40px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  border-radius: 0.5rem;
+  max-width: 30px;
+  max-height: 30px;
+  border: 2px solid #b6b6b6;
+  border-radius: 50%;
+  margin-top: 1rem;
   &:hover {
-    background-color: #cccccc;
+    border: 2px solid #fff;
   }
 `;
+
+export const PlayButton = styled(BsPlayFill)`
+  font-size: 4rem;
+  color: #b6b6b6;
+  &:hover {
+    color: #fff;
+  }
+`;
+
+
+
+
 export const CloseButton = styled.div``;
 export const CloseCircle = styled(AiFillCloseCircle)`
   position: absolute;
@@ -138,39 +153,48 @@ export const CloseCircle = styled(AiFillCloseCircle)`
     background-color: white;
   }
 `;
-export const PlayButton = styled(BsFillPlayFill)`
-  font-size: 4rem;
-`;
 
-export const PlusCircle = styled(AiOutlinePlusCircle)`
+
+export const PlusCircle = styled(BsPlusLg)`
+  border: 2px solid #b6b6b6;
+  border-radius: 50%;
+  padding: 0.5rem;
   color: #cccccc;
-  font-size: 4rem;
-  margin-left: 1rem;
+  font-size: 3.5rem;
+  margin-left: 0.5rem;
+  max-width: 30px;
+  max-height: 30px;
   &:hover {
     color: white;
     border-color: white;
   }
 `;
 export const ThumbsUp = styled(BsHandThumbsUp)`
-  border: 3px solid #ccc;
+  border: 2px solid #b6b6b6;
   border-radius: 50%;
   padding: 0.5rem;
   color: #cccccc;
   font-size: 3.5rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+  max-width: 30px;
+  max-height: 30px;
   &:hover {
     color: white;
     border-color: white;
   }
 `;
 export const RateIcons = styled.div``;
+
+
 export const VolumeIcon = styled(TbVolume3)`
-  border: 3px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 50%;
   font-size: 4rem;
   color: #cccccc;
   margin-left: auto;
-  margin-right: 1.5rem;
+  margin-right: 0.5rem;
+  height: 30px;
+  width: 30px;
   &:hover {
     color: white;
     border-color: white;
@@ -181,6 +205,7 @@ export const InfoCon = styled.div`
   color: #fff;
   flex-direction: row;
   font-size: 2rem;
+  
 `;
 export const AgeRes = styled.div`
   display: flex;
