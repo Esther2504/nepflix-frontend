@@ -67,7 +67,7 @@ export const PlayerStyles = styled.div`
     }
 
     .banner-title {
-    font-size: 3rem;
+    font-size: 6rem;
     font-weight: 800;
     padding-bottom: 0.3rem;
     max-width: 500px;

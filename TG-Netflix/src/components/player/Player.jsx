@@ -16,7 +16,7 @@ import muted from '../../assets/muted.svg';
 import { getCurrentTime, setCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
 
 function Player() {
-    const { logo, overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
+    const { overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
     const dispatch = useDispatch();
     // REF
     const playerRef = useRef(null);
@@ -95,6 +95,8 @@ function Player() {
         document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out 0.5s forwards';
         console.log(playtime);
     }
+
+
 
     const unPauseVideo = () => {
         playerRef.current.internalPlayer.playVideo();
