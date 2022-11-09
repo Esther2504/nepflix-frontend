@@ -80,7 +80,7 @@ function BigModalPlayer({ modal }) {
             mute: 1,
             controls: 0,
             disablekb: 1,
-            end: 20,
+            end: 30,
             rel: 0,
             frameborder: '0',
             allowfullscreen: '',

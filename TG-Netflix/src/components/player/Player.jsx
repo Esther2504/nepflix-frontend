@@ -99,8 +99,10 @@ function Player() {
 
 
     const unPauseVideo = () => {
-        playerRef.current.internalPlayer.playVideo();
-        document.querySelector('.banner').style.animation = 'fadeOut 0.25s ease-out 0.5s';
+        if (closeModal({ modalState: true })) {
+            playerRef.current.internalPlayer.playVideo();
+            document.querySelector('.banner').style.animation = 'fadeOut 0.25s ease-out 0.5s';
+        }
     }
 
     useEffect(() => {
@@ -117,7 +119,7 @@ function Player() {
             mute: 1,
             controls: 0,
             disablekb: 1,
-            end: 20,
+            end: 30,
             rel: 0,
             frameborder: '0',
             allowfullscreen: '',
