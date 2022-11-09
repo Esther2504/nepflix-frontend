@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const PlayerStyles = styled.div`
     .banner-container {
-    width: 850px;
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -10,6 +9,10 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 70%;   
+    @media (max-width: 1100px) {
+        max-width: 90%;
+    }
 
     .bigmodalbanner {
     position: absolute;
