@@ -4,9 +4,15 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 
 import LaneHandler from "../../components/lane/LaneHandler";
 import Footer from "../../components/footer/footer";
-import CallModal from "../../components/Modal/CallModal";
+import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import FilterMenu from "../../components/filterknop/FilterMenu";
+// import Lanes from "../lanes/lanes";
+import Grid from "../grid/grid";
+import browseMockData from "../../mock-data/browse_categories_banner.mock.json";
+import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
+import { GridContainer } from "../../components/grid-layout/GridLayout.styled";
+import MovieCard from "../../components/movie-card/MovieCard";
 import categoriesMock from "../../mock-data/browse_categories_banner.mock.json";
 import GridLayout from "../../components/grid-layout/GridLayout";
 import { useLocation } from "react-router-dom";
@@ -85,7 +91,7 @@ export default function Films({ banner, categories, movie }) {
         {genre == "" ? (
           <>
             {isHovering && (
-              <CallModal
+              <CallSmallModal
                 onMouseLeave={() => setIsHovering(false)}
                 hover={isHovering}
                 setIsHovering={setIsHovering}
