@@ -39,7 +39,7 @@ function LaneHandler({ movie }) {
     "western",
   ];
 
-  const categories = useSelector((state) => state.netflix.browse[0]);
+  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
   // console.log(categories);
 
@@ -51,7 +51,7 @@ function LaneHandler({ movie }) {
     // console.log(index)
     const categories = categorySelection;
 
-    if (index <= categoryList.length - 1) {
+    if (loadedCategories.length < 21) {
       dispatch(getBrowse({ categories }));
       // dispatch(scrollReducer( dispatch(getBrowse({ categories })) ))
 
@@ -90,22 +90,10 @@ function LaneHandler({ movie }) {
     }
     return slices;
   }
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     console.log("test");
-  //     // Fetch functie
-  //     // console.log([...categories, "Hier de nieuwe gefetchte categorieen"])
-  //     //  useCategoryFetch(categories)
-  //     // return setCategories([...loadedCategories, test]);
-  //   }
-  // }, [inView]);
-
-  // console.log(inView);
-
+  
   return (
     <div className="laneContainer">
-      {categories?.map((item, index) => {
+      {loadedCategories?.map((item, index) => {
         let someSlices = getSlices(item.movies);
 
         return (
@@ -121,7 +109,7 @@ function LaneHandler({ movie }) {
         );
       })}
 
-      {index < categoryList.length - 1 ? (
+      {loadedCategories.length < 21 ? (
           <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
           <Spinner />
         </div>
