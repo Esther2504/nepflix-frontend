@@ -28,7 +28,6 @@ export const getBrowse = createAsyncThunk("netflix/browse", async () => {
     return browse;
 });
 
-
 export const getMovies = createAsyncThunk("netflix/movies", async () => {
     //fetches /movie data
     const {

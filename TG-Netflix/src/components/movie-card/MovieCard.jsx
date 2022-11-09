@@ -11,18 +11,8 @@ export default function MovieCard({movie}) {
 
   return (
     <>
-      <Card
-        data-backdrop={backdrop_path}
-        data-id={id}
-        data-title={title}
-        
-        // key={index}
-        id="movie"
-      >
-        <img
-          src={"https://image.tmdb.org/t/p/original" + backdrop_path}
-          alt={title}
-        />
+      <Card>
+        <img src={backdrop_path} alt={title} />
         <span>{title}</span>
         {/* <img src={showLogo(logoArray)} /> */}
       </Card>

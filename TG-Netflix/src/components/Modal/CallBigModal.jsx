@@ -60,7 +60,7 @@ const CallBigModal = forwardRef((movie, ref) => {
   if(directMovie){
     movie = directMovie;
   }
-  console.log(movie);
+  // console.log(movie);
   //coords for big modal
   // const offset = document.querySelector('.banner-container').offsetHeight;
   const left = Math.round(globalModalState.coords.left) + 'px ';
@@ -105,7 +105,7 @@ const CallBigModal = forwardRef((movie, ref) => {
               <VideoInfoContainerLeft>
                 <MetaData>
                   <Rating>93% Match</Rating>
-                  <ReleaseYear>{movie.release_date}</ReleaseYear>
+                  <ReleaseYear>{movie.release_date.slice(0, 4)}</ReleaseYear>
                   <MaturityRating></MaturityRating>
                   <Duration>
                     {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
@@ -116,15 +116,15 @@ const CallBigModal = forwardRef((movie, ref) => {
               </VideoInfoContainerLeft>
               <VideoInfoContainerRight>
                 <Cast>
-                  <span>Cast:</span>
+                  <span>Cast: </span>
                   {directMovie?.actors.join(', ')}
                 </Cast>
                 <Genres>
-                  <span>Genres:</span>
+                  <span>Genres: </span>
                   {movie?.genres.join(', ')}
                 </Genres>
                 <Tags>
-                  <span>This programme is:</span>{movie.keywords + ""}
+                  <span>This programme is: </span>{movie.keywords + ' '}
                 </Tags>
               </VideoInfoContainerRight>
             </VideoInfoContainer>
@@ -146,21 +146,21 @@ const CallBigModal = forwardRef((movie, ref) => {
             </MoreLikeThisContainer>
             <AboutContainer>
               <AboutTitle>
-                <h1>About:{movie.title}</h1>
+                <h1>About: {movie.title}</h1>
               </AboutTitle>
               <Cast>
-                <span>Cast:</span>
+                <span>Cast: </span>
                 {movie?.actors.join(', ')}
               </Cast>
               <Genres>
-                <span>Genres:</span>
+                <span>Genres: </span>
                 {movie?.genres.join(', ')}
               </Genres>
               <Tags>
-                <span>This programme is:</span> {movie.keywords + ""}
+                <span>This programme is: </span> {movie.keywords + ""}
               </Tags>
               <MaturityRating>
-                <span>Maturity Rating:</span>
+                <span>Maturity Rating: </span>
                 {movie.age_certificate}
               </MaturityRating>
             </AboutContainer>
