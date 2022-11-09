@@ -1,40 +1,43 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import YouTube from 'react-youtube';
-// import { connect } from 'react-redux';
+
+// OPEN MODAL FROM THE MORE INFO BUTTON
+import { closeModal, openModal } from '../../reducers/modalReducer';
 
 // CSS & BUTTONS
 import { PlayerStyles } from './PlayerStyles';
+
 import play from '../../assets/play-button.svg';
 import info from '../../assets/info.svg';
 import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
+import { getCurrentPlayTime, TrailerSlice } from '../../reducers/trailerReducer';
 
-function Player({ data }) {
-    const { backdrop_path, description, id, logo, title, trailer, age_certificate } = data
+function Player() {
+    const { logo, overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
+    console.log(logo)
+    const dispatch = useDispatch();
+    // REF
+    const playerRef = useRef(null);
+    const bannerRef = useRef(null);
+    const bannerTitleRef = useRef(null);
+    const bannerDescRef = useRef(null);
+    const playButtonRef = useRef(null);
+    const moreInfoButtonRef = useRef(null);
 
+
+    // VOLUME STATE
     const [muteIsVisible, setMuteIsVisible] = useState(true);
     const [unMuteIsVisible, setUnMuteIsVisible] = useState(false);
 
-    // LOADS RANDOM TOP20 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const request = await instance.get(requests.fetchNetflixOriginals);
+    // ANIMATION
+    const [isPlaying, setIsplaying] = useState(false)
 
-    //         setShow(
-    //             request.data.results[Math.floor(Math.random() * request.data.results.length - 1)]
-    //         );
-    //     }
+    // MODAL STATE
+    const [coords, setCoords] = useState(false);
 
-    //     fetchData();
-    // }, []);
-
-    function truncate(str, n) {
-        return str?.length > n ? str.substr(0, n - 1) + '...' : str;
-    }
-
-    // CONTROLS YOUTUBE & VISIBILITY
-    const playerRef = useRef(null);
     const muteVideo = () => {
         playerRef.current.internalPlayer.mute();
         setUnMuteIsVisible(current => !current);
@@ -45,79 +48,124 @@ function Player({ data }) {
         setMuteIsVisible(current => !current);
         setUnMuteIsVisible(current => !current);
     }
+
+
+
+    // ON TRAILER PLAY/END
+    const playingVideo = () => {
+        document.querySelector('.banner').style.animation = 'fadeOut .25s ease-out 0.5s forwards';
+        document.querySelector('.banner-title').style.animation = 'shrink .5s ease-in-out 5s forwards';
+        document.querySelector('.banner-description').style.animation = 'fadeOut .25s ease-out 5s forwards';
+
+        // bannerRef.classlist.add('banner-fade-out-start');
+        // bannerTitleRef.classlist.add('title-shrink-start');
+        // bannerDescRef.classlist.add('desc-fade-out-start');
+
+        // .banner-fade-out-start
+        // .title-shrink-start
+        // .desc-fade-out-start
+        // .banner-fade-in-end 
+        // .title-grow-end
+        // .desc-fade-in-end
+
+        document.getElementById('rePlay').style.visibility = 'hidden';
+        if (muteIsVisible) {
+            document.getElementById('volume-unmute').style.visibility = 'visible';
+        } else {
+            document.getElementById('volume-mute').style.visibility = 'visible';
+        }
+    }
+    const endVideo = () => {
+        document.querySelector('.banner').style.animation = 'fadeIn ease-out 0.1s forwards';
+        document.querySelector('.banner-title').style.animation = 'grow ease-in-out 1.5s forwards';
+        document.querySelector('.banner-description').style.animation = 'fadeIn ease-in 1.5s';
+
+        document.getElementById('rePlay').style.visibility = 'visible';
+        document.getElementById('volume-mute').style.visibility = 'hidden';
+        document.getElementById('volume-unmute').style.visibility = 'hidden';
+    }
     const rePlayVideo = () => {
         playerRef.current.internalPlayer.playVideo();
-        document.querySelector('.banner').style.animation = 'none';
-        document.querySelector('.banner').offsetWidth;
-        document.querySelector('.banner').style.animation = '';
     }
+
+    //  MORE INFO BUTTON: OPENS MODAL, PAUSES VID & OPENS BACKDROP
+    const moreInfoButton = () => {
+        dispatch(openModal({ modalState: true, coords: coords }))
+        playerRef.current.internalPlayer.pauseVideo();
+        document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out 0.5s forwards';
+    }
+
+    const unPauseVideo = () => {
+        playerRef.current.internalPlayer.playVideo();
+        document.querySelector('.banner').style.animation = 'fadeOut 0.25s ease-out 0.5s';
+    }
+
+    useEffect(() => {
+        document.querySelector('.banner').addEventListener('click', unPauseVideo);
+        // return () => {
+        //     document.querySelector('banner').removeEventListener('click', unPauseVideo)
+        // }
+    }, [])
+
+    // CONTROLS YOUTUBE & VISIBILITY
     const opts = {
         playerVars: {
-            width: '560',
-            height: '315',
             autoplay: 1,
             mute: 1,
             controls: 0,
             disablekb: 1,
-            end: 16,
+            end: 20,
             rel: 0,
             frameborder: '0',
             allowfullscreen: '',
         }
     }
-
-    // BUTTONS STATE
-    const removeVolume = () => {
-        document.getElementById('rePlay').style.visibility = 'visible';
-        document.getElementById('volume-mute').style.visibility = 'hidden';
-        document.getElementById('volume-unmute').style.visibility = 'hidden';
+    function truncate(str, n) {
+        return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     }
-    const addVolume = () => {
-        document.getElementById('rePlay').style.visibility = 'hidden';
-        if (muteIsVisible) {
-            document.getElementById('volume-unmute').style.visibility = 'visible';
-        } else if (unMuteIsVisible) {
-            document.getElementById('volume-mute').style.visibility = 'visible';
-        }
-    }
-
-
-
-    // FAKE INFO
-    // const title = 'Bullet Train';
-    // const logo = 'https://images.fanart.tv/fanart/bullet-train-622f4573a070d.png';
-    // const trailer = '0IOsk2Vlc4o';
-    // const backdrop_path = 'y2Ca1neKke2mGPMaHzlCNDVZqsK.jpg'
-    // const background_img = `url('https://image.tmdb.org/t/p/original/${backdrop_path}')`;
-    // const description = "Unlucky assassin Ladybug is determined to do his job peacefully after one too many gigs gone off the rails. Fate, however, may have other plans, as Ladybug's latest mission puts him on a collision course with lethal adversaries from around the globe—all with connected, yet conflicting, objectives—on the world's fastest train.";
-
 
     return (
         <>
             <PlayerStyles>
                 <div className='banner-container'>
-                    <div className='banner'
+                    <div
+                        className='banner'
+                        ref={bannerRef}
                         style={{
-                            backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path}")`
+                            backgroundImage: `url("${backdrop_path}")`
                         }}
                     >
                     </div>
                     <div className='overlay'>
                         <div className='banner-contents'>
-                            <h1 className='banner-title'>
-                                <img src={logo} />
+                            <h1
+                                className='banner-title'
+                                ref={bannerTitleRef}
+                            >
+                                {title}
                             </h1>
-                            <div className='banner-description'>
-                                <p>{truncate(description, 150)}</p>
+                            <div
+                                className='banner-description'
+                                ref={bannerDescRef}
+                            >
+                                <p>{truncate(overview, 150)}</p>
                             </div>
                             <div className='button-container'>
                                 <div className='play-button-container'>
-                                    <button className='play-button'>
+                                    <button
+                                        className='play-button'
+                                        ref={playButtonRef}
+                                        onClick={rePlayVideo}
+                                    >
                                         <img alt='play' src={play} className='Hawkins-icon' />
                                         <span className='text-play-button'>Play</span>
                                     </button>
                                 </div>
-                                <button className='meer-info-button'>
+                                <button
+                                    className='meer-info-button'
+                                    ref={moreInfoButtonRef}
+                                    onClick={moreInfoButton}
+                                >
                                     <img alt='info' src={info} className='Hawkins-icon' />
                                     <span className='text-info-button'>More Info</span>
                                 </button>
@@ -157,21 +205,12 @@ function Player({ data }) {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={removeVolume} onPlay={addVolume} />
+                    <YouTube id='youtube' title={title} videoId={trailer} ref={playerRef} opts={opts} onEnd={endVideo} onPlay={playingVideo} onReady={playingVideo} />
 
                 </div>
             </PlayerStyles>
         </>
     )
 }
-
-// const mapStateToProps = (state) => {
-//     return {
-//         show: state.show,
-//         trailer: state.trailer,
-//         playTime: state.playTime
-//     }
-// }
-
-// export default connect(mapStateToProps, {})(Banner);
 export default Player;
+
