@@ -9,10 +9,12 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 70%;   
-    @media (max-width: 1100px) {
-        max-width: 90%;
-    }
+    max-width: 850px;
+    background-color: #181818;
+    // max-width: 70%;   
+    // @media (max-width: 1100px) {
+    //     max-width: 90%;
+    // }
 
     .bigmodalbanner {
     position: absolute;
@@ -58,6 +60,7 @@ export const PlayerStyles = styled.div`
         position: absolute;
         display: flex;
         justify-content: space-between;
+        text-align: left !important;
         align-items: flex-end;
     }
 
@@ -69,7 +72,7 @@ export const PlayerStyles = styled.div`
     }
 
     .bigmodalbanner-title {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
     padding-bottom: 0.3rem;
     max-width: 500px;
@@ -242,7 +245,7 @@ export const PlayerStyles = styled.div`
 
     .banner-fadeBottom {
     position: absolute;
-    background-image: linear-gradient( 0deg, var(--black) 30%, transparent 100%);
+    background-image: linear-gradient( 0deg, #181818, 30%, transparent 100%);
     height: 13vw;
     width: 100%;
     bottom: 0;
