@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LaneHandler from "../../components/lane/LaneHandler";
 import Footer from "../../components/footer/footer";
-import CallModal from "../../components/Modal/CallModal";
+import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
@@ -27,7 +27,6 @@ export default function Lanes({categories, movie}) {
         }
       });
     });
-
     window.addEventListener("click", (e) => {
       e.stopPropagation();
       setIsHovering(false);
@@ -35,7 +34,6 @@ export default function Lanes({categories, movie}) {
   }, []);
 
   const openBigModal = () => {
-
     dispatch(openModal({ modalState: true, coords }));
   };
 
@@ -43,7 +41,7 @@ export default function Lanes({categories, movie}) {
     <>
       <div className="padding-container">
         {isHovering && (
-          <CallModal
+          <CallSmallModal
             onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
             data={{ coords: coords, dataset: dataset, movie: movie }}

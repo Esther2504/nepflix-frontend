@@ -11,5 +11,3 @@ function CallModal(props) {
     </>
   );
 }
-
-export default CallModal;
