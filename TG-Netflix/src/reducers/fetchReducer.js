@@ -19,7 +19,7 @@ export const getBrowse = createAsyncThunk("netflix/browse", async () => {
         data,
     } = await axios.get(`https://stoplight.io/mocks/tg-maxserve/netclone/102025768/browse`);
     const browse = data;
-    // console.log(browse);
+
     return browse;
 });
 
@@ -29,7 +29,7 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
         data,
     } = await axios.get(`https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`);
     const movie = data;
-    // console.log(movie);
+
     return movie;
 });
 
