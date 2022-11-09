@@ -42,7 +42,7 @@ export default function Footer() {
                     </ServiceCodeWrapper>
 
                     <CopyrightWrapper>
-                        <span>© 1997-2022 Netflix, Inc.</span>
+                        {/* <span>© 1997-2022 Netflix, Inc.</span> */}
                     </CopyrightWrapper>
                 </Container>
             </Wrapper>
@@ -58,11 +58,11 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin-top: auto;
-background: black; // pink for testing purposes
+background: var(--black); 
 `
 
 const Container = styled.div`
-background-color: rgba(0,0,0,.75);
+background-color: var(--black);
 max-width: 980px;
 display: block;
 padding: 0 4%;

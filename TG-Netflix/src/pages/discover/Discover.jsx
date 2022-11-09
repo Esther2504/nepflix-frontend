@@ -18,7 +18,6 @@ export default function Discover({ banner, categories, movie }) {
   const [dataset, setDataset] = useState();
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
-
   //END STATE
 
   //add evenlistener for small modal
@@ -43,7 +42,7 @@ export default function Discover({ banner, categories, movie }) {
 
 
   const openBigModal = () => {
-    document.body.style.position = "fixed";
+    // document.body.style.position = "fixed";
     dispatch(openModal({ modalState: true, coords }));
   };
 
@@ -60,7 +59,7 @@ export default function Discover({ banner, categories, movie }) {
           />
         )}
         {globalModalState.modalState && <CallBigModal />}
-        <div className="fadeContainer">
+        <div className="fade-container">
           <LaneHandler categories={categories} movie={movie} />
         </div>
         <Footer />

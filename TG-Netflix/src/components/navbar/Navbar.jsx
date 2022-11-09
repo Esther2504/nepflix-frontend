@@ -1,21 +1,16 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-
-import { RiPencilLine, RiAccountCircleLine } from 'react-icons/ri';
-import { BiHelpCircle } from 'react-icons/bi';
-
-import Searchbar from './Searchbar';
+import Searchbar from '../search/Searchbar';
 import * as S from './Navbar.styled';
-import { BellIcon } from './Navbar.styled';
-import logo from '../../assets/navbar-images/netflix_logo.png';
+import logo from '../../assets/navbar-images/nepflix-logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
-import kids from '../../assets/navbar-images/kids-icon.png';
 import arrowup from '../../assets/navbar-images/arrow-up.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
 
 export default function Navbar() {
   const [blackNavbar, setBlackNavbar] = useState(false);
   const [staticNavbar, setStaticNavbar] = useState(false);
+  const [gradientNavbar, setGradientNavbar] = useState(false);
   const location = useLocation();
   const activeStyle = {
     fontWeight: 'bold',
@@ -28,16 +23,21 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setStaticNavbar(location.pathname !== '/films' ? false : true);
+    setStaticNavbar(!location.pathname.includes('/films') ? false : true);
+    setGradientNavbar(!location.pathname.includes('/browse') ? false : true);
   }, [location]);
 
   return (
     <>
-      <S.Nav blackNavbar={blackNavbar} staticNavbar={staticNavbar}>
+      <S.Nav
+        blackNavbar={blackNavbar}
+        staticNavbar={staticNavbar}
+        gradientNavbar={gradientNavbar}
+      >
         <S.PrimaryNav>
           <NavLink to="browse">
             {' '}
-            <img src={logo} alt="Netflix logo" />
+            <img src={logo} alt="Nepflix logo" />
           </NavLink>
           <S.Browse>
             Browse
@@ -69,14 +69,6 @@ export default function Navbar() {
                 My List
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="grid-layout"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                (Grid)
-              </NavLink>
-            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
@@ -84,44 +76,17 @@ export default function Navbar() {
             <li>
               <Searchbar />
             </li>
-            <S.Children>
-              <NavLink to="">Children</NavLink>
-            </S.Children>
             <li>
-              <S.Notifications>
-                <BellIcon />
-                <ul className="dropdown-text">
-                  <img src={arrowup} />
-                  <li>No recent notifications</li>
-                </ul>
-              </S.Notifications>
-            </li>
-            <li>
-              {' '}
               <S.Account>
                 <img src={profile} alt="Profile" />
                 <img src={arrowdown} />
-                <ul className="dropdown-text">
+                <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    <img src={kids} alt="Kids" />
-                    <a href="#">Kids</a>
-                  </li>
-                  <li>
-                    <RiPencilLine size={20} />
-                    <a href="#">Manage Profiles</a>
-                  </li>
-                  <li>
-                    <RiAccountCircleLine size={20} />
                     <a href="/account">Account</a>
                   </li>
                   <li>
-                    <BiHelpCircle size={20} />
-                    <a href="#">Help Centre</a>
-                  </li>
-                  <hr />
-                  <li>
-                    <a href="/">Sign out of Netflix</a>
+                    <a href="/">Sign out of Nepflix</a>
                   </li>
                 </ul>
               </S.Account>

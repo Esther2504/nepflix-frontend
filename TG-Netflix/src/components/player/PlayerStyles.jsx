@@ -17,6 +17,8 @@ export const PlayerStyles = styled.div`
     .banner {
     position: absolute;
     color: #fff;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     background-size: cover;
     background-position: center center;
@@ -252,7 +254,9 @@ export const PlayerStyles = styled.div`
 
     .banner-fadeBottom {
     position: absolute;
-    background-image: linear-gradient( 180deg, transparent, rgba(37,37,37, 0.6), #111);
+    background-image: linear-gradient( 0deg, var(--black) 30%, transparent 100%);
+    height: 13vw;
+    width: 100%;
     bottom: 0;
     }
 
@@ -385,13 +389,13 @@ export const PlayerStyles = styled.div`
             border-left: 5px solid rgba(255, 255, 255, 0.75);
             padding: 0.6rem 4.2rem 0.6rem 0.96rem;
         }
-    
+    }
+
+    @media only screen and (max-width: 644px) {
+        display: none;
         .banner-fadeBottom {
-        position: absolute;
-        height: 30vh;
-        background-image: linear-gradient( 180deg, transparent, rgba(37,37,37, 0.6), #111);
-        bottom: 0;
-        }   
+            display: none;
+        }
     }
 
     @media only screen and (max-width: 400px) {
@@ -500,13 +504,6 @@ export const PlayerStyles = styled.div`
             border-left: 5px solid rgba(255, 255, 255, 0.75);
             padding: 0.6rem 4.2rem 0.6rem 0.96rem;
         }
-    
-        .banner-fadeBottom {
-        position: absolute;
-        height: 30vh;
-        background-image: linear-gradient( 180deg, transparent, rgba(37,37,37, 0.6), #111);
-        bottom: 0;
-        }   
       }
 
 

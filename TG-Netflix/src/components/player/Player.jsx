@@ -10,9 +10,9 @@ import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 
-function Player({data}) {
-    const {backdrop_path, description, id, logo, title, trailer, age_certificate} = data
-    
+function Player({ data }) {
+    const { backdrop_path, description, id, logo, title, trailer, age_certificate } = data
+
     const [muteIsVisible, setMuteIsVisible] = useState(true);
     const [unMuteIsVisible, setUnMuteIsVisible] = useState(false);
 
@@ -75,7 +75,7 @@ function Player({data}) {
     const addVolume = () => {
         document.getElementById('rePlay').style.visibility = 'hidden';
         if (muteIsVisible) {
-        document.getElementById('volume-unmute').style.visibility = 'visible';
+            document.getElementById('volume-unmute').style.visibility = 'visible';
         } else if (unMuteIsVisible) {
             document.getElementById('volume-mute').style.visibility = 'visible';
         }
@@ -98,7 +98,7 @@ function Player({data}) {
                 <div className='banner-container'>
                     <div className='banner'
                         style={{
-                            backgroundImage: `url("https://image.tmdb.org/t/p/original/${backdrop_path}")`
+                            backgroundImage: `url("https://image.tmdb.org/t/p/original${backdrop_path}")`
                         }}
                     >
                     </div>
@@ -151,7 +151,7 @@ function Player({data}) {
                             </div>
                             <span className="maturity-rating">
                                 <span className="maturity-graphic">
-                                {age_certificate}
+                                    {age_certificate}
                                 </span>
                             </span>
                         </div>

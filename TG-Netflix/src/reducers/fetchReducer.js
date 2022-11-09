@@ -23,7 +23,6 @@ export const getBrowse = createAsyncThunk("netflix/browse", async () => {
     return browse;
 });
 
-
 export const getMovies = createAsyncThunk("netflix/movies", async () => {
     //fetches /movie data
     const {
@@ -33,6 +32,7 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
     // console.log(movie);
     return movie;
 });
+
 
 
 const NetflixSlice = createSlice({
@@ -53,6 +53,7 @@ const NetflixSlice = createSlice({
             state.moviesLoaded = true;
             state.moviesError = '';
         });
+
     },
 });
 
