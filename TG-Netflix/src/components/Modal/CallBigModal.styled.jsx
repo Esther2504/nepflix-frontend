@@ -1,8 +1,5 @@
-import styled from "styled-components";
-import {
-  AiFillCloseCircle,
-  AiOutlineDown,
-} from "react-icons/ai";
+import styled from 'styled-components';
+import { AiFillCloseCircle, AiOutlineDown } from 'react-icons/ai';
 
 export const CloseButton = styled.div``;
 export const CloseCircle = styled(AiFillCloseCircle)`
@@ -22,17 +19,17 @@ export const CloseCircle = styled(AiFillCloseCircle)`
 //START MODAL
 export const ModalContainer = styled.div`
   display: block;
-  position:fixed;
+  position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
-  overflow:auto;
+  overflow: auto;
 
-  &::-webkit-scrollbar { 
+  &::-webkit-scrollbar {
     display: none;
-}
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -41,10 +38,13 @@ export const ModalContent = styled.div`
   margin-top: 3rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  max-width: 61vw;
+  max-width: 70%;
   padding-bottom: 2rem;
   background-color: #181818;
   transform-origin: ${(props) => props.coords};
+  @media (max-width: 1100px) {
+    max-width: 90%;
+  }
 
   animation: blowUpModal 0.75s ease-in-out forwards;
   @keyframes blowUpModal {
@@ -53,7 +53,19 @@ export const ModalContent = styled.div`
     }
     100% {
       transform: scale(1);
-      margin-left: calc((100vw - 61vw) / 2);
+      margin-left: calc((100vw - 70%) / 2);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    @keyframes blowUpModal {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+        margin-left: calc((100vw - 90%) / 2);
+      }
     }
   }
 `;
@@ -86,14 +98,20 @@ export const VideoInfoContainer = styled.div`
   padding-right: 3rem;
   padding-top: 1rem;
   text-align: justify;
-  @media (max-width: 353px) {
+
+  @media (max-width: 820px) {
     flex-direction: column;
+    gap: 2rem;
   }
 `;
 export const VideoInfoContainerLeft = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   width: 70%;
+
+  @media (max-width: 820px) {
+    width: 100%;
+  }
 `;
 export const VideoInfoContainerRight = styled.div`
   display: flex;
@@ -101,7 +119,15 @@ export const VideoInfoContainerRight = styled.div`
   font-size: 1.4rem;
   text-align: left;
   color: #ffffff;
-  padding-left:0.5rem;
+  padding-left: 2rem;
+
+  width: 50%;
+
+  @media (max-width: 820px) {
+    width: 100%;
+    padding-left: 0;
+  }
+
   span {
     color: #777777;
   }
@@ -131,7 +157,6 @@ export const Cast = styled.div``;
 export const Genres = styled.div``;
 export const Tags = styled.div``;
 export const Summary = styled.div`
-
   grid-row: 2;
   font-size: 1.4rem;
   text-align: left;
@@ -147,6 +172,8 @@ export const MoreLikeThisContainer = styled.div`
     color: #ffffff;
     font-size: 2.4rem;
     font-weight: 700;
+    display: block;
+    margin-bottom: 1rem;
   }
 `;
 export const MoreLikeThisWrapper = styled.div`
@@ -155,7 +182,7 @@ export const MoreLikeThisWrapper = styled.div`
   @media (max-width: 823px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 353px) {
+  @media (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
   gap: 1rem;

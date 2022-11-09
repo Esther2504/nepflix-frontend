@@ -4,10 +4,10 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 
 import LaneHandler from "../../components/lane/LaneHandler";
 import Footer from "../../components/footer/footer";
-import CallModal from "../../components/Modal/CallModal";
+import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import FilterMenu from "../../components/filterknop/FilterMenu";
-import Lanes from "../lanes/lanes";
+// import Lanes from "../lanes/lanes";
 import Grid from "../grid/grid";
 import browseMockData from "../../mock-data/browse_categories_banner.mock.json";
 import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
@@ -78,7 +78,7 @@ export default function Films({ banner, categories, movie }) {
         {genre == "" ? (
           <>
             {isHovering && (
-              <CallModal
+              <CallSmallModal
                 onMouseLeave={() => setIsHovering(false)}
                 hover={isHovering}
                 data={{ coords: coords, dataset: dataset, movie: movie }}

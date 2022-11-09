@@ -4,7 +4,7 @@ import { openModal, closeModal } from '../../reducers/modalReducer';
 import Player from '../../components/player/Player';
 import LaneHandler from '../../components/lane/LaneHandler';
 import Footer from '../../components/footer/footer';
-import CallSmallModal from '../../components/Modal/CallModal';
+import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 

@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import Trailer from './testTrailer.webm';
 import {
   VideoPlayer,
   PreviewModalContainer,
+  ThumbnailContainer,
   PreviewPlay,
   PreviewDuration,
   PreviewRating,
@@ -12,25 +12,35 @@ import {
   PreviewMetaData,
   PreviewSummary,
   Thumbnail,
-  Title
+  Title,
+  MaturityContainer,
+  RatingContainer 
 } from './PreviewModal.style';
 
 function PreviewModal(data) {
   const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
   return (
     <PreviewModalContainer>
-      <PreviewDuration>{data.movie.runtime}</PreviewDuration>
       <PreviewPlay />
       {/* <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} /> */}
-      <Thumbnail bg={bg} />
-      <PreviewMetaData>
-        <PreviewRating></PreviewRating>
-        <PreviewMaturityRating>
-          {data.movie.age_certificate}
-        </PreviewMaturityRating>
-        <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
-        <PreviewAddToList></PreviewAddToList>
+      <ThumbnailContainer>
+        <Thumbnail bg={bg} />
+        <PreviewDuration>{data.movie.runtime}m</PreviewDuration>
         <Title>{data.movie.title}</Title>
+      </ThumbnailContainer>
+      <PreviewMetaData>
+        {/* <PreviewRating></PreviewRating> */}
+        <MaturityContainer>
+        <RatingContainer >
+          <PreviewMaturityRating>
+            {data.movie.age_certificate}
+          </PreviewMaturityRating>
+        </RatingContainer>
+        <PreviewAddToList />
+        </MaturityContainer>
+        <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
+        
+
         <PreviewSummary>{data.movie.overview}</PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>
