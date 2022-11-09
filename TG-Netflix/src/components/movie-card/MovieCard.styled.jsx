@@ -10,17 +10,17 @@ export const Card = styled.div`
   span {
     position: absolute;
     width: 100%;
-    padding: 0 5px;
+    padding: 0 10px;
     bottom: 7px;
 
     font-family: manrope;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
     line-height: 0.9;
     font-size: 1.6rem;
-    font-weight: bold;
+    font-weight: 600;
     color: white;
-    text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.75);
+    font-weight: 550;
+    line-height: 1;
+    text-shadow: 1px 1px 1px rgb(20, 20, 20);
 
     @media (min-width: 600px) {
       font-size: 1.4rem;
@@ -41,7 +41,7 @@ export const Card = styled.div`
       font-size: 2rem;
     }
   }
-  
+
   img:nth-of-type(2) {
     position: absolute;
     top: 8px;
