@@ -36,16 +36,15 @@ function LaneHandler({ movie }) {
     "tv movie",
     "thriller",
     "war",
-    "action",
-    "adventure",
     "western",
   ];
 
   const categories = useSelector((state) => state.netflix.browse[0]);
 
-  console.log(categories);
+  // console.log(categories);
 
   useEffect(() => {
+    if (inView) {
     let categorySelection = categoryList.slice(index, index + 4);
     categorySelection = categorySelection.toString();
     setIndex(index + 4);
@@ -59,6 +58,7 @@ function LaneHandler({ movie }) {
       // console.log(categorySelection);
       // setCategories([...loadedCategories, test]);
     }
+  }
   }, [inView]);
 
 
@@ -121,10 +121,11 @@ function LaneHandler({ movie }) {
         );
       })}
 
-      {index <= categoryList.length - 1 ? (
-        <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
+      {index < categoryList.length - 1 ? (
+          <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
           <Spinner />
         </div>
+       
       ) : null}
     </div>
   );
