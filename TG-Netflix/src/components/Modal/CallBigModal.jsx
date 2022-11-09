@@ -30,8 +30,9 @@ import {
 import { closeModal, getMovieID } from '../../reducers/modalReducer';
 import Player from '../player/Player';
 import { useSearchParams } from 'react-router-dom';
+import { getMovies } from '../../reducers/fetchReducer';
 
-const CallBigModal = forwardRef((movie, ref) => {
+const CallBigModal = forwardRef((props, ref) => {
   //REF's
   const refMoreLikeThisWrapper = useRef();
   const modalRefContainer = useRef();
@@ -44,23 +45,33 @@ const CallBigModal = forwardRef((movie, ref) => {
   const [directMovie, setDirectMovie] = useState();
   //END STATE
 
-  const fetchDirectMovie = async () => {
-    const directMovieID = browseMovieID.get('movieID');
-    const data = await getMovieID(directMovieID);
-    setDirectMovie(data);
-  };
-  
-  //fetch data direct link
-  useEffect(() => {
-    if (browseMovieID.get('movieID')) {
-      fetchDirectMovie();
-    }
-  }, []);
-  
-  if(directMovie){
-    movie = directMovie;
+  //check if movie is in state
+  // const moviesInState = useSelector((state) => state.netflix.movies);
+  // const id = browseMovieID.get('movieID');
+  // const movieInState = moviesInState.filter(
+  //   (movie) => movie.id === (props.movieID || id)
+  // );
+  // useEffect(() => {
+  //   if (!movieInState) {
+
+  //     dispatch(getMovies(id));
+  //   }
+  // }, []);
+
+  // const movieInfo = moviesInState.filter((movie) => movie.id === id);
+  // console.log(movieInfo);
+
+  const id = browseMovieID.get('movieID') * 1;
+  const moviesInState = useSelector((state) => state.netflix.movies);
+
+  const movieInfoAr = moviesInState.filter((movie) => movie.id === id);
+
+  if(movieInfoAr.length === 0){
+    dispatch(getMovies(parseInt(id)));
   }
-  // console.log(movie);
+  const movieInfo = movieInfoAr[0];
+console.log(movieInfo);
+
   //coords for big modal
   // const offset = document.querySelector('.banner-container').offsetHeight;
   const left = Math.round(globalModalState.coords.left) + 'px ';
@@ -100,38 +111,41 @@ const CallBigModal = forwardRef((movie, ref) => {
             <CloseCircle />
           </CloseButton>
           <ModalPreview>
-            <Player data={movie} modal={true} />
+            {/* <Player data={movieInfo} modal={true} /> */}
             <VideoInfoContainer>
               <VideoInfoContainerLeft>
                 <MetaData>
                   <Rating>93% Match</Rating>
-                  <ReleaseYear>{movie.release_date.slice(0, 4)}</ReleaseYear>
+                  <ReleaseYear>
+                    {movieInfo?.release_date.slice(0, 4)}
+                  </ReleaseYear>
                   <MaturityRating></MaturityRating>
                   <Duration>
-                    {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
+                    {Math.floor(movieInfo?.runtime / 60)}h{' '}
+                    {movieInfo?.runtime % 60}m
                   </Duration>
-
                 </MetaData>
-                <Summary>{movie.overview}</Summary>
+                <Summary>{movieInfo?.overview}</Summary>
               </VideoInfoContainerLeft>
               <VideoInfoContainerRight>
                 <Cast>
                   <span>Cast: </span>
-                  {directMovie?.actors.join(', ')}
+                  {movieInfo?.actors.join(', ')}
                 </Cast>
                 <Genres>
                   <span>Genres: </span>
-                  {movie?.genres.join(', ')}
+                  {movieInfo?.genres.join(', ')}
                 </Genres>
                 <Tags>
-                  <span>This programme is: </span>{movie.keywords + ' '}
+                  <span>This programme is: </span>
+                  {movieInfo?.keywords + ' '}
                 </Tags>
               </VideoInfoContainerRight>
             </VideoInfoContainer>
             <MoreLikeThisContainer>
               <span>More Like This</span>
               <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
-                {movie.similar.map((data, index) => {
+                {movieInfo?.similar.map((data, index) => {
                   return <PreviewModal key={index} movie={data} />;
                 })}
               </MoreLikeThisWrapper>
@@ -146,22 +160,22 @@ const CallBigModal = forwardRef((movie, ref) => {
             </MoreLikeThisContainer>
             <AboutContainer>
               <AboutTitle>
-                <h1>About: {movie.title}</h1>
+                <h1>About: {movieInfo?.title}</h1>
               </AboutTitle>
               <Cast>
                 <span>Cast: </span>
-                {movie?.actors.join(', ')}
+                {movieInfo?.actors.join(', ')}
               </Cast>
               <Genres>
                 <span>Genres: </span>
-                {movie?.genres.join(', ')}
+                {movieInfo?.genres.join(', ')}
               </Genres>
               <Tags>
-                <span>This programme is: </span> {movie.keywords + ""}
+                <span>This programme is: </span> {movieInfo?.keywords + ''}
               </Tags>
               <MaturityRating>
                 <span>Maturity Rating: </span>
-                {movie.age_certificate}
+                {movieInfo?.age_certificate}
               </MaturityRating>
             </AboutContainer>
           </ModalPreview>
