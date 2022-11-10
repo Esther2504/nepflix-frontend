@@ -1,60 +1,64 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { openModal, closeModal } from "../../reducers/modalReducer";
+// import { openModal, closeModal } from "../../reducers/modalReducer";
 
 import LaneHandler from "../../components/lane/LaneHandler";
 import Footer from "../../components/footer/footer";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import FilterMenu from "../../components/filterknop/FilterMenu";
-// import Lanes from "../lanes/lanes";
-// import Grid from "../grid/grid";
-import browseMockData from "../../mock-data/browse_categories_banner.mock.json";
-import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
-import { GridContainer } from "../../components/grid-layout/GridLayout.styled";
-import MovieCard from "../../components/movie-card/MovieCard";
 import categoriesMock from "../../mock-data/browse_categories_banner.mock.json";
 import GridLayout from "../../components/grid-layout/GridLayout";
-import { useLocation } from "react-router-dom";
+import { openModal, closeModal } from '../../reducers/modalReducer';
+import { useParams } from 'react-router-dom';
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
 
 export default function Films({ banner, categories, movie }) {
   //STATE
+  const { moviegenre } = useParams();
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
-  const [genre, setGenre] = useState("");
+  const [movieID, setMovieID] = useState();
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
+  const movieDetails = useSelector((state) => state.netflix.movies);
+  const [browseMovieID, setBrowseMovieID] = useSearchParams();
+  const [genre, setGenre] = useState("");
+
   //END STATE
 
+  // const movieDetails = useSelector((state) => state.netflix.movies);
   let movies = categoriesMock.categories;
 
-  //add eventlistener for small modal
-  useEffect(() => {
-    const films = document.querySelectorAll("#movie");
-    films.forEach((film) => {
-      film.addEventListener("mouseenter", (e) => {
-        if (e.target.getAttribute("id")) {
-          setDataset(film.dataset);
-          setIsHovering(true);
-          setCoords(e.target.getBoundingClientRect());
-          dispatch(openModal({ modalState: false, coords: coords }));
-        }
+    //add evenlistener for small modal
+    useEffect(() => {
+      const films = document.querySelectorAll('#movie');
+      films.forEach((film) => {
+        film.addEventListener('mouseenter', (e) => {
+          if (e.target.getAttribute('id')) {
+            setDataset(film.dataset);
+            setIsHovering(true);
+            setMovieID(e.target.dataset.id);
+            setCoords(e.target.getBoundingClientRect());
+          }
+        });
       });
-    });
-
-    window.addEventListener("click", (e) => {
-      e.stopPropagation();
-      setIsHovering(false);
-    });
-  }, []);
-
-  const openBigModal = () => {
-    dispatch(openModal({ modalState: true, coords }));
-  };
+  
+      window.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setIsHovering(false);
+      });
+    }, []);
+  
+    const openBigModal = () => {
+      setBrowseMovieID({ movieID: movieID });
+      dispatch(openModal({ modalState: true, coords }));
+    };
+  
 
   if (genre != "") {
     // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
@@ -71,18 +75,18 @@ export default function Films({ banner, categories, movie }) {
   let location = useLocation();
 
   // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh
-  React.useEffect(() => {
-    let path = window.location.href.slice(
-      window.location.href.lastIndexOf("/")
-    );
+  // React.useEffect(() => {
+  //   let path = window.location.href.slice(
+  //     window.location.href.lastIndexOf("/")
+  //   );
 
-    if (path != "/films") {
-      let genreName = path.slice(1);
-      setGenre(genreName);
-    } else {
-      setGenre("");
-    }
-  }, [location]);
+  //   if (path != "/films") {
+  //     let genreName = path.slice(1);
+  //     setGenre(genreName);
+  //   } else {
+  //     setGenre("");
+  //   }
+  // }, [location]);
 
   return (
     <>
@@ -90,16 +94,15 @@ export default function Films({ banner, categories, movie }) {
         <FilterMenu setGenre={setGenre} genre={genre} />
         {genre == "" ? (
           <>
-            {isHovering && (
-              <CallSmallModal
-                onMouseLeave={() => setIsHovering(false)}
-                hover={isHovering}
-                setIsHovering={setIsHovering}
-                data={{ coords: coords, dataset: dataset, movie: movie }}
-                onClick={openBigModal}
-              />
-            )}
-            {globalModalState.modalState && <CallBigModal />}
+        {isHovering && (
+          <CallSmallModal
+            onMouseLeave={() => setIsHovering(false)}
+            hover={isHovering}
+            data={{ coords: coords, dataset: movieDetails }}
+            onClick={openBigModal}
+          />
+        )}
+        {globalModalState.modalState && <CallBigModal {...movieDetails} />}
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
