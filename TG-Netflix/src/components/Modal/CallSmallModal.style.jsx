@@ -186,6 +186,7 @@ export const PlusCircle = styled(BsPlusLg)`
   padding: 0.5rem;
   color: #cccccc;
   font-size: 29px;
+  
   &:hover {
     color: white;
     border-color: white;

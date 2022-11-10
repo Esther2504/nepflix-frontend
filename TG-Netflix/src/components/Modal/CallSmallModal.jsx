@@ -86,6 +86,7 @@ const CallModal = (props) => {
 
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
+
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
@@ -98,17 +99,20 @@ const CallModal = (props) => {
         </SmallModalTop>
 
         <SmallModalBottom>
-          <VideoControls>
+          <VideoControls >
             {/* <VideoPlay>
               <PlayButton />
               Play
             </VideoPlay> */}
-            <PlusCircle onClick={(e) => props.handleAddToMyList(e)}/>
+            <PlusCircle onClick={function (e) {
+             e.stopPropagation()
+              return props.handleAddToMyList(e);
+            }} />
             {/* <ThumbsUp /> */}
             {/* <RateIcons /> */}
 
             <ArrowContainer>
-             <ArrowDown/>
+              <ArrowDown />
             </ArrowContainer>
             {/* <VolumeIcon /> */}
           </VideoControls>
@@ -121,8 +125,8 @@ const CallModal = (props) => {
             Dark • Period • Ensemble
           </KeywordsContainer>
         </SmallModalBottom>
-      
-      
+
+
       </SmallModal>
     </SmallModalContainer>
   );
