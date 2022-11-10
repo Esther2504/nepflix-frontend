@@ -12,9 +12,9 @@ const initialState = {
     moviesLoaded: false,
     moviesError: '',
 
-    liked: [],
-    likedLoaded: false,
-    likedError: '',
+    // liked: [],
+    // likedLoaded: false,
+    // likedError: '',
 };
 
 
@@ -39,15 +39,15 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
 });
 
 
-export const getLiked = createAsyncThunk("netflix/liked" , async () => {
-    // fetches /user data
-    const {
-        data,
-    } = await axios.get(`https://stoplight.io/mocks/nepflix/nepflix-user/105131026/user/liked`);
-    const liked = data;
-    // console.log(liked);
-    return liked;
-});
+// export const getLiked = createAsyncThunk("netflix/liked" , async () => {
+//     // fetches /user data
+//     const {
+//         data,
+//     } = await axios.get(`https://stoplight.io/mocks/nepflix/nepflix-user/105131026/user/liked`);
+//     const liked = data;
+//     // console.log(liked);
+//     return liked;
+// });
 
 
 const NetflixSlice = createSlice({
@@ -69,12 +69,12 @@ const NetflixSlice = createSlice({
             state.moviesError = '';
         })
             
-        builder.addCase(getLiked.fulfilled, (state, action) => {
-            state.liked = action.payload;
-            state.likedLoaded = true;
-            state.likedError = '';
-            // added user Reducer for My-list
-        });
+        // builder.addCase(getLiked.fulfilled, (state, action) => {
+        //     state.liked = action.payload;
+        //     state.likedLoaded = true;
+        //     state.likedError = '';
+        //     // added user Reducer for My-list
+        // });
 
     },
 });

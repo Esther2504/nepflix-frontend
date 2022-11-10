@@ -21,6 +21,10 @@ import {
 
 import YouTube from 'react-youtube';
 
+// add to liked list (mylist)
+import { addToList } from '../../reducers/likedReducer';
+import { useDispatch } from "react-redux";
+
 const CallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
   useEffect(() => {
@@ -74,6 +78,11 @@ const CallModal = (props) => {
     const result = hours + 'h ' + min + 'm';
     return result;
   };
+  const dispatch = useDispatch();
+  const handleAddToMyList = (movie) => {
+    dispatch(addToList(movie));
+  };
+
 
   const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
 
@@ -96,7 +105,7 @@ const CallModal = (props) => {
               <PlayButton />
               Play
             </VideoPlay> */}
-            <PlusCircle />
+            <PlusCircle onClick={() => handleAddToMyList(movie)}/>
             {/* <ThumbsUp /> */}
             {/* <RateIcons /> */}
 

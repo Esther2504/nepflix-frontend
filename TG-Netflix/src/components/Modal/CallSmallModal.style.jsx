@@ -3,7 +3,7 @@ import {
   AiFillCloseCircle,
   AiOutlineDown,
 } from 'react-icons/ai';
-import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs';
+import { BsFillPlayFill, BsHandThumbsUp, BsPlusLg } from 'react-icons/bs';
 import { TbLayersDifference, TbVolume3 } from 'react-icons/tb';
 
 export const SmallModalContainer = styled.div`
