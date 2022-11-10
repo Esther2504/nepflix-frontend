@@ -51,16 +51,8 @@ export default function MovieCard({ movie }) {
 
   return (
     <>
- {/* {isHovering && (
-          <CallSmallModal
-            onMouseLeave={() => setIsHovering(false)}
-            hover={isHovering}
-            data={{ coords: coords, dataset: movieDetails }}
-            onClick={openBigModal}
-          />
-        )}
-        {globalModalState.modalState && <CallBigModal {...movieDetails} />} */}
-      <Card id="movie">
+      <Card id="movie" data-backdrop={backdrop_path}
+           data-id={id}>
         <img src={backdrop_path} alt={title} />
         <span>{title}</span>
         <img src={showLogo(logoArray)} />
