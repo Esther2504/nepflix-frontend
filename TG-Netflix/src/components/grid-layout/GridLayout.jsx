@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { GridContainer } from "./GridLayout.styled";
 import MovieCard from "../movie-card/MovieCard";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
 import CallBigModal from "../Modal/CallBigModal";
-import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import { getBrowse } from "../../reducers/fetchReducer";
 
-export default function GridLayout({ movies, genre, setGenre, movie, categories }) {
+export default function GridLayout({ genre, setGenre, movie, categories }) {
   const { moviegenre } = useParams();
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
@@ -21,9 +22,41 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
 
   //END STATE
 
-  //check if linked to a direct movie
-  const getMovieID = browseMovieID.get('movieID');
+  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
+  //check if linked to a direct movie
+  const getMovieID = browseMovieID.get("movieID");
+
+  console.log(loadedCategories);
+
+  let movies = loadedCategories;
+
+  console.log(movies);
+  console.log(genre);
+
+  if (genre != "") {
+    // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
+
+    // const categories = genre
+    // dispatch(getBrowse({ categories }));
+
+    // // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
+    if (
+      loadedCategories.find((item) => item.name.toLowerCase() === `${genre}`)
+    ) {
+      movies = loadedCategories.find(
+        (item) => item.name.toLowerCase() === `${genre}`
+      );
+    } else {
+      // const categories = genre
+      // dispatch(getBrowse({ categories }));
+      movies = loadedCategories.find(
+        (item) => item.name.toLowerCase() === `${genre}`
+      );
+    }
+  }
+
+  console.log(movies);
   //open modal if linked to movieID
   useEffect(() => {
     if (getMovieID) dispatch(openModal({ modalState: true, coords }));
@@ -31,10 +64,10 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
 
   //add evenlistener for small modal
   useEffect(() => {
-    const films = document.querySelectorAll('#movie');
+    const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
-      film.addEventListener('mouseenter', (e) => {
-        if (e.target.getAttribute('id')) {
+      film.addEventListener("mouseenter", (e) => {
+        if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
           setMovieID(e.target.dataset.id);
@@ -43,7 +76,7 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
       });
     });
 
-    window.addEventListener('click', (e) => {
+    window.addEventListener("click", (e) => {
       e.stopPropagation();
       setIsHovering(false);
     });
@@ -54,19 +87,19 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
     dispatch(openModal({ modalState: true, coords }));
   };
 
-    return (
+  return (
     <>
-      {/* {isHovering && (
+      {isHovering && (
         <CallSmallModal
           onMouseLeave={() => setIsHovering(false)}
           hover={isHovering}
-          data={{ coords: coords, dataset: dataset, movie: movie }}
+          data={{ coords: coords, dataset: movieDetails }}
           onClick={openBigModal}
         />
       )}
-      {globalModalState.modalState && <CallBigModal />} */}
+      {globalModalState.modalState && <CallBigModal {...movieDetails} />}
       <GridContainer>
-        {movies.map((movie, index) => {
+        {movies.movies.map((movie, index) => {
           return <MovieCard key={index} movie={movie} />;
         })}
       </GridContainer>

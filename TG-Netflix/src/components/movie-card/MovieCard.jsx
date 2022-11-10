@@ -51,7 +51,7 @@ export default function MovieCard({ movie }) {
 
   return (
     <>
- {isHovering && (
+ {/* {isHovering && (
           <CallSmallModal
             onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
@@ -59,7 +59,7 @@ export default function MovieCard({ movie }) {
             onClick={openBigModal}
           />
         )}
-        {globalModalState.modalState && <CallBigModal {...movieDetails} />}
+        {globalModalState.modalState && <CallBigModal {...movieDetails} />} */}
       <Card id="movie">
         <img src={backdrop_path} alt={title} />
         <span>{title}</span>

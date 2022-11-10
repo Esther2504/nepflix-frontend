@@ -12,6 +12,7 @@ import GridLayout from "../../components/grid-layout/GridLayout";
 import { openModal, closeModal } from '../../reducers/modalReducer';
 import { useParams } from 'react-router-dom';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { getBrowse } from "../../reducers/fetchReducer";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -30,9 +31,12 @@ export default function Films({ banner, categories, movie }) {
   const [genre, setGenre] = useState("");
 
   //END STATE
-
-  // const movieDetails = useSelector((state) => state.netflix.movies);
+  
   let movies = categoriesMock.categories;
+
+  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
+
+  console.log(loadedCategories)
 
     //add evenlistener for small modal
     useEffect(() => {
@@ -60,15 +64,19 @@ export default function Films({ banner, categories, movie }) {
     };
   
 
-  if (genre != "") {
-    // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
-    // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
-    if (movies.find((item) => item.name === `${genre}`)) {
-      movies = movies.find((item) => item.name === `${genre}`);
-    } else {
-      movies = movies.find((item) => item.name === `Latest`);
-    }
-  }
+  // if (genre != "") {
+  //   // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
+
+  //   const categories = genre
+  //   dispatch(getBrowse({ categories }));
+
+  //   // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
+  //   if (movies.find((item) => item.name === `${genre}`)) {
+  //     movies = movies.find((item) => item.name === `${genre}`);
+  //   } else {
+  //     movies = movies.find((item) => item.name === `Latest`);
+  //   }
+  // }
 
   movies = movies.movies;
   
@@ -109,9 +117,9 @@ export default function Films({ banner, categories, movie }) {
           <GridLayout
             genre={genre}
             setGenre={setGenre}
-            movies={movies}
-            categories={categories}
-            movie1={movie}
+            // movies={loadedCategories}
+            // categories={loadedCategories}
+            // movie1={movie}
           />
         )}
 
