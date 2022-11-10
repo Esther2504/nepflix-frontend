@@ -1,31 +1,30 @@
-import styled from "styled-components";
-import React, { useState } from "react";
-import { Card } from "../movie-card/MovieCard.styled";
+import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Card } from '../movie-card/MovieCard.styled';
+import logo from '../../assets/movie-card-images/n_logo.ico';
 
 const Container = styled.div`
   display: flex;
   position: relative;
   top: 0;
   left: 0;
-
-  img:nth-of-type(2) {
-    position: absolute;
-    top: 8px;
-    left: 3px;
-    width: 1.3vw;
-  }
 `;
 
 export default function SlideContent(props) {
+  const logoArray = [logo, null];
+
   return (
     <Container>
       {props.list.map((item, index) => {
+        function showLogo(logoArray) {
+          return logoArray[/[6]/.test(item.id) ? 0 : 1];
+        }
         return (
           <Card
             data-backdrop={item.backdrop_path}
             data-video={item.video}
             data-id={item.id}
-            style={{ margin: "0px 3px" }}
+            style={{ margin: '0px 3px' }}
             key={index}
             id="movie"
           >
@@ -33,14 +32,14 @@ export default function SlideContent(props) {
             <img
               width={props.imageWidth}
               height={props.imageHeight}
-              src={"https://image.tmdb.org/t/p/original" + item.backdrop_path}
+              src={'https://image.tmdb.org/t/p/original' + item.backdrop_path}
               alt={item.title}
               id={item.id}
             />
+            <img src={showLogo(logoArray)} />
           </Card>
         );
       })}
     </Container>
   );
 }
-

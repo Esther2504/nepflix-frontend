@@ -60,6 +60,12 @@ export const PreviewModalContainer = styled.div`
 
 export const ThumbnailContainer = styled.div`
   position: relative;
+  img:nth-of-type(1) {
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    width: 1.3vw;
+  }
 `;
 export const PreviewDuration = styled.div`
   position: absolute;

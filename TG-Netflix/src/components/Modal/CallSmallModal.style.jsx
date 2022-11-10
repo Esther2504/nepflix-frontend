@@ -3,8 +3,8 @@ import {
   AiFillCloseCircle,
   AiOutlineDown,
 } from 'react-icons/ai';
-import { BsPlayFill, BsHandThumbsUp, BsPlusLg} from 'react-icons/bs';
-import { TbVolume3 } from 'react-icons/tb';
+import { BsFillPlayFill, BsHandThumbsUp } from 'react-icons/bs';
+import { TbLayersDifference, TbVolume3 } from 'react-icons/tb';
 
 export const SmallModalContainer = styled.div`
   position: absolute;
@@ -22,12 +22,18 @@ export const SmallModalTop = styled.div`
   background-size: cover;
 `;
 export const SmallModalBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   background-color: #181818;
   width: 100%;
   height: 0;
   opacity: 0;
+  padding: 1.5rem 1rem;
   transition: opacity ease-in-out 150ms, height 100ms ease-in-out;
   transition-delay: 0ms;
+  font-weight: bold;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 
 export const SmallModal = styled.div`
@@ -48,6 +54,7 @@ export const SmallModal = styled.div`
   // background-image: url(${(props) => props.bg});
   background-size: cover;
   z-index: 2;
+
   animation: out 500ms ease-in-out;
   &:hover {
     animation-duration: 1300ms;
@@ -110,7 +117,33 @@ export const VideoControls = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 0.5rem;
+  /* padding: 0.5rem 1rem; */
+  gap: 0.3rem;
+`;
+
+export const ArrowContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #b6b6b6;
+  border-radius: 50%;
+
+  &:hover {
+    border-color: white;
+  }
+`;
+
+export const ArrowDown = styled(AiOutlineDown)`
+  color: #cccccc;
+  font-size: 15px;
+  font-weight: bold;
+
+  &:hover {
+    color: white;
+    border-color: white;
+  }
 `;
 export const VideoPlay = styled.div`
   display: flex;
@@ -119,19 +152,11 @@ export const VideoPlay = styled.div`
   padding-left:0.28rem;
   justify-content: center;
   align-items: center;
-  max-width: 30px;
-  max-height: 30px;
-  border: 2px solid #b6b6b6;
-  border-radius: 50%;
-  margin-top: 1rem;
-  &:hover {
-    border: 2px solid #fff;
-  }
-`;
-
-export const PlayButton = styled(BsPlayFill)`
-  font-size: 4rem;
-  color: #b6b6b6;
+  width: 10rem;
+  height: 40px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 0.5rem;
   &:hover {
     color: #fff;
   }
@@ -151,72 +176,77 @@ export const CloseCircle = styled(AiFillCloseCircle)`
     background-color: white;
   }
 `;
+// export const PlayButton = styled(BsFillPlayFill)`
+//   font-size: 4rem;
+// `;
 
 export const PlusCircle = styled(BsPlusLg)`
   border: 2px solid #b6b6b6;
   border-radius: 50%;
   padding: 0.5rem;
   color: #cccccc;
-  font-size: 3.5rem;
-  margin-left: 0.5rem;
-  max-width: 30px;
-  max-height: 30px;
+  font-size: 29px;
   &:hover {
     color: white;
     border-color: white;
   }
 `;
-export const ThumbsUp = styled(BsHandThumbsUp)`
-  border: 2px solid #b6b6b6;
-  border-radius: 50%;
-  padding: 0.5rem;
-  color: #cccccc;
-  font-size: 3.5rem;
-  margin-left: 0.5rem;
-  max-width: 30px;
-  max-height: 30px;
-  &:hover {
-    color: white;
-    border-color: white;
-  }
-`;
-export const RateIcons = styled.div``;
-
-
-export const VolumeIcon = styled(TbVolume3)`
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  font-size: 4rem;
-  color: #cccccc;
-  margin-left: auto;
-  margin-right: 0.5rem;
-  height: 30px;
-  width: 30px;
-  &:hover {
-    color: white;
-    border-color: white;
-  }
-`;
+// export const ThumbsUp = styled(BsHandThumbsUp)`
+//   border: 3px solid #ccc;
+//   border-radius: 50%;
+//   padding: 0.5rem;
+//   color: #cccccc;
+//   font-size: 3.5rem;
+//   margin-left: 1rem;
+//   &:hover {
+//     color: white;
+//     border-color: white;
+//   }
+// `;
+// export const RateIcons = styled.div``;
+// export const VolumeIcon = styled(TbVolume3)`
+//   border: 3px solid #ccc;
+//   border-radius: 50%;
+//   font-size: 4rem;
+//   color: #cccccc;
+//   margin-left: auto;
+//   margin-right: 1.5rem;
+//   &:hover {
+//     color: white;
+//     border-color: white;
+//   }
+// `;
 export const InfoCon = styled.div`
   display: flex;
+  gap: 1rem;
+  align-items: center;
   color: #fff;
   flex-direction: row;
-  font-size: 2rem;
-  
+  font-size: 1.2rem;
+`;
+
+export const MatchPerc = styled.div`
+  color: #46d369;
 `;
 export const AgeRes = styled.div`
-  display: flex;
-  background-color: transparent;
-  max-width: 33px;
-  padding: 0.25rem;
-  max-height: 33px;
-  border-radius: 50%;
-  align-items: center;
-  place-content: center;
-  justify-content: center;
-  border: 2px solid white;
-  font-weight: 600;
-  font-size: 3rem;
+  /* display: flex;
+justify-content: center;
+align-items: center;
+width: 1rem;
+  height: 1rem;
+  padding: 1.3rem;
+  line-height: 1.1rem;
+ font-size: 1rem;
+ text-align: center;
+background-color: black;
+border: 2px solid white; */
 `;
 export const Runtime = styled.div``;
+
+export const KeywordsContainer = styled.div`
+  /* padding: 0.5rem 1rem; */
+  font-size: 1.2rem;
+  color: white;
+`;
+
 //END VIDEOPLAYER

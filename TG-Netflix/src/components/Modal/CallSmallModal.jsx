@@ -5,18 +5,19 @@ import {
   SmallModal,
   SmallModalTop,
   SmallModalBottom,
-  VideoPlayer,
-  VideoPlay,
+
   VideoControls,
-  PlayButton,
   PlusCircle,
-  ThumbsUp,
-  RateIcons,
-  VolumeIcon,
+
   InfoCon,
   AgeRes,
   Runtime,
+  ArrowContainer,
+  MatchPerc,
+  ArrowDown,
+  KeywordsContainer
 } from './CallSmallModal.style';
+
 
 import YouTube from 'react-youtube';
 
@@ -70,9 +71,12 @@ const CallModal = (props) => {
   const runtime = (minutes) => {
     const hours = Math.floor(minutes / 60);
     const min = minutes % 60;
-    const result = hours + 'h ' + min + 'm'
+    const result = hours + 'h ' + min + 'm';
     return result;
   };
+
+  const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
+
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
@@ -88,25 +92,27 @@ const CallModal = (props) => {
 
         <SmallModalBottom>
           <VideoControls>
-          
-            <VideoPlay>
+            {/* <VideoPlay>
               <PlayButton />
-            </VideoPlay>
-            
+              Play
+            </VideoPlay> */}
             <PlusCircle />
-            
-            <ThumbsUp />
-            
-            <RateIcons />
-            
-            <VolumeIcon />
-          
+            {/* <ThumbsUp /> */}
+            {/* <RateIcons /> */}
+
+            <ArrowContainer>
+             <ArrowDown/>
+            </ArrowContainer>
+            {/* <VolumeIcon /> */}
           </VideoControls>
           <InfoCon>
-          
+            <MatchPerc>{matchPerc}% Match</MatchPerc>
             <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
             <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
           </InfoCon>
+          <KeywordsContainer>
+            Dark • Period • Ensemble
+          </KeywordsContainer>
         </SmallModalBottom>
       
       
