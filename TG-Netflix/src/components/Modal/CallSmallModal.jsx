@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { useRef, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovies } from '../../reducers/fetchReducer';
+
 import {
   SmallModalContainer,
   SmallModal,
   SmallModalTop,
   SmallModalBottom,
-
   VideoControls,
   PlusCircle,
-
   InfoCon,
   AgeRes,
   Runtime,
   ArrowContainer,
   MatchPerc,
   ArrowDown,
-  KeywordsContainer
+  KeywordsContainer,
 } from './CallSmallModal.style';
-
 
 import YouTube from 'react-youtube';
 
@@ -30,12 +30,13 @@ const CallSmallModal = (props) => {
   const bg =
     'https://image.tmdb.org/t/p/original' + props.data.dataset.backdrop;
   // let Trailer = props.movie.trailer;
-  let Trailer = 'https://www.youtube.com/watch?v=0IOsk2Vlc4o';
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
   const width = props.data.coords.right - props.data.coords.x;
   const height = props.data.coords.bottom - props.data.coords.y;
+  const dispatch = useDispatch();
+
   const coords = {
     left,
     top,
@@ -77,13 +78,33 @@ const CallSmallModal = (props) => {
 
   const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
 
+  const id = props.movieID;
+
+  const moviesInState = useSelector((state) => state.netflix.movies);
+
+
+  const movieInfoAr = moviesInState.filter((movie) => movie.id === +id);
+
+  if (movieInfoAr.length === 0) {
+    dispatch(getMovies(parseInt(+id)));
+  }
+  const movieInfo = movieInfoAr[0];
+
+  let trailer = movieInfo.trailer;
+
+  let keywords = [];
+  for (let i = 0; i < movieInfo.keywords.length; i++) {
+    keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords.slice(2))
+  }
+  console.log(keywords);
+
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
             <YouTube
-              videoId={Trailer}
+              videoId={trailer}
               opts={opts}
               style={{ height: 'inherit' }}
             />
@@ -101,18 +122,16 @@ const CallSmallModal = (props) => {
             {/* <RateIcons /> */}
 
             <ArrowContainer>
-             <ArrowDown/>
+              <ArrowDown />
             </ArrowContainer>
             {/* <VolumeIcon /> */}
           </VideoControls>
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
-            <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
-            <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
+            <AgeRes>{movieInfo.age_certificate}</AgeRes>
+            <Runtime>{runtime(movieInfo.runtime)}</Runtime>
           </InfoCon>
-          <KeywordsContainer>
-            Dark • Period • Ensemble
-          </KeywordsContainer>
+          <KeywordsContainer>{movieInfo.keywords}</KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
     </SmallModalContainer>

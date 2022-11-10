@@ -64,9 +64,10 @@ const CallBigModal = (props) => {
 
   const id = browseMovieID.get('movieID') * 1;
   const moviesInState = useSelector((state) => state.netflix.movies);
-
+  // console.log(moviesInState)
+  console.log(id)
   const movieInfoAr = moviesInState.filter((movie) => movie.id === id);
-
+// console.log(movieInfoAr)
   if (movieInfoAr.length === 0) {
     dispatch(getMovies(parseInt(id)));
   }
