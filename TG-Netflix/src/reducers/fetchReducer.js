@@ -27,32 +27,11 @@ export const getBrowse = createAsyncThunk(
       { params: { banner, categories, page } }
     );
     const browse = data;
-    // console.log(browse);
+
     return browse;
   }
 );
 
-export const getMovies = createAsyncThunk("netflix/movies", async () => {
-  //fetches /movie data
-  const { data } = await axios.get(
-    `https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`
-  );
-  const movie = data;
-  // console.log(movie);
-  return movie;
-});
-
-//Added Error casses. Redirect Error to 404 Page component??
-const NetflixSlice = createSlice({
-  name: "Netflix",
-  initialState,
-
-  //make reducers to set browse and movie states
-  extraReducers: (builder) => {
-    //this is when the  /browse data has been fully fetched
-    builder.addCase(getBrowse.fulfilled, (state, action) => {
-      const categorypayload = action.payload.categories;
-      const bannerpayload = action.payload.banner;
 
       if (state.browse == [] || state.browse.length == 0) {
         state.browse = [categorypayload, bannerpayload];

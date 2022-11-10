@@ -3,23 +3,32 @@ import bg from '../../assets/not-found-images/bg-lost-in-space.png';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 6.8rem 7fr 4fr 6rem;
+  grid-template-rows: 4.1rem 7fr 4fr 6rem;
   height: 100vh;
   color: white;
   background-image: url(${bg});
   background-size: cover;
   background-position: center;
+
+  @media (min-width: 950px) {
+    grid-template-rows: 6.8rem 7fr 4fr 6rem;
+  }
 `;
 
 export const Navbar = styled.header`
   grid-row-start: 1;
   display: flex;
   align-items: center;
-  padding-left: 30px;
+  padding-left: 10px;
   background-color: var(--black);
 
   img {
-    width: 115px;
+    width: 80px;
+
+    @media (min-width: 950px) {
+      width: 120px;
+      padding-left: 35px;
+    }
   }
 `;
 

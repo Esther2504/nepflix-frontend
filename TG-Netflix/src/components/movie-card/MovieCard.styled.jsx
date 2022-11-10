@@ -10,15 +10,17 @@ export const Card = styled.div`
   span {
     position: absolute;
     width: 100%;
-    padding: 0 5px;
+    padding: 0 10px;
     bottom: 7px;
-    font-family: Manrope;
-    text-align: center;
+
+    font-family: manrope;
     line-height: 0.9;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 600;
     color: white;
-    text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.75);
+    font-weight: 550;
+    line-height: 1;
+    text-shadow: 1px 1px 1px rgb(20, 20, 20);
 
     @media (min-width: 600px) {
       font-size: 1.4rem;
