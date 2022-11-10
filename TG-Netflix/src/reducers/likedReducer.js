@@ -16,30 +16,9 @@ const likedSlice = createSlice({
             const checkMovieInState = state.likedMovies.find((movie)=> movie.id ===action.payload.id)
             if(!checkMovieInState){
                 state.likedMovies = [...state.likedMovies, action.payload]
-            }
-            
-
-
-            // const itemIndex = state.likedMovies.findIndex(
-            //     (item) => item.id === action.payload.id
-            // );
-            // if (itemIndex >=0) {
-            //     console.log('already in liked movies list');
-            // }
-            // else {
-            //     const tempLiked = { ...action.payload, id};
-            //     state.likedMovies.push(tempLiked);
-            // }
-            // localStorage.setItem("likedMovies", 
-            // JSON.stringify(state.likedMovies)
-            // );
+            }  
         },
-
-        //  no.. no need to remove from list :)
-
-
-    },
-    
+    },  
 });
 
 export const { addToList } = likedSlice.actions;

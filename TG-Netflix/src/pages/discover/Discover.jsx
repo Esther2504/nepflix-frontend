@@ -37,9 +37,7 @@ export default function Discover({ banner, categories, movie }) {
   const handleAddToMyList = (e) => {
     let r;
     categoriesState.forEach((categorie)=>{
-      console.log(movieID);
      r = categorie.movies.find((movie) => movie.id === movieID)
-     console.log(r);
       if(r){
         dispatch(addToList(r))
       }

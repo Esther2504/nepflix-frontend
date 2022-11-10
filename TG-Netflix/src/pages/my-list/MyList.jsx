@@ -20,12 +20,17 @@ export default function MyList() {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
   const [movieID, setMovieID] = useState();
+
+  const getMovieID = browseMovieID.get('movieID');
+
   //add eventlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
+        console.log('sda')
         if (e.target.getAttribute("id")) {
+          
           setMovieID(e.target.dataset.id);
           setDataset(film.dataset);
           setIsHovering(true);
@@ -39,7 +44,7 @@ export default function MyList() {
       setIsHovering(false);
     });
   }, []);
-// console.log(movieID)
+  // console.log(movieID)
 
 
   const openBigModal = () => {
@@ -49,7 +54,7 @@ export default function MyList() {
 
 
   const liked = useSelector(state => state.liked.likedMovies);
-   console.log(liked)
+  console.log(liked)
 
   return (
     <>
@@ -58,17 +63,17 @@ export default function MyList() {
           <Title>My List</Title>
         </TitleWrapper>
         <GridContainer>
-       
-        {isHovering && (
-              <CallSmallModal
-                onMouseLeave={() => setIsHovering(false)}
-                hover={isHovering}
-                setIsHovering={setIsHovering}
-                data={{ coords: coords, dataset: dataset, movie: movie }}
-                onClick={openBigModal}
-              />
-            )}
-            {globalModalState.modalState && <CallBigModal  {...movieDetails}/>}
+
+          {isHovering && (
+            <CallSmallModal
+              onMouseLeave={() => setIsHovering(false)}
+              hover={isHovering}
+              setIsHovering={setIsHovering}
+              data={{ coords: coords, dataset: dataset, movie: movieID }}
+              onClick={openBigModal}
+            />
+          )}
+          {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
 
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />
