@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getMovies } from '../../reducers/fetchReducer';
+import YouTube from 'react-youtube';
 
 import {
   SmallModalContainer,
@@ -19,8 +19,6 @@ import {
   KeywordsContainer,
 } from './CallSmallModal.style';
 
-import YouTube from 'react-youtube';
-
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
   useEffect(() => {
@@ -29,13 +27,13 @@ const CallSmallModal = (props) => {
 
   const bg =
     'https://image.tmdb.org/t/p/original' + props.data.dataset.backdrop;
-  // let Trailer = props.movie.trailer;
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
   const width = props.data.coords.right - props.data.coords.x;
   const height = props.data.coords.bottom - props.data.coords.y;
   const dispatch = useDispatch();
+  const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
 
   const coords = {
     left,
@@ -76,13 +74,8 @@ const CallSmallModal = (props) => {
     return result;
   };
 
-  const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
-
   const id = props.movieID;
-
   const moviesInState = useSelector((state) => state.netflix.movies);
-
-
   const movieInfoAr = moviesInState.filter((movie) => movie.id === +id);
 
   if (movieInfoAr.length === 0) {
@@ -92,7 +85,9 @@ const CallSmallModal = (props) => {
 
   let keywords = [];
   for (let i = 0; i < movieInfo?.keywords.length; i++) {
-    keywords.push(movieInfo?.keywords[i][0].toUpperCase() + movieInfo?.keywords[i].slice(1))
+    keywords.push(
+      movieInfo?.keywords[i][0].toUpperCase() + movieInfo?.keywords[i].slice(1)
+    );
   }
 
   return (
@@ -110,24 +105,18 @@ const CallSmallModal = (props) => {
 
         <SmallModalBottom>
           <VideoControls>
-            {/* <VideoPlay>
-              <PlayButton />
-              Play
-            </VideoPlay> */}
             <PlusCircle />
-            {/* <ThumbsUp /> */}
-            {/* <RateIcons /> */}
-
             <ArrowContainer>
               <ArrowDown />
             </ArrowContainer>
-            {/* <VolumeIcon /> */}
           </VideoControls>
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
-            <AgeRes>{movieInfo?.age_certificate.includes("PG-") ? movieInfo?.age_certificate.slice(3) : movieInfo?.age_certificate}
-
-</AgeRes>
+            <AgeRes>
+              {movieInfo?.age_certificate.includes('PG-')
+                ? movieInfo?.age_certificate.slice(3)
+                : movieInfo?.age_certificate}
+            </AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
           <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
