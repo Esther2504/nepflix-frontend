@@ -48,7 +48,7 @@ export default function MyList() {
   };
 
 
-  const liked = useSelector(state => state.netflix.liked);
+  const liked = useSelector(state => state.likedmovies);
   // console.log(liked)
 
   return (
@@ -57,7 +57,7 @@ export default function MyList() {
         <TitleWrapper>
           <Title>My List</Title>
         </TitleWrapper>
-        <GridContainer>
+        {/* <GridContainer>
        
         {isHovering && (
               <CallSmallModal
@@ -73,7 +73,7 @@ export default function MyList() {
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />
           })};
-        </GridContainer>
+        </GridContainer> */}
         <Footer />
       </div>
     </>
