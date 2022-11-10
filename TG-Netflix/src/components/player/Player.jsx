@@ -16,7 +16,9 @@ import muted from '../../assets/muted.svg';
 import { getCurrentTime, setCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
 
 function Player() {
-    const { overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
+    const { overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse[1])
+
+    
     const dispatch = useDispatch();
     // REF
     const playerRef = useRef(null);
@@ -131,7 +133,7 @@ function Player() {
 
     return (
         <>
-            <PlayerStyles modal={modal}>
+            <PlayerStyles>
                 <div className='banner-container'>
                     <div
                         className='banner'

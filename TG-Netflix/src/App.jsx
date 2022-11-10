@@ -41,11 +41,11 @@ function App() {
 
   //Code below from line 22 to26 can be set back in after no further changes needs to be made in the codes.
   //Calls data from GlobalState
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMovies());
-    dispatch(getBrowse());
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getMovies());
+  //   dispatch(getBrowse());
+  // }, []);
 
   //Timeout for LocalStorage possibly to be added in useEffect??
   //Add setTimeout?

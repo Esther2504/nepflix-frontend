@@ -39,20 +39,6 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
 });
 
 
-      if (state.browse == [] || state.browse.length == 0) {
-        state.browse = [categorypayload, bannerpayload];
-      } else {
-        for (let i = 0; i < categorypayload.length; i++) {
-          const found = state.browse[0].find(
-            (element) => element == categorypayload[i]
-          );
-          // console.log(!found);
-          if (!found) {
-            state.browse[0].push(categorypayload[i])
-          }
-        }
-      }
-
 const NetflixSlice = createSlice({
     name: "Netflix",
     initialState,
@@ -60,7 +46,22 @@ const NetflixSlice = createSlice({
     extraReducers: (builder) => {
         //this is when the  /browse data has been fully fetched
         builder.addCase(getBrowse.fulfilled, (state, action) => {
-            state.browse = action.payload;
+            // state.browse = action.payload;
+          const categorypayload = action.payload.categories;
+          const bannerpayload = action.payload.banner;
+            if (state.browse == [] || state.browse.length == 0) {
+              state.browse = [categorypayload, bannerpayload];
+            } else {
+              for (let i = 0; i < categorypayload.length; i++) {
+                const found = state.browse[0].find(
+                  (element) => element == categorypayload[i]
+                );
+                // console.log(!found);
+                if (!found) {
+                  state.browse[0].push(categorypayload[i])
+                }
+              }
+            }
             state.browseLoaded = true;
             state.browseError = "";
         });
