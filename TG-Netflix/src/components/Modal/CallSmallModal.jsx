@@ -21,7 +21,7 @@ import {
 
 import YouTube from 'react-youtube';
 
-const CallModal = (props) => {
+const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
   useEffect(() => {
     setsWidth(window.innerWidth);
@@ -119,4 +119,4 @@ const CallModal = (props) => {
   );
 };
 
-export default CallModal;
+export default CallSmallModal;
