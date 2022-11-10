@@ -52,36 +52,12 @@ function App() {
   const dispatch = useDispatch();
   const time = 0.05; // to clear the localStorage ~3min
 
-  let categoryList = [
-    "action",
-    "adventure",
-    "animation",
-    "comedy",
-    "crime",
-    "documentary",
-    "drama",
-    "family",
-    "fantasy",
-    "history",
-    "horror",
-    "music",
-    "mystery",
-    "romance",
-    "science_fiction",
-    "tv_movie",
-    "thriller",
-    "war",
-    "action",
-    "adventure",
-    "western",
-  ];
-
   useEffect(() => {
     const currentTime = new Date().getTime();
     const worked = 'I worked';
     const setupTime = localStorage.getItem('setupTime');
     const banner = true;
-    const categories = 'top_rated,popular,latest';
+    const categories = 'top_rated,popular,action';
 
     if (setupTime == null) {
       localStorage.setItem('setupTime', currentTime);

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBrowse } from "../../reducers/fetchReducer";
 
-function LaneHandler({ movie }) {
+function LaneHandler() {
   const { ref, inView } = useInView({
     threshold: 1,
   });
@@ -16,7 +16,6 @@ function LaneHandler({ movie }) {
   const dispatch = useDispatch();
 
   const categoryList = [
-    "action",
     "adventure",
     "animation",
     "comedy",
@@ -35,6 +34,7 @@ function LaneHandler({ movie }) {
     "thriller",
     "war",
     "western",
+    "latest",
   ];
 
   const loadedCategories = useSelector((state) => state.netflix.browse[0]);

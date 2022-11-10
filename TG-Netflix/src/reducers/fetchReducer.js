@@ -20,14 +20,14 @@ const initialState = {
 export const getBrowse = createAsyncThunk(
   "netflix/browse",
   async ({ banner, categories, page }) => {
-    console.log(banner, categories, page);
+    // console.log(banner, categories, page);
     //fetches /Browse data
     const { data } = await axios.get(
       `https://tg-nepflix.azurewebsites.net/browse`,
       { params: { banner, categories, page } }
     );
     const browse = data;
-    console.log(browse);
+    // console.log(browse);
     return browse;
   }
 );
@@ -61,7 +61,7 @@ const NetflixSlice = createSlice({
           const found = state.browse[0].find(
             (element) => element == categorypayload[i]
           );
-          console.log(!found);
+          // console.log(!found);
           if (!found) {
             state.browse[0].push(categorypayload[i])
           }
