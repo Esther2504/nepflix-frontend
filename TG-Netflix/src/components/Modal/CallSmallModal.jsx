@@ -78,10 +78,8 @@ const CallModal = (props) => {
     const result = hours + 'h ' + min + 'm';
     return result;
   };
-  const dispatch = useDispatch();
-  const handleAddToMyList = (movie) => {
-    dispatch(addToList(movie));
-  };
+
+
 
 
   const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
@@ -105,7 +103,7 @@ const CallModal = (props) => {
               <PlayButton />
               Play
             </VideoPlay> */}
-            <PlusCircle onClick={() => handleAddToMyList(movie)}/>
+            <PlusCircle onClick={(e) => props.handleAddToMyList(e)}/>
             {/* <ThumbsUp /> */}
             {/* <RateIcons /> */}
 

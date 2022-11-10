@@ -42,8 +42,8 @@ function App() {
   // Calls data from GlobalState
   const dispatch = useDispatch();
   useEffect(() => {
-    // dispatch(getMovies());
-    // dispatch(getBrowse());
+    dispatch(getMovies());
+    dispatch(getBrowse());
     // dispatch(getLiked());
   }, []);
 
