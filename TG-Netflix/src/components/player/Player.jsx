@@ -14,9 +14,12 @@ import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 import { getCurrentTime, setCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
+import { useSearchParams } from 'react-router-dom';
+
 
 function Player() {
-    const { overview, age_certificate, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse[1])
+    const { overview, age_certificate, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
+    console.log(id)
 
     
     const dispatch = useDispatch();
@@ -38,6 +41,7 @@ function Player() {
 
     // MODAL STATE
     const [coords, setCoords] = useState(false);
+    const [movieID, setMovieId] = useSearchParams();
 
     const muteVideo = () => {
         playerRef.current.internalPlayer.mute();
@@ -91,6 +95,7 @@ function Player() {
 
     //  MORE INFO BUTTON: OPENS MODAL, PAUSES VID & OPENS BACKDROP
     const moreInfoButton = () => {
+        setMovieId({movieID: id})
         dispatch(openModal({ modalState: true, coords: coords }))
         playerRef.current.internalPlayer.pauseVideo();
         const playtime = playerRef.current.internalPlayer.getCurrentTime();

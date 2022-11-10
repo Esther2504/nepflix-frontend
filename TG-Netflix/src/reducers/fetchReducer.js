@@ -24,7 +24,7 @@ export const getBrowse = createAsyncThunk("netflix/browse", async ({ banner, cat
         `https://tg-nepflix.azurewebsites.net/browse`, { params: { banner, categories, page } }
     );
     const browse = data;
-
+    // console.log(browse)
     return browse;
 });
 

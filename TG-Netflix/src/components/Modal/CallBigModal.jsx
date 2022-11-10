@@ -29,9 +29,10 @@ import {
   Error
 } from './CallBigModal.styled';
 import { closeModal, getMovieID } from '../../reducers/modalReducer';
-import BigModalPlayer from "../player/BigModalPlayer";
+import Player from "../player/Player";
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from '../../reducers/fetchReducer';
+
 
 const CallBigModal = (props) => {
   //REF's
