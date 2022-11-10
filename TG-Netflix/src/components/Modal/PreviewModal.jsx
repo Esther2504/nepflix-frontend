@@ -42,7 +42,7 @@ function PreviewModal(data) {
         <MaturityContainer>
           <RatingContainer>
             <PreviewMaturityRating>
-              {data.movie.age_certificate}
+              {data.movie.age_certificate.includes("PG-") ? data.movie.age_certificate.slice(3) : data.movie.age_certificate}
             </PreviewMaturityRating>
           </RatingContainer>
           <PreviewAddToList />

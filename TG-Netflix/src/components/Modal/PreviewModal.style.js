@@ -98,6 +98,7 @@ width: 3rem;
   /* border-radius: 50%; */
 background-color: black;
 border: 2px solid white;
+border-radius: 50%;
 `
 
 export const PreviewMaturityRating = styled.div`
