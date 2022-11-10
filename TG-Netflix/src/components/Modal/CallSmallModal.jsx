@@ -90,11 +90,9 @@ const CallSmallModal = (props) => {
   }
   const movieInfo = movieInfoAr[0];
 
-  let trailer = movieInfo.trailer;
-
   let keywords = [];
-  for (let i = 0; i < movieInfo.keywords.length; i++) {
-    keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
+  for (let i = 0; i < movieInfo?.keywords.length; i++) {
+    keywords.push(movieInfo?.keywords[i][0].toUpperCase() + movieInfo?.keywords[i].slice(1))
   }
 
   return (
@@ -103,7 +101,7 @@ const CallSmallModal = (props) => {
         <SmallModalTop bg={bg}>
           {videoState && (
             <YouTube
-              videoId={trailer}
+              videoId={movieInfo?.trailer}
               opts={opts}
               style={{ height: 'inherit' }}
             />
@@ -127,10 +125,10 @@ const CallSmallModal = (props) => {
           </VideoControls>
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
-            <AgeRes>{movieInfo.age_certificate.includes("PG-") ? movieInfo.age_certificate.slice(3) : movieInfo.age_certificate}
+            <AgeRes>{movieInfo?.age_certificate.includes("PG-") ? movieInfo?.age_certificate.slice(3) : movieInfo?.age_certificate}
 
 </AgeRes>
-            <Runtime>{runtime(movieInfo.runtime)}</Runtime>
+            <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
           <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
         </SmallModalBottom>
