@@ -32,7 +32,7 @@ export default function SlideContent(props) {
             <img
               width={props.imageWidth}
               height={props.imageHeight}
-              src={'https://image.tmdb.org/t/p/original' + item.backdrop_path}
+              src={item.backdrop_path}
               alt={item.title}
               id={item.id}
             />
