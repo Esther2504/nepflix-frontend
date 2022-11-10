@@ -33,6 +33,27 @@ export const getBrowse = createAsyncThunk(
 );
 
 
+export const getMovies = createAsyncThunk("netflix/movies", async () => {
+  //fetches /movie data
+  const { data } = await axios.get(
+    `https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`
+  );
+  const movie = data;
+  // console.log(movie);
+  return movie;
+});
+
+const NetflixSlice = createSlice({
+  name: "Netflix",
+  initialState,
+
+  //make reducers to set browse and movie states
+  extraReducers: (builder) => {
+    //this is when the  /browse data has been fully fetched
+    builder.addCase(getBrowse.fulfilled, (state, action) => {
+      const categorypayload = action.payload.categories;
+      const bannerpayload = action.payload.banner;
+
       if (state.browse == [] || state.browse.length == 0) {
         state.browse = [categorypayload, bannerpayload];
       } else {

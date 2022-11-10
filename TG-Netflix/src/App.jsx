@@ -49,7 +49,7 @@ function App() {
 
   //Timeout for LocalStorage possibly to be added in useEffect??
   //Add setTimeout?
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const time = 0.05; // to clear the localStorage ~3min
 
   useEffect(() => {
