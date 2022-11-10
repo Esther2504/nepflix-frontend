@@ -22,6 +22,7 @@ export default function Discover({ banner, categories, movie }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
+
   //END STATE
 
   //check if linked to a direct movie
@@ -56,6 +57,9 @@ export default function Discover({ banner, categories, movie }) {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
+
+
+
 
   return (
     <>
