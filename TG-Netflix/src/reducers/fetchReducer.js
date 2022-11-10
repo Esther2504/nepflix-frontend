@@ -28,11 +28,11 @@ export const getBrowse = createAsyncThunk("netflix/browse", async ({ banner, cat
     return browse;
 });
 
-export const getMovies = createAsyncThunk("netflix/movies", async () => {
+export const getMovies = createAsyncThunk("netflix/movies", async (id) => {
     //fetches /movie data
-    const { data } = await axios.get(
-        `https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`
-    );
+    const {
+        data,
+    } = await axios.get(`https://tg-nepflix.azurewebsites.net/movie/${id}?similar=true`);
     const movie = data;
 
     return movie;
@@ -40,45 +40,64 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
 
 
 const NetflixSlice = createSlice({
-    name: "Netflix",
-    initialState,
-    //make reducers to set browse and movie states
-    extraReducers: (builder) => {
-        //this is when the  /browse data has been fully fetched
-        builder.addCase(getBrowse.fulfilled, (state, action) => {
-            // state.browse = action.payload;
-          const categorypayload = action.payload.categories;
-          const bannerpayload = action.payload.banner;
-            if (state.browse == [] || state.browse.length == 0) {
-              state.browse = [categorypayload, bannerpayload];
-            } else {
-              for (let i = 0; i < categorypayload.length; i++) {
-                const found = state.browse[0].find(
-                  (element) => element == categorypayload[i]
-                );
-                // console.log(!found);
-                if (!found) {
-                  state.browse[0].push(categorypayload[i])
-                }
-              }
-            }
-            state.browseLoaded = true;
-            state.browseError = "";
-        });
-        //   .addCase(getBrowse.error(), (state, action) => {
-        //     state.browse = "";
-        //     state.browseLoaded = true;
-        //     state.browseError = error;
-        //   });
-        //can do .addCase to set other status to the same builder, such ass; Pending and Error
-        //this is when the /movie has been fully fetched
-        builder.addCase(getMovies.fulfilled, (state, action) => {
-            state.movies = action.payload;
-            state.moviesLoaded = true;
-            state.moviesError = "";
-        });
+  name: "Netflix",
+  initialState,
 
-    },
+  //make reducers to set browse and movie states
+  extraReducers: (builder) => {
+    //this is when the  /browse data has been fully fetched
+    builder.addCase(getBrowse.fulfilled, (state, action) => {
+      const categorypayload = action.payload.categories;
+      const bannerpayload = action.payload.banner;
+
+      if (state.browse == [] || state.browse.length == 0) {
+        state.browse = [categorypayload, bannerpayload];
+      } else {
+        for (let i = 0; i < categorypayload.length; i++) {
+          const found = state.browse[0].find(
+            (element) => element == categorypayload[i]
+          );
+          // console.log(!found);
+          if (!found) {
+            state.browse[0].push(categorypayload[i])
+          }
+        }
+      }
+
+      // loop through payload.categories
+      // check for each: does it exist in state.browse
+      // if it doesn't: append to state.browse
+      // if it does: check if Number(category.page) > Number(same category in state.page)
+      // if it is: append category.movies to existing one in state.
+      // if it is: also update number
+      // if it isn't: replace category in state with current payload category.
+      // state.browse = action.payload;
+      // console.log(state.browse.categories)
+      state.browseLoaded = true;
+      state.browseError = "";
+    });
+    //   .addCase(getBrowse.error(), (state, action) => {
+    //     state.browse = "";
+    //     state.browseLoaded = true;
+    //     state.browseError = error;
+    //   });
+    //can do .addCase to set other status to the same builder, such ass; Pending and Error
+    //this is when the /movie has been fully fetched
+    builder.addCase(getMovies.fulfilled, (state, action) => {
+            const checkIfMovieInState = state.movies.find((movie)=> movie.id === action.payload.id)
+            if(!checkIfMovieInState){
+          state.movies = [...state.movies, action.payload]
+            } 
+            console.log(state);
+      state.moviesLoaded = true;
+      state.moviesError = "";
+    });
+    // .addCase(getMovies.error, (state, action) => {
+    //     state.movies = "";
+    //     state.moviesLoaded = true;
+    //     state.moviesError = error;
+    //   });
+  },
 });
 
 export default NetflixSlice.reducer;
