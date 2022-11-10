@@ -9,10 +9,10 @@ import CallBigModal from "../../components/Modal/CallBigModal";
 import FilterMenu from "../../components/filterknop/FilterMenu";
 import categoriesMock from "../../mock-data/browse_categories_banner.mock.json";
 import GridLayout from "../../components/grid-layout/GridLayout";
-import { openModal, closeModal } from '../../reducers/modalReducer';
-import { useParams } from 'react-router-dom';
-import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
-import { getMovies, getBrowse} from "../../reducers/fetchReducer";
+import { openModal, closeModal } from "../../reducers/modalReducer";
+import { useParams } from "react-router-dom";
+import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import { getMovies, getBrowse } from "../../reducers/fetchReducer";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -31,39 +31,38 @@ export default function Films({ banner, categories, movie }) {
   const [genre, setGenre] = useState("");
 
   //END STATE
-  
+
   let movies = categoriesMock.categories;
 
   const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
-  console.log(loadedCategories)
+  console.log(loadedCategories);
 
-    //add evenlistener for small modal
-    useEffect(() => {
-      const films = document.querySelectorAll('#movie');
-      films.forEach((film) => {
-        film.addEventListener('mouseenter', (e) => {
-          if (e.target.getAttribute('id')) {
-            setDataset(film.dataset);
-            setIsHovering(true);
-            dispatch(getMovies(e.target.dataset.id))
-            setMovieID(e.target.dataset.id);
-            setCoords(e.target.getBoundingClientRect());
-          }
-        });
+  //add evenlistener for small modal
+  useEffect(() => {
+    const films = document.querySelectorAll("#movie");
+    films.forEach((film) => {
+      film.addEventListener("mouseenter", (e) => {
+        if (e.target.getAttribute("id")) {
+          setDataset(film.dataset);
+          setIsHovering(true);
+          dispatch(getMovies(e.target.dataset.id));
+          setMovieID(e.target.dataset.id);
+          setCoords(e.target.getBoundingClientRect());
+        }
       });
-  
-      window.addEventListener('click', (e) => {
-        e.stopPropagation();
-        setIsHovering(false);
-      });
-    }, []);
-  
-    const openBigModal = () => {
-      setBrowseMovieID({ movieID: movieID });
-      dispatch(openModal({ modalState: true, coords }));
-    };
-  
+    });
+
+    window.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setIsHovering(false);
+    });
+  }, []);
+
+  const openBigModal = () => {
+    setBrowseMovieID({ movieID: movieID });
+    dispatch(openModal({ modalState: true, coords }));
+  };
 
   // if (genre != "") {
   //   // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
@@ -80,7 +79,7 @@ export default function Films({ banner, categories, movie }) {
   // }
 
   movies = movies.movies;
-  
+
   let location = useLocation();
 
   // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh
@@ -103,24 +102,21 @@ export default function Films({ banner, categories, movie }) {
         <FilterMenu setGenre={setGenre} genre={genre} />
         {genre == "" ? (
           <>
-        {isHovering && (
-          <CallSmallModal
-            onMouseLeave={() => setIsHovering(false)}
-            hover={isHovering}
-            data={{ coords: coords, dataset: movieDetails }}
-            onClick={openBigModal}
-          />
-        )}
-        {globalModalState.modalState && <CallBigModal movieID={movieID} />}
+            {isHovering && (
+              <CallSmallModal
+                onMouseLeave={() => setIsHovering(false)}
+                hover={isHovering}
+                data={{ coords: coords, dataset: movieDetails }}
+                onClick={openBigModal}
+              />
+            )}
+            {globalModalState.modalState && <CallBigModal movieID={movieID} />}
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
           <GridLayout
             genre={genre}
             setGenre={setGenre}
-            // movies={loadedCategories}
-            // categories={loadedCategories}
-            // movie1={movie}
           />
         )}
 

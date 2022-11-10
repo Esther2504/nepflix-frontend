@@ -8,7 +8,7 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 import CallBigModal from "../Modal/CallBigModal";
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { Card } from "../movie-card/MovieCard.styled";
-import { getMovies, getBrowse} from "../../reducers/fetchReducer";
+import { getMovies, getBrowse } from "../../reducers/fetchReducer";
 
 export default function GridLayout({ genre, setGenre, movie, categories }) {
   const { moviegenre } = useParams();
@@ -31,12 +31,6 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
   let movies = loadedCategories;
 
   if (genre != "") {
-    // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
-
-    // const categories = genre
-    // dispatch(getBrowse({ categories }));
-
-    // // If/else statement is tijdelijk omdat de genres niet in de mockdata staan
     if (
       loadedCategories.find((item) => item.name.toLowerCase() === `${genre}`)
     ) {
@@ -65,7 +59,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
         if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
-          dispatch(getMovies(e.target.dataset.id))
+          dispatch(getMovies(e.target.dataset.id));
           setMovieID(e.target.dataset.id);
           setCoords(e.target.getBoundingClientRect());
         }
@@ -87,17 +81,17 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
     <>
       {isHovering && (
         <CallSmallModal
-        onMouseLeave={() => setIsHovering(false)}
-        hover={isHovering}
-        setIsHovering={setIsHovering}
-        data={{ coords: coords, dataset: dataset, movie: movieID }}
-        onClick={openBigModal}
+          onMouseLeave={() => setIsHovering(false)}
+          hover={isHovering}
+          setIsHovering={setIsHovering}
+          data={{ coords: coords, dataset: dataset, movie: movieID }}
+          onClick={openBigModal}
         />
       )}
       {globalModalState.modalState && <CallBigModal movieID={movieID} />}
       <GridContainer>
         {movies.movies.map((movie, index) => {
-          return <MovieCard key={index} movie={movie} />
+          return <MovieCard key={index} movie={movie} />;
         })}
       </GridContainer>
     </>
