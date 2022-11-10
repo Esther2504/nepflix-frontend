@@ -12,7 +12,7 @@ import GridLayout from "../../components/grid-layout/GridLayout";
 import { openModal, closeModal } from '../../reducers/modalReducer';
 import { useParams } from 'react-router-dom';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
-import { getBrowse } from "../../reducers/fetchReducer";
+import { getMovies, getBrowse} from "../../reducers/fetchReducer";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -46,6 +46,7 @@ export default function Films({ banner, categories, movie }) {
           if (e.target.getAttribute('id')) {
             setDataset(film.dataset);
             setIsHovering(true);
+            dispatch(getMovies(e.target.dataset.id))
             setMovieID(e.target.dataset.id);
             setCoords(e.target.getBoundingClientRect());
           }
@@ -110,7 +111,7 @@ export default function Films({ banner, categories, movie }) {
             onClick={openBigModal}
           />
         )}
-        {globalModalState.modalState && <CallBigModal {...movieDetails} />}
+        {globalModalState.modalState && <CallBigModal movieID={movieID} />}
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
