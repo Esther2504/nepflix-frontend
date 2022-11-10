@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { GridContainer } from "./GridLayout.styled";
 import MovieCard from "../movie-card/MovieCard";
-import CallModal from "../Modal/CallSmallModal";
+import CallSmallModal from "../../components/Modal/CallSmallModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
 import CallBigModal from "../Modal/CallBigModal";
@@ -24,9 +24,7 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
           setDataset(film.dataset);
           setIsHovering(true);
           setCoords(e.target.getBoundingClientRect());
-          dispatch(
-            openModal({ modalState: false, coords: coords, movie: movie })
-          );
+          dispatch(openModal({ modalState: false, coords: coords }));
         }
       });
     });
@@ -40,11 +38,11 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
   const openBigModal = () => {
     dispatch(openModal({ modalState: true, coords }));
   };
-
+  
     return (
     <>
       {isHovering && (
-        <CallModal
+        <CallSmallModal
           onMouseLeave={() => setIsHovering(false)}
           hover={isHovering}
           data={{ coords: coords, dataset: dataset, movie: movie }}

@@ -28,7 +28,7 @@ const CallModal = (props) => {
   }, [sWidth]);
 
   const bg =
-    'https://image.tmdb.org/t/p/original' + props.data.dataset.backdrop;
+    props.data.dataset.backdrop;
   // let Trailer = props.movie.trailer;
   let Trailer = 'https://www.youtube.com/watch?v=0IOsk2Vlc4o';
   const left = props.data.coords.x;

@@ -8,7 +8,7 @@ import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import FilterMenu from "../../components/filterknop/FilterMenu";
 // import Lanes from "../lanes/lanes";
-import Grid from "../grid/grid";
+// import Grid from "../grid/grid";
 import browseMockData from "../../mock-data/browse_categories_banner.mock.json";
 import movieDetailsMock from "../../mock-data/movie_details_similar.mock.json";
 import { GridContainer } from "../../components/grid-layout/GridLayout.styled";
