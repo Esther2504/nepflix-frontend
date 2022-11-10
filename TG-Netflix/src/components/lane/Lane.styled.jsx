@@ -4,7 +4,26 @@ import styled from "styled-components";
 export const LaneContainer = styled.div`
 /* margin-top: -10rem; */
 /* transform: translateY(-12vw); */
-margin-bottom: 3.5rem;
+margin-bottom: 2rem;
+
+@media (min-width: 600px) {
+      margin-bottom: 2.3rem;
+    }
+    @media (min-width: 700px) {
+      margin-bottom: 2.6rem;
+    }
+    @media (min-width: 800px) {
+      margin-bottom: 2.9rem;
+    }
+    @media (min-width: 900px) {
+      margin-bottom: 3.1rem;
+    }
+    @media (min-width: 1000px) {
+      margin-bottom: 3.4rem;
+    }
+    @media (min-width: 1100px) {
+      margin-bottom: 3.7rem;
+    }
 `;
 
 export const LaneWrapper = styled.div`
@@ -24,8 +43,8 @@ export const TopWrapper = styled.div`
 export const LaneTitle = styled.div`
   color: #e5e5e5;
   width: 90vw;
-  font-size: 1.3rem;
-  margin: 0 auto;
+  font-size: 1rem;
+  margin: 0 auto .3rem auto;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -35,22 +54,23 @@ export const LaneTitle = styled.div`
   text-shadow: 1px 1px 1px black;
 
   @media (min-width: 600px) {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
     }
     @media (min-width: 700px) {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     @media (min-width: 800px) {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
     @media (min-width: 900px) {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
     }
     @media (min-width: 1000px) {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
     }
     @media (min-width: 1100px) {
-      font-size: 2rem;
+      font-size: 1.6rem;
+      margin: 0 auto .5rem auto;
     }
 `;
 
@@ -103,6 +123,7 @@ export const ScrollLeftButton = styled.span`
   transition: font-size 70ms linear;
   opacity: 0;
   pointer-events: none;
+  user-select: none;
   &:hover {
     font-size: 28px;
   }
