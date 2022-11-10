@@ -104,6 +104,11 @@ const CallBigModal = (props) => {
     }
   };
 
+  let keywords = [];
+  for (let i = 0; i < movieInfo.keywords.length; i++) {
+    keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
+  }
+
   return (
     <>
       <ModalContainer ref={modalRefContainer}>
@@ -141,7 +146,7 @@ const CallBigModal = (props) => {
                     </Genres>
                     <Tags>
                       <span>This programme is: </span>
-                      {movieInfo?.keywords + ' '}
+                      {keywords.join(', ')}
                     </Tags>
                   </VideoInfoContainerRight>
                 </VideoInfoContainer>
@@ -174,7 +179,7 @@ const CallBigModal = (props) => {
                     {movieInfo?.genres.join(', ')}
                   </Genres>
                   <Tags>
-                    <span>This programme is: </span> {movieInfo?.keywords + ''}
+                    <span>This programme is: </span> {keywords.join(', ')}
                   </Tags>
                   <MaturityRating>
                     <span>Maturity Rating: </span>
