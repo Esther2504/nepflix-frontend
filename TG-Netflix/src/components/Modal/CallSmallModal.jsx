@@ -1,21 +1,25 @@
-import React, { useEffect } from "react";
-import { useRef, useState } from "react";
+import React, { useEffect } from 'react';
+import { useRef, useState } from 'react';
 import {
   SmallModalContainer,
   SmallModal,
   SmallModalTop,
   SmallModalBottom,
-  VideoPlayer,
-  VideoPlay,
+
   VideoControls,
-  PlayButton,
   PlusCircle,
-  ThumbsUp,
-  RateIcons,
-  VolumeIcon,
-} from "./CallSmallModal.style";
-import Trailer from "./testTrailer.webm";
-import YouTube from "react-youtube";
+
+  InfoCon,
+  AgeRes,
+  Runtime,
+  ArrowContainer,
+  MatchPerc,
+  ArrowDown,
+  KeywordsContainer
+} from './CallSmallModal.style';
+
+
+import YouTube from 'react-youtube';
 
 const CallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -23,10 +27,10 @@ const CallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
-  const refVideoPlayer = useRef();
   const bg =
-    "https://image.tmdb.org/t/p/original" + props.data.dataset.backdrop;
-  let Trailer = props.movie.trailer;
+    'https://image.tmdb.org/t/p/original' + props.data.dataset.backdrop;
+  // let Trailer = props.movie.trailer;
+  let Trailer = 'https://www.youtube.com/watch?v=0IOsk2Vlc4o';
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
@@ -50,8 +54,8 @@ const CallModal = (props) => {
   }
 
   const opts = {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
 
     playerVars: {
       autoplay: 1,
@@ -60,44 +64,55 @@ const CallModal = (props) => {
       disablekb: 1,
       end: 66,
       rel: 0,
-      frameborder: "0",
+      frameborder: '0',
     },
   };
+
+  const runtime = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const min = minutes % 60;
+    const result = hours + 'h ' + min + 'm';
+    return result;
+  };
+
+  const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
 
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
-            // <VideoPlayer
-            //   autoplay
-            //   loop
-            //   muted
-            //   src={Trailer}
-            //   ref={refVideoPlayer}
-            //   type="video/webm"
-            // />
-            // <YouTube videoId={Trailer} opts={opts} />
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/0IOsk2Vlc4o?autoplay=1`}
-              frameBorder="0"
+            <YouTube
+              videoId={Trailer}
+              opts={opts}
+              style={{ height: 'inherit' }}
             />
           )}
         </SmallModalTop>
 
         <SmallModalBottom>
           <VideoControls>
-            <VideoPlay>
+            {/* <VideoPlay>
               <PlayButton />
               Play
-            </VideoPlay>
+            </VideoPlay> */}
             <PlusCircle />
-            <ThumbsUp />
-            <RateIcons />
-            <VolumeIcon />
+            {/* <ThumbsUp /> */}
+            {/* <RateIcons /> */}
+
+            <ArrowContainer>
+             <ArrowDown/>
+            </ArrowContainer>
+            {/* <VolumeIcon /> */}
           </VideoControls>
+          <InfoCon>
+            <MatchPerc>{matchPerc}% Match</MatchPerc>
+            <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
+            <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
+          </InfoCon>
+          <KeywordsContainer>
+            Dark • Period • Ensemble
+          </KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
     </SmallModalContainer>

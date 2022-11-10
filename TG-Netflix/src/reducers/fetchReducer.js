@@ -24,7 +24,7 @@ export const getBrowse = createAsyncThunk("netflix/browse", async ({ banner, cat
         `https://tg-nepflix.azurewebsites.net/browse`, { params: { banner, categories, page } }
     );
     const browse = data;
-    console.log(browse);
+
     return browse;
 });
 
@@ -34,11 +34,12 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
         `https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`
     );
     const movie = data;
-    // console.log(movie);
+
     return movie;
 });
 
-//Added Error casses. Redirect Error to 404 Page component??
+
+
 const NetflixSlice = createSlice({
     name: "Netflix",
     initialState,
@@ -62,11 +63,7 @@ const NetflixSlice = createSlice({
             state.moviesLoaded = true;
             state.moviesError = "";
         });
-        // .addCase(getMovies.error, (state, action) => {
-        //     state.movies = "";
-        //     state.moviesLoaded = true;
-        //     state.moviesError = error;
-        //   });
+
     },
 });
 

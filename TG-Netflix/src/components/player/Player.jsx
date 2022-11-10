@@ -131,7 +131,7 @@ function Player() {
 
     return (
         <>
-            <PlayerStyles>
+            <PlayerStyles modal={modal}>
                 <div className='banner-container'>
                     <div
                         className='banner'

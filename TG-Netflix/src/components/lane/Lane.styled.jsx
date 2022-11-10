@@ -32,6 +32,7 @@ export const LaneTitle = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding-right: 3rem;
+  text-shadow: 1px 1px 1px black;
 
   @media (min-width: 600px) {
       font-size: 1.4rem;

@@ -1,6 +1,6 @@
 // calls fetched data
 import { useDispatch } from "react-redux";
-import { getMovies, getBrowse } from "./reducers/fetchReducer";
+import { getMovies, getBrowse} from "./reducers/fetchReducer";
 import { useEffect } from "react";
 
 import { Outlet, useLocation } from "react-router-dom";
@@ -9,21 +9,43 @@ import Navbar from "./components/navbar/Navbar";
 function App() {
   const location = useLocation();
   const mainUIRoutes = [
-    '/browse',
-    '/films',
-    '/my-list',
-    '/lanes',
-    '/modal',
-    '/grid-layout',
+    "/browse",
+    "/films",
+    "/films/action",
+    "/films/adventure",
+    "/films/animation",	
+    "/films/comedy",
+    "/films/crime",
+    "/films/documentary",
+    "/films/drama",
+    "/films/family",
+    "/films/fantasy",
+    "/films/history",
+    "/films/horror",
+    "/films/music",
+    "/films/mystery",
+    "/films/romance",
+    "/films/science_fiction",
+    "/films/tv_movie",
+    "/films/thriller",
+    "/films/war",
+    "/films/action",
+    "/films/adventure",
+    "/films/western",
+    "/my-list",
+    "/lanes",
+    "/modal",
+    "/search",
+    "/grid-layout",
   ];
 
   //Code below from line 22 to26 can be set back in after no further changes needs to be made in the codes.
   //Calls data from GlobalState
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getMovies());
-  //   dispatch(getBrowse());
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMovies());
+    dispatch(getBrowse());
+  }, []);
 
   //Timeout for LocalStorage possibly to be added in useEffect??
   //Add setTimeout?

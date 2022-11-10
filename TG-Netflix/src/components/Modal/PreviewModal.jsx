@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
-import Trailer from './testTrailer.webm'
+import React, { useRef } from 'react';
 import {
   VideoPlayer,
   PreviewModalContainer,
+  ThumbnailContainer,
   PreviewPlay,
   PreviewDuration,
   PreviewRating,
@@ -11,26 +11,45 @@ import {
   PreviewAddToList,
   PreviewMetaData,
   PreviewSummary,
-} from "./PreviewModal.style";
+  Thumbnail,
+  Title,
+  MaturityContainer,
+  RatingContainer,
+} from './PreviewModal.style';
+import logo from '../../assets/movie-card-images/n_logo.ico'
 
-function PreviewModal() {
-  const modalRefVideo = useRef();
+function PreviewModal(data) {
+  const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
+
+  const logoArray = [logo, null];
+
+  function showLogo(logoArray) {
+    return logoArray[/[6]/.test(data.movie.id) ? 0 : 1];
+  }
+
   return (
     <PreviewModalContainer>
-      <PreviewDuration>2h 10m</PreviewDuration>
       <PreviewPlay />
-      <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} />
-
+      {/* <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} /> */}
+      <ThumbnailContainer>
+        <Thumbnail bg={bg} />
+        <PreviewDuration>{data.movie.runtime}m</PreviewDuration>
+        <Title>{data.movie.title}</Title>
+        <img src={showLogo(logoArray)} />
+      </ThumbnailContainer>
       <PreviewMetaData>
-        <PreviewRating>93% Match</PreviewRating>
-        <PreviewMaturityRating></PreviewMaturityRating>
-        <PreviewReleaseYear>2022</PreviewReleaseYear>
-        <PreviewAddToList></PreviewAddToList>
-        <PreviewSummary>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          at ex non metus consequat hendrerit. Sed euismod, nibh sed interdum
-          blandit, quam metus tempus libero, quis vestibulum nisi leo at lacus.
-        </PreviewSummary>
+        {/* <PreviewRating></PreviewRating> */}
+        <MaturityContainer>
+          <RatingContainer>
+            <PreviewMaturityRating>
+              {data.movie.age_certificate}
+            </PreviewMaturityRating>
+          </RatingContainer>
+          <PreviewAddToList />
+        </MaturityContainer>
+        <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
+
+        <PreviewSummary>{data.movie.overview}</PreviewSummary>
       </PreviewMetaData>
     </PreviewModalContainer>
   );

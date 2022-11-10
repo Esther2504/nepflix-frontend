@@ -1,54 +1,6 @@
-import styled from "styled-components";
-import VidTitle from "./House_of_the_Dragon_logo.webp";
-import {
-  AiFillCloseCircle,
-  AiOutlinePlusCircle,
-  AiOutlineDown,
-} from "react-icons/ai";
-import { BsFillPlayFill, BsHandThumbsUp } from "react-icons/bs";
-import { TbVolume3 } from "react-icons/tb";
+import styled from 'styled-components';
+import { AiFillCloseCircle, AiOutlineDown } from 'react-icons/ai';
 
-//START VIDEOPLAYER (will be replaced by videomodal)
-export const VideoPlayer = styled.video`
-  border-radius: 1rem;
-  aspect-ratio: 16/9;
-`;
-
-export const VideoControlsContainer = styled.div`
-  position: relative;
-  width: 100%;
-  margin-top: -12rem;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  padding-left: 3rem;
-  background: linear-gradient(0deg, #181818, transparent 50%);
-`;
-export const VideoTitle = styled.div`
-  height: 8rem;
-  background-image: url(${VidTitle});
-  background-repeat: no-repeat;
-  background-size: contain;
-`;
-export const VideoControls = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-export const VideoPlay = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  width: 10rem;
-  height: 40px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  border-radius: 0.5rem;
-  &:hover {
-    background-color: #cccccc;
-  }
-`;
 export const CloseButton = styled.div``;
 export const CloseCircle = styled(AiFillCloseCircle)`
   position: absolute;
@@ -63,56 +15,21 @@ export const CloseCircle = styled(AiFillCloseCircle)`
     background-color: white;
   }
 `;
-export const PlayButton = styled(BsFillPlayFill)`
-  font-size: 4rem;
-`;
-
-export const PlusCircle = styled(AiOutlinePlusCircle)`
-  color: #cccccc;
-  font-size: 4rem;
-  margin-left: 1rem;
-  &:hover {
-    color: white;
-    border-color: white;
-  }
-`;
-export const ThumbsUp = styled(BsHandThumbsUp)`
-  border: 3px solid #ccc;
-  border-radius: 50%;
-  padding: 0.5rem;
-  color: #cccccc;
-  font-size: 3.5rem;
-  margin-left: 1rem;
-  &:hover {
-    color: white;
-    border-color: white;
-  }
-`;
-export const RateIcons = styled.div``;
-export const VolumeIcon = styled(TbVolume3)`
-  border: 3px solid #ccc;
-  border-radius: 50%;
-  font-size: 4rem;
-  color: #cccccc;
-  margin-left: auto;
-  margin-right: 1.5rem;
-  &:hover {
-    color: white;
-    border-color: white;
-  }
-`;
-//END VIDEOPLAYER
 
 //START MODAL
 export const ModalContainer = styled.div`
   display: block;
-  position:fixed;
+  position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
-  overflow:auto;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -121,10 +38,13 @@ export const ModalContent = styled.div`
   margin-top: 3rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  max-width: 85rem;
+  max-width: 70%;
   padding-bottom: 2rem;
   background-color: #181818;
   transform-origin: ${(props) => props.coords};
+  @media (max-width: 1100px) {
+    max-width: 90%;
+  }
 
   animation: blowUpModal 0.75s ease-in-out forwards;
   @keyframes blowUpModal {
@@ -133,7 +53,19 @@ export const ModalContent = styled.div`
     }
     100% {
       transform: scale(1);
-      margin-left: calc((100vw - 85rem) / 2);
+      margin-left: calc((100vw - 70%) / 2);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    @keyframes blowUpModal {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+        margin-left: calc((100vw - 90%) / 2);
+      }
     }
   }
 `;
@@ -165,14 +97,21 @@ export const VideoInfoContainer = styled.div`
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1rem;
-  @media (max-width: 353px) {
+  text-align: justify;
+
+  @media (max-width: 820px) {
     flex-direction: column;
+    gap: 2rem;
   }
 `;
 export const VideoInfoContainerLeft = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
   width: 70%;
+
+  @media (max-width: 820px) {
+    width: 100%;
+  }
 `;
 export const VideoInfoContainerRight = styled.div`
   display: flex;
@@ -180,6 +119,15 @@ export const VideoInfoContainerRight = styled.div`
   font-size: 1.4rem;
   text-align: left;
   color: #ffffff;
+  padding-left: 2rem;
+
+  width: 50%;
+
+  @media (max-width: 820px) {
+    width: 100%;
+    padding-left: 0;
+  }
+
   span {
     color: #777777;
   }
@@ -224,6 +172,8 @@ export const MoreLikeThisContainer = styled.div`
     color: #ffffff;
     font-size: 2.4rem;
     font-weight: 700;
+    display: block;
+    margin-bottom: 1rem;
   }
 `;
 export const MoreLikeThisWrapper = styled.div`
@@ -232,12 +182,12 @@ export const MoreLikeThisWrapper = styled.div`
   @media (max-width: 823px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 353px) {
+  @media (max-width: 500px) {
     grid-template-columns: repeat(1, 1fr);
   }
   gap: 1rem;
   border-bottom: 1px solid #777777;
-  height: 75rem;
+  height: 90rem;
   overflow: hidden;
   padding-bottom: 5rem;
 `;

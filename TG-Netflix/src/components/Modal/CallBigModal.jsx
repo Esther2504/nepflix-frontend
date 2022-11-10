@@ -1,22 +1,11 @@
-import React, { useRef, forwardRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import PreviewModal from "./PreviewModal";
-import Trailer from "./testTrailer.webm";
+import React, { useRef, forwardRef, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import PreviewModal from './PreviewModal';
 import {
   ModalContainer,
   ModalContent,
   ModalPreview,
-  VideoPlayer,
-  VideoControlsContainer,
-  VideoTitle,
-  VideoPlay,
-  VideoControls,
   CloseCircle,
-  PlayButton,
-  PlusCircle,
-  ThumbsUp,
-  RateIcons,
-  VolumeIcon,
   CloseButton,
   MoreLikeThisContainer,
   MetaData,
@@ -37,37 +26,56 @@ import {
   MoreLikeThisToggle,
   AboutContainer,
   AboutTitle,
-} from "./CallBigModal.styled";
-import { closeModal } from "../../reducers/modalReducer";
+} from './CallBigModal.styled';
+import { closeModal, getMovieID } from '../../reducers/modalReducer';
 import BigModalPlayer from "../player/BigModalPlayer";
+import { useSearchParams } from 'react-router-dom';
 
-const CallBigModal = forwardRef((props, ref) => {
+const CallBigModal = forwardRef((movie, ref) => {
   //REF's
-  const modalRefVideo = useRef();
   const refMoreLikeThisWrapper = useRef();
-  const modalRefContent = useRef();
   const modalRefContainer = useRef();
   //END REF's
   const dispatch = useDispatch();
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
+  const [browseMovieID, setBrowseMovieID] = useSearchParams();
+  const [directMovie, setDirectMovie] = useState();
   //END STATE
 
+  const fetchDirectMovie = async () => {
+    const directMovieID = browseMovieID.get('movieID');
+    const data = await getMovieID(directMovieID);
+    setDirectMovie(data);
+  };
+  
+  //fetch data direct link
+  useEffect(() => {
+    if (browseMovieID.get('movieID')) {
+      fetchDirectMovie();
+    }
+  }, []);
+  
+  if(directMovie){
+    movie = directMovie;
+  }
+  // console.log(movie);
   //coords for big modal
-  const left = Math.round(globalModalState.coords.left) + "px ";
-  const top = Math.round(globalModalState.coords.top) + window.scrollY + "px";
+  // const offset = document.querySelector('.banner-container').offsetHeight;
+  const left = Math.round(globalModalState.coords.left) + 'px ';
+  const top = Math.round(globalModalState.coords.top) + 'px';
   const coordsForBigModal = left + top;
 
   //Close modal button
   const handleClose = () => {
-    document.body.style.position = null;
+    setBrowseMovieID();
     dispatch(closeModal({ modalState: false, coords: [] }));
   };
 
-  window.addEventListener("click", (e) => {
+  window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
-      document.body.style.position = null;
+      setBrowseMovieID();
       dispatch(closeModal({ modalState: false, coords: [] }));
     }
   });
@@ -76,18 +84,18 @@ const CallBigModal = forwardRef((props, ref) => {
   const handleOnClickToggleMore = () => {
     setToggleViewMore(!toggleViewMore);
     if (!toggleViewMore) {
-      refMoreLikeThisWrapper.current.style.height = "auto";
-      refMoreLikeThisWrapper.current.style.overflow = "visible";
+      refMoreLikeThisWrapper.current.style.height = 'auto';
+      refMoreLikeThisWrapper.current.style.overflow = 'visible';
     } else if (toggleViewMore) {
-      refMoreLikeThisWrapper.current.style.height = "50rem";
-      refMoreLikeThisWrapper.current.style.overflow = "hidden";
+      refMoreLikeThisWrapper.current.style.height = '90rem';
+      refMoreLikeThisWrapper.current.style.overflow = 'hidden';
     }
   };
 
   return (
     <>
       <ModalContainer ref={modalRefContainer}>
-        <ModalContent ref={modalRefContent} coords={coordsForBigModal}>
+        <ModalContent coords={coordsForBigModal}>
           <CloseButton onClick={handleClose}>
             <CloseCircle />
           </CloseButton>
@@ -97,79 +105,63 @@ const CallBigModal = forwardRef((props, ref) => {
               <VideoInfoContainerLeft>
                 <MetaData>
                   <Rating>93% Match</Rating>
-                  {/* <ReleaseYear>{movie.release_year}</ReleaseYear> */}
+                  <ReleaseYear>{movie.release_date.slice(0, 4)}</ReleaseYear>
                   <MaturityRating></MaturityRating>
                   <Duration>
-                    {/* {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m */}
+                    {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
                   </Duration>
-                  <VidQuality>HD</VidQuality>
-                  <AudDesc>Aud</AudDesc>
+
                 </MetaData>
-                {/* <Summary>{movie.description}</Summary> */}
+                <Summary>{movie.overview}</Summary>
               </VideoInfoContainerLeft>
               <VideoInfoContainerRight>
                 <Cast>
-                  <span>Cast:</span>
-                  {/* {movie.actors.join(", ")} */}
+                  <span>Cast: </span>
+                  {directMovie?.actors.join(', ')}
                 </Cast>
                 <Genres>
-                  <span>Genres:</span>
-                  {/* {movie.genres.join(", ")} */}
+                  <span>Genres: </span>
+                  {movie?.genres.join(', ')}
                 </Genres>
                 <Tags>
-                  <span>This programme is:</span> Exciting, Funny
+                  <span>This programme is: </span>{movie.keywords + ' '}
                 </Tags>
               </VideoInfoContainerRight>
             </VideoInfoContainer>
             <MoreLikeThisContainer>
               <span>More Like This</span>
-
               <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
-                {/* {movie.similar.map((data, index) => {
+                {movie.similar.map((data, index) => {
                   return <PreviewModal key={index} movie={data} />;
-                })} */}
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
-                <PreviewModal />
+                })}
               </MoreLikeThisWrapper>
               <MoreLikeThisToggle
                 onClick={handleOnClickToggleMore}
                 style={
                   toggleViewMore === true
-                    ? { transform: "rotate(180deg)" }
-                    : undefined
+                    ? { transform: 'rotate(180deg)' }
+                    : null
                 }
               />
             </MoreLikeThisContainer>
             <AboutContainer>
               <AboutTitle>
-                <h1>About GoT: House Of The Dragon</h1>
+                <h1>About: {movie.title}</h1>
               </AboutTitle>
               <Cast>
-                <span>Cast:</span>
-                {/* {movie.actors.join(", ")} */}
+                <span>Cast: </span>
+                {movie?.actors.join(', ')}
               </Cast>
               <Genres>
-                <span>Genres:</span>
-                {/* {movie.genres.join(", ")} */}
+                <span>Genres: </span>
+                {movie?.genres.join(', ')}
               </Genres>
               <Tags>
-                <span>This programme is:</span> Exciting, Funny
+                <span>This programme is: </span> {movie.keywords + ""}
               </Tags>
               <MaturityRating>
-                <span>Maturity Rating:</span>
-                {/* {movie.age_certificate} */}
+                <span>Maturity Rating: </span>
+                {movie.age_certificate}
               </MaturityRating>
             </AboutContainer>
           </ModalPreview>
