@@ -117,4 +117,15 @@ text-decoration: none;
   }
 }
 
+// .hidden {
+//   // opacity: 0;
+//   animation-duration: 10s;
+//   background-color: red;
+// }
+// .show {
+//   // opacity: 1;
+//   background-color: green;
+//   animation-duration: 10s;
+// }
+
 `;
