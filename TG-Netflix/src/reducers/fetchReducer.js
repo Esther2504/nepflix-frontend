@@ -21,14 +21,14 @@ export const getBrowse = createAsyncThunk(
   "netflix/browse",
   
   async ({ banner, categories, page }) => {
-    console.log(banner, categories, page);
+    // console.log(banner, categories, page);
     //fetches /Browse data
     const { data } = await axios.get(
       `https://tg-nepflix.azurewebsites.net/browse`,
       { params: { banner, categories, page } }
     );
     const browse = data;
-console.log(browse)
+// console.log(browse)
     return browse;
 });
 
