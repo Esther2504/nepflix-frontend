@@ -14,7 +14,7 @@ import muted from '../../assets/muted.svg';
 import { getCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
 
 function BigModalPlayer({ modal }) {
-    const { logo, overview, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse.banner)
+    const { logo, overview, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse[1])
     const dispatch = useDispatch();
     // REF
     const modalPlayerRef = useRef(null);
