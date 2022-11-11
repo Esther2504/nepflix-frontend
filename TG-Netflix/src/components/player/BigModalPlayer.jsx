@@ -15,7 +15,9 @@ function BigModalPlayer() {
     const { overview, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
     console.log(id)
 
-    // const seconds = useSelector((state) => state.trailer.seconds)
+    const seconds = useSelector((state) => state.trailer.seconds)
+    console.log(seconds)
+    const BigModalPlayerStartTime = seconds;
 
     const dispatch = useDispatch();
     // REF
@@ -79,7 +81,7 @@ function BigModalPlayer() {
     // CONTROLS YOUTUBE & VISIBILITY
     const opts = {
         playerVars: {
-            start: 10,
+            start: BigModalPlayerStartTime,
             autoplay: 1,
             mute: 1,
             controls: 0,
