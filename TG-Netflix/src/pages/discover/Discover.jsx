@@ -7,6 +7,7 @@ import Footer from '../../components/footer/footer';
 import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { getMovies, getBrowse} from "../../reducers/fetchReducer";
 
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
@@ -22,6 +23,7 @@ export default function Discover({ banner, categories, movie }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
+
   //END STATE
 
   //check if linked to a direct movie
@@ -40,6 +42,7 @@ export default function Discover({ banner, categories, movie }) {
         if (e.target.getAttribute('id')) {
           setDataset(film.dataset);
           setIsHovering(true);
+          dispatch(getMovies(e.target.dataset.id))
           setMovieID(e.target.dataset.id);
           setCoords(e.target.getBoundingClientRect());
         }
@@ -57,6 +60,8 @@ export default function Discover({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
+
+
   return (
     <>
       <div className="members-container">
@@ -67,10 +72,11 @@ export default function Discover({ banner, categories, movie }) {
             hover={isHovering}
             data={{ coords: coords, dataset: movieDetails }}
             onClick={openBigModal}
+            movieID={movieID}
           />
         )}
-        {globalModalState.modalState && <CallBigModal {...movieDetails} />}
-        <div className="fadeContainer">
+        {globalModalState.modalState && <CallBigModal movieID={movieID} />}
+        <div className="fade-container">
           <LaneHandler categories={categories} movie={movie} />
         </div>
         <Footer />

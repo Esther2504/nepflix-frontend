@@ -141,7 +141,7 @@ export const Rating = styled.div`
   color: #46d369;
 `;
 export const ReleaseYear = styled.div`
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 `;
 export const MaturityRating = styled.div``;
 export const Duration = styled.div`
@@ -218,4 +218,16 @@ export const AboutContainer = styled.div`
   }
 `;
 export const AboutTitle = styled.div``;
+
+export const Error = styled.div`
+  color:#fff;
+  width:100%;
+
+  height:10rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:2rem;
+
+`
 //END MODAL

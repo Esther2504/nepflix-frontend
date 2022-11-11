@@ -26,12 +26,16 @@ import {
   MoreLikeThisToggle,
   AboutContainer,
   AboutTitle,
+  Error
 } from './CallBigModal.styled';
 import { closeModal, getMovieID } from '../../reducers/modalReducer';
-import Player from '../player/Player';
+// import Player from "../player/Player";
+import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
+import { getMovies } from '../../reducers/fetchReducer';
 
-const CallBigModal = forwardRef((movie, ref) => {
+
+const CallBigModal = (props) => {
   //REF's
   const refMoreLikeThisWrapper = useRef();
   const modalRefContainer = useRef();
@@ -44,23 +48,30 @@ const CallBigModal = forwardRef((movie, ref) => {
   const [directMovie, setDirectMovie] = useState();
   //END STATE
 
-  const fetchDirectMovie = async () => {
-    const directMovieID = browseMovieID.get('movieID');
-    const data = await getMovieID(directMovieID);
-    setDirectMovie(data);
-  };
-  
-  //fetch data direct link
-  useEffect(() => {
-    if (browseMovieID.get('movieID')) {
-      fetchDirectMovie();
-    }
-  }, []);
-  
-  if(directMovie){
-    movie = directMovie;
+  //check if movie is in state
+  // const moviesInState = useSelector((state) => state.netflix.movies);
+  // const id = browseMovieID.get('movieID');
+  // const movieInState = moviesInState.filter(
+  //   (movie) => movie.id === (props.movieID || id)
+  // );
+  // useEffect(() => {
+  //   if (!movieInState) {
+
+  //     dispatch(getMovies(id));
+  //   }
+  // }, []);
+
+  // const movieInfo = moviesInState.filter((movie) => movie.id === id);
+  // console.log(movieInfo);
+
+  const id = browseMovieID.get('movieID') * 1;
+  const moviesInState = useSelector((state) => state.netflix.movies);
+  const movieInfoAr = moviesInState.filter((movie) => movie.id === id);
+  if (movieInfoAr.length === 0) {
+    dispatch(getMovies(parseInt(id)));
   }
-  // console.log(movie);
+  const movieInfo = movieInfoAr[0];
+
   //coords for big modal
   // const offset = document.querySelector('.banner-container').offsetHeight;
   const left = Math.round(globalModalState.coords.left) + 'px ';
@@ -92,6 +103,13 @@ const CallBigModal = forwardRef((movie, ref) => {
     }
   };
 
+  let keywords = [];
+  for (let i = 0; i < movieInfo.keywords.length; i++) {
+    keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
+  }
+
+console.log(movieInfo)
+
   return (
     <>
       <ModalContainer ref={modalRefContainer}>
@@ -99,76 +117,86 @@ const CallBigModal = forwardRef((movie, ref) => {
           <CloseButton onClick={handleClose}>
             <CloseCircle />
           </CloseButton>
-          <ModalPreview>
-            <Player data={movie} modal={true} />
-            <VideoInfoContainer>
-              <VideoInfoContainerLeft>
-                <MetaData>
-                  <Rating>93% Match</Rating>
-                  <ReleaseYear>{movie.release_date.slice(0, 4)}</ReleaseYear>
-                  <MaturityRating></MaturityRating>
-                  <Duration>
-                    {Math.floor(movie.runtime / 60)}h {movie.runtime % 60}m
-                  </Duration>
-
-                </MetaData>
-                <Summary>{movie.overview}</Summary>
-              </VideoInfoContainerLeft>
-              <VideoInfoContainerRight>
-                <Cast>
-                  <span>Cast: </span>
-                  {directMovie?.actors.join(', ')}
-                </Cast>
-                <Genres>
-                  <span>Genres: </span>
-                  {movie?.genres.join(', ')}
-                </Genres>
-                <Tags>
-                  <span>This programme is: </span>{movie.keywords + ' '}
-                </Tags>
-              </VideoInfoContainerRight>
-            </VideoInfoContainer>
-            <MoreLikeThisContainer>
-              <span>More Like This</span>
-              <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
-                {movie.similar.map((data, index) => {
-                  return <PreviewModal key={index} movie={data} />;
-                })}
-              </MoreLikeThisWrapper>
-              <MoreLikeThisToggle
-                onClick={handleOnClickToggleMore}
-                style={
-                  toggleViewMore === true
-                    ? { transform: 'rotate(180deg)' }
-                    : null
-                }
-              />
-            </MoreLikeThisContainer>
-            <AboutContainer>
-              <AboutTitle>
-                <h1>About: {movie.title}</h1>
-              </AboutTitle>
-              <Cast>
-                <span>Cast: </span>
-                {movie?.actors.join(', ')}
-              </Cast>
-              <Genres>
-                <span>Genres: </span>
-                {movie?.genres.join(', ')}
-              </Genres>
-              <Tags>
-                <span>This programme is: </span> {movie.keywords + ""}
-              </Tags>
-              <MaturityRating>
-                <span>Maturity Rating: </span>
-                {movie.age_certificate}
-              </MaturityRating>
-            </AboutContainer>
-          </ModalPreview>
+          {movieInfo && (
+            <>
+              <ModalPreview>
+                {/* <Player data={movieInfo} modal={true} /> */}
+                <BigModalPlayer data={movieInfo} modal={true} />
+                <VideoInfoContainer>
+                  <VideoInfoContainerLeft>
+                    <MetaData>
+                      {/* <Rating>93% Match</Rating> */}
+                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)}  • 
+                      </ReleaseYear>
+                      <MaturityRating></MaturityRating>
+                      <Duration>
+                        {Math.floor(movieInfo?.runtime / 60)}h{' '}
+                        {movieInfo?.runtime % 60}m
+                      </Duration>
+                    </MetaData>
+                    <Summary>{movieInfo?.overview}</Summary>
+                  </VideoInfoContainerLeft>
+                  <VideoInfoContainerRight>
+                    <Cast>
+                      <span>Cast: </span>
+                      {movieInfo?.actors.join(', ')}
+                    </Cast>
+                    <Genres>
+                      <span>Genres: </span>
+                      {movieInfo?.genres.join(', ')}
+                    </Genres>
+                    <Tags>
+                      <span>Keywords: </span>
+                      {keywords.join(', ')}
+                    </Tags>
+                  </VideoInfoContainerRight>
+                </VideoInfoContainer>
+                <MoreLikeThisContainer>
+                  <span>More Like This</span>
+                  <MoreLikeThisWrapper ref={refMoreLikeThisWrapper}>
+                    {movieInfo?.similar.map((data, index) => {
+                      return <PreviewModal key={index} movie={data} />;
+                    })}
+                  </MoreLikeThisWrapper>
+                  <MoreLikeThisToggle
+                    onClick={handleOnClickToggleMore}
+                    style={
+                      toggleViewMore === true
+                        ? { transform: 'rotate(180deg)' }
+                        : null
+                    }
+                  />
+                </MoreLikeThisContainer>
+                <AboutContainer>
+                  <AboutTitle>
+                    <h1>About: {movieInfo?.title}</h1>
+                  </AboutTitle>
+                  <Cast>
+                    <span>Cast: </span>
+                    {movieInfo?.actors.join(', ')}
+                  </Cast>
+                  <Genres>
+                    <span>Genres: </span>
+                    {movieInfo?.genres.join(', ')}
+                  </Genres>
+                  <Tags>
+                    <span>Keywords: </span> {keywords.join(', ')}
+                  </Tags>
+                  <MaturityRating>
+                    <span>Maturity Rating: </span>
+                    {movieInfo?.age_certificate}
+                  </MaturityRating>
+                </AboutContainer>
+              </ModalPreview>
+            </>
+          )}
+          {!movieInfo && (
+            <Error>Movie ID not found.</Error>
+          )}
         </ModalContent>
       </ModalContainer>
     </>
   );
-});
+};
 
 export default CallBigModal;

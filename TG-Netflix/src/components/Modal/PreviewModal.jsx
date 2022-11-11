@@ -14,11 +14,19 @@ import {
   Thumbnail,
   Title,
   MaturityContainer,
-  RatingContainer 
+  RatingContainer,
 } from './PreviewModal.style';
+import logo from '../../assets/movie-card-images/n_logo.ico'
 
 function PreviewModal(data) {
   const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
+
+  const logoArray = [logo, null];
+
+  function showLogo(logoArray) {
+    return logoArray[/[6]/.test(data.movie.id) ? 0 : 1];
+  }
+
   return (
     <PreviewModalContainer>
       <PreviewPlay />
@@ -27,19 +35,19 @@ function PreviewModal(data) {
         <Thumbnail bg={bg} />
         <PreviewDuration>{data.movie.runtime}m</PreviewDuration>
         <Title>{data.movie.title}</Title>
+        <img src={showLogo(logoArray)} />
       </ThumbnailContainer>
       <PreviewMetaData>
         {/* <PreviewRating></PreviewRating> */}
         <MaturityContainer>
-        <RatingContainer >
-          <PreviewMaturityRating>
-            {data.movie.age_certificate}
-          </PreviewMaturityRating>
-        </RatingContainer>
-        <PreviewAddToList />
+          <RatingContainer>
+            <PreviewMaturityRating>
+              {data.movie.age_certificate.includes("PG-") ? data.movie.age_certificate.slice(3) : data.movie.age_certificate}
+            </PreviewMaturityRating>
+          </RatingContainer>
+          <PreviewAddToList />
         </MaturityContainer>
         <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
-        
 
         <PreviewSummary>{data.movie.overview}</PreviewSummary>
       </PreviewMetaData>

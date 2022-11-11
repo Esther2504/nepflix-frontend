@@ -1,146 +1,59 @@
-import Lane from './Lane';
-import useWindowSize from '../../features/useWindowSize';
+import Lane from "./Lane";
+import useWindowSize from "../../features/useWindowSize";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import Spinner from "../spinner-animation/Spinner.jsx";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getBrowse } from "../../reducers/fetchReducer";
 
-// const genresPlaceholder = [
-//   {
-//     id: 18,
-//     name: "Drama",
-//   },
-//   {
-//     id: 10749,
-//     name: "Romance",
-//   },
-//   {
-//     id: 35,
-//     name: "Comedy",
-//   },
-// ];
+function LaneHandler() {
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
+  const [index, setIndex] = useState(0);
 
-// const movies = [
-//   //wordt uiteindelijk doorgegeven als prop
-//   {
-//     backdrop_path: "/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
-//     title: "Fight Club",
-//     id: 550,
-//     video: "https://www.youtube.com/watch?v=qtRKdVHc-cE",
-//   },
-//   {
-//     backdrop_path: "/v1QEIuBM1vvpvfqalahhIyXY0Cm.jpg",
-//     title: "The Poseidon Adventure",
-//     id: 551,
-//     video: "https://www.youtube.com/watch?v=dd03qev59Jo",
-//   },
-//   {
-//     backdrop_path: "/k4JIHyAXaGHwAwT7y5Skd17f0Wl.jpg",
-//     title: "Pane e tulipani",
-//     id: 552,
-//     video: "https://www.youtube.com/watch?v=PKTes-j1MUc",
-//   },
-//   {
-//     backdrop_path: "/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
-//     title: "Dogville",
-//     id: 553,
-//     video: "https://www.youtube.com/watch?v=dC3UFn5MeCg",
-//   },
-//   {
-//     backdrop_path: "/1qwXItFKqvKYyW1CwbYhxyUC8Pj.jpg",
-//     title: "The Cuckoo",
-//     id: 554,
-//     video: "https://www.youtube.com/watch?v=dow9SRj9A0g",
-//   },
-//   {
-//     backdrop_path: "/1fJSyFhvxBjyLZsBnYs4641YXu1.jpg",
-//     title: "Basquiat",
-//     id: 549,
-//     video: "https://www.youtube.com/watch?v=GsWZyvtX5tU",
-//   },
-//   {
-//     backdrop_path: "/zyO6j74DKMWfp5snWg6Hwo0T3Mz.jpg",
-//     title: "Rashomon",
-//     id: 548,
-//     video: "https://www.youtube.com/watch?v=Zqoyl2p8_lw",
-//   },
-//   {
-//     backdrop_path: "/ww9pokP6M6gp2Iu0o3sT5B7eN66.jpg",
-//     title: "The Horse Whisperer",
-//     id: 547,
-//     video: "https://www.youtube.com/watch?v=_nCowPQ2aa4",
-//   },
-//   {
-//     backdrop_path: "/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
-//     title: "Fight Club",
-//     id: 550,
-//     video: "https://www.youtube.com/watch?v=qtRKdVHc-cE",
-//   },
-//   {
-//     backdrop_path: "/v1QEIuBM1vvpvfqalahhIyXY0Cm.jpg",
-//     title: "The Poseidon Adventure",
-//     id: 551,
-//     video: "https://www.youtube.com/watch?v=dd03qev59Jo",
-//   },
-//   {
-//     backdrop_path: "/k4JIHyAXaGHwAwT7y5Skd17f0Wl.jpg",
-//     title: "Pane e tulipani",
-//     id: 552,
-//     video: "https://www.youtube.com/watch?v=PKTes-j1MUc",
-//   },
-//   {
-//     backdrop_path: "/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
-//     title: "Dogville",
-//     id: 553,
-//     video: "https://www.youtube.com/watch?v=dC3UFn5MeCg",
-//   },
-//   {
-//     backdrop_path: "/1qwXItFKqvKYyW1CwbYhxyUC8Pj.jpg",
-//     title: "The Cuckoo",
-//     id: 554,
-//     video: "https://www.youtube.com/watch?v=dow9SRj9A0g",
-//   },
-//   {
-//     backdrop_path: "/1fJSyFhvxBjyLZsBnYs4641YXu1.jpg",
-//     title: "Basquiat",
-//     id: 549,
-//     video: "https://www.youtube.com/watch?v=GsWZyvtX5tU",
-//   },
-//   {
-//     backdrop_path: "/zyO6j74DKMWfp5snWg6Hwo0T3Mz.jpg",
-//     title: "Rashomon",
-//     id: 548,
-//     video: "https://www.youtube.com/watch?v=Zqoyl2p8_lw",
-//   },
-//   {
-//     backdrop_path: "/ww9pokP6M6gp2Iu0o3sT5B7eN66.jpg",
-//     title: "The Horse Whisperer",
-//     id: 547,
-//     video: "https://www.youtube.com/watch?v=_nCowPQ2aa4",
-//   },
-//   {
-//     backdrop_path: "/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
-//     title: "Fight Club",
-//     id: 550,
-//     video: "https://www.youtube.com/watch?v=qtRKdVHc-cE",
-//   },
-//   {
-//     backdrop_path: "/v1QEIuBM1vvpvfqalahhIyXY0Cm.jpg",
-//     title: "The Poseidon Adventure",
-//     id: 551,
-//     video: "https://www.youtube.com/watch?v=dd03qev59Jo",
-//   },
-//   {
-//     backdrop_path: "/k4JIHyAXaGHwAwT7y5Skd17f0Wl.jpg",
-//     title: "Pane e tulipani",
-//     id: 552,
-//     video: "https://www.youtube.com/watch?v=PKTes-j1MUc",
-//   },
-//   {
-//     backdrop_path: "/r3xsFBD1VTUusk393bBc7SsDUJe.jpg",
-//     title: "Dogville",
-//     id: 553,
-//     video: "https://www.youtube.com/watch?v=dC3UFn5MeCg",
-//   },
-// ];
+  const dispatch = useDispatch();
 
-function LaneHandler({ categories, movie }) {
+  const categoryList = [
+    "adventure",
+    "animation",
+    "comedy",
+    "crime",
+    "documentary",
+    "drama",
+    "family",
+    "fantasy",
+    "history",
+    "horror",
+    "music",
+    "mystery",
+    "romance",
+    "science fiction",
+    "tv movie",
+    "thriller",
+    "war",
+    "western",
+    "latest",
+  ];
+
+  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
+
+  useEffect(() => {
+    if (inView) {
+    let categorySelection = categoryList.slice(index, index + 4);
+    categorySelection = categorySelection.toString();
+
+    setIndex(index + 4);
+
+    const categories = categorySelection;
+
+    if (loadedCategories.length < 21) {
+      dispatch(getBrowse({ categories }));
+    }
+  }
+  }, [inView]);
+
   const size = useWindowSize();
   function getAmount() {
     if (size.width <= 600) {
@@ -167,14 +80,14 @@ function LaneHandler({ categories, movie }) {
     }
     return slices;
   }
-
+  
   return (
     <div className="laneContainer">
-      {categories.map((item, index) => {
+      {loadedCategories?.map((item, index) => {
         let someSlices = getSlices(item.movies);
 
         return (
-          <div key={index}>
+          <div className="hidden" key={index}>
             {someSlices.length > 0 && (
               <Lane
                 categoryTitle={item.name}
@@ -185,6 +98,13 @@ function LaneHandler({ categories, movie }) {
           </div>
         );
       })}
+
+      {loadedCategories.length < 21 ? (
+          <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
+          <Spinner />
+        </div>
+       
+      ) : null}
     </div>
   );
 }

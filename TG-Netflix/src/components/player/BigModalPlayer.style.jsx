@@ -11,9 +11,8 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    
 
-    .banner {
+    .bigmodalbanner {
     position: absolute;
     color: #fff;
     width: 100%;
@@ -21,6 +20,7 @@ export const PlayerStyles = styled.div`
     object-fit: cover;
     background-size: cover;
     background-position: center center;
+    // width: ${props => props.modal.modalState ? '61vw' : '140vw'};
     }
 
     // ANIMATIONS AT START
@@ -50,13 +50,13 @@ export const PlayerStyles = styled.div`
     }
 
     .overlay {
-        // width: 100%;
         width: ${props => props.modal.modalState ? '61vw' : '100vw'};
         height: 33.3%;
         position: absolute;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;   
+        // text-align: left !important;
+        align-items: flex-end;
     }
 
     .banner-contents {
@@ -64,11 +64,10 @@ export const PlayerStyles = styled.div`
     color: #fff;
     margin-left: 30px;
     padding-top:  140px;
-
     }
 
-    .banner-title {
-    font-size: 6rem;
+    .bigmodalbanner-title {
+    font-size: 4rem;
     font-weight: 800;
     padding-bottom: 0.3rem;
     max-width: 500px;
@@ -91,8 +90,8 @@ export const PlayerStyles = styled.div`
         }
     }
 
-    .banner-description {
-    width: 45rem;
+    .bigmodalbanner-description {
+    width: 35rem;
     height: 5.438rem;
     line-height: 1.3;
     padding-top: 1rem;
@@ -124,7 +123,6 @@ export const PlayerStyles = styled.div`
         font-size: 14.4px;
         line-height: 12.672px;
         margin: 28.8px 0px 0px;
-        
     }
     .play-button-container {
         align-items: center;
@@ -135,8 +133,8 @@ export const PlayerStyles = styled.div`
         line-height: 12.672px;
     }
     .play-button {
-        width: 208px;
-        height: 58px;
+        width: 150px;
+        height: 45px;
         align-items: center;
         background-color: rgba(255, 255, 255, 0.75);
         border: 0;
@@ -149,31 +147,10 @@ export const PlayerStyles = styled.div`
         padding: 11.52px 34.56px 11.52px  28.8px;
         text-align: center;
         cursor: pointer;
-        
+        z-index: 2;
     }
     .play-button:hover {
         background-color: rgba(200, 200, 200, 0.75);
-    }
-
-    .meer-info-button {
-        width: 290px;
-        height: 58px;
-        align-items: center;
-        background-color: rgba( 109, 109, 110, 0.4);
-        border: 0;
-        border-radius: 4px;
-        color: rgba(255, 255, 255, 1);
-        display: flex;
-        font-size: 14.4px;
-        justify-content: center;
-        line-height: 12.672px;
-        margin: 0px 14.4px 14.4px 0px;
-        padding: 11.52px 34.56px 11.52px 28.8px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .meer-info-button:hover {
-        background-color: rgba( 109, 109, 110, 0.2);
     }
 
     .Hawkins-icon {
@@ -194,19 +171,9 @@ export const PlayerStyles = styled.div`
         text-align: center;
     }
 
-    .text-info-button{
-        width: 200px;
-        height: 35px;
-        color: rgba(255, 255, 255, 1);
-        font-size: 23.56px;
-        font-weight: 700;
-        line-height: 34.56px;
-        text-align: center;
-    }
-
     .side-button-container {
         justify-content: space-between;
-        width: 200px;
+        width: 75px;
         height: 65px;        
         color: rgba(255, 255, 255, 1);
         display: flex;
@@ -232,6 +199,7 @@ export const PlayerStyles = styled.div`
         padding: 11.52px;
         cursor: pointer;
         text-align: center;
+        z-index: 2;
     }
 
     .side-button:hover {
@@ -243,37 +211,9 @@ export const PlayerStyles = styled.div`
         border: 3px solid;
     }
 
-    .maturity-rating {
-        width: 130px;
-        height: 55px;
-        align-items: center;
-        background-color: rgba( 51, 51, 51, 0.6);
-        color: rgba(255, 255, 255, 1);
-        display: flex;
-        font-size: 21.12px;
-        line-height: 20px;
-        border-left: 5px solid rgba(255, 255, 255, 0.75);
-        padding: 9.6px 67.2px 9.6px 15.36px;
-    }
-
-    .maturity-graphic {
-        display: flex;
-        background-color: black;
-        width: 40px;
-        height: 40px;
-        border: 2px;
-        align-items: center;
-        place-content: center;
-        justify-content: center;
-        border: 3px solid white;
-        font-weight: 600;
-        font-size: 20px;
-
-    }
-
     .banner-fadeBottom {
     position: absolute;
-    background-image: linear-gradient( 0deg, var(--black) 30%, transparent 100%);
+    background-image: linear-gradient( 0deg, #181818, 30%, transparent 100%);
     height: 13vw;
     width: 100%;
     bottom: 0;
@@ -282,7 +222,7 @@ export const PlayerStyles = styled.div`
     
     iframe {
         height: 100vw;
-        width: ${props => props.modal.modalState ? '61vw' : '140vw'};
+        width: ${props => props.modal.modalState ? '70vw' : '140vw'};
         align-self: center;
     }
 

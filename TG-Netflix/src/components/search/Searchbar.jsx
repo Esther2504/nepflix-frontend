@@ -23,7 +23,7 @@ export default function Searchbar() {
   }
 
   const debouncedHandleChange = useMemo(
-    () => debounce(handleChange, 1000),
+    () => debounce(handleChange, 500),
     [handleChange]
   );
 
