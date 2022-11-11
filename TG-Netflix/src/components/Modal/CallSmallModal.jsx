@@ -132,4 +132,4 @@ const CallModal = (props) => {
   );
 };
 
-export default CallModal;
+export default CallSmallModal;

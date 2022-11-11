@@ -7,6 +7,7 @@ import Footer from '../../components/footer/footer';
 import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
+import { getMovies, getBrowse} from "../../reducers/fetchReducer";
 import { addToList } from '../../reducers/likedReducer';
 
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
@@ -24,6 +25,7 @@ export default function Discover({ banner, categories, movie }) {
   const movieDetails = useSelector((state) => state.netflix.movies);
   const categoriesState = useSelector((state) => state.netflix.browse.categories)
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
+
   //END STATE
 
   //check if linked to a direct movie
@@ -56,6 +58,7 @@ export default function Discover({ banner, categories, movie }) {
         if (e.target.getAttribute('id')) {
           setDataset(film.dataset);
           setIsHovering(true);
+          dispatch(getMovies(e.target.dataset.id))
           setMovieID(e.target.dataset.id);
           setCoords(e.target.getBoundingClientRect());
         }
@@ -76,6 +79,9 @@ export default function Discover({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
+
+
+
   return (
     <>
       <div className="members-container">
@@ -90,7 +96,7 @@ export default function Discover({ banner, categories, movie }) {
           />
         )}
         {globalModalState.modalState && <CallBigModal {...movieDetails} />}
-        <div className="fadeContainer">
+        <div className="fade-container">
           <LaneHandler categories={categories} movie={movie} />
         </div>
         <Footer />
