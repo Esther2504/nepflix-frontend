@@ -29,9 +29,9 @@ export default function MyList() {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
       film.addEventListener("mouseenter", (e) => {
-        console.log('sda')
+
         if (e.target.getAttribute("id")) {
-          
+
           setMovieID(e.target.dataset.id);
           setDataset(film.dataset);
           setIsHovering(true);
@@ -56,7 +56,7 @@ export default function MyList() {
 
 
   const liked = useSelector(state => state.liked.likedMovies);
-  console.log(liked)
+
 
   return (
     <>
@@ -64,6 +64,7 @@ export default function MyList() {
         <TitleWrapper>
           <Title>My List</Title>
         </TitleWrapper>
+        {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
         <GridContainer>
 
           {isHovering && (
@@ -75,7 +76,7 @@ export default function MyList() {
               onClick={openBigModal}
             />
           )}
-          {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
+         
 
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />

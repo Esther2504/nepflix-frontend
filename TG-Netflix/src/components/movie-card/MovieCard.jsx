@@ -11,7 +11,7 @@ export default function MovieCard({ movie }) {
 
   return (
     <>
-      <Card id="movie">
+      <Card id="movie" data-id={movie.id}>
         <img src={backdrop_path} alt={title} />
         <span>{title}</span>
         <img src={showLogo(logoArray)} />

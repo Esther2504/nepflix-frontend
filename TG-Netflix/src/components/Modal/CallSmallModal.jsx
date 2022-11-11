@@ -25,7 +25,7 @@ import YouTube from 'react-youtube';
 import { addToList } from '../../reducers/likedReducer';
 import { useDispatch } from "react-redux";
 
-const CallModal = (props) => {
+const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
   useEffect(() => {
     setsWidth(window.innerWidth);

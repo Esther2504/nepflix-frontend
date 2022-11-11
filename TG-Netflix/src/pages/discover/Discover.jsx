@@ -23,7 +23,7 @@ export default function Discover({ banner, categories, movie }) {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
-  const categoriesState = useSelector((state) => state.netflix.browse.categories)
+  const categoriesState = useSelector((state) => state.netflix.browse)
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
 
   //END STATE
@@ -35,10 +35,11 @@ export default function Discover({ banner, categories, movie }) {
   useEffect(() => {
     if (getMovieID) dispatch(openModal({ modalState: true, coords }));
   }, []);
-
+  console.log(categoriesState)
   const handleAddToMyList = (e) => {
     let r;
-    categoriesState.forEach((categorie)=>{
+
+    categoriesState[0].forEach((categorie)=>{
      r = categorie.movies.find((movie) => movie.id === movieID)
       if(r){
         dispatch(addToList(r))
