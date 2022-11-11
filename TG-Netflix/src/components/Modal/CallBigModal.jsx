@@ -108,6 +108,8 @@ const CallBigModal = (props) => {
     keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
   }
 
+console.log(movieInfo)
+
   return (
     <>
       <ModalContainer ref={modalRefContainer}>

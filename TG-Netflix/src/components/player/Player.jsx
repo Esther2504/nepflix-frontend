@@ -110,9 +110,9 @@ function Player() {
 
         playerRef.current.internalPlayer.pauseVideo();
         document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out 0.5s forwards';
-        console.log(playtime);
+        // console.log(playtime);
     }
-    console.log(globalModalState.modalState);
+    // console.log(globalModalState.modalState);
 
     // if (globalModalState = false) {
     //     playerRef.current.internalPlayer.playVideo();

@@ -11,7 +11,7 @@ import muted from '../../assets/muted.svg';
 // import { setTrailerTime } from '../../reducers/trailerReducer';
 import { useSearchParams } from 'react-router-dom';
 
-function BigModalPlayer() {
+function BigModalPlayer(props) {
     const { overview, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
     console.log(id)
 
@@ -94,6 +94,10 @@ function BigModalPlayer() {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     }
 
+    const modalTrailer = props ? props.data.trailer : trailer;
+
+
+
     return (
         <>
             <PlayerStyles modal={globalModalState}>
@@ -155,7 +159,7 @@ function BigModalPlayer() {
                         </div>
                     </div>
                     <div className="banner-fadeBottom"></div>
-                    <YouTube id='youtube' title={title} videoId={trailer} ref={modalPlayerRef} opts={opts} onEnd={endVideo} onPlay={playingVideo} onReady={playingVideo} />
+                    <YouTube id='youtube' title={title} videoId={modalTrailer} ref={modalPlayerRef} opts={opts} onEnd={endVideo} onPlay={playingVideo} onReady={playingVideo} />
                 </div>
             </PlayerStyles>
         </>
