@@ -9,7 +9,9 @@ export const TrailerSlice = createSlice({
     initialState,
     reducers: {
         setTrailerTime: (state, action) => {
-            state.seconds += action.payload;
+            console.log("trailer time: " + action.payload)
+            console.log(action.payload)
+            state.seconds = action.payload.seconds;
         }
     }
 }
