@@ -91,7 +91,7 @@ const CallSmallModal = (props) => {
     );
   }
   const bg =
-    movieInfo.backdrop_path;
+    movieInfo?.backdrop_path;
 
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
