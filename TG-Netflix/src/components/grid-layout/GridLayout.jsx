@@ -87,6 +87,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
           hover={isHovering}
           setIsHovering={setIsHovering}
           data={{ coords: coords, dataset: dataset, movie: movieID }}
+          movieID={movieID}
           onClick={openBigModal}
         />
       )}

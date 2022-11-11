@@ -36,7 +36,7 @@ export default function Films({ banner, categories, movie }) {
 
   const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
-  console.log(loadedCategories);
+  // console.log(loadedCategories);
 
   //add evenlistener for small modal
   useEffect(() => {
@@ -108,6 +108,7 @@ export default function Films({ banner, categories, movie }) {
                 hover={isHovering}
                 data={{ coords: coords, dataset: movieDetails }}
                 onClick={openBigModal}
+                movieID={movieID}
               />
             )}
             {globalModalState.modalState && <CallBigModal movieID={movieID} />}

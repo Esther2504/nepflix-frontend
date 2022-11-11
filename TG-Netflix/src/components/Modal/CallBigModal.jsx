@@ -120,9 +120,8 @@ const CallBigModal = (props) => {
                 <VideoInfoContainer>
                   <VideoInfoContainerLeft>
                     <MetaData>
-                      <Rating>93% Match</Rating>
-                      <ReleaseYear>
-                        {movieInfo?.release_date.slice(0, 4)}
+                      {/* <Rating>93% Match</Rating> */}
+                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)}  • 
                       </ReleaseYear>
                       <MaturityRating></MaturityRating>
                       <Duration>
@@ -142,7 +141,7 @@ const CallBigModal = (props) => {
                       {movieInfo?.genres.join(', ')}
                     </Genres>
                     <Tags>
-                      <span>This programme is: </span>
+                      <span>Keywords: </span>
                       {keywords.join(', ')}
                     </Tags>
                   </VideoInfoContainerRight>
@@ -176,7 +175,7 @@ const CallBigModal = (props) => {
                     {movieInfo?.genres.join(', ')}
                   </Genres>
                   <Tags>
-                    <span>This programme is: </span> {keywords.join(', ')}
+                    <span>Keywords: </span> {keywords.join(', ')}
                   </Tags>
                   <MaturityRating>
                     <span>Maturity Rating: </span>
