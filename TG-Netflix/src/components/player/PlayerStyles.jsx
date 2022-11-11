@@ -509,5 +509,5 @@ export const PlayerStyles = styled.div`
       }
 
 
-
+    }
 `

@@ -449,7 +449,5 @@ export const PlayerStyles = styled.div`
             padding: 0.6rem 4.2rem 0.6rem 0.96rem;
         }
       }
-
-
-
+    }
 `
