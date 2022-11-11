@@ -12,8 +12,19 @@ import muted from '../../assets/muted.svg';
 import { useSearchParams } from 'react-router-dom';
 
 function BigModalPlayer(props) {
-    const { overview, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
-    console.log(id)
+    let { overview, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
+    const modalState = useSelector(state => state.modal.modalState.modalState);
+    
+    let modalTrailer
+    if(modalState){
+        modalTrailer = props.data.trailer;
+        backdrop_path = props.data.backdrop_path;
+        title = props.data.title
+    }
+   
+
+
+
 
     // const seconds = useSelector((state) => state.trailer.seconds)
 
@@ -94,7 +105,7 @@ function BigModalPlayer(props) {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     }
 
-    const modalTrailer = props ? props.data.trailer : trailer;
+    
 
 
 
