@@ -22,8 +22,8 @@ function Player() {
     console.log(id)
 
     const seconds = useSelector((state) => state.trailer.seconds)
-    const [incrementAmount, setIncrementAmount] = useState(0);
-    const addValue = Number(incrementAmount)
+    // const [incrementAmount, setIncrementAmount] = useState(0);
+    // const addValue = Number(incrementAmount)
 
 
 
@@ -99,20 +99,22 @@ function Player() {
         playerRef.current.internalPlayer.playVideo();
     }
 
+    const updatePlayerTime = async () => {
+        const unroundedTime = await playerRef.current.internalPlayer.getCurrentTime()
+        dispatch(setTrailerTime({ seconds: unroundedTime }))
+        console.log(unroundedTime)
+
+    }
+
     //  MORE INFO BUTTON: OPENS MODAL, PAUSES VID & OPENS BACKDROP
     const moreInfoButton = () => {
         setMovieId({ movieID: id })
         dispatch(openModal({ modalState: true, coords: coords }))
 
-        const playtime = Number(playerRef.current.internalPlayer.getCurrentTime());
-        setIncrementAmount(playtime)
-        dispatch(setTrailerTime({ seconds: addValue }))
-
+        updatePlayerTime();
         playerRef.current.internalPlayer.pauseVideo();
         document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out 0.5s forwards';
-        console.log(playtime);
     }
-    console.log(globalModalState.modalState);
 
     // if (globalModalState = false) {
     //     playerRef.current.internalPlayer.playVideo();
