@@ -13,7 +13,7 @@ import info from '../../assets/info.svg';
 import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
-import { getCurrentTime, setCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
+import { setTrailerTime } from '../../reducers/trailerReducer';
 import { useSearchParams } from 'react-router-dom';
 
 
@@ -21,7 +21,12 @@ function Player() {
     const { overview, age_certificate, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
     console.log(id)
 
-    
+    const seconds = useSelector((state) => state.trailer.seconds)
+    const [incrementAmount, setIncrementAmount] = useState(0);
+    const addValue = Number(incrementAmount)
+
+
+
     const dispatch = useDispatch();
     // REF
     const playerRef = useRef(null);
@@ -42,6 +47,7 @@ function Player() {
     // MODAL STATE
     const [coords, setCoords] = useState(false);
     const [movieID, setMovieId] = useSearchParams();
+    let globalModalState = useSelector((state) => state.modal.modalState)
 
     const muteVideo = () => {
         playerRef.current.internalPlayer.mute();
@@ -95,29 +101,30 @@ function Player() {
 
     //  MORE INFO BUTTON: OPENS MODAL, PAUSES VID & OPENS BACKDROP
     const moreInfoButton = () => {
-        setMovieId({movieID: id})
+        setMovieId({ movieID: id })
         dispatch(openModal({ modalState: true, coords: coords }))
+
+        const playtime = Number(playerRef.current.internalPlayer.getCurrentTime());
+        setIncrementAmount(playtime)
+        dispatch(setTrailerTime({ seconds: addValue }))
+
         playerRef.current.internalPlayer.pauseVideo();
-        const playtime = playerRef.current.internalPlayer.getCurrentTime();
         document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out 0.5s forwards';
         console.log(playtime);
     }
+    console.log(globalModalState.modalState);
 
+    // if (globalModalState = false) {
+    //     playerRef.current.internalPlayer.playVideo();
+    //     document.querySelector('.banner').style.animation = 'fadeOut 0.25s ease-out 0.5s';
+    // }
 
-
-    const unPauseVideo = () => {
-        if (closeModal({ modalState: true })) {
-            playerRef.current.internalPlayer.playVideo();
-            document.querySelector('.banner').style.animation = 'fadeOut 0.25s ease-out 0.5s';
-        }
-    }
-
-    useEffect(() => {
-        document.querySelector('.banner').addEventListener('click', unPauseVideo);
-        // return () => {
-        //     document.querySelector('banner').removeEventListener('click', unPauseVideo)
-        // }
-    }, [])
+    // useEffect(() => {
+    //     document.querySelector('.banner').addEventListener('click', unPauseVideo);
+    //     // return () => {
+    //     //     document.querySelector('banner').removeEventListener('click', unPauseVideo)
+    //     // }
+    // }, [])
 
     // CONTROLS YOUTUBE & VISIBILITY
     const opts = {
@@ -138,7 +145,7 @@ function Player() {
 
     return (
         <>
-            <PlayerStyles>
+            <PlayerStyles modal={globalModalState}>
                 <div className='banner-container'>
                     <div
                         className='banner'
