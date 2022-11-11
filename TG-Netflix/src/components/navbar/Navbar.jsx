@@ -83,10 +83,10 @@ export default function Navbar() {
                 <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>
-                    <a href="/account">Account</a>
+                    <NavLink to="account">Account</NavLink>
                   </li>
                   <li>
-                    <a href="/">Sign out of Nepflix</a>
+                    <NavLink to="/">Sign out of Nepflix</NavLink>
                   </li>
                 </ul>
               </S.Account>
