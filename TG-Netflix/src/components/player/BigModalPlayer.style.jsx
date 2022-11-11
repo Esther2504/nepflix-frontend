@@ -1,20 +1,16 @@
 import styled from 'styled-components'
 
 export const PlayerStyles = styled.div`
+
     .banner-container {
     position: relative;
     overflow-x: hidden;
     overflow-y: hidden;
+    width: 100%;
     aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 850px;
-    background-color: #181818;
-    // max-width: 70%;   
-    // @media (max-width: 1100px) {
-    //     max-width: 90%;
-    // }
 
     .bigmodalbanner {
     position: absolute;
@@ -24,8 +20,7 @@ export const PlayerStyles = styled.div`
     object-fit: cover;
     background-size: cover;
     background-position: center center;
-    // ${props => props.active ? 'animation: fadeOut .25s ease-out 0.5s forwards' : ''}
-    // , fadeIn .25s ease-out 15.5s forwards;
+    // width: ${props => props.modal.modalState ? '61vw' : '140vw'};
     }
 
     // ANIMATIONS AT START
@@ -55,12 +50,12 @@ export const PlayerStyles = styled.div`
     }
 
     .overlay {
+        width: ${props => props.modal.modalState ? '61vw' : '100vw'};
         height: 33.3%;
-        width: 100%;
         position: absolute;
         display: flex;
         justify-content: space-between;
-        text-align: left !important;
+        // text-align: left !important;
         align-items: flex-end;
     }
 
@@ -216,33 +211,6 @@ export const PlayerStyles = styled.div`
         border: 3px solid;
     }
 
-    .maturity-rating {
-        width: 130px;
-        height: 55px;
-        align-items: center;
-        background-color: rgba( 51, 51, 51, 0.6);
-        color: rgba(255, 255, 255, 1);
-        display: flex;
-        font-size: 21.12px;
-        line-height: 20px;
-        border-left: 5px solid rgba(255, 255, 255, 0.75);
-        padding: 9.6px 67.2px 9.6px 15.36px;
-    }
-
-    .maturity-graphic {
-        display: flex;
-        background-color: black;
-        width: 40px;
-        height: 40px;
-        align-items: center;
-        place-content: center;
-        justify-content: center;
-        border: 3px solid white;
-        font-weight: 600;
-        font-size: 20px;
-
-    }
-
     .banner-fadeBottom {
     position: absolute;
     background-image: linear-gradient( 0deg, #181818, 30%, transparent 100%);
@@ -254,7 +222,7 @@ export const PlayerStyles = styled.div`
     
     iframe {
         height: 100vw;
-        width: 140vw;
+        width: ${props => props.modal.modalState ? '70vw' : '140vw'};
         align-self: center;
     }
 
