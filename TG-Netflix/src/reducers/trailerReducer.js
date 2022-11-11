@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import YouTube from "react-youtube";
 
 const initialState = {
     seconds: 0,
@@ -9,18 +8,13 @@ export const TrailerSlice = createSlice({
     name: 'trailer',
     initialState,
     reducers: {
-        getCurrentTime: (state) => {
-            YouTubePlayer.getCurrentTime()
-        },
-        setCurrentTime: (state) => {
-            YouTubePlayer.seekTo(
-                seconds,
-                allowSeekAhead = true)
+        setTrailerTime: (state, action) => {
+            state.seconds += action.payload;
         }
     }
 }
 )
 
-export const { getCurrentTime, setCurrentTime } = TrailerSlice.actions;
+export const { getCurrentTime, setTrailerTime } = TrailerSlice.actions;
 
 export default TrailerSlice.reducer;
