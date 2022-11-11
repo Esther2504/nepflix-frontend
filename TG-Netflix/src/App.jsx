@@ -42,11 +42,10 @@ function App() {
   //Code below from line 22 to26 can be set back in after no further changes needs to be made in the codes.
   //Calls data from GlobalState
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMovies());
-    dispatch(getBrowse());
-    // dispatch(getLiked());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getMovies());
+  //   dispatch(getBrowse());
+  // }, []);
 
   //Timeout for LocalStorage possibly to be added in useEffect??
   //Add setTimeout?
@@ -59,7 +58,6 @@ function App() {
     const setupTime = localStorage.getItem('setupTime');
     const banner = true;
     const categories = 'top_rated,popular,action';
-
     if (setupTime == null) {
       localStorage.setItem('setupTime', currentTime);
       // dispatch(getMovies());

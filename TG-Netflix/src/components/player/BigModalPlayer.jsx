@@ -2,37 +2,37 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import YouTube from 'react-youtube';
 
-// OPEN MODAL FROM THE MORE INFO BUTTON
-import { closeModal, openModal } from '../../reducers/modalReducer';
-
 // CSS & BUTTONS
-import { PlayerStyles } from './PlayerStyles';
+import { PlayerStyles } from './BigModalPlayer.style';
 
 import play from '../../assets/play-button.svg';
-import info from '../../assets/info.svg';
-import replay from '../../assets/replay.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
-import { setTrailerTime } from '../../reducers/trailerReducer';
+// import { setTrailerTime } from '../../reducers/trailerReducer';
 import { useSearchParams } from 'react-router-dom';
 
-function Player() {
-  const { overview, age_certificate, backdrop_path, trailer, title, id } =
-    useSelector((state) => state.netflix.browse[1]);
-  // console.log(id)
+function BigModalPlayer(props) {
+  let { overview, backdrop_path, trailer, title, id } = useSelector(
+    (state) => state.netflix.browse[1]
+  );
+  const modalState = useSelector((state) => state.modal.modalState.modalState);
 
-  const seconds = useSelector((state) => state.trailer.seconds);
-  const [incrementAmount, setIncrementAmount] = useState(0);
-  const addValue = Number(incrementAmount);
+  let modalTrailer;
+  if (modalState) {
+    modalTrailer = props.data.trailer;
+    backdrop_path = props.data.backdrop_path;
+    title = props.data.title;
+  }
+
+  // const seconds = useSelector((state) => state.trailer.seconds)
 
   const dispatch = useDispatch();
   // REF
-  const playerRef = useRef(null);
+  const modalPlayerRef = useRef(null);
   const bannerRef = useRef(null);
   const bannerTitleRef = useRef(null);
   const bannerDescRef = useRef(null);
   const playButtonRef = useRef(null);
-  const moreInfoButtonRef = useRef(null);
 
   // VOLUME STATE
   const [muteIsVisible, setMuteIsVisible] = useState(true);
@@ -42,40 +42,28 @@ function Player() {
   const [isPlaying, setIsplaying] = useState(false);
 
   // MODAL STATE
-  const [coords, setCoords] = useState(false);
-  const [movieID, setMovieId] = useSearchParams();
-  let globalModalState = useSelector((state) => state.modal.modalState);
+  const [movieID, setMovieID] = useSearchParams();
+  const globalModalState = useSelector((state) => state.modal.modalState);
 
   const muteVideo = () => {
-    playerRef.current.internalPlayer.mute();
+    modalPlayerRef.current.internalPlayer.mute();
     setUnMuteIsVisible((current) => !current);
     setMuteIsVisible((current) => !current);
   };
   const unMuteVideo = () => {
-    playerRef.current.internalPlayer.unMute();
+    modalPlayerRef.current.internalPlayer.unMute();
     setMuteIsVisible((current) => !current);
     setUnMuteIsVisible((current) => !current);
   };
 
   // ON TRAILER PLAY/END
   const playingVideo = () => {
-    document.querySelector('.banner').style.animation =
+    document.querySelector('.bigmodalbanner').style.animation =
       'fadeOut .25s ease-out 0.5s forwards';
-    document.querySelector('.banner-title').style.animation =
+    document.querySelector('.bigmodalbanner-title').style.animation =
       'shrink .5s ease-in-out 5s forwards';
-    document.querySelector('.banner-description').style.animation =
+    document.querySelector('.bigmodalbanner-description').style.animation =
       'fadeOut .25s ease-out 5s forwards';
-
-    // bannerRef.classlist.add('banner-fade-out-start');
-    // bannerTitleRef.classlist.add('title-shrink-start');
-    // bannerDescRef.classlist.add('desc-fade-out-start');
-
-    // .banner-fade-out-start
-    // .title-shrink-start
-    // .desc-fade-out-start
-    // .banner-fade-in-end
-    // .title-grow-end
-    // .desc-fade-in-end
 
     document.getElementById('rePlay').style.visibility = 'hidden';
     if (muteIsVisible) {
@@ -85,57 +73,31 @@ function Player() {
     }
   };
   const endVideo = () => {
-    document.querySelector('.banner').style.animation =
+    document.querySelector('.bigmodalbanner').style.animation =
       'fadeIn ease-out 0.1s forwards';
-    document.querySelector('.banner-title').style.animation =
+    document.querySelector('.bigmodalbanner-title').style.animation =
       'grow ease-in-out 1.5s forwards';
-    document.querySelector('.banner-description').style.animation =
+    document.querySelector('.bigmodalbanner-description').style.animation =
       'fadeIn ease-in 1.5s';
 
     document.getElementById('rePlay').style.visibility = 'visible';
     document.getElementById('volume-mute').style.visibility = 'hidden';
     document.getElementById('volume-unmute').style.visibility = 'hidden';
   };
+
   const rePlayVideo = () => {
-    playerRef.current.internalPlayer.playVideo();
+    modalPlayerRef.current.internalPlayer.playVideo();
   };
-
-  //  MORE INFO BUTTON: OPENS MODAL, PAUSES VID & OPENS BACKDROP
-  const moreInfoButton = () => {
-    setMovieId({ movieID: id });
-    dispatch(openModal({ modalState: true, coords: coords }));
-
-    const playtime = Number(playerRef.current.internalPlayer.getCurrentTime());
-    setIncrementAmount(playtime);
-    dispatch(setTrailerTime({ seconds: addValue }));
-
-    playerRef.current.internalPlayer.pauseVideo();
-    document.querySelector('.banner').style.animation =
-      'fadeIn 0.25s ease-out 0.5s forwards';
-    // console.log(playtime);
-  };
-  // console.log(globalModalState.modalState);
-
-  // if (globalModalState = false) {
-  //     playerRef.current.internalPlayer.playVideo();
-  //     document.querySelector('.banner').style.animation = 'fadeOut 0.25s ease-out 0.5s';
-  // }
-
-  // useEffect(() => {
-  //     document.querySelector('.banner').addEventListener('click', unPauseVideo);
-  //     // return () => {
-  //     //     document.querySelector('banner').removeEventListener('click', unPauseVideo)
-  //     // }
-  // }, [])
 
   // CONTROLS YOUTUBE & VISIBILITY
   const opts = {
     playerVars: {
+      start: 10,
       autoplay: 1,
       mute: 1,
       controls: 0,
       disablekb: 1,
-      end: 30,
+      end: 60,
       rel: 0,
       frameborder: '0',
       allowfullscreen: '',
@@ -150,7 +112,7 @@ function Player() {
       <PlayerStyles modal={globalModalState}>
         <div className="banner-container">
           <div
-            className="banner"
+            className="bigmodalbanner"
             ref={bannerRef}
             style={{
               backgroundImage: `url("${backdrop_path}")`,
@@ -158,10 +120,10 @@ function Player() {
           ></div>
           <div className="overlay">
             <div className="banner-contents">
-              <h1 className="banner-title" ref={bannerTitleRef}>
+              <h1 className="bigmodalbanner-title" ref={bannerTitleRef}>
                 {title}
               </h1>
-              <div className="banner-description" ref={bannerDescRef}>
+              <div className="bigmodalbanner-description" ref={bannerDescRef}>
                 <p>{truncate(overview, 150)}</p>
               </div>
               <div className="button-container">
@@ -175,25 +137,10 @@ function Player() {
                     <span className="text-play-button">Play</span>
                   </button>
                 </div>
-                <button
-                  className="meer-info-button"
-                  ref={moreInfoButtonRef}
-                  onClick={moreInfoButton}
-                >
-                  <img alt="info" src={info} className="Hawkins-icon" />
-                  <span className="text-info-button">More Info</span>
-                </button>
               </div>
             </div>
             <div className="side-button-container">
               <div>
-                <button
-                  id="rePlay"
-                  className="side-button"
-                  onClick={rePlayVideo}
-                >
-                  <img src={replay} alt="replay" className="Hawkins-icon" />
-                </button>
                 <button
                   id="volume-unmute"
                   className="side-button"
@@ -211,22 +158,14 @@ function Player() {
                   <img src={volume} alt="muted" className="Hawkins-icon" />
                 </button>
               </div>
-              <span className="maturity-rating">
-                <span className="maturity-graphic">
-                  {' '}
-                  {age_certificate.includes('PG-')
-                    ? age_certificate.slice(3)
-                    : age_certificate}
-                </span>
-              </span>
             </div>
           </div>
           <div className="banner-fadeBottom"></div>
           <YouTube
             id="youtube"
             title={title}
-            videoId={trailer}
-            ref={playerRef}
+            videoId={modalTrailer}
+            ref={modalPlayerRef}
             opts={opts}
             onEnd={endVideo}
             onPlay={playingVideo}
@@ -237,4 +176,4 @@ function Player() {
     </>
   );
 }
-export default Player;
+export default BigModalPlayer;

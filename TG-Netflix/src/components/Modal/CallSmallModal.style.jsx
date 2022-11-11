@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import {
-  AiFillCloseCircle,
-  AiOutlineDown,
-} from 'react-icons/ai';
+import { AiFillCloseCircle, AiOutlineDown } from 'react-icons/ai';
 import { BsFillPlayFill, BsHandThumbsUp, BsPlusLg } from 'react-icons/bs';
 import { TbLayersDifference, TbVolume3 } from 'react-icons/tb';
 
@@ -147,9 +144,9 @@ export const ArrowDown = styled(AiOutlineDown)`
 `;
 export const VideoPlay = styled.div`
   display: flex;
-  padding-top:0.25rem;
-  padding-bottom:0.25rem;
-  padding-left:0.28rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.28rem;
   justify-content: center;
   align-items: center;
   width: 10rem;
@@ -186,7 +183,7 @@ export const PlusCircle = styled(BsPlusLg)`
   padding: 0.5rem;
   color: #cccccc;
   font-size: 29px;
-  
+
   &:hover {
     color: white;
     border-color: white;
@@ -230,17 +227,19 @@ export const MatchPerc = styled.div`
   color: #46d369;
 `;
 export const AgeRes = styled.div`
-  /* display: flex;
-justify-content: center;
-align-items: center;
-width: 1rem;
-  height: 1rem;
-  padding: 1.3rem;
-  line-height: 1.1rem;
- font-size: 1rem;
- text-align: center;
-background-color: black;
-border: 2px solid white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.6rem;
+  line-height: 1.3rem;
+  
+  font-size: 0.9rem;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;
 `;
 export const Runtime = styled.div``;
 

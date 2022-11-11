@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovies } from '../../reducers/fetchReducer';
 import {
   SmallModalContainer,
   SmallModal,
   SmallModalTop,
   SmallModalBottom,
-
   VideoControls,
   PlusCircle,
-
   InfoCon,
   AgeRes,
   Runtime,
   ArrowContainer,
   MatchPerc,
   ArrowDown,
-  KeywordsContainer
+  KeywordsContainer,
 } from './CallSmallModal.style';
-
-
 import YouTube from 'react-youtube';
-
-// add to liked list (mylist)
-import { addToList } from '../../reducers/likedReducer';
-import { useDispatch } from "react-redux";
 
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -31,15 +24,16 @@ const CallSmallModal = (props) => {
     setsWidth(window.innerWidth);
   }, [sWidth]);
 
-  const bg =
-    'https://image.tmdb.org/t/p/original' + props.data.dataset.backdrop;
   // let Trailer = props.movie.trailer;
-  let Trailer = 'https://www.youtube.com/watch?v=0IOsk2Vlc4o';
+  // let Trailer = 'https://www.youtube.com/watch?v=0IOsk2Vlc4o';
   const left = props.data.coords.x;
   const top = props.data.coords.y;
   const right = props.data.coords.right;
   const width = props.data.coords.right - props.data.coords.x;
   const height = props.data.coords.bottom - props.data.coords.y;
+  const dispatch = useDispatch();
+  const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
+
   const coords = {
     left,
     top,
@@ -79,19 +73,30 @@ const CallSmallModal = (props) => {
     return result;
   };
 
+  const id = props.movieID;
+  const moviesInState = useSelector((state) => state.netflix.movies);
+  const movieInfoAr = moviesInState.filter((movie) => movie.id === +id);
 
+  if (movieInfoAr.length === 0) {
+    dispatch(getMovies(parseInt(+id)));
+  }
+  const movieInfo = movieInfoAr[0];
 
-
-  const matchPerc = Math.floor(Math.random() * (100 - 50)) + 50;
+  let keywords = [];
+  for (let i = 0; i < movieInfo?.keywords.length; i++) {
+    keywords.push(
+      movieInfo?.keywords[i][0].toUpperCase() + movieInfo?.keywords[i].slice(1)
+    );
+  }
+  const bg = movieInfo?.backdrop_path;
 
   return (
     <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
-
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
             <YouTube
-              videoId={Trailer}
+              videoId={movieInfo?.trailer}
               opts={opts}
               style={{ height: 'inherit' }}
             />
@@ -99,34 +104,35 @@ const CallSmallModal = (props) => {
         </SmallModalTop>
 
         <SmallModalBottom>
-          <VideoControls >
+          <VideoControls>
             {/* <VideoPlay>
               <PlayButton />
               Play
             </VideoPlay> */}
-            <PlusCircle onClick={function (e) {
-             e.stopPropagation()
-              return props.handleAddToMyList(e);
-            }} />
+            <PlusCircle
+              onClick={function (e) {
+                e.stopPropagation();
+                return props.handleAddToMyList(e);
+              }}
+            />
             {/* <ThumbsUp /> */}
             {/* <RateIcons /> */}
 
             <ArrowContainer>
               <ArrowDown />
             </ArrowContainer>
-            {/* <VolumeIcon /> */}
           </VideoControls>
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
-            <AgeRes>{props.data.dataset.age_certificate}</AgeRes>
-            <Runtime>{runtime(props.data.dataset.runtime)}</Runtime>
+            <AgeRes>
+              {movieInfo?.age_certificate.includes('PG-')
+                ? movieInfo?.age_certificate.slice(3)
+                : movieInfo?.age_certificate}
+            </AgeRes>
+            <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
-          <KeywordsContainer>
-            Dark • Period • Ensemble
-          </KeywordsContainer>
+          <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
         </SmallModalBottom>
-
-
       </SmallModal>
     </SmallModalContainer>
   );

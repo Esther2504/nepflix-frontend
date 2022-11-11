@@ -35,7 +35,7 @@ export default function Discover({ banner, categories, movie }) {
   useEffect(() => {
     if (getMovieID) dispatch(openModal({ modalState: true, coords }));
   }, []);
-  console.log(categoriesState)
+
   const handleAddToMyList = (e) => {
     let r;
 
@@ -82,7 +82,6 @@ export default function Discover({ banner, categories, movie }) {
 
 
 
-
   return (
     <>
       <div className="members-container">
@@ -93,10 +92,11 @@ export default function Discover({ banner, categories, movie }) {
             hover={isHovering}
             data={{ coords: coords, dataset: movieDetails }}
             onClick={openBigModal}
+            movieID={movieID}
             handleAddToMyList={handleAddToMyList}
           />
         )}
-        {globalModalState.modalState && <CallBigModal {...movieDetails} />}
+        {globalModalState.modalState && <CallBigModal movieID={movieID} />}
         <div className="fade-container">
           <LaneHandler categories={categories} movie={movie} />
         </div>

@@ -1,21 +1,59 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { GridContainer } from "./GridLayout.styled";
 import MovieCard from "../movie-card/MovieCard";
-import CallModal from "../Modal/CallSmallModal";
+import CallSmallModal from "../../components/Modal/CallSmallModal";
 import { useSelector, useDispatch } from "react-redux";
 import { openModal, closeModal } from "../../reducers/modalReducer";
 import CallBigModal from "../Modal/CallBigModal";
+import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import { Card } from "../movie-card/MovieCard.styled";
+import { getMovies, getBrowse } from "../../reducers/fetchReducer";
 
-export default function GridLayout({ movies, genre, setGenre, movie, categories }) {
+export default function GridLayout({ genre, setGenre, movie, categories }) {
+  const { moviegenre } = useParams();
   const [isHovering, setIsHovering] = useState(false);
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState();
+  const [movieID, setMovieID] = useState();
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
+  const movieDetails = useSelector((state) => state.netflix.movies);
+  const [browseMovieID, setBrowseMovieID] = useSearchParams();
 
-  const { moviegenre } = useParams();
+  //END STATE
 
+  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
+
+  //check if linked to a direct movie
+  const getMovieID = browseMovieID.get("movieID");
+
+  let movies = loadedCategories;
+
+  if (genre != "") {
+    if (
+      loadedCategories.find((item) => item.name.toLowerCase() === `${genre}`)
+    ) {
+      movies = loadedCategories.find(
+        (item) => item.name.toLowerCase() === `${genre}`
+      );
+    } else {
+      const categories = genre
+     
+      // dispatch(getBrowse({ categories }));
+     
+      movies = loadedCategories.find(
+        (item) => item.name.toLowerCase() === `popular`
+      );
+    }
+  }
+
+  //open modal if linked to movieID
+  useEffect(() => {
+    if (getMovieID) dispatch(openModal({ modalState: true, coords }));
+  }, []);
+
+  //add evenlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
     films.forEach((film) => {
@@ -23,10 +61,9 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
         if (e.target.getAttribute("id")) {
           setDataset(film.dataset);
           setIsHovering(true);
+          dispatch(getMovies(e.target.dataset.id));
+          setMovieID(e.target.dataset.id);
           setCoords(e.target.getBoundingClientRect());
-          dispatch(
-            openModal({ modalState: false, coords: coords, movie: movie })
-          );
         }
       });
     });
@@ -38,22 +75,25 @@ export default function GridLayout({ movies, genre, setGenre, movie, categories 
   }, []);
 
   const openBigModal = () => {
+    setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
 
-    return (
+  return (
     <>
       {isHovering && (
-        <CallModal
+        <CallSmallModal
           onMouseLeave={() => setIsHovering(false)}
           hover={isHovering}
-          data={{ coords: coords, dataset: dataset, movie: movie }}
+          setIsHovering={setIsHovering}
+          data={{ coords: coords, dataset: dataset, movie: movieID }}
+          movieID={movieID}
           onClick={openBigModal}
         />
       )}
-      {globalModalState.modalState && <CallBigModal />}
+      {globalModalState.modalState && <CallBigModal movieID={movieID} />}
       <GridContainer>
-        {movies.map((movie, index) => {
+        {movies.movies.map((movie, index) => {
           return <MovieCard key={index} movie={movie} />;
         })}
       </GridContainer>

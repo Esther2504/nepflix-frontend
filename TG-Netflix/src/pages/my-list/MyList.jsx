@@ -4,7 +4,7 @@ import { GridContainer } from '../../components/grid-layout/GridLayout.styled';
 import MovieCard from '../../components/movie-card/MovieCard';
 import { useSelector, useDispatch } from "react-redux";
 import { useSearchParams } from 'react-router-dom';
-import { openModal, closeModal } from "../../reducers/modalReducer";
+import { openModal } from "../../reducers/modalReducer";
 import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
@@ -72,11 +72,12 @@ export default function MyList() {
               onMouseLeave={() => setIsHovering(false)}
               hover={isHovering}
               setIsHovering={setIsHovering}
-              data={{ coords: coords, dataset: dataset, movie: movieID }}
+              data={{ coords: coords, dataset: dataset }}
               onClick={openBigModal}
+              movieID={movieID}
             />
+            
           )}
-         
 
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />

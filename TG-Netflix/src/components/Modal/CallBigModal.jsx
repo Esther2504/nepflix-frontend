@@ -28,10 +28,12 @@ import {
   AboutTitle,
   Error
 } from './CallBigModal.styled';
-import { closeModal, getMovieID } from '../../reducers/modalReducer';
-import Player from '../player/Player';
+import { closeModal } from '../../reducers/modalReducer';
+// import Player from "../player/Player";
+import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from '../../reducers/fetchReducer';
+
 
 const CallBigModal = (props) => {
   //REF's
@@ -64,9 +66,7 @@ const CallBigModal = (props) => {
 
   const id = browseMovieID.get('movieID') * 1;
   const moviesInState = useSelector((state) => state.netflix.movies);
-
   const movieInfoAr = moviesInState.filter((movie) => movie.id === id);
-
   if (movieInfoAr.length === 0) {
     dispatch(getMovies(parseInt(id)));
   }
@@ -103,6 +103,13 @@ const CallBigModal = (props) => {
     }
   };
 
+  let keywords = [];
+  for (let i = 0; i < movieInfo.keywords.length; i++) {
+    keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
+  }
+
+// console.log(movieInfo)
+
   return (
     <>
       <ModalContainer ref={modalRefContainer}>
@@ -113,13 +120,13 @@ const CallBigModal = (props) => {
           {movieInfo && (
             <>
               <ModalPreview>
-                <Player data={movieInfo} modal={true} />
+                {/* <Player data={movieInfo} modal={true} /> */}
+                <BigModalPlayer data={movieInfo} modal={true} />
                 <VideoInfoContainer>
                   <VideoInfoContainerLeft>
                     <MetaData>
-                      <Rating>93% Match</Rating>
-                      <ReleaseYear>
-                        {movieInfo?.release_date.slice(0, 4)}
+                      {/* <Rating>93% Match</Rating> */}
+                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)}  • 
                       </ReleaseYear>
                       <MaturityRating></MaturityRating>
                       <Duration>
@@ -139,8 +146,8 @@ const CallBigModal = (props) => {
                       {movieInfo?.genres.join(', ')}
                     </Genres>
                     <Tags>
-                      <span>This programme is: </span>
-                      {movieInfo?.keywords + ' '}
+                      <span>Keywords: </span>
+                      {keywords.join(', ')}
                     </Tags>
                   </VideoInfoContainerRight>
                 </VideoInfoContainer>
@@ -173,7 +180,7 @@ const CallBigModal = (props) => {
                     {movieInfo?.genres.join(', ')}
                   </Genres>
                   <Tags>
-                    <span>This programme is: </span> {movieInfo?.keywords + ''}
+                    <span>Keywords: </span> {keywords.join(', ')}
                   </Tags>
                   <MaturityRating>
                     <span>Maturity Rating: </span>
@@ -183,7 +190,7 @@ const CallBigModal = (props) => {
               </ModalPreview>
             </>
           )}
-          {!movieInfo &&(
+          {!movieInfo && (
             <Error>Movie ID not found.</Error>
           )}
         </ModalContent>

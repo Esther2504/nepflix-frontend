@@ -5,15 +5,16 @@ const initialState = {
 };
 
 //get data for direct link
-export const getMovieID = async (id) => {
-  //fetches /movie data
-  const { data } = await axios.get(
-    `https://tg-nepflix.azurewebsites.net/movie/${id}?similar=true`
-  );
-  const movie = data;
+// export const getMovieID = async (id) => {
+//   //fetches /movie data
+//   const { data } = await axios.get(
+//     `https://tg-nepflix.azurewebsites.net/movie/${id}?similar=true`
+//   );
+//   const movie = data;
 
-  return movie;
-};
+//   return movie;
+// };
+
 
 export const modalSlice = createSlice({
   name: 'modal',
