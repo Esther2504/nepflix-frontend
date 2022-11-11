@@ -7,25 +7,21 @@ import axios from "axios";
 //Map each in there respective locations. Remove props passed in components
 
 const initialState = {
-  browse: [],
-  browseLoaded: false,
-  browseError: "",
+    browse: [],
+    browseLoaded: false,
+    browseError: "",
 
-  movies: [],
-  moviesLoaded: false,
-  moviesError: "",
+    movies: [],
+    moviesLoaded: false,
+    moviesError: "",
 };
 
 //The two axios links can be replaced with the link recieved from the back-end IF the initial endpoints stay as is.
-export const getBrowse = createAsyncThunk(
-  "netflix/browse",
-  
-  async ({ banner, categories, page }) => {
-    // console.log(banner, categories, page);
+export const getBrowse = createAsyncThunk("netflix/browse", async ({ banner, categories, page }) => {
+    console.log(banner, categories, page)
     //fetches /Browse data
     const { data } = await axios.get(
-      `https://tg-nepflix.azurewebsites.net/browse`,
-      { params: { banner, categories, page } }
+        `https://tg-nepflix.azurewebsites.net/browse`, { params: { banner, categories, page } }
     );
     const browse = data;
 // console.log(browse)
@@ -41,6 +37,7 @@ export const getMovies = createAsyncThunk("netflix/movies", async (id) => {
 
     return movie;
 });
+
 
 const NetflixSlice = createSlice({
   name: "Netflix",
@@ -102,5 +99,5 @@ const NetflixSlice = createSlice({
   },
 });
 
-export const { scrollReducer } = NetflixSlice.actions;
 export default NetflixSlice.reducer;
+

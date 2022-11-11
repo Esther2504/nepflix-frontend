@@ -15,6 +15,7 @@ export const getMovieID = async (id) => {
   return movie;
 };
 
+
 export const modalSlice = createSlice({
   name: 'modal',
   initialState,
