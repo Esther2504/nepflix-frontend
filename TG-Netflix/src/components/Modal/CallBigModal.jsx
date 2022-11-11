@@ -29,7 +29,8 @@ import {
   Error
 } from './CallBigModal.styled';
 import { closeModal, getMovieID } from '../../reducers/modalReducer';
-import Player from "../player/Player";
+// import Player from "../player/Player";
+import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from '../../reducers/fetchReducer';
 
@@ -114,7 +115,8 @@ const CallBigModal = (props) => {
           {movieInfo && (
             <>
               <ModalPreview>
-                <Player data={movieInfo} modal={true} />
+                {/* <Player data={movieInfo} modal={true} /> */}
+                <BigModalPlayer data={movieInfo} modal={true} />
                 <VideoInfoContainer>
                   <VideoInfoContainerLeft>
                     <MetaData>
@@ -184,7 +186,7 @@ const CallBigModal = (props) => {
               </ModalPreview>
             </>
           )}
-          {!movieInfo &&(
+          {!movieInfo && (
             <Error>Movie ID not found.</Error>
           )}
         </ModalContent>
