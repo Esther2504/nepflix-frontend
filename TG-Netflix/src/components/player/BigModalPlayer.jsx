@@ -2,19 +2,21 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import YouTube from 'react-youtube';
 
-// OPEN MODAL FROM THE MORE INFO BUTTON
-import { closeModal, openModal } from '../../reducers/modalReducer';
-
 // CSS & BUTTONS
 import { PlayerStyles } from './BigModalPlayer.style';
 
 import play from '../../assets/play-button.svg';
 import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
-import { getCurrentTime, TrailerSlice } from '../../reducers/trailerReducer';
+// import { setTrailerTime } from '../../reducers/trailerReducer';
+import { useSearchParams } from 'react-router-dom';
 
-function BigModalPlayer({ modal }) {
-    const { logo, overview, backdrop_path, trailer, title } = useSelector(state => state.netflix.browse[1])
+function BigModalPlayer() {
+    const { overview, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
+    console.log(id)
+
+    // const seconds = useSelector((state) => state.trailer.seconds)
+
     const dispatch = useDispatch();
     // REF
     const modalPlayerRef = useRef(null);
@@ -31,7 +33,8 @@ function BigModalPlayer({ modal }) {
     const [isPlaying, setIsplaying] = useState(false)
 
     // MODAL STATE
-    const [coords, setCoords] = useState(false);
+    const [movieID, setMovieID] = useSearchParams();
+    const globalModalState = useSelector((state) => state.modal.modalState)
 
     const muteVideo = () => {
         modalPlayerRef.current.internalPlayer.mute();
@@ -76,11 +79,12 @@ function BigModalPlayer({ modal }) {
     // CONTROLS YOUTUBE & VISIBILITY
     const opts = {
         playerVars: {
+            start: 10,
             autoplay: 1,
             mute: 1,
             controls: 0,
             disablekb: 1,
-            end: 30,
+            end: 60,
             rel: 0,
             frameborder: '0',
             allowfullscreen: '',
@@ -92,7 +96,7 @@ function BigModalPlayer({ modal }) {
 
     return (
         <>
-            <PlayerStyles>
+            <PlayerStyles modal={globalModalState}>
                 <div className='banner-container'>
                     <div
                         className='bigmodalbanner'
@@ -152,7 +156,6 @@ function BigModalPlayer({ modal }) {
                     </div>
                     <div className="banner-fadeBottom"></div>
                     <YouTube id='youtube' title={title} videoId={trailer} ref={modalPlayerRef} opts={opts} onEnd={endVideo} onPlay={playingVideo} onReady={playingVideo} />
-
                 </div>
             </PlayerStyles>
         </>
