@@ -8,6 +8,7 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
+import { getMovies } from '../../reducers/fetchReducer';
 
 
 export default function MyList() {
@@ -34,6 +35,7 @@ export default function MyList() {
           setMovieID(e.target.dataset.id);
           setDataset(film.dataset);
           setIsHovering(true);
+          dispatch(getMovies(e.target.dataset.id))
           setCoords(e.target.getBoundingClientRect());
           dispatch(openModal({ modalState: false, coords: coords }));
         }

@@ -32,7 +32,7 @@ export const getMovies = createAsyncThunk("netflix/movies", async () => {
     //fetches /movie data
     const {
         data,
-    } = await axios.get(`https://stoplight.io/mocks/tg-maxserve/netclone/102025768/movie`);
+    } = await axios.get(`https://tg-nepflix.azurewebsites.net/movie/${id}similar=true`);
     const movie = data;
 
     return movie;
@@ -60,14 +60,15 @@ const NetflixSlice = createSlice({
             state.browse = action.payload;
             state.browseLoaded = true;
             state.browseError = '';
-        })
-        //can do .addCase to set other status to the same builder, such ass; Pending and Error
-        //this is when the /movie has been fully fetched
+        })  
         builder.addCase(getMovies.fulfilled, (state, action) => {
-            state.movies = action.payload;
+            const checkIfMovieInState = state.movies.find((movie)=> movie.id === action.payload.id)
+            if(!checkIfMovieInState){
+                state.movies = [...state.movies, action.payload]
+            } 
             state.moviesLoaded = true;
             state.moviesError = '';
-        })
+        });
             
         // builder.addCase(getLiked.fulfilled, (state, action) => {
         //     state.liked = action.payload;
