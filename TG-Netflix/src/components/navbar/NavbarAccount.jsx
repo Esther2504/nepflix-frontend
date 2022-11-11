@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import * as S from './NavbarAccount.styled';
 import logo from '../../assets/navbar-images/nepflix-logo.png';
 import profile from '../../assets/navbar-images/profile-icon.png';
-import kids from '../../assets/navbar-images/kids-icon.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
 import arrowup from '../../assets/navbar-images/arrow-up.png';
 
@@ -20,10 +19,10 @@ export default function NavbarAccount() {
           <ul>
             <img src={arrowup} className="arrow-up" />
             <li>
-              <a href="/browse">Home</a>
+              <NavLink to="/browse">Home</NavLink>
             </li>
             <li>
-              <a href="/">Sign out of Nepflix</a>
+              <NavLink to="/">Sign out of Nepflix</NavLink>
             </li>
           </ul>
         </S.Menu>
