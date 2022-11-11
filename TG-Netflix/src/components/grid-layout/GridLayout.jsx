@@ -38,10 +38,12 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
         (item) => item.name.toLowerCase() === `${genre}`
       );
     } else {
-      // const categories = genre
+      const categories = genre
+     
       // dispatch(getBrowse({ categories }));
+     
       movies = loadedCategories.find(
-        (item) => item.name.toLowerCase() === `${genre}`
+        (item) => item.name.toLowerCase() === `popular`
       );
     }
   }
