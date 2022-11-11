@@ -91,7 +91,6 @@ const NetflixSlice = createSlice({
             if(!checkIfMovieInState){
           state.movies = [...state.movies, action.payload]
             } 
-            console.log(state);
       state.moviesLoaded = true;
       state.moviesError = "";
     });

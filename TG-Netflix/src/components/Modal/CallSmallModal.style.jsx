@@ -221,17 +221,19 @@ export const MatchPerc = styled.div`
   color: #46d369;
 `;
 export const AgeRes = styled.div`
-  /* display: flex;
+display: flex;
 justify-content: center;
 align-items: center;
-width: 1rem;
-  height: 1rem;
-  padding: 1.3rem;
-  line-height: 1.1rem;
- font-size: 1rem;
- text-align: center;
+text-align: center;
+width: 2rem;
+  height: 2rem;
+  padding: .6rem;
+  line-height: 1.3rem;
+
+  font-size: .9rem;;
 background-color: black;
-border: 2px solid white; */
+border: 2px solid white;
+border-radius: 50%;
 `;
 export const Runtime = styled.div``;
 
