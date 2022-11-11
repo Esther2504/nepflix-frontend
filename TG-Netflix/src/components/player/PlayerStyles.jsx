@@ -11,6 +11,7 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
     .banner {
     position: absolute;
@@ -20,8 +21,6 @@ export const PlayerStyles = styled.div`
     object-fit: cover;
     background-size: cover;
     background-position: center center;
-    // ${props => props.active ? 'animation: fadeOut .25s ease-out 0.5s forwards' : ''}
-    // , fadeIn .25s ease-out 15.5s forwards;
     }
 
     // ANIMATIONS AT START
@@ -51,7 +50,8 @@ export const PlayerStyles = styled.div`
     }
 
     .overlay {
-        width: ${props => props.modal ? '61vw' : '100vw'};
+        // width: 100%;
+        width: ${props => props.modal.modalState ? '61vw' : '100vw'};
         height: 33.3%;
         position: absolute;
         display: flex;
@@ -282,7 +282,7 @@ export const PlayerStyles = styled.div`
     
     iframe {
         height: 100vw;
-        width: ${props => props.modal ? '61vw' : '140vw'};
+        width: ${props => props.modal.modalState ? '61vw' : '140vw'};
         align-self: center;
     }
 
