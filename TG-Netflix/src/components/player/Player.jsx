@@ -19,7 +19,7 @@ import { useSearchParams } from 'react-router-dom';
 
 function Player() {
     const { overview, age_certificate, backdrop_path, trailer, title, id } = useSelector(state => state.netflix.browse[1])
-    console.log(id)
+    // console.log(id)
 
     const seconds = useSelector((state) => state.trailer.seconds)
     const [incrementAmount, setIncrementAmount] = useState(0);

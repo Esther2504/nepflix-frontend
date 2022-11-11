@@ -28,7 +28,7 @@ import {
   AboutTitle,
   Error
 } from './CallBigModal.styled';
-import { closeModal, getMovieID } from '../../reducers/modalReducer';
+import { closeModal } from '../../reducers/modalReducer';
 // import Player from "../player/Player";
 import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
@@ -108,7 +108,7 @@ const CallBigModal = (props) => {
     keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
   }
 
-console.log(movieInfo)
+// console.log(movieInfo)
 
   return (
     <>
