@@ -44,13 +44,6 @@ const CallSmallModal = (props) => {
 
   const [videoState, setVideoState] = useState(false);
 
-  // Als de small modal verschijnt, duurt het nog twee seconden tot de video speelt
-  if (props.hover) {
-    setTimeout(function () {
-      setVideoState(true);
-    }, 1500);
-  }
-
   const opts = {
     width: '100%',
     height: '100%',
@@ -60,6 +53,7 @@ const CallSmallModal = (props) => {
       mute: 1,
       controls: 0,
       disablekb: 1,
+      start: 15,
       end: 66,
       rel: 0,
       frameborder: '0',
@@ -90,9 +84,19 @@ const CallSmallModal = (props) => {
   }
   const bg = movieInfo?.backdrop_path;
 
+  const mouseLeaveHandler = () => {
+    setVideoState(false);
+  };
+
+  const mouseEnterHandler = () => {
+    setTimeout(function () {
+      setVideoState(true);
+    }, 1500);
+  };
+
   return (
-    <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
-      <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
+    <SmallModalContainer onMouseLeave={mouseLeaveHandler} onMouseEnter={mouseEnterHandler} coords={coords} bg={bg} onClick={props.onClick}>
+      <SmallModal coords={coords} bg={bg} sWidth={sWidth} >
         <SmallModalTop bg={bg}>
           {videoState && (
             <YouTube
