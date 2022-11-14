@@ -82,7 +82,6 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
     <>
       {isHovering && (
         <CallSmallModal
-          onMouseLeave={() => setIsHovering(false)}
           hover={isHovering}
           setIsHovering={setIsHovering}
           data={{ coords: coords, dataset: dataset, movie: movieID }}

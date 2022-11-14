@@ -104,8 +104,8 @@ export default function Films({ banner, categories, movie }) {
           <>
             {isHovering && (
               <CallSmallModal
-                onMouseLeave={() => setIsHovering(false)}
                 hover={isHovering}
+                setIsHovering={setIsHovering}
                 data={{ coords: coords, dataset: movieDetails }}
                 onClick={openBigModal}
                 movieID={movieID}
