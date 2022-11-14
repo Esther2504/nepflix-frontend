@@ -26,7 +26,6 @@ export default function Discover({ banner, categories, movie }) {
   const categoriesState = useSelector((state) => state.netflix.browse)
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
 
-  //END STATE
 
   //check if linked to a direct movie
   const getMovieID = browseMovieID.get("movieID");
@@ -83,7 +82,7 @@ export default function Discover({ banner, categories, movie }) {
   return (
     <>
       <div className="members-container">
-        <Player data={banner} modal={false} />
+        {categoriesState.length > 0 && <Player data={banner} modal={false} />}
         {isHovering && (
           <CallSmallModal
             onMouseLeave={() => setIsHovering(false)}
@@ -96,7 +95,7 @@ export default function Discover({ banner, categories, movie }) {
         )}
         {globalModalState.modalState && <CallBigModal movieID={movieID} />}
         <div className="fade-container">
-          <LaneHandler categories={categories} movie={movie} />
+          {categoriesState.length > 0 && <LaneHandler categories={categories} movie={movie} />}
         </div>
         <Footer />
       </div>
