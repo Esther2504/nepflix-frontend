@@ -49,7 +49,6 @@ export default function Search() {
           setIsHovering(true);
           setMovieID(e.target.dataset.id);
           setCoords(e.target.getBoundingClientRect());
-          console.log('runs')
         }
       });
     }); 
@@ -59,8 +58,6 @@ export default function Search() {
       setIsHovering(false);  
     });
   }, [filteredResults]);
-
-  console.log(movieID) 
 
   const openBigModal = () => {
     setBrowseMovieID({ q: searchQuery, movieID: movieID });

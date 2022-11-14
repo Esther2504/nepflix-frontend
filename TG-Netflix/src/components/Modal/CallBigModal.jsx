@@ -42,6 +42,7 @@ const CallBigModal = (props) => {
   const modalRefContainer = useRef();
   //END REF's
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
@@ -79,8 +80,6 @@ const CallBigModal = (props) => {
   const top = Math.round(globalModalState.coords.top) + 'px';
   const coordsForBigModal = left + top;
 
-  const navigate = useNavigate()
-
   //Close modal button
   const handleClose = () => {
     setBrowseMovieID();
@@ -92,6 +91,7 @@ const CallBigModal = (props) => {
     if (e.target.className === modalRefContainer.current?.className) {
       setBrowseMovieID();
       dispatch(closeModal({ modalState: false, coords: [] }));
+      navigate(-1)
     }
   });
 
