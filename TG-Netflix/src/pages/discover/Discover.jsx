@@ -29,7 +29,7 @@ export default function Discover({ banner, categories, movie }) {
   //END STATE
 
   //check if linked to a direct movie
-  const getMovieID = browseMovieID.get('movieID');
+  const getMovieID = browseMovieID.get("movieID");
 
   //open modal if linked to movieID
   useEffect(() => {
@@ -79,8 +79,6 @@ export default function Discover({ banner, categories, movie }) {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
-
-
 
   return (
     <>
