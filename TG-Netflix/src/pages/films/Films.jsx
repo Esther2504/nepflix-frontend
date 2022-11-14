@@ -13,7 +13,7 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 import { useParams } from "react-router-dom";
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { getMovies, getBrowse } from "../../reducers/fetchReducer";
-
+import { addToList } from '../../reducers/likedReducer';
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
 
@@ -29,6 +29,8 @@ export default function Films({ banner, categories, movie }) {
   const movieDetails = useSelector((state) => state.netflix.movies);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   const [genre, setGenre] = useState("");
+  const categoriesState = useSelector((state) => state.netflix.browse)
+
 
   //END STATE
 
@@ -38,6 +40,9 @@ export default function Films({ banner, categories, movie }) {
 
   // console.log(loadedCategories);
 
+
+
+  
   //add evenlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
@@ -64,6 +69,20 @@ export default function Films({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
+
+  const handleAddToMyList = (e) => {
+    let r;
+
+    categoriesState[0].forEach((categorie)=>{
+     r = categorie.movies.find((movie) => movie.id === movieID)
+      if(r){
+        dispatch(addToList(r))
+      }
+      return;
+      
+    })
+
+  };
   // if (genre != "") {
   //   // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
 
@@ -109,6 +128,7 @@ export default function Films({ banner, categories, movie }) {
                 data={{ coords: coords, dataset: movieDetails }}
                 onClick={openBigModal}
                 movieID={movieID}
+                handleAddToMyList={handleAddToMyList}
               />
             )}
             {globalModalState.modalState && <CallBigModal movieID={movieID} />}
