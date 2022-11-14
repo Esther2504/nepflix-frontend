@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, forwardRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import YouTube from 'react-youtube';
 
@@ -15,9 +15,10 @@ import volume from '../../assets/volume.svg';
 import muted from '../../assets/muted.svg';
 import { setTrailerTime } from '../../reducers/trailerReducer';
 import { useSearchParams } from 'react-router-dom';
-import { useImperativeHandle } from 'react';
+import { useLayoutEffect } from 'react';
 
 function Player(props) {
+  console.log(props);
   const { overview, age_certificate, backdrop_path, trailer, title, id } =
     useSelector((state) => state.netflix.browse[1]);
   // console.log(id)
@@ -58,11 +59,13 @@ function Player(props) {
     setUnMuteIsVisible((current) => !current);
   };
 
-  if (props.hovering) {
-    playerRef.current.internalPlayer.pauseVideo();
-  } else {
-    playerRef.current.internalPlayer.playVideo();
-  }
+  useLayoutEffect(() => {
+    if (props.hovering) {
+      playerRef.current.internalPlayer.pauseVideo();
+    } else {
+      playerRef.current.internalPlayer.playVideo();
+    }
+  }, [props.hovering]);
 
   // ON TRAILER PLAY/END
   const playingVideo = () => {

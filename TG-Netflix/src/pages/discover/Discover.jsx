@@ -92,7 +92,6 @@ export default function Discover({ banner, categories, movie }) {
         {globalModalState.modalState && <CallBigModal movieID={movieID} />}
         <div
           className="fade-container"
-          onMouseOver={() => setIsHovering(false)}
         >
           <LaneHandler categories={categories} movie={movie} />
         </div>
