@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-import { BsFillPlayFill } from 'react-icons/bs';
+import styled from "styled-components";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { BsFillPlayFill } from "react-icons/bs";
 
 export const VideoPlayer = styled.video`
   border-top-left-radius: 1rem;
@@ -26,10 +26,10 @@ export const PreviewMetaData = styled.div`
   /* height: 100%; */
 `;
 export const MaturityContainer = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export const PreviewPlay = styled(BsFillPlayFill)`
   position: absolute;
@@ -88,26 +88,26 @@ export const PreviewRating = styled.div`
 `;
 
 export const RatingContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-width: 3rem;
+  display: ${(props) => (props.hide ? `none` : `flex`)};
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
   height: 3rem;
   padding: 1.6rem;
   line-height: 1.3rem;
   /* border-radius: 50%; */
-background-color: black;
-border: 2px solid white;
-border-radius: 50%;
-`
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;
+`;
 
 export const PreviewMaturityRating = styled.div`
   /* grid-row: 2;
   grid-column: 1; */
   font-size: 1.4rem;
   font-weight: bold;
-text-align: center;
- 
+  text-align: center;
+
   /* height: 2rem; */
 `;
 export const PreviewReleaseYear = styled.div`

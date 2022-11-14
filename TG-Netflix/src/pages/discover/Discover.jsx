@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../../reducers/modalReducer';
-import Player from '../../components/player/Player';
-import LaneHandler from '../../components/lane/LaneHandler';
-import Footer from '../../components/footer/footer';
-import CallSmallModal from '../../components/Modal/CallSmallModal';
-import CallBigModal from '../../components/Modal/CallBigModal';
-import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
-import { getMovies, getBrowse} from "../../reducers/fetchReducer";
+import React, { useState, useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { openModal, closeModal } from "../../reducers/modalReducer";
+import Player from "../../components/player/Player";
+import LaneHandler from "../../components/lane/LaneHandler";
+import Footer from "../../components/footer/footer";
+import CallSmallModal from "../../components/Modal/CallSmallModal";
+import CallBigModal from "../../components/Modal/CallBigModal";
+import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
+import { getMovies, getBrowse } from "../../reducers/fetchReducer";
 
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
@@ -27,40 +27,43 @@ export default function Discover({ banner, categories, movie }) {
   //END STATE
 
   //check if linked to a direct movie
-  const getMovieID = browseMovieID.get('movieID');
+  const getMovieID = browseMovieID.get("movieID");
 
   //open modal if linked to movieID
   useEffect(() => {
     if (getMovieID) dispatch(openModal({ modalState: true, coords }));
   }, []);
 
+  // const loadingMovies = useSelector((state) => state.netflix.browse);
   //add evenlistener for small modal
   useEffect(() => {
-    const films = document.querySelectorAll('#movie');
-    films.forEach((film) => {
-      film.addEventListener('mouseenter', (e) => {
-        if (e.target.getAttribute('id')) {
-          setDataset(film.dataset);
-          setIsHovering(true);
-          dispatch(getMovies(e.target.dataset.id))
-          setMovieID(e.target.dataset.id);
-          setCoords(e.target.getBoundingClientRect());
-        }
-      });
-    });
+    const films = document.querySelectorAll("#movie");
 
-    window.addEventListener('click', (e) => {
+    // console.log(loadingMovies);
+    films.forEach(
+      (film) => {
+        film.addEventListener("mouseenter", (e) => {
+          if (e.target.getAttribute("id")) {
+            setDataset(film.dataset);
+            setIsHovering(true);
+            dispatch(getMovies(e.target.dataset.id));
+            setMovieID(e.target.dataset.id);
+            setCoords(e.target.getBoundingClientRect());
+          }
+        });
+      }
+    );
+
+    window.addEventListener("click", (e) => {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, []);
+  }, [categoriesState]);
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
-
-
 
   return (
     <>
