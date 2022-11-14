@@ -55,9 +55,8 @@ const NetflixSlice = createSlice({
       } else {
         for (let i = 0; i < categorypayload.length; i++) {
           const found = state.browse[0].find(
-            (element) => element == categorypayload[i]
+            (element) => element == categorypayload
           );
-          // console.log(!found);
           if (!found) {
             state.browse[0].push(categorypayload[i])
           }

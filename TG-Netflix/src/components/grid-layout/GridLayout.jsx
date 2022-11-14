@@ -32,19 +32,16 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
 
   if (genre != "") {
     if (
-      loadedCategories.find((item) => item.name.toLowerCase() === `${genre}`)
+      loadedCategories.find((item) => item?.name.toLowerCase() === `${genre}`)
     ) {
       movies = loadedCategories.find(
         (item) => item.name.toLowerCase() === `${genre}`
       );
-    } else {
+    } 
+    
+    if (!loadedCategories.find((item) => item?.name.toLowerCase() === `${genre}`)) {
       const categories = genre
-     
-      // dispatch(getBrowse({ categories }));
-     
-      movies = loadedCategories.find(
-        (item) => item.name.toLowerCase() === `popular`
-      );
+      dispatch(getBrowse({ categories }));
     }
   }
 
@@ -93,7 +90,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
       )}
       {globalModalState.modalState && <CallBigModal movieID={movieID} />}
       <GridContainer>
-        {movies.movies.map((movie, index) => {
+        {movies?.movies?.map((movie, index) => {
           return <MovieCard key={index} movie={movie} />;
         })}
       </GridContainer>

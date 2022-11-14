@@ -37,21 +37,27 @@ function LaneHandler() {
     "latest",
   ];
 
-  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
+  let loadedCategories = useSelector((state) => state.netflix.browse[0]);
+
+// Removes duplicates based on category name
+  function getUniqueCategories(array, key) {
+    return [...new Map(array.map((item) => [item[key], item])).values()];
+  }
+  loadedCategories = getUniqueCategories(loadedCategories, "name");
 
   useEffect(() => {
     if (inView) {
-    let categorySelection = categoryList.slice(index, index + 4);
-    categorySelection = categorySelection.toString();
+      let categorySelection = categoryList.slice(index, index + 4);
+      categorySelection = categorySelection.toString();
 
-    setIndex(index + 4);
+      setIndex(index + 4);
 
-    const categories = categorySelection;
+      const categories = categorySelection;
 
-    if (loadedCategories.length < 21) {
-      dispatch(getBrowse({ categories }));
+      if (loadedCategories.length < 21) {
+        dispatch(getBrowse({ categories }));
+      }
     }
-  }
   }, [inView]);
 
   const size = useWindowSize();
@@ -80,11 +86,13 @@ function LaneHandler() {
     }
     return slices;
   }
-  
+
+  console.log(loadedCategories);
+
   return (
     <div className="laneContainer">
       {loadedCategories?.map((item, index) => {
-        let someSlices = getSlices(item.movies);
+        let someSlices = getSlices(item?.movies);
 
         return (
           <div className="hidden" key={index}>
@@ -100,10 +108,9 @@ function LaneHandler() {
       })}
 
       {loadedCategories.length < 21 ? (
-          <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
+        <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
           <Spinner />
         </div>
-       
       ) : null}
     </div>
   );

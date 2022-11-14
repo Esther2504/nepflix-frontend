@@ -39,9 +39,9 @@ const FilterMenu = (props) => {
 
   // Voor de genretitel die op de pagina verschijnt nadat je een genre kiest
   let genreTitle = props.genre;
-  if (props.genre == "science_fiction") {
+  if (props.genre == "science fiction") {
     genreTitle = "Science Fiction";
-  } else if (props.genre == "tv_movie") {
+  } else if (props.genre == "tv movie") {
     genreTitle = "TV Movie";
   }
 
