@@ -73,7 +73,7 @@ export default function Discover({ banner, categories, movie }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, []);
+  }, [categoriesState]);
 
 
   const openBigModal = () => {
