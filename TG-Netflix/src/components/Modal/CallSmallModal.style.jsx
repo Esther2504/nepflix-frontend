@@ -1,15 +1,14 @@
-import styled from 'styled-components';
-import { AiFillCloseCircle, AiOutlineDown } from 'react-icons/ai';
-import { BsFillPlayFill, BsHandThumbsUp, BsPlusLg } from 'react-icons/bs';
-import { TbLayersDifference, TbVolume3 } from 'react-icons/tb';
+import styled from "styled-components";
+import { AiFillCloseCircle, AiOutlineDown } from "react-icons/ai";
+import { BsFillPlayFill, BsHandThumbsUp, BsPlusLg } from "react-icons/bs";
+import { TbLayersDifference, TbVolume3 } from "react-icons/tb";
 
 export const SmallModalContainer = styled.div`
   position: absolute;
-  left: ${(props) => props.coords.left + 'px'};
-  top: ${(props) => props.coords.top + window.scrollY + 'px'};
-  width: ${(props) => props.coords.width + 'px'};
-  height: ${(props) => props.coords.height + 'px'};
-
+  left: ${(props) => props.coords.left + "px"};
+  top: ${(props) => props.coords.top + window.scrollY + "px"};
+  width: ${(props) => props.coords.width + "px"};
+  height: ${(props) => props.coords.height + "px"};
 `;
 
 //START SMALLMODAL
@@ -43,10 +42,10 @@ export const SmallModal = styled.div`
   transition-delay: 1300ms;
   transform-origin: ${(props) =>
     props.coords.left < props.coords.width
-      ? 'left center'
+      ? "left center"
       : props.sWidth - props.coords.right < props.coords.width
-      ? 'right center'
-      : 'center center'};
+      ? "right center"
+      : "center center"};
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
@@ -238,7 +237,7 @@ export const AgeRes = styled.div`
   height: 2rem;
   padding: 0.6rem;
   line-height: 1.3rem;
-  
+
   font-size: 0.9rem;
   background-color: black;
   border: 2px solid white;

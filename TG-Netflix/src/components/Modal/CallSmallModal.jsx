@@ -87,8 +87,8 @@ const CallSmallModal = (props) => {
   const mouseLeaveHandler = () => {
     setVideoState(false);
     setTimeout(function () {
-props.setIsHovering(false)
-}, 300);
+      props.setIsHovering(false);
+    }, 300);
 
     // For when you leave the card before the videostate has been set to true
     setTimeout(function () {
@@ -116,7 +116,11 @@ props.setIsHovering(false)
             <YouTube
               videoId={movieInfo?.trailer}
               opts={opts}
-              style={{ height: "inherit", aspectRatio: "16/9", overflow: "hidden" }}
+              style={{
+                height: "inherit",
+                aspectRatio: "16/9",
+                overflow: "hidden",
+              }}
             />
           )}
         </SmallModalTop>
