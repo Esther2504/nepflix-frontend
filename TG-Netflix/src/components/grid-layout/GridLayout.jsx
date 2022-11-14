@@ -37,10 +37,12 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
       movies = loadedCategories.find(
         (item) => item.name.toLowerCase() === `${genre}`
       );
-    } 
-    
-    if (!loadedCategories.find((item) => item?.name.toLowerCase() === `${genre}`)) {
-      const categories = genre
+    }
+
+    if (
+      !loadedCategories.find((item) => item?.name.toLowerCase() === `${genre}`)
+    ) {
+      const categories = genre;
       dispatch(getBrowse({ categories }));
     }
   }

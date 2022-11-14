@@ -39,7 +39,7 @@ function LaneHandler() {
 
   let loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
-// Removes duplicates based on category name
+  // Removes duplicates based on category name
   function getUniqueCategories(array, key) {
     return [...new Map(array.map((item) => [item[key], item])).values()];
   }
@@ -91,7 +91,6 @@ function LaneHandler() {
     <div className="laneContainer">
       {loadedCategories?.map((item, index) => {
         let someSlices = getSlices(item?.movies);
-
         return (
           <div className="hidden" key={index}>
             {someSlices.length > 0 && (

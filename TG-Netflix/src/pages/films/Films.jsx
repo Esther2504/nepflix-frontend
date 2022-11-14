@@ -115,10 +115,7 @@ export default function Films({ banner, categories, movie }) {
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
-          <GridLayout
-            genre={genre}
-            setGenre={setGenre}
-          />
+          <GridLayout genre={genre} setGenre={setGenre} />
         )}
 
         <Footer />
