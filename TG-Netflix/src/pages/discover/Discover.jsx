@@ -9,7 +9,6 @@ import CallBigModal from '../../components/Modal/CallBigModal';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { getMovies, getBrowse} from "../../reducers/fetchReducer";
 import { addToList } from '../../reducers/likedReducer';
-import getStorage from 'redux-persist/es/storage/getStorage';
 
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
@@ -25,7 +24,6 @@ export default function Discover({ banner, categories, movie }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
   const categoriesState = useSelector((state) => state.netflix.browse)
-  console.log(categoriesState)
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
 
 
