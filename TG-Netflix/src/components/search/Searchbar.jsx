@@ -17,6 +17,9 @@ export default function Searchbar() {
       navigate(`/search?q=${searchQuery}`);
     } 
     
+    else if (location.pathname.includes('/search') && !search) {
+      navigate(-1);
+    }
     else if (location.pathname.includes('/search') && !searchQuery) {
       navigate('/browse');
     }

@@ -33,6 +33,7 @@ import { closeModal } from '../../reducers/modalReducer';
 import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from '../../reducers/fetchReducer';
+import { useNavigate } from 'react-router-dom';
 
 
 const CallBigModal = (props) => {
@@ -78,10 +79,13 @@ const CallBigModal = (props) => {
   const top = Math.round(globalModalState.coords.top) + 'px';
   const coordsForBigModal = left + top;
 
+  const navigate = useNavigate()
+
   //Close modal button
   const handleClose = () => {
     setBrowseMovieID();
     dispatch(closeModal({ modalState: false, coords: [] }));
+    navigate(-1)
   };
 
   window.addEventListener('click', (e) => {

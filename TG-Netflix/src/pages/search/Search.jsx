@@ -6,7 +6,7 @@ import Footer from '../../components/footer/footer';
 import Spinner from '../../components/spinner-animation/Spinner';
 import * as S from './Search.styled';
 
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
 import { useState } from 'react';
@@ -58,7 +58,7 @@ export default function Search() {
       e.stopPropagation();
       setIsHovering(false);  
     });
-  }, []);
+  }, [filteredResults]);
 
   console.log(movieID) 
 
@@ -95,7 +95,7 @@ export default function Search() {
               {filteredResults?.map((movie, id) => {
                 return <MovieCard key={id} movie={movie} />;
               })}
-            </GridContainer>
+            </GridContainer> 
           )}
 
           <S.Alert>
