@@ -64,6 +64,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
           dispatch(getMovies(e.target.dataset.id));
           setMovieID(e.target.dataset.id);
           setCoords(e.target.getBoundingClientRect());
+         console.log('runs')
         }
       });
     });
@@ -73,6 +74,8 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
       setIsHovering(false);
     });
   }, []);
+  
+  console.log(movieID) 
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });

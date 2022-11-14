@@ -3,17 +3,21 @@ import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { SearchIcon } from './Searchbar.styled';
 import * as S from './Searchbar.styled';
+import { useSelector } from 'react-redux';
 
 export default function Searchbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
   const searchQuery = search.get('q');
+  const globalModalState = useSelector((state) => state.modal.modalState);
 
   useEffect(() => {
     if (!location.pathname.includes('/search') && searchQuery) {
       navigate(`/search?q=${searchQuery}`);
-    } else if (location.pathname.includes('/search') && !searchQuery) {
+    } 
+    
+    else if (location.pathname.includes('/search') && !searchQuery) {
       navigate('/browse');
     }
   }, [searchQuery]);
