@@ -83,18 +83,18 @@ export default function Films({ banner, categories, movie }) {
   let location = useLocation();
 
   // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh
-  // React.useEffect(() => {
-  //   let path = window.location.href.slice(
-  //     window.location.href.lastIndexOf("/")
-  //   );
+  React.useEffect(() => {
+    let path = window.location.href.slice(
+      window.location.href.lastIndexOf("/")
+    );
 
-  //   if (path != "/films") {
-  //     let genreName = path.slice(1);
-  //     setGenre(genreName);
-  //   } else {
-  //     setGenre("");
-  //   }
-  // }, [location]);
+    if (path != "/films" || path.includes("MovieID")) {
+      let genreName = path.slice(1);
+      setGenre(genreName);
+    } else {
+      setGenre("");
+    }
+  }, [location]);
 
   return (
     <>
