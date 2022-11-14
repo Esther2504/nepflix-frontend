@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
   VideoPlayer,
   PreviewModalContainer,
@@ -15,16 +15,26 @@ import {
   Title,
   MaturityContainer,
   RatingContainer,
-} from './PreviewModal.style';
-import logo from '../../assets/movie-card-images/n_logo.ico';
+} from "./PreviewModal.style";
+import logo from "../../assets/movie-card-images/n_logo.ico";
 
 function PreviewModal(data) {
-  const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
+  const bg = "https://image.tmdb.org/t/p/original" + data.movie.backdrop_path;
 
   const logoArray = [logo, null];
 
   function showLogo(logoArray) {
     return logoArray[/[6]/.test(data.movie.id) ? 0 : 1];
+  }
+
+  let ageCertificate = data?.movie.age_certificate;
+  // Als age certificate niet bestaat dan is het een lege string.
+  // Via onderstaande check wordt van de lege string "NR" gemaakt.
+  if (!ageCertificate) {
+    ageCertificate = "NR";
+    // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
+  } else if (ageCertificate.includes("PG-")) {
+    ageCertificate = ageCertificate.slice(3);
   }
 
   return (
@@ -41,11 +51,7 @@ function PreviewModal(data) {
         {/* <PreviewRating></PreviewRating> */}
         <MaturityContainer>
           <RatingContainer>
-            <PreviewMaturityRating>
-              {data.movie.age_certificate.includes('PG-')
-                ? data.movie.age_certificate.slice(3)
-                : data.movie.age_certificate}
-            </PreviewMaturityRating>
+            <PreviewMaturityRating>{ageCertificate}</PreviewMaturityRating>
           </RatingContainer>
           <PreviewAddToList />
         </MaturityContainer>

@@ -87,8 +87,6 @@ function LaneHandler() {
     return slices;
   }
 
-  console.log(loadedCategories);
-
   return (
     <div className="laneContainer">
       {loadedCategories?.map((item, index) => {
