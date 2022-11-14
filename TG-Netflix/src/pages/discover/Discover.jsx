@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { openModal, closeModal } from '../../reducers/modalReducer';
+import { openModal } from '../../reducers/modalReducer';
 import Player from '../../components/player/Player';
 import LaneHandler from '../../components/lane/LaneHandler';
 import Footer from '../../components/footer/footer';
 import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
-import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
-import { getMovies, getBrowse } from '../../reducers/fetchReducer';
+import { useSearchParams } from 'react-router-dom';
+import { getMovies } from '../../reducers/fetchReducer';
 import { addToList } from '../../reducers/likedReducer';
 
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'

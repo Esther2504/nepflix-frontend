@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import YouTube from 'react-youtube';
 
 // OPEN MODAL FROM THE MORE INFO BUTTON
-import { closeModal, openModal } from '../../reducers/modalReducer';
+import { openModal } from '../../reducers/modalReducer';
 
 // CSS & BUTTONS
 import { PlayerStyles } from './PlayerStyles';
@@ -18,10 +18,10 @@ import { useSearchParams } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
 
 function Player(props) {
-  console.log(props);
+
   const { overview, age_certificate, backdrop_path, trailer, title, id } =
     useSelector((state) => state.netflix.browse[1]);
-  // console.log(id)
+
 
   const seconds = useSelector((state) => state.trailer.seconds);
   const [incrementAmount, setIncrementAmount] = useState(0);
