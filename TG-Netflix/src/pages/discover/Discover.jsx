@@ -34,12 +34,10 @@ export default function Discover({ banner, categories, movie }) {
     if (getMovieID) dispatch(openModal({ modalState: true, coords }));
   }, []);
 
-  // const loadingMovies = useSelector((state) => state.netflix.browse);
   //add evenlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
 
-    // console.log(loadingMovies);
     films.forEach(
       (film) => {
         film.addEventListener("mouseenter", (e) => {
@@ -58,7 +56,7 @@ export default function Discover({ banner, categories, movie }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, [categoriesState]);
+  }, []);
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
