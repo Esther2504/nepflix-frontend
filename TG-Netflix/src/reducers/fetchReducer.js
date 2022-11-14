@@ -7,37 +7,40 @@ import axios from "axios";
 //Map each in there respective locations. Remove props passed in components
 
 const initialState = {
-    browse: [],
-    browseLoaded: false,
-    browseError: "",
+  browse: [],
+  browseLoaded: false,
+  browseError: "",
 
-    movies: [],
-    moviesLoaded: false,
-    moviesError: "",
+  movies: [],
+  moviesLoaded: false,
+  moviesError: "",
 };
 
 //The two axios links can be replaced with the link recieved from the back-end IF the initial endpoints stay as is.
-export const getBrowse = createAsyncThunk("netflix/browse", async ({ banner, categories, page }) => {
+export const getBrowse = createAsyncThunk(
+  "netflix/browse",
+  async ({ banner, categories, page }) => {
     // console.log(banner, categories, page)
     //fetches /Browse data
     const { data } = await axios.get(
-        `https://tg-nepflix.azurewebsites.net/browse`, { params: { banner, categories, page } }
+      `https://tg-nepflix.azurewebsites.net/browse`,
+      { params: { banner, categories, page } }
     );
     const browse = data;
-// console.log(browse)
+    // console.log(browse)
     return browse;
-});
+  }
+);
 
 export const getMovies = createAsyncThunk("netflix/movies", async (id) => {
-    //fetches /movie data
-    const {
-        data,
-    } = await axios.get(`https://tg-nepflix.azurewebsites.net/movie/${id}?similar=true`);
-    const movie = data;
+  //fetches /movie data
+  const { data } = await axios.get(
+    `https://tg-nepflix.azurewebsites.net/movie/${id}?similar=true`
+  );
+  const movie = data;
 
-    return movie;
+  return movie;
 });
-
 
 const NetflixSlice = createSlice({
   name: "Netflix",
@@ -57,9 +60,8 @@ const NetflixSlice = createSlice({
           const found = state.browse[0].find(
             (element) => element == categorypayload[i]
           );
-          // console.log(!found);
           if (!found) {
-            state.browse[0].push(categorypayload[i])
+            state.browse[0].push(categorypayload[i]);
           }
         }
       }
@@ -84,10 +86,12 @@ const NetflixSlice = createSlice({
     //can do .addCase to set other status to the same builder, such ass; Pending and Error
     //this is when the /movie has been fully fetched
     builder.addCase(getMovies.fulfilled, (state, action) => {
-            const checkIfMovieInState = state.movies.find((movie)=> movie.id === action.payload.id)
-            if(!checkIfMovieInState){
-          state.movies = [...state.movies, action.payload]
-            } 
+      const checkIfMovieInState = state.movies.find(
+        (movie) => movie.id === action.payload.id
+      );
+      if (!checkIfMovieInState) {
+        state.movies = [...state.movies, action.payload];
+      }
       state.moviesLoaded = true;
       state.moviesError = "";
     });
@@ -100,4 +104,3 @@ const NetflixSlice = createSlice({
 });
 
 export default NetflixSlice.reducer;
-

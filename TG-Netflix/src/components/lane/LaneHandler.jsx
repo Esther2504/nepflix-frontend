@@ -37,7 +37,13 @@ function LaneHandler() {
     "latest",
   ];
 
-  const loadedCategories = useSelector((state) => state.netflix.browse[0]);
+  let loadedCategories = useSelector((state) => state.netflix.browse[0]);
+
+  // Removes duplicates based on category name
+  function getUniqueCategories(array, key) {
+    return [...new Map(array.map((item) => [item[key], item])).values()];
+  }
+  loadedCategories = getUniqueCategories(loadedCategories, "name");
 
   useEffect(() => {
     if (inView) {
@@ -84,8 +90,7 @@ function LaneHandler() {
   return (
     <div className="laneContainer">
       {loadedCategories?.map((item, index) => {
-        let someSlices = getSlices(item.movies);
-
+        let someSlices = getSlices(item?.movies);
         return (
           <div className="hidden" key={index}>
             {someSlices.length > 0 && (

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies } from '../../reducers/fetchReducer';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getMovies } from "../../reducers/fetchReducer";
 import {
   SmallModalContainer,
   SmallModal,
@@ -15,8 +15,8 @@ import {
   MatchPerc,
   ArrowDown,
   KeywordsContainer,
-} from './CallSmallModal.style';
-import YouTube from 'react-youtube';
+} from "./CallSmallModal.style";
+import YouTube from "react-youtube";
 
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -44,32 +44,26 @@ const CallSmallModal = (props) => {
 
   const [videoState, setVideoState] = useState(false);
 
-  // Als de small modal verschijnt, duurt het nog twee seconden tot de video speelt
-  if (props.hover) {
-    setTimeout(function () {
-      setVideoState(true);
-    }, 1500);
-  }
-
   const opts = {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
 
     playerVars: {
       autoplay: 1,
       mute: 1,
       controls: 0,
       disablekb: 1,
+      start: 15,
       end: 66,
       rel: 0,
-      frameborder: "0",
+      frameborder: '0',
     },
   };
 
   const runtime = (minutes) => {
     const hours = Math.floor(minutes / 60);
     const min = minutes % 60;
-    const result = hours + "h " + min + "m";
+    const result = hours + 'h ' + min + 'm';
     return result;
   };
 
@@ -90,6 +84,24 @@ const CallSmallModal = (props) => {
   }
   const bg = movieInfo?.backdrop_path;
 
+  const mouseLeaveHandler = () => {
+    setVideoState(false);
+    // setTimeout(function () {
+    //   props.setIsHovering(false);
+    // }, 300);
+
+    // For when you leave the card before the videostate has been set to true
+    setTimeout(function () {
+      setVideoState(false);
+    }, 1500);
+  };
+
+  const mouseEnterHandler = () => {
+    setTimeout(function () {
+      setVideoState(true);
+    }, 1500);
+  };
+
   let ageCertificate = movieInfo?.age_certificate;
   // Als age certificate niet bestaat dan is het een lege string.
   // Via onderstaande check wordt van de lege string "NR" gemaakt.
@@ -101,7 +113,13 @@ const CallSmallModal = (props) => {
   }
 
   return (
-    <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
+    <SmallModalContainer
+      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={mouseEnterHandler}
+      coords={coords}
+      bg={bg}
+      onClick={props.onClick}
+    >
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
@@ -137,7 +155,7 @@ const CallSmallModal = (props) => {
             <AgeRes>{ageCertificate}</AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
-          <KeywordsContainer>{keywords.join(" • ")}</KeywordsContainer>
+          <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
     </SmallModalContainer>

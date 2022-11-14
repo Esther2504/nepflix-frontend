@@ -9,6 +9,7 @@ import CallBigModal from "../Modal/CallBigModal";
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { Card } from "../movie-card/MovieCard.styled";
 import { getMovies, getBrowse } from "../../reducers/fetchReducer";
+import { addToList } from "../../reducers/likedReducer";
 
 export default function GridLayout({ genre, setGenre, movie, categories }) {
   const { moviegenre } = useParams();
@@ -20,6 +21,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
+  const categoriesState = useSelector((state) => state.netflix.browse);
 
   //END STATE
 
@@ -28,23 +30,38 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
   //check if linked to a direct movie
   const getMovieID = browseMovieID.get("movieID");
 
+  useEffect(() => {
+    if (getMovieID) dispatch(openModal({ modalState: true, coords }));
+  }, []);
+
+  const handleAddToMyList = (e) => {
+    let r;
+
+    categoriesState[0].forEach((categorie) => {
+      r = categorie.movies.find((movie) => movie.id === movieID);
+      if (r) {
+        dispatch(addToList(r));
+      }
+      return;
+    });
+  };
+
   let movies = loadedCategories;
 
   if (genre != "") {
     if (
-      loadedCategories.find((item) => item.name.toLowerCase() === `${genre}`)
+      loadedCategories.find((item) => item?.name.toLowerCase() === `${genre}`)
     ) {
       movies = loadedCategories.find(
         (item) => item.name.toLowerCase() === `${genre}`
       );
-    } else {
-      const categories = genre
-     
-      // dispatch(getBrowse({ categories }));
-     
-      movies = loadedCategories.find(
-        (item) => item.name.toLowerCase() === `popular`
-      );
+    }
+
+    if (
+      !loadedCategories.find((item) => item?.name.toLowerCase() === `${genre}`)
+    ) {
+      const categories = genre;
+      dispatch(getBrowse({ categories }));
     }
   }
 
@@ -72,7 +89,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, []);
+  }, [categoriesState]);
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
@@ -83,17 +100,17 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
     <>
       {isHovering && (
         <CallSmallModal
-          onMouseLeave={() => setIsHovering(false)}
           hover={isHovering}
           setIsHovering={setIsHovering}
           data={{ coords: coords, dataset: dataset, movie: movieID }}
           movieID={movieID}
           onClick={openBigModal}
+          handleAddToMyList={handleAddToMyList}
         />
       )}
       {globalModalState.modalState && <CallBigModal movieID={movieID} />}
       <GridContainer>
-        {movies.movies.map((movie, index) => {
+        {movies?.movies?.map((movie, index) => {
           return <MovieCard key={index} movie={movie} />;
         })}
       </GridContainer>

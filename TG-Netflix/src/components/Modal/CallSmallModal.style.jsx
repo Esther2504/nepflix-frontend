@@ -1,14 +1,14 @@
-import styled from 'styled-components';
-import { AiFillCloseCircle, AiOutlineDown } from 'react-icons/ai';
-import { BsFillPlayFill, BsHandThumbsUp, BsPlusLg } from 'react-icons/bs';
-import { TbLayersDifference, TbVolume3 } from 'react-icons/tb';
+import styled from "styled-components";
+import { AiFillCloseCircle, AiOutlineDown } from "react-icons/ai";
+import { BsFillPlayFill, BsHandThumbsUp, BsPlusLg } from "react-icons/bs";
+import { TbLayersDifference, TbVolume3 } from "react-icons/tb";
 
 export const SmallModalContainer = styled.div`
   position: absolute;
-  left: ${(props) => props.coords.left + 'px'};
-  top: ${(props) => props.coords.top + window.scrollY + 'px'};
-  width: ${(props) => props.coords.width + 'px'};
-  height: ${(props) => props.coords.height + 'px'};
+  left: ${(props) => props.coords.left + "px"};
+  top: ${(props) => props.coords.top + window.scrollY + "px"};
+  width: ${(props) => props.coords.width + "px"};
+  height: ${(props) => props.coords.height + "px"};
 `;
 
 //START SMALLMODAL
@@ -17,6 +17,8 @@ export const SmallModalTop = styled.div`
   width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
+  border-radius: 7px;
+  // border: 1px solid pink;
 `;
 export const SmallModalBottom = styled.div`
   display: flex;
@@ -40,10 +42,10 @@ export const SmallModal = styled.div`
   transition-delay: 1300ms;
   transform-origin: ${(props) =>
     props.coords.left < props.coords.width
-      ? 'left center'
+      ? "left center"
       : props.sWidth - props.coords.right < props.coords.width
-      ? 'right center'
-      : 'center center'};
+      ? "right center"
+      : "center center"};
   border-radius: 0.5rem;
   aspect-ratio: 16/9;
   background-color: #181818;
@@ -122,8 +124,8 @@ export const ArrowContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25px;
-  height: 25px;
+  width: 27px;
+  height: 27px;
   border: 2px solid #b6b6b6;
   border-radius: 50%;
 
@@ -182,7 +184,7 @@ export const PlusCircle = styled(BsPlusLg)`
   border-radius: 50%;
   padding: 0.5rem;
   color: #cccccc;
-  font-size: 29px;
+  font-size: 27px;
 
   &:hover {
     color: white;
@@ -235,7 +237,7 @@ export const AgeRes = styled.div`
   height: 2rem;
   padding: 0.6rem;
   line-height: 1.3rem;
-  
+
   font-size: 0.9rem;
   background-color: black;
   border: 2px solid white;

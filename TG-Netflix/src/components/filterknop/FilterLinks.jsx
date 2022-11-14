@@ -22,8 +22,8 @@ const FilterLinks = ( {setGenre} ) => {
         <LinkStyle onClick={(e) => setGenre("music")} to="/films/music">Music</LinkStyle>
         <LinkStyle onClick={(e) => setGenre("mystery")} to="/films/mystery">Mystery</LinkStyle>
         <LinkStyle onClick={(e) => setGenre("romance")} to="/films/romance">Romance</LinkStyle>
-        <LinkStyle onClick={(e) => setGenre("science_fiction")} to="/films/science_fiction">Science Fiction</LinkStyle>
-        <LinkStyle onClick={(e) => setGenre("tv_movie")} to="/films/tv_movie">TV movie</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("science fiction")} to="/films/science_fiction">Science Fiction</LinkStyle>
+        <LinkStyle onClick={(e) => setGenre("tv movie")} to="/films/tv_movie">TV movie</LinkStyle>
       </div>
       <div>
         <LinkStyle onClick={(e) => setGenre("thriller")} to="/films/thriller">Thriller</LinkStyle>
