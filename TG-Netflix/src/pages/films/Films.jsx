@@ -13,6 +13,7 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 import { useParams } from "react-router-dom";
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { getMovies, getBrowse } from "../../reducers/fetchReducer";
+import { addToList } from "../../reducers/likedReducer";
 
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
@@ -29,6 +30,7 @@ export default function Films({ banner, categories, movie }) {
   const movieDetails = useSelector((state) => state.netflix.movies);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   const [genre, setGenre] = useState("");
+  const categoriesState = useSelector((state) => state.netflix.browse);
 
   //END STATE
 
@@ -37,7 +39,24 @@ export default function Films({ banner, categories, movie }) {
   const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
   // console.log(loadedCategories);
+  const getMovieID = browseMovieID.get("movieID");
 
+  //open modal if linked to movieID
+  useEffect(() => {
+    if (getMovieID) dispatch(openModal({ modalState: true, coords }));
+  }, []);
+
+  const handleAddToMyList = (e) => {
+    let r;
+
+    categoriesState[0].forEach((categorie) => {
+      r = categorie.movies.find((movie) => movie.id === movieID);
+      if (r) {
+        dispatch(addToList(r));
+      }
+      return;
+    });
+  };
   //add evenlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
@@ -57,7 +76,7 @@ export default function Films({ banner, categories, movie }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, []);
+  }, [categoriesState]);
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
@@ -109,6 +128,7 @@ export default function Films({ banner, categories, movie }) {
                 data={{ coords: coords, dataset: movieDetails }}
                 onClick={openBigModal}
                 movieID={movieID}
+                handleAddToMyList={handleAddToMyList}
               />
             )}
             {globalModalState.modalState && <CallBigModal movieID={movieID} />}

@@ -86,9 +86,9 @@ const CallSmallModal = (props) => {
 
   const mouseLeaveHandler = () => {
     setVideoState(false);
-    setTimeout(function () {
-      props.setIsHovering(false);
-    }, 300);
+    // setTimeout(function () {
+    //   props.setIsHovering(false);
+    // }, 300);
 
     // For when you leave the card before the videostate has been set to true
     setTimeout(function () {
