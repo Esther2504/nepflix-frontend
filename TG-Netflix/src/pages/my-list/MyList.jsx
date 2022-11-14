@@ -1,6 +1,5 @@
 import { Title, TitleWrapper } from './MyList.styled'
 import Footer from '../../components/footer/footer';
-import { GridContainer } from '../../components/grid-layout/GridLayout.styled';
 import MovieCard from '../../components/movie-card/MovieCard';
 import { useSelector, useDispatch } from "react-redux";
 import { useSearchParams } from 'react-router-dom';
@@ -9,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { getMovies } from '../../reducers/fetchReducer';
-
+import GridLayout from "../../components/grid-layout/GridLayout";
 
 export default function MyList() {
 
@@ -65,7 +64,7 @@ export default function MyList() {
           <Title>My List</Title>
         </TitleWrapper>
         {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
-        <GridContainer>
+        <GridLayout>
 
           {isHovering && (
             <CallSmallModal
@@ -75,6 +74,7 @@ export default function MyList() {
               data={{ coords: coords, dataset: dataset }}
               onClick={openBigModal}
               movieID={movieID}
+              
             />
             
           )}
@@ -82,7 +82,7 @@ export default function MyList() {
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />
           })};
-        </GridContainer>
+        </GridLayout>
         <Footer />
       </div>
     </>

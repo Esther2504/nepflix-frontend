@@ -95,6 +95,16 @@ export const VideoPlayer = styled.video`
   // display: none;
 `;
 
+
+export const YouTubeWrapper=styled.div`
+  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  height: inherit;
+  width: inherit;
+`
 export const VideoControlsContainer = styled.div`
   position: relative;
   width: 100%;
@@ -182,7 +192,7 @@ export const PlusCircle = styled(BsPlusLg)`
   border-radius: 50%;
   padding: 0.5rem;
   color: #cccccc;
-  font-size: 29px;
+  font-size: 25px;
 
   &:hover {
     color: white;
