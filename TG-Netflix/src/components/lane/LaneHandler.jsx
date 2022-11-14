@@ -41,17 +41,17 @@ function LaneHandler() {
 
   useEffect(() => {
     if (inView) {
-    let categorySelection = categoryList.slice(index, index + 4);
-    categorySelection = categorySelection.toString();
+      let categorySelection = categoryList.slice(index, index + 4);
+      categorySelection = categorySelection.toString();
 
-    setIndex(index + 4);
+      setIndex(index + 4);
 
-    const categories = categorySelection;
+      const categories = categorySelection;
 
-    if (loadedCategories.length < 21) {
-      dispatch(getBrowse({ categories }));
+      if (loadedCategories.length < 21) {
+        dispatch(getBrowse({ categories }));
+      }
     }
-  }
   }, [inView]);
 
   const size = useWindowSize();
@@ -80,7 +80,7 @@ function LaneHandler() {
     }
     return slices;
   }
-  
+
   return (
     <div className="laneContainer">
       {loadedCategories?.map((item, index) => {
@@ -103,7 +103,6 @@ function LaneHandler() {
           <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
           <Spinner />
         </div>
-  
       ) : null}
     </div>
   );
