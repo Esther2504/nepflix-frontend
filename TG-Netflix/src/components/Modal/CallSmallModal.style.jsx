@@ -9,6 +9,7 @@ export const SmallModalContainer = styled.div`
   top: ${(props) => props.coords.top + window.scrollY + 'px'};
   width: ${(props) => props.coords.width + 'px'};
   height: ${(props) => props.coords.height + 'px'};
+  
 `;
 
 //START SMALLMODAL
@@ -17,6 +18,8 @@ export const SmallModalTop = styled.div`
   width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 `;
 export const SmallModalBottom = styled.div`
   display: flex;
@@ -90,7 +93,7 @@ export const SmallModal = styled.div`
 
 //START VIDEOPLAYER (will be replaced by videomodal)
 export const VideoPlayer = styled.video`
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   aspect-ratio: 16/9;
   // display: none;
 `;
@@ -98,8 +101,8 @@ export const VideoPlayer = styled.video`
 
 export const YouTubeWrapper=styled.div`
   
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   overflow: hidden;
   z-index: 1;
   height: inherit;
