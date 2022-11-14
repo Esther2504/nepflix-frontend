@@ -62,7 +62,9 @@ const FilterMenu = (props) => {
         </>
       ) : (
         <>
-          <FilmsLink onClick={(e) => props.setGenre("")} to="../films">Films</FilmsLink>
+          <FilmsLink onClick={(e) => props.setGenre("")} to="../films">
+            Films
+          </FilmsLink>
           <GenreTitle>{genreTitle}</GenreTitle>
         </>
       )}

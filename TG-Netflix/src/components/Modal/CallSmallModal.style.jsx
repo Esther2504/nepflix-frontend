@@ -9,6 +9,7 @@ export const SmallModalContainer = styled.div`
   top: ${(props) => props.coords.top + window.scrollY + 'px'};
   width: ${(props) => props.coords.width + 'px'};
   height: ${(props) => props.coords.height + 'px'};
+
 `;
 
 //START SMALLMODAL
@@ -17,6 +18,8 @@ export const SmallModalTop = styled.div`
   width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
+  border-radius: 7px;
+  // border: 1px solid pink;
 `;
 export const SmallModalBottom = styled.div`
   display: flex;
@@ -122,8 +125,8 @@ export const ArrowContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25px;
-  height: 25px;
+  width: 27px;
+  height: 27px;
   border: 2px solid #b6b6b6;
   border-radius: 50%;
 
@@ -182,7 +185,7 @@ export const PlusCircle = styled(BsPlusLg)`
   border-radius: 50%;
   padding: 0.5rem;
   color: #cccccc;
-  font-size: 29px;
+  font-size: 27px;
 
   &:hover {
     color: white;

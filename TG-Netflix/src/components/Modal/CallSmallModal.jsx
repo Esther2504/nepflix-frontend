@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies } from '../../reducers/fetchReducer';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getMovies } from "../../reducers/fetchReducer";
 import {
   SmallModalContainer,
   SmallModal,
@@ -15,8 +15,8 @@ import {
   MatchPerc,
   ArrowDown,
   KeywordsContainer,
-} from './CallSmallModal.style';
-import YouTube from 'react-youtube';
+} from "./CallSmallModal.style";
+import YouTube from "react-youtube";
 
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -45,8 +45,8 @@ const CallSmallModal = (props) => {
   const [videoState, setVideoState] = useState(false);
 
   const opts = {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
 
     playerVars: {
       autoplay: 1,
@@ -56,14 +56,14 @@ const CallSmallModal = (props) => {
       start: 15,
       end: 66,
       rel: 0,
-      frameborder: '0',
+      frameborder: "0",
     },
   };
 
   const runtime = (minutes) => {
     const hours = Math.floor(minutes / 60);
     const min = minutes % 60;
-    const result = hours + 'h ' + min + 'm';
+    const result = hours + "h " + min + "m";
     return result;
   };
 
@@ -86,6 +86,9 @@ const CallSmallModal = (props) => {
 
   const mouseLeaveHandler = () => {
     setVideoState(false);
+    setTimeout(function () {
+props.setIsHovering(false)
+}, 300);
 
     // For when you leave the card before the videostate has been set to true
     setTimeout(function () {
@@ -100,14 +103,20 @@ const CallSmallModal = (props) => {
   };
 
   return (
-    <SmallModalContainer onMouseLeave={mouseLeaveHandler} onMouseEnter={mouseEnterHandler} coords={coords} bg={bg} onClick={props.onClick}>
-      <SmallModal coords={coords} bg={bg} sWidth={sWidth} >
+    <SmallModalContainer
+      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={mouseEnterHandler}
+      coords={coords}
+      bg={bg}
+      onClick={props.onClick}
+    >
+      <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
             <YouTube
               videoId={movieInfo?.trailer}
               opts={opts}
-              style={{ height: 'inherit' }}
+              style={{ height: "inherit", aspectRatio: "16/9", overflow: "hidden" }}
             />
           )}
         </SmallModalTop>
@@ -134,13 +143,13 @@ const CallSmallModal = (props) => {
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
             <AgeRes>
-              {movieInfo?.age_certificate.includes('PG-')
+              {movieInfo?.age_certificate.includes("PG-")
                 ? movieInfo?.age_certificate.slice(3)
                 : movieInfo?.age_certificate}
             </AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
-          <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
+          <KeywordsContainer>{keywords.join(" • ")}</KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
     </SmallModalContainer>

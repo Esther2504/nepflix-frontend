@@ -79,17 +79,14 @@ export default function Discover({ banner, categories, movie }) {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
-
-
-
   return (
     <>
       <div className="members-container">
         <Player data={banner} modal={false} />
         {isHovering && (
           <CallSmallModal
-            onMouseLeave={() => setIsHovering(false)}
             hover={isHovering}
+            setIsHovering={setIsHovering}
             data={{ coords: coords, dataset: movieDetails }}
             onClick={openBigModal}
             movieID={movieID}
