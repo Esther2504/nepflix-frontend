@@ -99,11 +99,11 @@ function LaneHandler() {
         );
       })}
 
-      {loadedCategories.length < 21 ? (
+      {loadedCategories?.length < 21 ? (
           <div style={{ width: "30px", margin: "0 auto" }} ref={ref}>
           <Spinner />
         </div>
-       
+  
       ) : null}
     </div>
   );
