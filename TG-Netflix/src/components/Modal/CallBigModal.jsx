@@ -48,6 +48,9 @@ const CallBigModal = (props) => {
   const globalModalState = useSelector((state) => state.modal.modalState);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   const [directMovie, setDirectMovie] = useState();
+  const [search] = useSearchParams();
+  const searchQuery = search.get('q');
+
   //END STATE
 
   //check if movie is in state
@@ -84,14 +87,14 @@ const CallBigModal = (props) => {
   const handleClose = () => {
     setBrowseMovieID();
     dispatch(closeModal({ modalState: false, coords: [] }));
-    navigate(-1)
+    location.pathname.includes('/search') ? navigate(`/search?q=${searchQuery}`) : null ;
   };
 
   window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
       setBrowseMovieID();
       dispatch(closeModal({ modalState: false, coords: [] }));
-      navigate(-1)
+      location.pathname.includes('/search') ? navigate(`/search?q=${searchQuery}`) : null ;
     }
   });
 
@@ -111,8 +114,6 @@ const CallBigModal = (props) => {
   for (let i = 0; i < movieInfo.keywords.length; i++) {
     keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
   }
-
-// console.log(movieInfo)
 
   return (
     <>

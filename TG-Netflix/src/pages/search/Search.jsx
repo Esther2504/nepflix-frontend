@@ -6,14 +6,12 @@ import Footer from '../../components/footer/footer';
 import Spinner from '../../components/spinner-animation/Spinner';
 import * as S from './Search.styled';
 
-import { useEffect, useLayoutEffect } from 'react';
+// modal imports
+import {  useState, useEffect} from 'react';
 import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { openModal } from '../../reducers/modalReducer';
-import { getMovies, getBrowse } from '../../reducers/fetchReducer';
-import { useNavigate } from 'react-router-dom';
 
 export default function Search() {
   const [search] = useSearchParams();
@@ -30,7 +28,7 @@ export default function Search() {
       result.backdrop_path !== 'https://images3.alphacoders.com/678/678085.jpg'
   );
 
-  // MODAL
+  // modal
   const [isHovering, setIsHovering] = useState(false);  
   const [coords, setCoords] = useState(false);
   const [dataset, setDataset] = useState(); 
@@ -71,7 +69,7 @@ export default function Search() {
           onMouseLeave={() => setIsHovering(false)}
           hover={isHovering} 
           setIsHovering={setIsHovering}
-          data={{ coords: coords, dataset: dataset, movie: movieID }}
+          data={{ coords: coords, dataset: dataset}}
           movieID={movieID}
           onClick={openBigModal} 
         />
