@@ -45,8 +45,8 @@ const CallSmallModal = (props) => {
   const [videoState, setVideoState] = useState(false);
 
   const opts = {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
 
     playerVars: {
       autoplay: 1,
@@ -56,14 +56,14 @@ const CallSmallModal = (props) => {
       start: 15,
       end: 66,
       rel: 0,
-      frameborder: "0",
+      frameborder: '0',
     },
   };
 
   const runtime = (minutes) => {
     const hours = Math.floor(minutes / 60);
     const min = minutes % 60;
-    const result = hours + "h " + min + "m";
+    const result = hours + 'h ' + min + 'm';
     return result;
   };
 
@@ -102,6 +102,16 @@ const CallSmallModal = (props) => {
     }, 1500);
   };
 
+  let ageCertificate = movieInfo?.age_certificate;
+  // Als age certificate niet bestaat dan is het een lege string.
+  // Via onderstaande check wordt van de lege string "NR" gemaakt.
+  if (!ageCertificate) {
+    ageCertificate = "NR";
+    // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
+  } else if (ageCertificate.includes("PG-")) {
+    ageCertificate = ageCertificate.slice(3);
+  }
+
   return (
     <SmallModalContainer
       onMouseLeave={mouseLeaveHandler}
@@ -116,11 +126,7 @@ const CallSmallModal = (props) => {
             <YouTube
               videoId={movieInfo?.trailer}
               opts={opts}
-              style={{
-                height: "inherit",
-                aspectRatio: "16/9",
-                overflow: "hidden",
-              }}
+              style={{ height: "inherit" }}
             />
           )}
         </SmallModalTop>
@@ -146,14 +152,10 @@ const CallSmallModal = (props) => {
           </VideoControls>
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
-            <AgeRes>
-              {movieInfo?.age_certificate.includes("PG-")
-                ? movieInfo?.age_certificate.slice(3)
-                : movieInfo?.age_certificate}
-            </AgeRes>
+            <AgeRes>{ageCertificate}</AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
-          <KeywordsContainer>{keywords.join(" • ")}</KeywordsContainer>
+          <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
     </SmallModalContainer>
