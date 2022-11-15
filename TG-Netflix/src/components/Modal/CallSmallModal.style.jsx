@@ -218,11 +218,22 @@ export const PlusCircle = styled(BsPlusLg)`
 // `;
 export const InfoCon = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
   color: #fff;
   flex-direction: row;
-  font-size: 1.2rem;
+  font-size: 1rem; // 2 columns
+
+  @media (min-width: 450px){
+    font-size: 1.1rem;
+  }
+  @media (min-width: 600px){ // 4 columns
+    font-size: 1.2rem;
+  }
+  @media (min-width: 750px){
+    font-size: 1.2rem;
+  }
 `;
 
 export const MatchPerc = styled.div`
@@ -247,7 +258,6 @@ export const Runtime = styled.div``;
 
 export const KeywordsContainer = styled.div`
   /* padding: 0.5rem 1rem; */
-  font-size: 1.2rem;
   color: white;
 `;
 
