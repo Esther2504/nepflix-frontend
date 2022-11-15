@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { SearchIcon } from './Searchbar.styled';
@@ -40,6 +40,7 @@ export default function Searchbar() {
           <SearchIcon alt="Search icon" />
         </button>
         <input
+        ref={ref}
           type="search"
           onChange={debouncedHandleChange}
           placeholder="Enter film title.."
