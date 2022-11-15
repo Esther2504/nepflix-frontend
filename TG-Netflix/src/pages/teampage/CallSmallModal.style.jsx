@@ -39,7 +39,7 @@ export const SmallModal = styled.div`
   position: absolute;
   height: inherit;
   transition: scale ease-in-out 150ms, opacity 150ms ease-in-out;
-  transition-delay: 1300ms;
+  transition-delay: 300ms;
   transform-origin: ${(props) =>
     props.coords.left < props.coords.width
       ? "left center"
@@ -72,7 +72,7 @@ export const SmallModal = styled.div`
       scale: 1;
     }
     90% {
-      scale: 1;
+      scale: 1.5;
     }
     100% {
       scale: 1.5;

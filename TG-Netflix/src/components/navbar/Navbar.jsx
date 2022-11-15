@@ -69,6 +69,14 @@ export default function Navbar() {
                 My List
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="team"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Our Team
+              </NavLink>
+            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
