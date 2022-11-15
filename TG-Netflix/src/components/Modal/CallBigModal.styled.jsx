@@ -1,21 +1,37 @@
 import styled from "styled-components";
 import {
-  AiFillCloseCircle,
+  AiOutlineClose,
   AiOutlineDown,
 } from "react-icons/ai";
 
-export const CloseButton = styled.div``;
-export const CloseCircle = styled(AiFillCloseCircle)`
+export const CloseButton = styled.div`
+
+`;
+
+
+export const CloseCircle = styled(AiOutlineClose)`
   position: absolute;
   right: 0;
   border-radius: 50%;
   z-index: 2;
+  scale: 1.4;
   margin-top: 1.5rem;
   margin-right: 1.5rem;
-  background-color: #181818;
-  font-size: 4rem;
-  &:hover {
-    background-color: white;
+  background: #242424;
+  font-size: 2rem;
+  padding:0.3rem;
+  font-weight: 200;
+  color: white;
+  &:active {
+color: #ffffff;
+border: 2px solid #ffffff;
+
+}
+
+&:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    cursor: pointer;
   }
 `;
 
@@ -81,6 +97,8 @@ export const ModalClose = styled.div`
   margin-top: 1.5rem;
   margin-right: 1.5rem;
   color: white;
+
+
 `;
 
 export const ModalPreview = styled.div`
