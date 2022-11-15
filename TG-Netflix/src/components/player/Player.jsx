@@ -57,6 +57,14 @@ function Player() {
     setUnMuteIsVisible((current) => !current);
   };
 
+  useLayoutEffect(() => { 
+    if (props.hovering) {
+      playerRef.current.internalPlayer.pauseVideo();
+    } else {
+      playerRef.current.internalPlayer.playVideo();
+    }
+  }, [props.hovering]);
+
   // ON TRAILER PLAY/END
   const playingVideo = () => {
     document.querySelector(".banner").style.animation =
