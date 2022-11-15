@@ -59,7 +59,7 @@ function Player(props) {
     setUnMuteIsVisible((current) => !current);
   };
 
-  useLayoutEffect(() => {
+  useLayoutEffect(() => { 
     if (props.hovering) {
       playerRef.current.internalPlayer.pauseVideo();
     } else {
