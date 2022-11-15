@@ -15,8 +15,9 @@ import {
   MatchPerc,
   ArrowDown,
   KeywordsContainer,
-} from "./CallSmallModal.style";
-import YouTube from "react-youtube";
+  YouTubeWrapper
+} from './CallSmallModal.style';
+import YouTube from 'react-youtube';
 
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -54,9 +55,10 @@ const CallSmallModal = (props) => {
       controls: 0,
       disablekb: 1,
       start: 15,
+      modestbranding: 1,
       end: 66,
       rel: 0,
-      frameborder: '0',
+      frameborder: '0', 
     },
   };
 
@@ -123,11 +125,15 @@ const CallSmallModal = (props) => {
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
           {videoState && (
+            <YouTubeWrapper>
             <YouTube
               videoId={movieInfo?.trailer}
               opts={opts}
-              style={{ height: "inherit" }}
+              style={{ height: 'inherit' }}
+                   
             />
+
+</YouTubeWrapper>
           )}
         </SmallModalTop>
 

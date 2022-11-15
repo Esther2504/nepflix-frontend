@@ -13,8 +13,7 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 import { useParams } from "react-router-dom";
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { getMovies, getBrowse } from "../../reducers/fetchReducer";
-import { addToList } from "../../reducers/likedReducer";
-
+import { addToList } from '../../reducers/likedReducer';
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
 
@@ -83,6 +82,8 @@ export default function Films({ banner, categories, movie }) {
     dispatch(openModal({ modalState: true, coords }));
   };
 
+
+  
   // if (genre != "") {
   //   // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
 

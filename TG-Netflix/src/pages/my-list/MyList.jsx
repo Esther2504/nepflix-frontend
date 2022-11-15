@@ -1,6 +1,5 @@
 import { Title, TitleWrapper } from './MyList.styled'
 import Footer from '../../components/footer/footer';
-import { GridContainer } from '../../components/grid-layout/GridLayout.styled';
 import MovieCard from '../../components/movie-card/MovieCard';
 import { useSelector, useDispatch } from "react-redux";
 import { useSearchParams } from 'react-router-dom';
@@ -9,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { getMovies } from '../../reducers/fetchReducer';
-
+import {GridContainer} from "../../components/grid-layout/GridLayout.styled";
 
 export default function MyList() {
 
@@ -64,10 +63,7 @@ export default function MyList() {
         <TitleWrapper>
           <Title>My List</Title>
         </TitleWrapper>
-        {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
-        <GridContainer>
-
-          {isHovering && (
+        {isHovering && (
             <CallSmallModal
               onMouseLeave={() => setIsHovering(false)}
               hover={isHovering}
@@ -75,9 +71,14 @@ export default function MyList() {
               data={{ coords: coords, dataset: dataset }}
               onClick={openBigModal}
               movieID={movieID}
+              
             />
             
           )}
+        {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
+        <GridContainer>
+
+     
 
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />
