@@ -252,9 +252,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
 
   return (
     <>
-      <h1 style={{ color: "white", fontSize: "5rem", textAlign: "center" }}>
-        Het Team
-      </h1>
+    <div className="padding-container">
       {isHovering && (
         <CallSmallModal
           hover={isHovering}
@@ -262,13 +260,16 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
           data={{ coords: coords, dataset: dataset }}
         />
       )}
+      <h1 style={{ color: "white", fontSize: "5rem", textAlign: "center" }}>
+        Our Team
+      </h1>
       <GridContainer>
         {people.map((person, index) => {
           return <MovieCard key={index} person={person} />;
         })}
       </GridContainer>
       <h1 style={{ color: "white", fontSize: "5rem", textAlign: "center" }}>
-        Voor Jens
+        Jens
       </h1>
       <GridContainer>
         {Jens.map((movie, index) => {
@@ -280,6 +281,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
           );
         })}
       </GridContainer>
+      </div>
     </>
   );
 }
