@@ -7,8 +7,6 @@ import profile from '../../assets/navbar-images/profile-icon.png';
 import arrowup from '../../assets/navbar-images/arrow-up.png';
 import arrowdown from '../../assets/navbar-images/arrow-down.png';
 
-import { useSearchParams } from 'react-router-dom';
-
 export default function Navbar() {
   const [blackNavbar, setBlackNavbar] = useState(false);
   const [staticNavbar, setStaticNavbar] = useState(false);
@@ -29,15 +27,6 @@ export default function Navbar() {
     setGradientNavbar(!location.pathname.includes('/browse') ? false : true);
   }, [location]);
 
-  const [search, setSearch] = useSearchParams();
-  const searchQuery = search.get('q');
-
-  function clearSearchInput() {
-    setSearch('');
-  }
-
-  // console.log(searchQuery)
-
   return (
     <>
       <S.Nav
@@ -46,7 +35,7 @@ export default function Navbar() {
         gradientNavbar={gradientNavbar}
       >
         <S.PrimaryNav>
-          <NavLink to="browse" onClick={clearSearchInput}>
+          <NavLink to="browse">
             {' '}
             <img src={logo} alt="Nepflix logo" />
           </NavLink>
