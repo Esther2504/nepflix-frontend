@@ -24,9 +24,15 @@ export const CloseCircle = styled(AiOutlineClose)`
   color: white;
   &:active {
 color: #ffffff;
-border: 1px solid #ffffff;
-cursor: pointer;
+border: 2px solid #ffffff;
+
 }
+
+&:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    cursor: pointer;
+  }
 `;
 
 //START MODAL
@@ -92,10 +98,7 @@ export const ModalClose = styled.div`
   margin-right: 1.5rem;
   color: white;
 
-  &:hover {
-    color: #ffffff;
-    border-color: #ffffff;
-  }
+
 `;
 
 export const ModalPreview = styled.div`
