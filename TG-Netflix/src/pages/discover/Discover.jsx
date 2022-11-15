@@ -75,7 +75,7 @@ export default function Discover({ banner, categories, movie }) {
   return (
     <>
       <div className="members-container">
-        {categoriesState.length > 0 && <Player data={banner} modal={false} />}
+        {categoriesState.length > 0 && <Player data={banner} modal={false} hovering={isHovering} />}
         {isHovering && (
           <CallSmallModal
             hover={isHovering}
