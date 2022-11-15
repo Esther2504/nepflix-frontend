@@ -64,7 +64,7 @@ export const SmallModal = styled.div`
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
       height: fit-content;
-      margin-top: -1rem;
+      // margin-top: -1rem;
     }
   }
   @keyframes in {
