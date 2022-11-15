@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { SearchIcon } from './Searchbar.styled';
@@ -33,6 +33,10 @@ export default function Searchbar() {
     };
   }, [debouncedHandleChange]);
 
+  const ref= useRef(null)
+  const handleFocusAway = () => {
+    ref.current.value= '';
+  }
   return (
     <>
       <S.Form role="search">
@@ -40,8 +44,10 @@ export default function Searchbar() {
           <SearchIcon alt="Search icon" />
         </button>
         <input
+          ref={ref}
           type="search"
           onChange={debouncedHandleChange}
+          onBlur={handleFocusAway}
           placeholder="Enter film title.."
         />
       </S.Form>
