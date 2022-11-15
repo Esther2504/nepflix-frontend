@@ -22,6 +22,11 @@ export const CloseCircle = styled(AiOutlineClose)`
   padding:0.3rem;
   font-weight: 200;
   color: white;
+  &:active {
+color: #ffffff;
+border: 1px solid #ffffff;
+cursor: pointer;
+}
 `;
 
 //START MODAL
