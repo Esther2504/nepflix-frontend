@@ -22,6 +22,13 @@ export default function NavbarAccount() {
               <NavLink to="/browse">Home</NavLink>
             </li>
             <li>
+              <NavLink
+                to="/team"
+              >
+                Our Team
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/">Sign out of Nepflix</NavLink>
             </li>
           </ul>

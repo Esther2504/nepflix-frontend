@@ -69,14 +69,6 @@ export default function Navbar() {
                 My List
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="team"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Our Team
-              </NavLink>
-            </li>
           </ul>
         </S.PrimaryNav>
         <S.SecondaryNav>
@@ -94,8 +86,16 @@ export default function Navbar() {
                     <NavLink to="account">Account</NavLink>
                   </li>
                   <li>
+              <NavLink
+                to="team"
+              >
+                Our Team
+              </NavLink>
+            </li>
+                  <li>
                     <NavLink to="/">Sign out of Nepflix</NavLink>
                   </li>
+
                 </ul>
               </S.Account>
             </li>

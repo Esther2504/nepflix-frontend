@@ -30,17 +30,19 @@ export default function GridLayout() {
     color: white;
     width: 100%;
     height: 100%;
-    border: 1px solid white;
+    border: 1px solid lightgrey;
     border-radius: 5px;
     font-size: 1.5rem;
     display: flex;
     padding: 10px;
     flex-direction: column;
     margin: 7px;
+    font-style: italic;
 
     .person-name {
       align-self: end;
       justify-self: end;
+      font-style: normal;
     }
   `;
 
@@ -245,7 +247,7 @@ export default function GridLayout() {
           {Jens.map((message, index) => {
             return (
               <MessageCard key={index}>
-                <p>{message.description}</p>
+                <p>"{message.description}"</p>
                 <p className="person-name">- {message.name}</p>
               </MessageCard>
             );
