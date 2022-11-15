@@ -71,6 +71,7 @@ export const PlayerStyles = styled.div`
     font-weight: 800;
     padding-bottom: 0.3rem;
     max-width: 500px;
+    text-align:left;
     }
     
     @keyframes shrink {
@@ -96,7 +97,8 @@ export const PlayerStyles = styled.div`
     line-height: 1.3;
     padding-top: 1rem;
     font-size: 1.44rem;
-    text-shadow: rgba(0,0,0 0.45) 0.125rem 0.125rem 0.25rem;    
+    text-shadow: rgba(0,0,0 0.45) 0.125rem 0.125rem 0.25rem;
+    text-align:left;    
     }
 
     @keyframes fadeOut {
@@ -447,7 +449,5 @@ export const PlayerStyles = styled.div`
             padding: 0.6rem 4.2rem 0.6rem 0.96rem;
         }
       }
-
-
-
+    }
 `

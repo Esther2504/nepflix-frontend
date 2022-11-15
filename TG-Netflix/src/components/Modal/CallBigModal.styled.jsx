@@ -1,5 +1,8 @@
-import styled from 'styled-components';
-import { AiFillCloseCircle, AiOutlineDown } from 'react-icons/ai';
+import styled from "styled-components";
+import {
+  AiFillCloseCircle,
+  AiOutlineDown,
+} from "react-icons/ai";
 
 export const CloseButton = styled.div``;
 export const CloseCircle = styled(AiFillCloseCircle)`
@@ -141,7 +144,7 @@ export const Rating = styled.div`
   color: #46d369;
 `;
 export const ReleaseYear = styled.div`
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 `;
 export const MaturityRating = styled.div``;
 export const Duration = styled.div`

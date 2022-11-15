@@ -254,6 +254,7 @@ export const PlayerStyles = styled.div`
         line-height: 20px;
         border-left: 5px solid rgba(255, 255, 255, 0.75);
         padding: 9.6px 67.2px 9.6px 15.36px;
+        
     }
 
     .maturity-graphic {
@@ -268,7 +269,7 @@ export const PlayerStyles = styled.div`
         border: 3px solid white;
         font-weight: 600;
         font-size: 20px;
-
+        border-radius: 50%;
     }
 
     .banner-fadeBottom {
@@ -505,9 +506,10 @@ export const PlayerStyles = styled.div`
             line-height: 1.584rem;
             border-left: 5px solid rgba(255, 255, 255, 0.75);
             padding: 0.6rem 4.2rem 0.6rem 0.96rem;
+            
         }
       }
 
 
-
+    }
 `

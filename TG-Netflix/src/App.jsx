@@ -57,7 +57,7 @@ function App() {
     const worked = 'I worked';
     const setupTime = localStorage.getItem('setupTime');
     const banner = true;
-    const categories = 'top_rated,popular,latest';
+    const categories = 'top_rated,popular,action';
     if (setupTime == null) {
       localStorage.setItem('setupTime', currentTime);
       // dispatch(getMovies());

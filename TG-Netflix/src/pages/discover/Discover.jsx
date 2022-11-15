@@ -8,6 +8,7 @@ import CallSmallModal from '../../components/Modal/CallSmallModal';
 import CallBigModal from '../../components/Modal/CallBigModal';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { getMovies, getBrowse} from "../../reducers/fetchReducer";
+import { addToList } from '../../reducers/likedReducer';
 
 //import movieDetailsMock from '../../mock-data/movie_details_similar.mock.json'
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
@@ -22,6 +23,7 @@ export default function Discover({ banner, categories, movie }) {
   const dispatch = useDispatch();
   const globalModalState = useSelector((state) => state.modal.modalState);
   const movieDetails = useSelector((state) => state.netflix.movies);
+  const categoriesState = useSelector((state) => state.netflix.browse)
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
 
   //END STATE
@@ -34,8 +36,23 @@ export default function Discover({ banner, categories, movie }) {
     if (getMovieID) dispatch(openModal({ modalState: true, coords }));
   }, []);
 
+  const handleAddToMyList = (e) => {
+    let r;
+
+    categoriesState[0].forEach((categorie)=>{
+     r = categorie.movies.find((movie) => movie.id === movieID)
+      if(r){
+        dispatch(addToList(r))
+      }
+      return;
+      
+    })
+
+  };
+
   //add evenlistener for small modal
   useEffect(() => {
+
     const films = document.querySelectorAll('#movie');
     films.forEach((film) => {
       film.addEventListener('mouseenter', (e) => {
@@ -49,17 +66,19 @@ export default function Discover({ banner, categories, movie }) {
       });
     });
 
+
+
     window.addEventListener('click', (e) => {
       e.stopPropagation();
       setIsHovering(false);
     });
   }, []);
 
+
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
-
 
 
 
@@ -73,9 +92,11 @@ export default function Discover({ banner, categories, movie }) {
             hover={isHovering}
             data={{ coords: coords, dataset: movieDetails }}
             onClick={openBigModal}
+            movieID={movieID}
+            handleAddToMyList={handleAddToMyList}
           />
         )}
-        {globalModalState.modalState && <CallBigModal {...movieDetails} />}
+        {globalModalState.modalState && <CallBigModal movieID={movieID} />}
         <div className="fade-container">
           <LaneHandler categories={categories} movie={movie} />
         </div>

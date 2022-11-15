@@ -18,13 +18,13 @@ const initialState = {
 
 //The two axios links can be replaced with the link recieved from the back-end IF the initial endpoints stay as is.
 export const getBrowse = createAsyncThunk("netflix/browse", async ({ banner, categories, page }) => {
-    console.log(banner, categories, page)
+    // console.log(banner, categories, page)
     //fetches /Browse data
     const { data } = await axios.get(
         `https://tg-nepflix.azurewebsites.net/browse`, { params: { banner, categories, page } }
     );
     const browse = data;
-    // console.log(browse)
+// console.log(browse)
     return browse;
 });
 
@@ -88,7 +88,6 @@ const NetflixSlice = createSlice({
             if(!checkIfMovieInState){
           state.movies = [...state.movies, action.payload]
             } 
-            console.log(state);
       state.moviesLoaded = true;
       state.moviesError = "";
     });

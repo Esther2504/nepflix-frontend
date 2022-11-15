@@ -16,7 +16,7 @@ import {
   MaturityContainer,
   RatingContainer,
 } from './PreviewModal.style';
-import logo from '../../assets/movie-card-images/n_logo.ico'
+import logo from '../../assets/movie-card-images/n_logo.ico';
 
 function PreviewModal(data) {
   const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
@@ -42,7 +42,9 @@ function PreviewModal(data) {
         <MaturityContainer>
           <RatingContainer>
             <PreviewMaturityRating>
-              {data.movie.age_certificate.includes("PG-") ? data.movie.age_certificate.slice(3) : data.movie.age_certificate}
+              {data.movie.age_certificate.includes('PG-')
+                ? data.movie.age_certificate.slice(3)
+                : data.movie.age_certificate}
             </PreviewMaturityRating>
           </RatingContainer>
           <PreviewAddToList />
