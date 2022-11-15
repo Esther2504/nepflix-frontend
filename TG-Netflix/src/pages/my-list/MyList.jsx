@@ -59,11 +59,7 @@ export default function MyList() {
 
   return (
     <>
-      <div className="padding-container">
-        <TitleWrapper>
-          <Title>My List</Title>
-        </TitleWrapper>
-        {isHovering && (
+     {isHovering && (
             <CallSmallModal
               onMouseLeave={() => setIsHovering(false)}
               hover={isHovering}
@@ -76,6 +72,12 @@ export default function MyList() {
             
           )}
         {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
+      <div className="padding-container">
+        <TitleWrapper>
+          <Title>My List</Title>
+       
+        </TitleWrapper>
+       
         <GridContainer>
 
      

@@ -49,7 +49,7 @@ export default function Searchbar() {
           ref={ref}
           type="search"
           onChange={debouncedHandleChange}
-          onBlur={handleFocusAway}
+          onBlur={clearSearchInput}
           placeholder="Enter film title.."
         />
       </S.Form>
