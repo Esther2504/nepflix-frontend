@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { getMovies } from '../../reducers/fetchReducer';
-import GridLayout from "../../components/grid-layout/GridLayout";
+import {GridContainer} from "../../components/grid-layout/GridLayout.styled";
 
 export default function MyList() {
 
@@ -63,10 +63,7 @@ export default function MyList() {
         <TitleWrapper>
           <Title>My List</Title>
         </TitleWrapper>
-        {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
-        <GridLayout>
-
-          {isHovering && (
+        {isHovering && (
             <CallSmallModal
               onMouseLeave={() => setIsHovering(false)}
               hover={isHovering}
@@ -78,11 +75,15 @@ export default function MyList() {
             />
             
           )}
+        {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
+        <GridContainer>
+
+     
 
           {liked.map((movie, index) => {
             return <MovieCard key={index} movie={movie} />
           })};
-        </GridLayout>
+        </GridContainer>
         <Footer />
       </div>
     </>
