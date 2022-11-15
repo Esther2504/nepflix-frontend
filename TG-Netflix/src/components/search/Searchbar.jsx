@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import { debounce } from 'lodash';
 import { SearchIcon } from './Searchbar.styled';
@@ -9,13 +9,15 @@ export default function Searchbar() {
   const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
   const searchQuery = search.get('q');
+  const ref = useRef(null);
 
   useEffect(() => {
     if (!location.pathname.includes('/search') && searchQuery) {
       navigate(`/search?q=${searchQuery}`);
-    } else if (location.pathname.includes('/search') && !searchQuery) {
-      navigate('/browse');
-    }
+    } 
+    // else if (location.pathname.includes('/search') && !searchQuery) {
+    //   navigate('/browse');
+    // }
   }, [searchQuery]);
 
   function handleChange(e) {
@@ -33,6 +35,10 @@ export default function Searchbar() {
     };
   }, [debouncedHandleChange]);
 
+  function clearSearchInput() {
+    ref.current.value = '';
+  }
+
   return (
     <>
       <S.Form role="search">
@@ -42,6 +48,8 @@ export default function Searchbar() {
         <input
           type="search"
           onChange={debouncedHandleChange}
+          ref={ref}
+          onBlur={clearSearchInput}
           placeholder="Enter film title.."
         />
       </S.Form>

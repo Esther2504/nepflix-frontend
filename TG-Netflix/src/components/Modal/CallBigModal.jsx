@@ -33,6 +33,7 @@ import { closeModal } from '../../reducers/modalReducer';
 import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from '../../reducers/fetchReducer';
+import { useNavigate } from 'react-router-dom';
 
 
 const CallBigModal = (props) => {
@@ -41,11 +42,15 @@ const CallBigModal = (props) => {
   const modalRefContainer = useRef();
   //END REF's
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   const [directMovie, setDirectMovie] = useState();
+  const [search] = useSearchParams();
+  const searchQuery = search.get('q');
+
   //END STATE
 
   //check if movie is in state
@@ -82,12 +87,14 @@ const CallBigModal = (props) => {
   const handleClose = () => {
     setBrowseMovieID();
     dispatch(closeModal({ modalState: false, coords: [] }));
+    location.pathname.includes('/search') ? navigate(`/search?q=${searchQuery}`) : null ;
   };
 
   window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
       setBrowseMovieID();
       dispatch(closeModal({ modalState: false, coords: [] }));
+      location.pathname.includes('/search') ? navigate(`/search?q=${searchQuery}`) : null ;
     }
   });
 
