@@ -183,6 +183,7 @@ export const ArrowContainer = styled.div`
   height: 27px;
   border: 2px solid #b6b6b6;
   border-radius: 50%;
+  cursor: pointer;
 
   &:hover {
     border-color: white;
@@ -240,6 +241,7 @@ export const PlusCircle = styled(BsPlusLg)`
   padding: 0.5rem;
   color: #cccccc;
   font-size: 27px;
+  cursor: pointer;
 
   &:hover {
     color: white;
@@ -273,11 +275,16 @@ export const PlusCircle = styled(BsPlusLg)`
 // `;
 export const InfoCon = styled.div`
   display: flex;
-  gap: 1rem;
-  align-items: center;
-  color: #fff;
+  flex-wrap: wrap;
   flex-direction: row;
-  font-size: 1.2rem;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-size: 1rem; // 2 columns
+
+  @media (min-width: 450px){
+    font-size: 1.2rem;
+  }
 `;
 
 export const MatchPerc = styled.div`
@@ -302,7 +309,6 @@ export const Runtime = styled.div``;
 
 export const KeywordsContainer = styled.div`
   /* padding: 0.5rem 1rem; */
-  font-size: 1.2rem;
   color: white;
 `;
 

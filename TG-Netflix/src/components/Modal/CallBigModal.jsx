@@ -11,7 +11,6 @@ import {
   MetaData,
   Rating,
   ReleaseYear,
-  MaturityRating,
   Duration,
   VidQuality,
   AudDesc,
@@ -26,7 +25,9 @@ import {
   MoreLikeThisToggle,
   AboutContainer,
   AboutTitle,
-  Error
+  Error,
+  AgeRes,
+  MaturityRating
 } from './CallBigModal.styled';
 import { closeModal } from '../../reducers/modalReducer';
 // import Player from "../player/Player";
@@ -115,6 +116,16 @@ const CallBigModal = (props) => {
     keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
   }
 
+  let ageCertificate = movieInfo?.age_certificate;
+  // Als age certificate niet bestaat dan is het een lege string.
+  // Via onderstaande check wordt van de lege string "NR" gemaakt.
+  if (!ageCertificate) {
+    ageCertificate = "NR";
+    // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
+  } else if (ageCertificate.includes("PG-")) {
+    ageCertificate = ageCertificate.slice(3);
+  }
+
   return (
     <>
       <ModalContainer ref={modalRefContainer}>
@@ -131,9 +142,9 @@ const CallBigModal = (props) => {
                   <VideoInfoContainerLeft>
                     <MetaData>
                       {/* <Rating>93% Match</Rating> */}
-                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)}  • 
+                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)} 
                       </ReleaseYear>
-                      <MaturityRating></MaturityRating>
+                      <AgeRes>{ageCertificate}</AgeRes>
                       <Duration>
                         {Math.floor(movieInfo?.runtime / 60)}h{' '}
                         {movieInfo?.runtime % 60}m

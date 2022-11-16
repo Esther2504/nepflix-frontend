@@ -115,8 +115,7 @@ export const VideoInfoContainer = styled.div`
   font-size: 1.6rem;
   margin-top: 1rem;
   color: #ffffff;
-  padding-left: 3rem;
-  padding-right: 3rem;
+padding: 0 3rem 4rem 3rem;
   padding-top: 1rem;
   text-align: justify;
 
@@ -141,8 +140,8 @@ export const VideoInfoContainerRight = styled.div`
   text-align: left;
   color: #ffffff;
   padding-left: 2rem;
-
   width: 50%;
+  gap: 1rem;
 
   @media (max-width: 820px) {
     width: 100%;
@@ -156,7 +155,9 @@ export const VideoInfoContainerRight = styled.div`
 export const MetaData = styled.div`
   grid-row: 1;
   display: flex;
+  align-items: center;
   flex-direction: row;
+  gap: 1rem;
 `;
 export const Rating = styled.div`
   color: #46d369;
@@ -164,9 +165,26 @@ export const Rating = styled.div`
 export const ReleaseYear = styled.div`
   /* margin-left: 0.5rem; */
 `;
-export const MaturityRating = styled.div``;
+
+export const MaturityRating = styled.div`
+`
+export const AgeRes = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.6rem;
+  line-height: 1.rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;`;
+
 export const Duration = styled.div`
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
 `;
 export const VidQuality = styled.div`
   margin-left: 0.5rem;
@@ -188,13 +206,14 @@ export const MoreLikeThisContainer = styled.div`
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+
   span {
     color: #ffffff;
     font-size: 2.4rem;
     font-weight: 700;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 `;
 export const MoreLikeThisWrapper = styled.div`
