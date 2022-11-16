@@ -89,9 +89,9 @@ const CallSmallModal = (props) => {
 
   const mouseLeaveHandler = () => {
     setVideoState(false);
-    // setTimeout(function () {
-    //   props.setIsHovering(false);
-    // }, 300);
+    setTimeout(function () {
+      props.setIsHovering(false);
+    }, 300);
 
     // For when you leave the card before the videostate has been set to true
     setTimeout(function () {
@@ -164,11 +164,11 @@ const CallSmallModal = (props) => {
               <ArrowDown />
             </ArrowContainer>
           </VideoControls>
-          <InfoCon>
-            <MatchPerc>{matchPerc}% Match</MatchPerc>
+          {videoState && <InfoCon>
+          <MatchPerc>{matchPerc}% Match</MatchPerc>
             <AgeRes>{ageCertificate}</AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
-          </InfoCon>
+          </InfoCon>}
           <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
