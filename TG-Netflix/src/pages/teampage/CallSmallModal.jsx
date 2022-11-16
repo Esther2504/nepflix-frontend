@@ -30,6 +30,7 @@ const CallSmallModal = (props) => {
   const bg = props.data.dataset.backdrop;
   const description = props.data.dataset.description;
   const name = props.data.dataset.name;
+  const keywords = props.data.dataset.keywords;
 
   const mouseLeaveHandler = () => {
     setTimeout(function () {
@@ -50,6 +51,7 @@ const CallSmallModal = (props) => {
           <InfoCon>
             <h1>{name}</h1>
           </InfoCon>
+          <p style={{color: "white", fontSize: "0.8rem"}}>{keywords}</p>
           <p style={{color: "white", fontStyle: "italic"}}>"{description}"</p>
         </SmallModalBottom>
       </SmallModal>

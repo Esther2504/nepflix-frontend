@@ -14,6 +14,7 @@ import esther from "./images/esther.png";
 import marko from "./images/marko.png";
 import nathaniel from "./images/nathaniel.png";
 import luisa from "./images/luisa.png";
+import joost from "./images/joost.png";
 import placeholder from "./images/placeholder.png";
 
 export default function GridLayout() {
@@ -63,6 +64,7 @@ export default function GridLayout() {
       backdrop_path: lex,
       id: 985939,
       name: "Lex",
+      keywords: "Scrum Master • NavBar",
       description:
         "",
     },
@@ -70,6 +72,7 @@ export default function GridLayout() {
       backdrop_path: sander,
       id: 985939,
       name: "Sander",
+      keywords: "Footer • Lanes • MyList Page",
       description:
         "Het Nepflix project is het sluitstuk van deze opleiding en het resultaat is een weerspiegeling van de ontwikkeling die we het afgelopen half jaar hebben doorgemaakt als beginnende front- en backend developers. Dit betreft zowel technische skills, persoonlijke ontwikkeling en leren samenwerken in een development project team. Ik ben trots op wat we persoonlijk en als groep hebben neergezet en wil al mijn mede studenten bedanken voor hun samenwerking, hulp, inzet (special mention: scrummaster Lex) en positieve spirit. Ik ga het dagelijks inloggen op de Zoom  missen en wens jullie heel veel succes nu we ècht gaan beginnen aan onze carrière als IT’er.",
     },
@@ -77,6 +80,7 @@ export default function GridLayout() {
       backdrop_path: nathaniel,
       id: 718930,
       name: "Nathaniel",
+      keywords: "Master of the Banner",
       description:
         "",
     },
@@ -84,6 +88,7 @@ export default function GridLayout() {
       backdrop_path: hiuchee,
       id: 718930,
       name: "Hiu-Chee",
+      keywords: "Backend • Browse Endpoint",
       description:
         "",
     },
@@ -91,6 +96,7 @@ export default function GridLayout() {
       backdrop_path: placeholder,
       id: 718930,
       name: "Szymon",
+      keywords: "Data Structure • Banner • Lanes",
       description:
         "",
     },
@@ -98,20 +104,22 @@ export default function GridLayout() {
       backdrop_path: luisa,
       id: 718930,
       name: "Luisa",
+      keywords: "Landing Page • Dataflow • Player",
       description:
         "This passed six months have definitely been filled with ups and downs in various aspects, but what stayed a true constant was the energy and joy that I got from from this course. Part of me was unsure if I was capable of finishing this course, I couldn't tell if I was doing well or not, imposter syndrome started weighting more by the time we started with React. At one point during the course something clicked and I said F it! Why should I hold myself to high standards that I placed for myself? I've heard multiple different stories from experienced developers, about their failures and successes. It all boiled down to how willing I was to get back up and keep going. I can proudly say that by the end of this course I have more knowledge then what I started with. I can also say I still have a long way to go, but that's ok. Because at the end of the day, I found what gives me joy.",
     },
     {
-      backdrop_path: placeholder,
+      backdrop_path: joost,
       id: 718930,
       name: "Joost",
-      description:
-        "",
+      keywords: "Master of the Lanes",
+      description: "Ik heb ontzettend veel geleerd en leuke mensen leren kennen. Iedereen bedankt!",
     },
     {
       backdrop_path: bart,
       id: 718930,
       name: "Bart",
+      keywords: "Data Structure • Spinner • Filterbar",
       description:
         "",
     },
@@ -119,6 +127,7 @@ export default function GridLayout() {
       backdrop_path: placeholder,
       id: 718930,
       name: "Alex",
+      keywords: "Backend • MyList Endpoint",
       description:
         "",
     },
@@ -126,6 +135,7 @@ export default function GridLayout() {
       backdrop_path: marko,
       id: 718930,
       name: "Marko",
+      keywords: "Master of the Modal",
       description:
         "Zes maanden geleden had ik zo goed als geen programmeer kennis. Nu zijn we aan het einde van het traject en hebben we in mijn ogen een heel mooi eind project gemaakt. Ik ben er dan ook super trots op! Natuurlijk zijn we nog maar aan het begin van onze programmeer-carriere, maar als wij dit al na zes maanden kunnen. Ben ik erg benieuwd wat iedereen kan over een jaar!",
     },
@@ -133,7 +143,7 @@ export default function GridLayout() {
       backdrop_path: marijana,
       id: 718930,
       name: "Marijana",
-      keywords: "Backend / Movie endpoint / Search endpoint",
+      keywords: "Backend • Movie Endpoint • Search Endpoint",
       description:
         "Kon ik maar tijdreizen. Dan zou ik 6 maanden terug de tijd in gaan en de Marijana van toen laten zien wat ik nu allemaal kan. Aan het begin van de opleiding had ik geen idee wat ik kon verwachten. Ik maakte me zorgen dat 6 maanden niet genoeg zouden zijn om al die stof te leren, but I surprised myself. Ik ben blij dat ik de stap heb gezet om deze opleiding te doen. In 6 maanden heb ik veel geleerd en ik ben super trots op wat ik allemaal heb bereikt.",
     },
@@ -141,10 +151,12 @@ export default function GridLayout() {
       backdrop_path: esther,
       id: 718930,
       name: "Esther",
+      keywords: "Account • Category Filter • Lanes",
       description:
-        "Dit was een heel leuk & leerzaam project. Dankzij een topteam hebben we een resultaat opgeleverd om trots op te zijn. Ik heb veel geleerd door de uitdagingen die dit project, maar ook de eerdere projecten, meebrachten en heb ervaren hoe het is om met een team te werken. Het was een goede afsluiting van zes maanden.",
+        "Dit was een heel leuk & leerzaam project. Dankzij een topteam hebben we een resultaat opgeleverd om trots op te zijn. Ik heb veel geleerd door de uitdagingen die dit project, maar ook de eerdere projecten, meebrachten en heb ervaren hoe het is om met een team te werken. Naast dat ik trots ben op alles wat ik nu kan, kijk ik met plezier terug op de afgelopen zes maanden.",
     },
   ];
+
 
   const jens = [
     // {
@@ -210,7 +222,7 @@ export default function GridLayout() {
       id: 985939,
       name: "Esther",
       description:
-        "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Heel veel succes en plezier bij je nieuwe baan!",
+        "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Het was heel fijn om jou als coach te hebben. Heel veel succes en plezier bij je nieuwe baan!",
     },
     {
       id: 985939,
