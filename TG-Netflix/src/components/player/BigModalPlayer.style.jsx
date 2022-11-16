@@ -10,6 +10,7 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid yellow;
 
     .bigmodalbanner {
       position: absolute;
@@ -48,20 +49,34 @@ export const PlayerStyles = styled.div`
     }
 
     .overlay {
-      width: ${(props) => (props.modal.modalState ? '61vw' : '100vw')};
-      height: 33.3%;
+      /* width: ${(props) => (props.modal.modalState ? '61vw' : '100vw')}; */
+      width: 90%;
+      height: 70%;
       position: absolute;
       display: flex;
       justify-content: space-between;
       // text-align: left !important;
       align-items: flex-end;
+      left: 50px;
+      bottom: 50px;
+     border: 1px solid green;
+
+     @media (max-width: 1100px) {
+      width: 80%;
+     }
+     @media (max-width: 1100px) {
+      width: 80%;
+     }
+
     }
 
     .banner-contents {
-      position: relative;
+      /* position: relative; */
       color: #fff;
-      margin-left: 30px;
-      padding-top: 140px;
+      top: 150px;
+      left: 10px;
+      /* padding-top: 140px; */
+
     }
 
     .bigmodalbanner-title {
@@ -70,6 +85,7 @@ export const PlayerStyles = styled.div`
       padding-bottom: 0.3rem;
       max-width: 500px;
       text-align: left;
+
     }
 
     @keyframes shrink {
@@ -143,7 +159,7 @@ export const PlayerStyles = styled.div`
       font-size: 14.4px;
       justify-content: center;
       line-height: 12.672px;
-      margin: 0px 14.4px 14.4px 0px;
+      margin: 40px 14.4px 14.4px 0px;
       padding: 11.52px 34.56px 11.52px 28.8px;
       text-align: center;
       cursor: pointer;
@@ -173,12 +189,13 @@ export const PlayerStyles = styled.div`
 
     .side-button-container {
       justify-content: space-between;
-      width: 75px;
-      height: 65px;
+      width: 40px;
+      height: 50px;
       color: rgba(255, 255, 255, 1);
       display: flex;
       font-size: 14.4px;
       line-height: 17.28px;
+
     }
 
     .side-button {
@@ -228,7 +245,14 @@ export const PlayerStyles = styled.div`
       }
     }
 
-    @media only screen and (max-width: 800px) {
+    @media (max-width: 1100px) {
+      .banner-contents {
+        border: 1px solid red;
+
+      }
+    }
+
+    /* @media only screen and (max-width: 800px) {
       .banner .overlay iframe {
         max-height: 30vh;
       }
@@ -333,7 +357,7 @@ export const PlayerStyles = styled.div`
         border-left: 5px solid rgba(255, 255, 255, 0.75);
         padding: 0.6rem 4.2rem 0.6rem 0.96rem;
       }
-    }
+    } */
 
     @media only screen and (max-width: 644px) {
       display: none;

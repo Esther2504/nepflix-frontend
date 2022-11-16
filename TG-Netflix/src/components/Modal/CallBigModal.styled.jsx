@@ -46,7 +46,7 @@ export const ModalContainer = styled.div`
 
 export const ModalContent = styled.div`
   display: flex;
-  -margin: 0 auto;
+  /* -margin: 0 auto; */
   margin-top: 3rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
@@ -55,6 +55,7 @@ export const ModalContent = styled.div`
   background-color: #181818;
   transform-origin: ${(props) => props.coords};
   overflow:hidden;
+
   @media (max-width: 1100px) {
     max-width: 90%;
   }
@@ -110,7 +111,14 @@ export const VideoInfoContainer = styled.div`
   padding: 0 3rem 4rem 3rem;
   padding-top: 1rem;
   text-align: justify;
+  max-width: 100%;
 
+  @media (min-width: 645px) {
+    max-width: 90%;
+  }
+  @media (min-width: 1100px) {
+    max-width: 100%;
+  }
   @media (max-width: 820px) {
     flex-direction: column;
     gap: 2rem;
@@ -132,8 +140,10 @@ export const VideoInfoContainerRight = styled.div`
   text-align: left;
   color: #ffffff;
   padding-left: 2rem;
+  padding-right: 2rem;
   width: 50%;
   gap: 1rem;
+
 
   @media (max-width: 820px) {
     width: 100%;
@@ -199,6 +209,14 @@ export const MoreLikeThisContainer = styled.div`
   padding-right: 3rem;
   padding-top: 1rem;
   padding-bottom: 2rem;
+  max-width: 100%;
+
+  @media (min-width: 645px) {
+    max-width: 90%;
+  }
+  @media (min-width: 1100px) {
+    max-width: 100%;
+  }
 
   span {
     color: #ffffff;
