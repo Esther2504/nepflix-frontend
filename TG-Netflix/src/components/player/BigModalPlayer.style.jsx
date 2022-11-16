@@ -10,7 +10,6 @@ export const PlayerStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid yellow;
 
     .bigmodalbanner {
       position: absolute;
@@ -59,15 +58,10 @@ export const PlayerStyles = styled.div`
       align-items: flex-end;
       left: 50px;
       bottom: 50px;
-     border: 1px solid green;
 
      @media (max-width: 1100px) {
       width: 80%;
      }
-     @media (max-width: 1100px) {
-      width: 80%;
-     }
-
     }
 
     .banner-contents {
@@ -76,7 +70,6 @@ export const PlayerStyles = styled.div`
       top: 150px;
       left: 10px;
       /* padding-top: 140px; */
-
     }
 
     .bigmodalbanner-title {
@@ -85,7 +78,6 @@ export const PlayerStyles = styled.div`
       padding-bottom: 0.3rem;
       max-width: 500px;
       text-align: left;
-
     }
 
     @keyframes shrink {
@@ -195,7 +187,6 @@ export const PlayerStyles = styled.div`
       display: flex;
       font-size: 14.4px;
       line-height: 17.28px;
-
     }
 
     .side-button {
@@ -242,13 +233,6 @@ export const PlayerStyles = styled.div`
       align-self: center;
       @media (max-width: 1100px) {
         width: 100vw;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .banner-contents {
-        border: 1px solid red;
-
       }
     }
 
