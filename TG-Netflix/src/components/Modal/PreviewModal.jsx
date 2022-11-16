@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef } from 'react';
 import {
   VideoPlayer,
   PreviewModalContainer,
@@ -6,20 +6,20 @@ import {
   PreviewPlay,
   PreviewDuration,
   PreviewRating,
-  PreviewMaturityRating,
   PreviewReleaseYear,
   PreviewAddToList,
   PreviewMetaData,
   PreviewSummary,
   Thumbnail,
   Title,
-  MaturityContainer,
-  RatingContainer,
-} from "./PreviewModal.style";
-import logo from "../../assets/movie-card-images/n_logo.ico";
+  InfoContainer,
+  Rating,
+} from './PreviewModal.style';
+import logo from '../../assets/movie-card-images/n_logo.ico';
+import { ReleaseYear } from './CallBigModal.styled';
 
 function PreviewModal(data) {
-  const bg = "https://image.tmdb.org/t/p/original" + data.movie.backdrop_path;
+  const bg = 'https://image.tmdb.org/t/p/original' + data.movie.backdrop_path;
 
   const logoArray = [logo, null];
 
@@ -31,9 +31,9 @@ function PreviewModal(data) {
   // Als age certificate niet bestaat dan is het een lege string.
   // Via onderstaande check wordt van de lege string "NR" gemaakt.
   if (!ageCertificate) {
-    ageCertificate = "NR";
+    ageCertificate = 'NR';
     // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
-  } else if (ageCertificate.includes("PG-")) {
+  } else if (ageCertificate.includes('PG-')) {
     ageCertificate = ageCertificate.slice(3);
   }
 
@@ -43,18 +43,23 @@ function PreviewModal(data) {
       {/* <VideoPlayer muted src={Trailer} type="video/webm" ref={modalRefVideo} /> */}
       <ThumbnailContainer>
         <Thumbnail bg={bg} />
-        <PreviewDuration>{data.movie.runtime}m</PreviewDuration>
+        <PreviewDuration>
+          {' '}
+          {Math.floor(data.movie.runtime / 60)}h {data.movie.runtime % 60}m
+        </PreviewDuration>
         <Title>{data.movie.title}</Title>
         <img src={showLogo(logoArray)} />
       </ThumbnailContainer>
       <PreviewMetaData>
-        {/* <PreviewRating></PreviewRating> */}
-        <MaturityContainer>
-          <RatingContainer>
-            <PreviewMaturityRating>{ageCertificate}</PreviewMaturityRating>
-          </RatingContainer>
+        <InfoContainer>
+          <div>
+            <Rating>{ageCertificate}</Rating>
+            <PreviewReleaseYear>
+              {data.movie.release_date.slice(0, 4)}
+            </PreviewReleaseYear>
+          </div>
           <PreviewAddToList />
-        </MaturityContainer>
+        </InfoContainer>
         <PreviewReleaseYear>{data.movie.release_year}</PreviewReleaseYear>
 
         <PreviewSummary>{data.movie.overview}</PreviewSummary>

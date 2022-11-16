@@ -128,6 +128,7 @@ export const ArrowContainer = styled.div`
   height: 27px;
   border: 2px solid #b6b6b6;
   border-radius: 50%;
+  cursor: pointer;
 
   &:hover {
     border-color: white;
@@ -185,6 +186,7 @@ export const PlusCircle = styled(BsPlusLg)`
   padding: 0.5rem;
   color: #cccccc;
   font-size: 27px;
+  cursor: pointer;
 
   &:hover {
     color: white;
@@ -219,19 +221,13 @@ export const PlusCircle = styled(BsPlusLg)`
 export const InfoCon = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  color: #fff;
   flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
   font-size: 1rem; // 2 columns
 
   @media (min-width: 450px){
-    font-size: 1.1rem;
-  }
-  @media (min-width: 600px){ // 4 columns
-    font-size: 1.2rem;
-  }
-  @media (min-width: 750px){
     font-size: 1.2rem;
   }
 `;
