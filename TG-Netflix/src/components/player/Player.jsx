@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import YouTube from 'react-youtube';
+import React, { useLayoutEffect, useState, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import YouTube from "react-youtube";
 
 // OPEN MODAL FROM THE MORE INFO BUTTON
-import { closeModal, openModal } from '../../reducers/modalReducer';
+import { closeModal, openModal } from "../../reducers/modalReducer";
 
 // CSS & BUTTONS
-import { PlayerStyles } from './PlayerStyles';
+import { PlayerStyles } from "./PlayerStyles";
 
-import play from '../../assets/play-button.svg';
-import info from '../../assets/info.svg';
-import replay from '../../assets/replay.svg';
-import volume from '../../assets/volume.svg';
-import muted from '../../assets/muted.svg';
-import { setTrailerTime } from '../../reducers/trailerReducer';
-import { useSearchParams } from 'react-router-dom';
+import play from "../../assets/play-button.svg";
+import info from "../../assets/info.svg";
+import replay from "../../assets/replay.svg";
+import volume from "../../assets/volume.svg";
+import muted from "../../assets/muted.svg";
+import { setTrailerTime } from "../../reducers/trailerReducer";
+import { useSearchParams } from "react-router-dom";
 
-function Player() {
+function Player(props) {
   const { overview, age_certificate, backdrop_path, trailer, title, id } =
     useSelector((state) => state.netflix.browse[1]);
   // console.log(id)
@@ -57,14 +57,22 @@ function Player() {
     setUnMuteIsVisible((current) => !current);
   };
 
+  useLayoutEffect(() => { 
+    if (props.hovering) {
+      playerRef.current.internalPlayer.pauseVideo();
+    } else {
+      playerRef.current.internalPlayer.playVideo();
+    }
+  }, [props.hovering]);
+
   // ON TRAILER PLAY/END
   const playingVideo = () => {
-    document.querySelector('.banner').style.animation =
-      'fadeOut .25s ease-out 0.5s forwards';
-    document.querySelector('.banner-title').style.animation =
-      'shrink .5s ease-in-out 5s forwards';
-    document.querySelector('.banner-description').style.animation =
-      'fadeOut .25s ease-out 5s forwards';
+    document.querySelector(".banner").style.animation =
+      "fadeOut .25s ease-out 0.5s forwards";
+    document.querySelector(".banner-title").style.animation =
+      "shrink .5s ease-in-out 5s forwards";
+    document.querySelector(".banner-description").style.animation =
+      "fadeOut .25s ease-out 5s forwards";
 
     // bannerRef.classlist.add('banner-fade-out-start');
     // bannerTitleRef.classlist.add('title-shrink-start');
@@ -77,24 +85,24 @@ function Player() {
     // .title-grow-end
     // .desc-fade-in-end
 
-    document.getElementById('rePlay').style.visibility = 'hidden';
+    document.getElementById("rePlay").style.visibility = "hidden";
     if (muteIsVisible) {
-      document.getElementById('volume-unmute').style.visibility = 'visible';
+      document.getElementById("volume-unmute").style.visibility = "visible";
     } else {
-      document.getElementById('volume-mute').style.visibility = 'visible';
+      document.getElementById("volume-mute").style.visibility = "visible";
     }
   };
   const endVideo = () => {
-    document.querySelector('.banner').style.animation =
-      'fadeIn ease-out 0.1s forwards';
-    document.querySelector('.banner-title').style.animation =
-      'grow ease-in-out 1.5s forwards';
-    document.querySelector('.banner-description').style.animation =
-      'fadeIn ease-in 1.5s';
+    document.querySelector(".banner").style.animation =
+      "fadeIn ease-out 0.1s forwards";
+    document.querySelector(".banner-title").style.animation =
+      "grow ease-in-out 1.5s forwards";
+    document.querySelector(".banner-description").style.animation =
+      "fadeIn ease-in 1.5s";
 
-    document.getElementById('rePlay').style.visibility = 'visible';
-    document.getElementById('volume-mute').style.visibility = 'hidden';
-    document.getElementById('volume-unmute').style.visibility = 'hidden';
+    document.getElementById("rePlay").style.visibility = "visible";
+    document.getElementById("volume-mute").style.visibility = "hidden";
+    document.getElementById("volume-unmute").style.visibility = "hidden";
   };
   const rePlayVideo = () => {
     playerRef.current.internalPlayer.playVideo();
@@ -110,8 +118,8 @@ function Player() {
     dispatch(setTrailerTime({ seconds: addValue }));
 
     playerRef.current.internalPlayer.pauseVideo();
-    document.querySelector('.banner').style.animation =
-      'fadeIn 0.25s ease-out 0.5s forwards';
+    document.querySelector(".banner").style.animation =
+      "fadeIn 0.25s ease-out 0.5s forwards";
     // console.log(playtime);
   };
   // console.log(globalModalState.modalState);
@@ -137,12 +145,22 @@ function Player() {
       disablekb: 1,
       end: 30,
       rel: 0,
-      frameborder: '0',
-      allowfullscreen: '',
+      frameborder: "0",
+      allowfullscreen: "",
     },
   };
   function truncate(str, n) {
-    return str?.length > n ? str.substr(0, n - 1) + '...' : str;
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
+
+  let ageCertificate = age_certificate;
+  // Als age certificate niet bestaat dan is het een lege string.
+  // Via onderstaande check wordt van de lege string "NR" gemaakt.
+  if (!ageCertificate) {
+    ageCertificate = "NR";
+    // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
+  } else if (ageCertificate.includes("PG-")) {
+    ageCertificate = ageCertificate.slice(3);
   }
 
   return (
@@ -198,7 +216,7 @@ function Player() {
                   id="volume-unmute"
                   className="side-button"
                   onClick={unMuteVideo}
-                  style={{ visibility: muteIsVisible ? 'visible' : 'hidden' }}
+                  style={{ visibility: muteIsVisible ? "visible" : "hidden" }}
                 >
                   <img src={muted} alt="un-muted" className="Hawkins-icon" />
                 </button>
@@ -206,18 +224,13 @@ function Player() {
                   id="volume-mute"
                   className="side-button"
                   onClick={muteVideo}
-                  style={{ visibility: unMuteIsVisible ? 'visible' : 'hidden' }}
+                  style={{ visibility: unMuteIsVisible ? "visible" : "hidden" }}
                 >
                   <img src={volume} alt="muted" className="Hawkins-icon" />
                 </button>
               </div>
               <span className="maturity-rating">
-                <span className="maturity-graphic">
-                  {' '}
-                  {age_certificate.includes('PG-')
-                    ? age_certificate.slice(3)
-                    : age_certificate}
-                </span>
+                <span className="maturity-graphic"> {ageCertificate}</span>
               </span>
             </div>
           </div>

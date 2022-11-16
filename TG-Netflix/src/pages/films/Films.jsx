@@ -13,7 +13,7 @@ import { openModal, closeModal } from "../../reducers/modalReducer";
 import { useParams } from "react-router-dom";
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { getMovies, getBrowse } from "../../reducers/fetchReducer";
-
+import { addToList } from '../../reducers/likedReducer';
 // props kunnen worden doorgegeven worden vanaf main om content te laden voordat
 // bezoeker inlogt
 
@@ -29,6 +29,7 @@ export default function Films({ banner, categories, movie }) {
   const movieDetails = useSelector((state) => state.netflix.movies);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   const [genre, setGenre] = useState("");
+  const categoriesState = useSelector((state) => state.netflix.browse);
 
   //END STATE
 
@@ -37,7 +38,24 @@ export default function Films({ banner, categories, movie }) {
   const loadedCategories = useSelector((state) => state.netflix.browse[0]);
 
   // console.log(loadedCategories);
+  const getMovieID = browseMovieID.get("movieID");
 
+  //open modal if linked to movieID
+  useEffect(() => {
+    if (getMovieID) dispatch(openModal({ modalState: true, coords }));
+  }, []);
+
+  const handleAddToMyList = (e) => {
+    let r;
+
+    categoriesState[0].forEach((categorie) => {
+      r = categorie.movies.find((movie) => movie.id === movieID);
+      if (r) {
+        dispatch(addToList(r));
+      }
+      return;
+    });
+  };
   //add evenlistener for small modal
   useEffect(() => {
     const films = document.querySelectorAll("#movie");
@@ -57,13 +75,15 @@ export default function Films({ banner, categories, movie }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, []);
+  }, [categoriesState]);
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });
     dispatch(openModal({ modalState: true, coords }));
   };
 
+
+  
   // if (genre != "") {
   //   // Hier straks de films van het gekozen genre fetchen wanneer we de echte data gebruiken?
 
@@ -83,18 +103,18 @@ export default function Films({ banner, categories, movie }) {
   let location = useLocation();
 
   // Om met een directe link naar een genrepagina te gaan & zodat de filter blijft bij refresh
-  // React.useEffect(() => {
-  //   let path = window.location.href.slice(
-  //     window.location.href.lastIndexOf("/")
-  //   );
+  React.useEffect(() => {
+    let path = window.location.href.slice(
+      window.location.href.lastIndexOf("/")
+    );
 
-  //   if (path != "/films") {
-  //     let genreName = path.slice(1);
-  //     setGenre(genreName);
-  //   } else {
-  //     setGenre("");
-  //   }
-  // }, [location]);
+    if (path != "/films" || path.includes("MovieID")) {
+      let genreName = path.slice(1);
+      setGenre(genreName);
+    } else {
+      setGenre("");
+    }
+  }, [location]);
 
   return (
     <>
@@ -104,21 +124,19 @@ export default function Films({ banner, categories, movie }) {
           <>
             {isHovering && (
               <CallSmallModal
-                onMouseLeave={() => setIsHovering(false)}
                 hover={isHovering}
+                setIsHovering={setIsHovering}
                 data={{ coords: coords, dataset: movieDetails }}
                 onClick={openBigModal}
                 movieID={movieID}
+                handleAddToMyList={handleAddToMyList}
               />
             )}
             {globalModalState.modalState && <CallBigModal movieID={movieID} />}
             <LaneHandler categories={categories} movie={movie} />
           </>
         ) : (
-          <GridLayout
-            genre={genre}
-            setGenre={setGenre}
-          />
+          <GridLayout genre={genre} setGenre={setGenre} />
         )}
 
         <Footer />

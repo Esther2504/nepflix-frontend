@@ -80,7 +80,6 @@ export default function Lane(props) {
     return { width: laneWidth + "px", height: slideHeight + "px" };
   };
 
-
   const scrollLeft = () => {
     setVisibleSlide(visibleSlide - 1);
   };
@@ -102,11 +101,18 @@ export default function Lane(props) {
   const [isScrolled, setIsScrolled] =
     useState(false); /* set opacity obv naar rechts gescrolled */
 
+  let categoryTitle = props.categoryTitle;
+  if (categoryTitle == "Science fiction") {
+    categoryTitle = "Science Fiction";
+  } else if (categoryTitle == "Tv movie") {
+    categoryTitle = "TV Movie";
+  }
+
   return (
     <LaneContainer>
       <TopWrapper>
         <LaneTitle>
-          <h2>{props.categoryTitle}</h2>
+          <h2>{categoryTitle}</h2>
         </LaneTitle>
 
         <SlideIndicator

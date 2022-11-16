@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies } from '../../reducers/fetchReducer';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getMovies } from "../../reducers/fetchReducer";
 import {
   SmallModalContainer,
   SmallModal,
@@ -15,8 +15,10 @@ import {
   MatchPerc,
   ArrowDown,
   KeywordsContainer,
+  YouTubeWrapper
 } from './CallSmallModal.style';
 import YouTube from 'react-youtube';
+import logo from "../../assets/movie-card-images/n_logo.ico";
 
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -44,13 +46,6 @@ const CallSmallModal = (props) => {
 
   const [videoState, setVideoState] = useState(false);
 
-  // Als de small modal verschijnt, duurt het nog twee seconden tot de video speelt
-  if (props.hover) {
-    setTimeout(function () {
-      setVideoState(true);
-    }, 1500);
-  }
-
   const opts = {
     width: '100%',
     height: '100%',
@@ -60,9 +55,11 @@ const CallSmallModal = (props) => {
       mute: 1,
       controls: 0,
       disablekb: 1,
+      start: 15,
+      modestbranding: 1,
       end: 66,
       rel: 0,
-      frameborder: '0',
+      frameborder: '0', 
     },
   };
 
@@ -90,16 +87,61 @@ const CallSmallModal = (props) => {
   }
   const bg = movieInfo?.backdrop_path;
 
+  const mouseLeaveHandler = () => {
+    setVideoState(false);
+    // setTimeout(function () {
+    //   props.setIsHovering(false);
+    // }, 300);
+
+    // For when you leave the card before the videostate has been set to true
+    setTimeout(function () {
+      setVideoState(false);
+    }, 1500);
+  };
+
+  const mouseEnterHandler = () => {
+    setTimeout(function () {
+      setVideoState(true);
+    }, 2500);
+  };
+
+  let ageCertificate = movieInfo?.age_certificate;
+  // Als age certificate niet bestaat dan is het een lege string.
+  // Via onderstaande check wordt van de lege string "NR" gemaakt.
+  if (!ageCertificate) {
+    ageCertificate = "NR";
+    // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
+  } else if (ageCertificate.includes("PG-")) {
+    ageCertificate = ageCertificate.slice(3);
+  }
+
+  const logoArray = [logo, null];
+  function showLogo(logoArray) {
+    return logoArray[/[6]/.test(id) ? 0 : 1];
+  }
+
   return (
-    <SmallModalContainer coords={coords} bg={bg} onClick={props.onClick}>
+    <SmallModalContainer
+      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={mouseEnterHandler}
+      coords={coords}
+      bg={bg}
+      onClick={props.onClick}
+    >
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
+        {!videoState && <img src={showLogo(logoArray)} />}
+        {!videoState && (<span>{movieInfo?.title}</span>)}
           {videoState && (
+            <YouTubeWrapper>
             <YouTube
               videoId={movieInfo?.trailer}
               opts={opts}
               style={{ height: 'inherit' }}
+                   
             />
+
+</YouTubeWrapper>
           )}
         </SmallModalTop>
 
@@ -124,11 +166,7 @@ const CallSmallModal = (props) => {
           </VideoControls>
           <InfoCon>
             <MatchPerc>{matchPerc}% Match</MatchPerc>
-            <AgeRes>
-              {movieInfo?.age_certificate.includes('PG-')
-                ? movieInfo?.age_certificate.slice(3)
-                : movieInfo?.age_certificate}
-            </AgeRes>
+            <AgeRes>{ageCertificate}</AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
           </InfoCon>
           <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-import { BsFillPlayFill } from 'react-icons/bs';
+import styled from "styled-components";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { BsFillPlayFill } from "react-icons/bs";
 
 export const VideoPlayer = styled.video`
   border-top-left-radius: 1rem;
@@ -25,11 +25,17 @@ export const PreviewMetaData = styled.div`
   flex-grow: 1;
   /* height: 100%; */
 `;
-export const MaturityContainer = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-`
+export const InfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+`;
 
 export const PreviewPlay = styled(BsFillPlayFill)`
   position: absolute;
@@ -73,7 +79,7 @@ export const PreviewDuration = styled.div`
   color: white;
   width: 50px;
   top: 10px;
-  right: -5px;
+  right: 5px;
   font-weight: bold;
   font-size: 1.3rem;
   text-shadow: 1px 1px 1px black;
@@ -87,27 +93,30 @@ export const PreviewRating = styled.div`
   height: 3rem;
 `;
 
-export const RatingContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-width: 3rem;
+export const Rating = styled.div`
+  display: ${(props) => (props.hide ? `none` : `flex`)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 3rem;
   height: 3rem;
-  padding: 1.6rem;
-  line-height: 1.3rem;
-  /* border-radius: 50%; */
-background-color: black;
-border: 2px solid white;
-border-radius: 50%;
-`
+  padding: 0.6rem;
+  line-height: 1.rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 50%;
+`;
 
 export const PreviewMaturityRating = styled.div`
   /* grid-row: 2;
   grid-column: 1; */
   font-size: 1.4rem;
   font-weight: bold;
-text-align: center;
- 
+  text-align: center;
+
   /* height: 2rem; */
 `;
 export const PreviewReleaseYear = styled.div`

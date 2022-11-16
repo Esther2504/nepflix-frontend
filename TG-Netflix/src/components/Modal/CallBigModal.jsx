@@ -11,7 +11,6 @@ import {
   MetaData,
   Rating,
   ReleaseYear,
-  MaturityRating,
   Duration,
   VidQuality,
   AudDesc,
@@ -26,13 +25,16 @@ import {
   MoreLikeThisToggle,
   AboutContainer,
   AboutTitle,
-  Error
+  Error,
+  AgeRes,
+  MaturityRating
 } from './CallBigModal.styled';
 import { closeModal } from '../../reducers/modalReducer';
 // import Player from "../player/Player";
 import BigModalPlayer from '../player/BigModalPlayer';
 import { useSearchParams } from 'react-router-dom';
 import { getMovies } from '../../reducers/fetchReducer';
+import { useNavigate } from 'react-router-dom';
 
 
 const CallBigModal = (props) => {
@@ -41,11 +43,15 @@ const CallBigModal = (props) => {
   const modalRefContainer = useRef();
   //END REF's
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   //STATE
   const [toggleViewMore, setToggleViewMore] = useState(false);
   const globalModalState = useSelector((state) => state.modal.modalState);
   const [browseMovieID, setBrowseMovieID] = useSearchParams();
   const [directMovie, setDirectMovie] = useState();
+  const [search] = useSearchParams();
+  const searchQuery = search.get('q');
+
   //END STATE
 
   //check if movie is in state
@@ -82,12 +88,14 @@ const CallBigModal = (props) => {
   const handleClose = () => {
     setBrowseMovieID();
     dispatch(closeModal({ modalState: false, coords: [] }));
+    location.pathname.includes('/search') ? navigate(`/search?q=${searchQuery}`) : null ;
   };
 
   window.addEventListener('click', (e) => {
     if (e.target.className === modalRefContainer.current?.className) {
       setBrowseMovieID();
       dispatch(closeModal({ modalState: false, coords: [] }));
+      location.pathname.includes('/search') ? navigate(`/search?q=${searchQuery}`) : null ;
     }
   });
 
@@ -108,7 +116,15 @@ const CallBigModal = (props) => {
     keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
   }
 
-// console.log(movieInfo)
+  let ageCertificate = movieInfo?.age_certificate;
+  // Als age certificate niet bestaat dan is het een lege string.
+  // Via onderstaande check wordt van de lege string "NR" gemaakt.
+  if (!ageCertificate) {
+    ageCertificate = "NR";
+    // Als age certificate de letters PG- bevat, dan worden deze na onderstaande check eraf gehaald
+  } else if (ageCertificate.includes("PG-")) {
+    ageCertificate = ageCertificate.slice(3);
+  }
 
   return (
     <>
@@ -126,9 +142,9 @@ const CallBigModal = (props) => {
                   <VideoInfoContainerLeft>
                     <MetaData>
                       {/* <Rating>93% Match</Rating> */}
-                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)}  • 
+                      <ReleaseYear>{movieInfo?.release_date.slice(0, 4)} 
                       </ReleaseYear>
-                      <MaturityRating></MaturityRating>
+                      <AgeRes>{ageCertificate}</AgeRes>
                       <Duration>
                         {Math.floor(movieInfo?.runtime / 60)}h{' '}
                         {movieInfo?.runtime % 60}m
