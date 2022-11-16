@@ -62,7 +62,6 @@ export default function GridLayout() {
   const people = [
     {
       backdrop_path: lex,
-      id: 985939,
       name: "Lex",
       keywords: "Scrum Master • NavBar",
       description:
@@ -70,7 +69,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: sander,
-      id: 985939,
       name: "Sander",
       keywords: "Footer • Lanes • MyList Page",
       description:
@@ -78,7 +76,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: nathaniel,
-      id: 718930,
       name: "Nathaniel",
       keywords: "Master of the Banner",
       description:
@@ -86,7 +83,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: hiuchee,
-      id: 718930,
       name: "Hiu-Chee",
       keywords: "Backend • Browse Endpoint",
       description:
@@ -94,7 +90,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: placeholder,
-      id: 718930,
       name: "Szymon",
       keywords: "Data Structure • Banner • Lanes",
       description:
@@ -102,7 +97,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: luisa,
-      id: 718930,
       name: "Luisa",
       keywords: "Landing Page • Dataflow • Player",
       description:
@@ -110,14 +104,12 @@ export default function GridLayout() {
     },
     {
       backdrop_path: joost,
-      id: 718930,
       name: "Joost",
       keywords: "Master of the Lanes",
       description: "Ik heb ontzettend veel geleerd en leuke mensen leren kennen. Iedereen bedankt!",
     },
     {
       backdrop_path: bart,
-      id: 718930,
       name: "Bart",
       keywords: "Data Structure • Spinner • Filterbar",
       description:
@@ -125,7 +117,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: placeholder,
-      id: 718930,
       name: "Alex",
       keywords: "Backend • MyList Endpoint",
       description:
@@ -133,7 +124,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: marko,
-      id: 718930,
       name: "Marko",
       keywords: "Master of the Modal",
       description:
@@ -141,7 +131,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: marijana,
-      id: 718930,
       name: "Marijana",
       keywords: "Backend • Movie Endpoint • Search Endpoint",
       description:
@@ -149,7 +138,6 @@ export default function GridLayout() {
     },
     {
       backdrop_path: esther,
-      id: 718930,
       name: "Esther",
       keywords: "Account • Category Filter • Lanes",
       description:
@@ -166,66 +154,55 @@ export default function GridLayout() {
     //     `Het enthousiasme waarmee je ons individueel en als groep met uiteenlopende karakters en achtergrond skills hebt bijgebracht is aanstekelijk. Je hebt ons overspoeld met nuttige informatie, gepusht (pun intended) en behoed voor valkuilen. Het belangrijkste wat ik van je geleerd heb, is ${typescript} dat onze verdere ontwikkeling als developer niet anders zal zijn dan de manier van leren die je op ons hebt overgedragen. Thanks coach!`,
     // },
     {
-      id: 985939,
       name: "Luisa",
       description:
         "The difference a few months can make. The first time I was taught by Jens was during the free week-long Web Developing course from Techgrounds.  At that time, he was already a good coach, but with some room for growth. Finding out that he would become the coach for the Front-End Development course was nice, and the level of coaching he showed over the past six months was really goed. I learned more from Jens in this course than I could have learned in a year on my own, in technical skills and soft skills. 10/10 great person, would so have him as a coach again, and maybe even as a colleague.",
     },
     {
-      id: 985939,
       name: "Marko",
       description:
         "Jens is een passievolle programmeur en educateur die in zijn nog korte carriere al heel veel kennis bezit. Would recommend 10/10! Jens bedankt!",
     },
     {
-      id: 985939,
       name: "Marijana",
       description:
         "Lieve Jens de topdocent, Bedankt voor al je Tesla momentjes en je super gedetailleerde verhalen met overbodige informatie :P Maar even zonder grappen, bedankt voor alles. Je stond altijd klaar om te helpen en je zorgde ervoor dat de stof ook echt werd begrepen. Daarnaast geloofde je in ons wanneer we daar zelf moeite mee hadden. Ik heb onwijs veel van je geleerd en daar ben ik dankbaar voor.",
     },
     {
-      id: 985939,
       name: "Nathaniel",
       description:
         "One more thing! Jens. You are the MVP. It's not an understatement to say that you were the glue that held the course together. And not just holding it together but also making it and keeping it entertaining challenging and educational, for all of us. All the whilst you were also busy doing 41 other meetings on a day, and one can only imagine how hectic  and incoherent things were at Techgrounds with everyone leaving (including yourself!) and partners backing out. It's admirable and a true testement of character how even though you also found a new path for yourself, you still gave a 110% to the course, to us. It is without a shadow of a doubt that the day you decided to leave, it was a dark day indeed for Techgrounds. You will be missed Jens, even more so by us. Thank you for everything, hope you will fare well on all your future endeavours. Don't be a stranger! See you around.",
     },
     {
-      id: 985939,
       name: "Joost",
       description: "",
     },
     {
-      id: 985939,
       name: "Hiu-Chee",
       description:
         "",
     },
     {
-      id: 985939,
       name: "Lex",
       description:
         "",
     },
     {
-      id: 985939,
       name: "Bart",
       description:
         "",
     },
     {
-      id: 985939,
-      name: "Alex",
+            name: "Alex",
       description:
         "",
     },
     {
-      id: 985939,
       name: "Esther",
       description:
         "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Het was heel fijn om jou als coach te hebben. Heel veel succes en plezier bij je nieuwe baan!",
     },
     {
-      id: 985939,
       name: "Szymon",
       description:
         "",
