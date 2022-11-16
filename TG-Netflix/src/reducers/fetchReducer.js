@@ -54,13 +54,41 @@ const NetflixSlice = createSlice({
         state.browse = [categorypayload, bannerpayload];
       } else {
         for (let i = 0; i < categorypayload.length; i++) {
-          const found = state.browse[0].find(
+
+          // Check if page 2 is fetched
+          const pageTwoFetched = categorypayload[i].page == 2
+          
+          console.log(categorypayload[i])
+          console.log("Page 2 fetched?:", pageTwoFetched)
+
+          // Check if a category is already in state
+          const found = state.browse[0].some(
             (element) => element == categorypayload[i]
           );
-          // console.log(!found);
+
+          console.log("found?:", found)
+
+          if (pageTwoFetched) {
+            // Check if page 2 is already in state
+            const pageTwoFound = state.browse[0].find(
+              (element) => element.name == categorypayload[i].name
+            ).page - 1;   // remove -1 when combining works
+            console.log(pageTwoFound)
+            if (!pageTwoFound) {
+
+            }
+            // Combine the movie arrays from page 1 and page 2
+            console.log("payload", categorypayload[i])
+            // if (pageTwoFound) {
+            //   console.log(categoryPayload[i])
+            // }
+          }
+
+          // if a category is not already in state, add it
           if (!found) {
             state.browse[0].push(categorypayload[i])
           }
+
         }
       }
 
