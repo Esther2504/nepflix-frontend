@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useWindowSize() {
+function useWindowSize(props) {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -8,6 +8,7 @@ function useWindowSize() {
 
   useEffect(() => {
     function handleResize() {
+      props.setIsHovering(false)
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,

@@ -88,7 +88,7 @@ export default function Discover({ banner, categories, movie }) {
         )}
         {globalModalState.modalState && <CallBigModal movieID={movieID} />}
         <div className="fade-container">
-          {categoriesState.length > 0 && <LaneHandler categories={categories} movie={movie} />}
+          {categoriesState.length > 0 && <LaneHandler categories={categories} movie={movie} setIsHovering={setIsHovering}/>}
         </div>
         <Footer />
       </div>
