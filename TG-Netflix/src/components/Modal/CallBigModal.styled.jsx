@@ -1,13 +1,7 @@
-import styled from "styled-components";
-import {
-  AiOutlineClose,
-  AiOutlineDown,
-} from "react-icons/ai";
+import styled from 'styled-components';
+import { AiOutlineClose, AiOutlineDown } from 'react-icons/ai';
 
-export const CloseButton = styled.div`
-
-`;
-
+export const CloseButton = styled.div``;
 
 export const CloseCircle = styled(AiOutlineClose)`
   position: absolute;
@@ -19,16 +13,15 @@ export const CloseCircle = styled(AiOutlineClose)`
   margin-right: 1.5rem;
   background: #242424;
   font-size: 2rem;
-  padding:0.3rem;
+  padding: 0.3rem;
   font-weight: 200;
   color: white;
   &:active {
-color: #ffffff;
-border: 2px solid #ffffff;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
 
-}
-
-&:hover {
+  &:hover {
     color: #ffffff;
     border-color: #ffffff;
     cursor: pointer;
@@ -61,6 +54,7 @@ export const ModalContent = styled.div`
   padding-bottom: 2rem;
   background-color: #181818;
   transform-origin: ${(props) => props.coords};
+  overflow:hidden;
   @media (max-width: 1100px) {
     max-width: 90%;
   }
@@ -97,8 +91,6 @@ export const ModalClose = styled.div`
   margin-top: 1.5rem;
   margin-right: 1.5rem;
   color: white;
-
-
 `;
 
 export const ModalPreview = styled.div`
@@ -115,7 +107,7 @@ export const VideoInfoContainer = styled.div`
   font-size: 1.6rem;
   margin-top: 1rem;
   color: #ffffff;
-padding: 0 3rem 4rem 3rem;
+  padding: 0 3rem 4rem 3rem;
   padding-top: 1rem;
   text-align: justify;
 
@@ -166,8 +158,7 @@ export const ReleaseYear = styled.div`
   /* margin-left: 0.5rem; */
 `;
 
-export const MaturityRating = styled.div`
-`
+export const MaturityRating = styled.div``;
 export const AgeRes = styled.div`
   display: flex;
   justify-content: center;
@@ -176,12 +167,13 @@ export const AgeRes = styled.div`
   width: 3rem;
   height: 3rem;
   padding: 0.6rem;
-  line-height: 1.rem;
+  line-height: 1rem;
   font-size: 1.3rem;
   font-weight: bold;
   background-color: black;
   border: 2px solid white;
-  border-radius: 50%;`;
+  border-radius: 50%;
+`;
 
 export const Duration = styled.div`
   /* margin-left: 0.5rem; */
@@ -260,14 +252,13 @@ export const AboutContainer = styled.div`
 export const AboutTitle = styled.div``;
 
 export const Error = styled.div`
-  color:#fff;
-  width:100%;
+  color: #fff;
+  width: 100%;
 
-  height:10rem;
-  display:flex;
+  height: 10rem;
+  display: flex;
   justify-content: center;
   align-items: center;
-  font-size:2rem;
-
-`
+  font-size: 2rem;
+`;
 //END MODAL
