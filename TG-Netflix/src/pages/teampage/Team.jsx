@@ -207,7 +207,7 @@ export default function GridLayout() {
             data={{ coords: coords, dataset: dataset }}
           />
         )}
-        <h1 style={{ color: "white", fontSize: "5rem", textAlign: "center" }}>
+        <h1 style={{ color: "white", fontSize: "5rem", textAlign: "center", marginTop: "2rem", marginBottom: "1rem" }}>
           Our Team
         </h1>
         <GridContainer>
@@ -220,7 +220,8 @@ export default function GridLayout() {
             color: "white",
             fontSize: "5rem",
             textAlign: "center",
-            marginTop: "30rem",
+            marginTop: "90rem",
+            marginBottom: "1rem"
           }}
         >
           For Jens
