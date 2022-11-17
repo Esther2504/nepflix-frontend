@@ -13,9 +13,11 @@ export const FilterWrapper = styled.section`
   background-color: var(--black);
   padding: 3rem 7rem 3rem 4.5rem;
   margin-top: 6.5rem;
+  margin-bottom: 2rem;
 
   @media (max-width: 950px) {
     padding: 3rem 4.6rem 3rem 3.5rem;
+    margin-bottom: 0;
   }
 `;
 

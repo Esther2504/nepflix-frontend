@@ -5,10 +5,11 @@ import { TbLayersDifference, TbVolume3 } from "react-icons/tb";
 
 export const SmallModalContainer = styled.div`
   position: absolute;
-  left: ${(props) => props.coords.left + "px"};
-  top: ${(props) => props.coords.top + window.scrollY + "px"};
-  width: ${(props) => props.coords.width + "px"};
-  height: ${(props) => props.coords.height + "px"};
+  left: ${(props) => props.coords.left + 'px'};
+  top: ${(props) => props.coords.top + window.scrollY + 'px'};
+  width: ${(props) => props.coords.width + 'px'};
+  height: ${(props) => props.coords.height + 'px'};
+  
 `;
 
 //START SMALLMODAL
@@ -17,8 +18,52 @@ export const SmallModalTop = styled.div`
   width: 100%;
   background-image: url(${(props) => props.bg});
   background-size: cover;
-  border-radius: 7px;
-  // border: 1px solid pink;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+
+
+
+  span {
+    position: absolute;
+    width: 100%;
+    padding: 0 10px;
+    bottom: 7px;
+
+    font-family: manrope;
+    line-height: 0.9;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    font-weight: 550;
+    line-height: 1;
+    text-shadow: 1px 1px 1px rgb(20, 20, 20);
+
+    @media (min-width: 600px) {
+      font-size: 1.4rem;
+    }
+    @media (min-width: 700px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 800px) {
+      font-size: 1.6rem;
+    }
+    @media (min-width: 900px) {
+      font-size: 1.7rem;
+    }
+    @media (min-width: 1000px) {
+      font-size: 1.8rem;
+    }
+    @media (min-width: 1100px) {
+      font-size: 2rem;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 8px;
+    left: 3px;
+    width: 1.3vw;
+  }
 `;
 export const SmallModalBottom = styled.div`
   display: flex;
@@ -64,7 +109,7 @@ export const SmallModal = styled.div`
       border-radius: 0 0 0.5rem 0.5rem;
       opacity: 1;
       height: fit-content;
-      margin-top: -1rem;
+      /* margin-top: -1rem; */
     }
   }
   @keyframes in {
@@ -92,11 +137,21 @@ export const SmallModal = styled.div`
 
 //START VIDEOPLAYER (will be replaced by videomodal)
 export const VideoPlayer = styled.video`
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   aspect-ratio: 16/9;
   // display: none;
 `;
 
+
+export const YouTubeWrapper=styled.div`
+  
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 1;
+  height: inherit;
+  width: inherit;
+`
 export const VideoControlsContainer = styled.div`
   position: relative;
   width: 100%;
@@ -128,6 +183,7 @@ export const ArrowContainer = styled.div`
   height: 27px;
   border: 2px solid #b6b6b6;
   border-radius: 50%;
+  cursor: pointer;
 
   &:hover {
     border-color: white;
@@ -185,6 +241,7 @@ export const PlusCircle = styled(BsPlusLg)`
   padding: 0.5rem;
   color: #cccccc;
   font-size: 27px;
+  cursor: pointer;
 
   &:hover {
     color: white;
@@ -218,11 +275,16 @@ export const PlusCircle = styled(BsPlusLg)`
 // `;
 export const InfoCon = styled.div`
   display: flex;
-  gap: 1rem;
-  align-items: center;
-  color: #fff;
+  flex-wrap: wrap;
   flex-direction: row;
-  font-size: 1.2rem;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-size: 1rem; // 2 columns
+
+  @media (min-width: 450px){
+    font-size: 1.2rem;
+  }
 `;
 
 export const MatchPerc = styled.div`
@@ -247,7 +309,6 @@ export const Runtime = styled.div``;
 
 export const KeywordsContainer = styled.div`
   /* padding: 0.5rem 1rem; */
-  font-size: 1.2rem;
   color: white;
 `;
 

@@ -89,7 +89,7 @@ export default function GridLayout({ genre, setGenre, movie, categories }) {
       e.stopPropagation();
       setIsHovering(false);
     });
-  }, [categoriesState]);
+  }, [categoriesState, genre]);
 
   const openBigModal = () => {
     setBrowseMovieID({ movieID: movieID });

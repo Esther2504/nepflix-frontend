@@ -65,7 +65,7 @@ function BigModalPlayer(props) {
     document.querySelector('.bigmodalbanner-description').style.animation =
       'fadeOut .25s ease-out 5s forwards';
 
-    document.getElementById('rePlay').style.visibility = 'hidden';
+    // document.getElementById('rePlay').style.visibility = 'hidden';
     if (muteIsVisible) {
       document.getElementById('volume-unmute').style.visibility = 'visible';
     } else {
@@ -80,7 +80,7 @@ function BigModalPlayer(props) {
     document.querySelector('.bigmodalbanner-description').style.animation =
       'fadeIn ease-in 1.5s';
 
-    document.getElementById('rePlay').style.visibility = 'visible';
+    // document.getElementById('rePlay').style.visibility = 'visible';
     document.getElementById('volume-mute').style.visibility = 'hidden';
     document.getElementById('volume-unmute').style.visibility = 'hidden';
   };

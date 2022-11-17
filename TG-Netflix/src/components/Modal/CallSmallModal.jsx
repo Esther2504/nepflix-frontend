@@ -15,8 +15,10 @@ import {
   MatchPerc,
   ArrowDown,
   KeywordsContainer,
-} from "./CallSmallModal.style";
-import YouTube from "react-youtube";
+  YouTubeWrapper
+} from './CallSmallModal.style';
+import YouTube from 'react-youtube';
+import logo from "../../assets/movie-card-images/n_logo.ico";
 
 const CallSmallModal = (props) => {
   const [sWidth, setsWidth] = useState(0);
@@ -54,9 +56,10 @@ const CallSmallModal = (props) => {
       controls: 0,
       disablekb: 1,
       start: 15,
+      modestbranding: 1,
       end: 66,
       rel: 0,
-      frameborder: '0',
+      frameborder: '0', 
     },
   };
 
@@ -86,9 +89,9 @@ const CallSmallModal = (props) => {
 
   const mouseLeaveHandler = () => {
     setVideoState(false);
-    // setTimeout(function () {
-    //   props.setIsHovering(false);
-    // }, 300);
+    setTimeout(function () {
+      props.setIsHovering(false);
+    }, 300);
 
     // For when you leave the card before the videostate has been set to true
     setTimeout(function () {
@@ -99,7 +102,7 @@ const CallSmallModal = (props) => {
   const mouseEnterHandler = () => {
     setTimeout(function () {
       setVideoState(true);
-    }, 1500);
+    }, 2500);
   };
 
   let ageCertificate = movieInfo?.age_certificate;
@@ -112,6 +115,11 @@ const CallSmallModal = (props) => {
     ageCertificate = ageCertificate.slice(3);
   }
 
+  const logoArray = [logo, null];
+  function showLogo(logoArray) {
+    return logoArray[/[6]/.test(id) ? 0 : 1];
+  }
+
   return (
     <SmallModalContainer
       onMouseLeave={mouseLeaveHandler}
@@ -122,12 +130,18 @@ const CallSmallModal = (props) => {
     >
       <SmallModal coords={coords} bg={bg} sWidth={sWidth}>
         <SmallModalTop bg={bg}>
+        {!videoState && <img src={showLogo(logoArray)} />}
+        {!videoState && (<span>{movieInfo?.title}</span>)}
           {videoState && (
+            <YouTubeWrapper>
             <YouTube
               videoId={movieInfo?.trailer}
               opts={opts}
-              style={{ height: "inherit" }}
+              style={{ height: 'inherit' }}
+                   
             />
+
+</YouTubeWrapper>
           )}
         </SmallModalTop>
 
@@ -150,11 +164,11 @@ const CallSmallModal = (props) => {
               <ArrowDown />
             </ArrowContainer>
           </VideoControls>
-          <InfoCon>
-            <MatchPerc>{matchPerc}% Match</MatchPerc>
+          {videoState && <InfoCon>
+          <MatchPerc>{matchPerc}% Match</MatchPerc>
             <AgeRes>{ageCertificate}</AgeRes>
             <Runtime>{runtime(movieInfo?.runtime)}</Runtime>
-          </InfoCon>
+          </InfoCon>}
           <KeywordsContainer>{keywords.join(' • ')}</KeywordsContainer>
         </SmallModalBottom>
       </SmallModal>
