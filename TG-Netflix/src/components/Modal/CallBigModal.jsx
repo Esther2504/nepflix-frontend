@@ -112,7 +112,7 @@ const CallBigModal = (props) => {
   };
 
   let keywords = [];
-  for (let i = 0; i < movieInfo.keywords.length; i++) {
+  for (let i = 0; i < movieInfo?.keywords.length; i++) {
     keywords.push(movieInfo.keywords[i][0].toUpperCase() + movieInfo.keywords[i].slice(1))
   }
 
