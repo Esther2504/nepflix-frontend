@@ -15,7 +15,7 @@ import marko from "./images/marko.png";
 import nathaniel from "./images/nathaniel.png";
 import luisa from "./images/luisa.png";
 import joost from "./images/joost.png";
-import placeholder from "./images/placeholder.png";
+import szymon from "./images/szymon.png";
 import placeholderother from "./images/placeholder-other.jpg";
 
 export default function GridLayout() {
@@ -89,10 +89,10 @@ export default function GridLayout() {
         "Voor dit opleiding heb ik wel enigzin ervaring met codering, maar nooit gewerkt in team verband in IT branch, erg veel genoten om na zo lang tijd weer in een team te kunnen werken, ik heb veel geleerd en leuke dingen ervaart. Dankbaar aan alle teamgenoten die hard gewerken hebben aan de project voor een mooie resultaat.",
     },
     {
-      backdrop_path: placeholderother,
+      backdrop_path: szymon,
       name: "Szymon",
       keywords: "Data Structure • Banner • Lanes",
-      description: "",
+      description: "In het begin heb ik niet verwacht dat we allemaal zo ver zouden komen. Maar toch! Het was echt mooi om mee te maken hoe ieder is ontwikkeld tot een échte developer. En dat in zo'n gezellig en behulpzaam team! Ik ben enorm blij met het eindresultaat en er zit nu niks anders meer op dan verdergroeien!",
     },
     {
       backdrop_path: luisa,
@@ -179,7 +179,7 @@ export default function GridLayout() {
     {
       name: "Esther",
       description:
-        "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Heel veel succes en plezier bij je nieuwe baan!",
+        "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Heel veel succes en plezier bij je nieuwe baan gewenst!",
     },
     {
       name: "Lex",
@@ -193,7 +193,7 @@ export default function GridLayout() {
     },
     {
       name: "Szymon",
-      description: "",
+      description: "Jens, dè coach van het jaar,  geeft altijd fantastisch uitleg en weet precies wat wij nodig hebben om verder te komen. Maar wat hem nog beter maakt, is de stralende passie voor programmeren en de brede kennis die hij met ons deelt. Bedankt voor alles Jens!",
     },
   ];
 
