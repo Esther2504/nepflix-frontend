@@ -138,7 +138,7 @@ export default function Films({ banner, categories, movie }) {
               />
             )}
             {globalModalState.modalState && <CallBigModal movieID={movieID} />}
-            <LaneHandler categories={categories} movie={movie} />
+            <LaneHandler categories={categories} movie={movie} setIsHovering={setIsHovering}/>
           </>
         ) : (
           <GridLayout genre={genre} setGenre={setGenre} />

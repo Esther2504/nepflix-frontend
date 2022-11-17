@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBrowse } from "../../reducers/fetchReducer";
 
-function LaneHandler() {
+function LaneHandler(props) {
   const { ref, inView } = useInView({
     threshold: 1,
   });
@@ -60,7 +60,8 @@ function LaneHandler() {
     }
   }, [inView]);
 
-  const size = useWindowSize();
+  const size = useWindowSize(props);
+  
   function getAmount() {
     if (size.width <= 600) {
       return 2;
