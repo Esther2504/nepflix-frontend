@@ -16,6 +16,7 @@ import nathaniel from "./images/nathaniel.png";
 import luisa from "./images/luisa.png";
 import joost from "./images/joost.png";
 import placeholder from "./images/placeholder.png";
+import placeholderother from "./images/placeholder-other.jpg";
 
 export default function GridLayout() {
   const [isHovering, setIsHovering] = useState(false);
@@ -63,9 +64,9 @@ export default function GridLayout() {
     {
       backdrop_path: lex,
       name: "Lex",
-      keywords: "Scrum Master • NavBar",
+      keywords: "Scrum Master • Navbar",
       description:
-        "",
+        "De opleiding loopt op z’n einde en ik kijk er met veel plezier en voldoening aan terug. Plezier omdat ik deze opleiding mocht doen met een hele leuke groep gelijkgezinden, en voldoening omdat het zeker niet gemakkelijk was. Leren programmeren is eentje van doorzetten en de vele momenten van frustratie accepteren. Het zijn die spaarzame momenten van grote vreugde die je er dan steeds doorheen slepen. Ik ben blij zoveel te hebben geleerd in korte tijd en kijk ernaar uit om nog veel meer door te blijven leren. Deze groepsopdracht was een perfecte afsluiting van onze tijd als groep samen. We kunnen trots zijn op het eindresultaat en iedereen heeft een belangrijke bijdrage geleverd. Je steekt veel van elkaar op en op momenten wanneer iemand vastzat kwam er altijd snel hulp. Wat me bovenal zal bijblijven was het plezier om samen met anderen aan iets moois te bouwen. De team-spirit en eensgezindheid binnen deze groep was groot en heel aanstekelijk. De rol van scrum master heb ik dan ook met heel veel plezier gedaan. Ik zal iedereen gaan missen en hoop dat iedereen een mooie toekomst tegemoet gaat!",
     },
     {
       backdrop_path: sander,
@@ -77,23 +78,21 @@ export default function GridLayout() {
     {
       backdrop_path: nathaniel,
       name: "Nathaniel",
-      keywords: "Master of the Banner",
-      description:
-        "",
+      keywords: "Master of the Video Banner",
+      description: "",
     },
     {
       backdrop_path: hiuchee,
       name: "Hiu-Chee",
       keywords: "Backend • Browse Endpoint",
       description:
-        "",
+        "Voor dit opleiding heb ik wel enigzin ervaring met codering, maar nooit gewerkt in team verband in IT branch, erg veel genoten om na zo lang tijd weer in een team te kunnen werken, ik heb veel geleerd en leuke dingen ervaart. Dankbaar aan alle teamgenoten die hard gewerken hebben aan de project voor een mooie resultaat.",
     },
     {
-      backdrop_path: placeholder,
+      backdrop_path: placeholderother,
       name: "Szymon",
       keywords: "Data Structure • Banner • Lanes",
-      description:
-        "",
+      description: "",
     },
     {
       backdrop_path: luisa,
@@ -106,21 +105,21 @@ export default function GridLayout() {
       backdrop_path: joost,
       name: "Joost",
       keywords: "Master of the Lanes",
-      description: "Ik heb ontzettend veel geleerd en leuke mensen leren kennen. Iedereen bedankt!",
+      description:
+        "Ik heb ontzettend veel geleerd en leuke mensen leren kennen. Iedereen bedankt!",
     },
     {
       backdrop_path: bart,
       name: "Bart",
       keywords: "Data Structure • Spinner • Filterbar",
       description:
-        "",
+        "Nepflix is het tastbare bewijs dat we het afgelopen jaar zowel individueel als in teamverband grote stappen hebben gemaakt. Voor mij persoonlijk is het goed geweest om in het diepe gegooid te worden m.b.t React in plaats van in mijn comfortzone te blijven hangen. Anders was ik er waarschijnlijk nu nog steeds niet mee gestart.",
     },
     {
-      backdrop_path: placeholder,
+      backdrop_path: placeholderother,
       name: "Alex",
       keywords: "Backend • MyList Endpoint",
-      description:
-        "",
+      description: "",
     },
     {
       backdrop_path: marko,
@@ -141,10 +140,9 @@ export default function GridLayout() {
       name: "Esther",
       keywords: "Account • Category Filter • Lanes",
       description:
-        "Dit was een heel leuk & leerzaam project. Dankzij een topteam hebben we een resultaat opgeleverd om trots op te zijn. Ik heb veel geleerd door de uitdagingen die dit project, maar ook de eerdere projecten, meebrachten en heb ervaren hoe het is om met een team te werken. Naast dat ik trots ben op alles wat ik nu kan, kijk ik met plezier terug op de afgelopen zes maanden.",
+        "Dit leuke en leerzame project was een goede afsluiting van zes maanden waarin wij ons ontwikkeld hebben tot web developers. Dankzij een topteam is een resultaat opgeleverd om trots op te zijn. Ik heb veel geleerd van de uitdagingen die dit project, evenals de eerdere projecten, meebrachten en heb ervaren hoe het is om met een team te werken. Naast dat ik trots ben op alles wat ik nu kan, kijk ik met plezier terug op de afgelopen zes maanden.",
     },
   ];
-
 
   const jens = [
     // {
@@ -171,41 +169,31 @@ export default function GridLayout() {
     {
       name: "Nathaniel",
       description:
-        "One more thing! Jens. You are the MVP. It's not an understatement to say that you were the glue that held the course together. And not just holding it together but also making it and keeping it entertaining challenging and educational, for all of us. All the whilst you were also busy doing 41 other meetings on a day, and one can only imagine how hectic  and incoherent things were at Techgrounds with everyone leaving (including yourself!) and partners backing out. It's admirable and a true testement of character how even though you also found a new path for yourself, you still gave a 110% to the course, to us. It is without a shadow of a doubt that the day you decided to leave, it was a dark day indeed for Techgrounds. You will be missed Jens, even more so by us. Thank you for everything, hope you will fare well on all your future endeavours. Don't be a stranger! See you around.",
-    },
-    {
-      name: "Joost",
-      description: "",
+        "One more thing! Jens. You are the MVP. It's not an understatement to say that you were the glue that held the course together. And not just holding it together but also making it and keeping it entertaining challenging and educational, for all of us. All the whilst you were also busy doing 41 other meetings on a day, and one can only imagine how hectic and incoherent things were at Techgrounds with everyone leaving (including yourself!) and partners backing out. It's admirable and a true testement of character how even though you also found a new path for yourself, you still gave a 110% to the course, to us. It is without a shadow of a doubt that the day you decided to leave, it was a dark day indeed for Techgrounds. You will be missed Jens, even more so by us. Thank you for everything, hope you will fare well on all your future endeavours. Don't be a stranger! See you around.",
     },
     {
       name: "Hiu-Chee",
       description:
-        "",
-    },
-    {
-      name: "Lex",
-      description:
-        "",
-    },
-    {
-      name: "Bart",
-      description:
-        "",
-    },
-    {
-            name: "Alex",
-      description:
-        "",
+        "Super veel bedankt voor alle moeite en geduld voor ons, onlangs je zo druk heb, toch veel tijd aan ons besteed met voorbereiden voor lesstoffen enzo.. specifiek onderwerpen aan mij uitleggen, zo dat ik mij kennis uitgebreide kan zijn voor de toekomstig werkmarkt, daar ben ik echt dankbaar voor. Ik wens je alle beste in de toekomst en Ik zou Tim en kwik kwak kwek missen.",
     },
     {
       name: "Esther",
       description:
-        "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Het was heel fijn om jou als coach te hebben. Heel veel succes en plezier bij je nieuwe baan!",
+        "Jens, super bedankt voor alles wat je ons hebt geleerd en al het enthousiasme waarmee je het deed! Je slaagde er altijd weer in om met motiverend speeches en inspirerende anecdotes te komen. Heel veel succes en plezier bij je nieuwe baan!",
+    },
+    {
+      name: "Lex",
+      description:
+        "We hebben dit half jaar enorm veel geleerd en dat is voor een groot deel aan Jens te danken. Hij heeft veel kennis maar het goed kunnen overdragen is minstens zo belangrijk. Hij deed dat niet alleen heel goed maar deed het iedere dag ook met heel veel enthousiasme. De hoeveel stof die je op je afkomt als je begint te programmeren kan al snel overweldigend zijn, maar hij maakte steeds onderscheid wat echt belangrijk was en wat niet. Hij had ook oprecht het beste met ons voor en deed tot op het einde zijn best om ons zo goed mogelijk voor te bereiden voor wanneer we op onze eigen voeten moeten staan. Jens, 2022 zal uiteindelijk hopelijk een heel belangrijk jaar voor mij worden. Ik ben je heel dankbaar voor hoe je mij hebt bijgestaan dit jaar en het plezier in het programmeren nog verder hebt aangewakkerd. Ik wens je heel veel succes met je nieuwe baan en veel geluk!",
+    },
+    {
+      name: "Bart",
+      description:
+        "Jens, ik vind het knap dat je bij iedere vraag van mijn kant met een korte blik op de code altijd direct het probleem wist te identificeren. Je hebt niet alleen vakinhoudelijk veel kennis, je enthousiasme is ook altijd een goede motivator om net dat extra stapje te zetten.",
     },
     {
       name: "Szymon",
-      description:
-        "",
+      description: "",
     },
   ];
 
