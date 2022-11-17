@@ -8,11 +8,14 @@ import { closeModal, openModal } from "../../reducers/modalReducer";
 // CSS & BUTTONS
 import { PlayerStyles } from "./PlayerStyles";
 
+
+
 import play from "../../assets/play-button.svg";
 import info from "../../assets/info.svg";
 import replay from "../../assets/replay.svg";
 import volume from "../../assets/volume.svg";
 import muted from "../../assets/muted.svg";
+import pause from '../../assets/pause-button.svg';
 import { setTrailerTime } from "../../reducers/trailerReducer";
 import { useSearchParams } from "react-router-dom";
 
@@ -39,7 +42,7 @@ function Player(props) {
   const [unMuteIsVisible, setUnMuteIsVisible] = useState(false);
 
   // ANIMATION
-  const [isPlaying, setIsplaying] = useState(false);
+  const [isPlaying, setIsplaying] = useState(true);
 
   // MODAL STATE
   const [coords, setCoords] = useState(false);
@@ -73,7 +76,6 @@ function Player(props) {
       "shrink .5s ease-in-out 5s forwards";
     document.querySelector(".banner-description").style.animation =
       "fadeOut .25s ease-out 5s forwards";
-
     // bannerRef.classlist.add('banner-fade-out-start');
     // bannerTitleRef.classlist.add('title-shrink-start');
     // bannerDescRef.classlist.add('desc-fade-out-start');
@@ -85,6 +87,9 @@ function Player(props) {
     // .title-grow-end
     // .desc-fade-in-end
 
+   document.querySelector('.play-button').style.visibility ='hidden';
+   document.querySelector('.pause-button').style.visibility = 'visible'; 
+
     document.getElementById("rePlay").style.visibility = "hidden";
     if (muteIsVisible) {
       document.getElementById("volume-unmute").style.visibility = "visible";
@@ -92,6 +97,7 @@ function Player(props) {
       document.getElementById("volume-mute").style.visibility = "visible";
     }
   };
+
   const endVideo = () => {
     document.querySelector(".banner").style.animation =
       "fadeIn ease-out 0.1s forwards";
@@ -100,13 +106,28 @@ function Player(props) {
     document.querySelector(".banner-description").style.animation =
       "fadeIn ease-in 1.5s";
 
+    document.querySelector('.play-button').style.visibility ='visible';
+    document.querySelector('.pause-button').style.visibility = 'hidden';   
+
     document.getElementById("rePlay").style.visibility = "visible";
     document.getElementById("volume-mute").style.visibility = "hidden";
     document.getElementById("volume-unmute").style.visibility = "hidden";
   };
   const rePlayVideo = () => {
     playerRef.current.internalPlayer.playVideo();
+
+    setIsplaying((current) => !current)
+
+    document.querySelector('.banner').style.animation = 'fadeOut .25 ease-out 0.5s forwards';
   };
+
+  const pausebutton = () => {
+    playerRef.current.internalPlayer.pauseVideo();
+    setIsplaying((current)=>!current);
+
+    document.querySelector('.banner').style.animation = 'fadeIn 0.25s ease-out'
+  }
+
 
   //  MORE INFO BUTTON: OPENS MODAL, PAUSES VID & OPENS BACKDROP
   const moreInfoButton = () => {
@@ -118,6 +139,8 @@ function Player(props) {
     dispatch(setTrailerTime({ seconds: addValue }));
 
     playerRef.current.internalPlayer.pauseVideo();
+    document.querySelector('.play-button').style.visibility ='visible';
+    document.querySelector('.pause-button').style.visibility = 'hidden'; 
     document.querySelector(".banner").style.animation =
       "fadeIn 0.25s ease-out 0.5s forwards";
     // console.log(playtime);
@@ -184,14 +207,26 @@ function Player(props) {
               </div>
               <div className="button-container">
                 <div className="play-button-container">
+
                   <button
                     className="play-button"
                     ref={playButtonRef}
                     onClick={rePlayVideo}
+                    style={{visibility: isPlaying ? 'hidden' : 'visible'}}
                   >
                     <img alt="play" src={play} className="Hawkins-icon" />
                     <span className="text-play-button">Play</span>
                   </button>
+              <button
+                    className="pause-button"
+                    ref={playButtonRef}
+                    onClick={pausebutton}
+                    style={{visibility: isPlaying ? 'visible' : 'hidden'}}
+                  >
+                    <img alt="pause" src={pause} className="Hawkins-icon" />
+                    <span className="text-play-button">Pause</span>
+                  </button>
+
                 </div>
                 <button
                   className="meer-info-button"
