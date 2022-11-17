@@ -118,7 +118,7 @@ export const PlayerStyles = styled.div`
     }
 
     .button-container {
-        width: 75%;
+        position: relative;
         height: 72px;
         display: flex;
         font-size: 14.4px;
@@ -127,6 +127,7 @@ export const PlayerStyles = styled.div`
         
     }
     .play-button-container {
+        width: 230px;
         align-items: center;
         color: rgba(255, 255, 255, 0.9);
         display: flex;
@@ -134,7 +135,8 @@ export const PlayerStyles = styled.div`
         justify-content: center;
         line-height: 12.672px;
     }
-    .play-button {
+    .play-button, .pause-button{
+        position: absolute;
         width: 208px;
         height: 58px;
         align-items: center;
@@ -156,6 +158,7 @@ export const PlayerStyles = styled.div`
     }
 
     .meer-info-button {
+        postion: relative;
         width: 290px;
         height: 58px;
         align-items: center;
