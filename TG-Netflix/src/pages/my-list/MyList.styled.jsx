@@ -13,6 +13,7 @@ justify-content: flex-start;
 
 export const Title = styled.h2`
   color: #e5e5e5;
+ 
 `;
 
 
@@ -34,6 +35,7 @@ div {
 
 @media screen and (max-width: 1100px) {
   padding-left: 6%;
+  font-size: 1.5rem;
   div {
     flex-basis: 23%;
   }
@@ -41,6 +43,7 @@ div {
 
 @media screen and (max-width: 800px) {
   padding-left: 5%;
+  font-size: 1.2rem;
   div {
     margin-bottom: 6%;
     flex-basis: 31%;
@@ -49,10 +52,13 @@ div {
 
 @media screen and (max-width: 500px) {
   padding-left: 3%;
+  font-size: 1.1rem;
   div {
     flex-basis: 47%;
   }
 }
+
+
 
 `;
 
