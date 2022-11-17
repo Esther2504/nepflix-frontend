@@ -64,7 +64,7 @@ export default function GridLayout() {
     {
       backdrop_path: lex,
       name: "Lex",
-      keywords: "Scrum Master • Navbar",
+      keywords: "Scrum Master • Navbar • Search Function",
       description:
         "De opleiding loopt op z’n einde en ik kijk er met veel plezier en voldoening aan terug. Plezier omdat ik deze opleiding mocht doen met een hele leuke groep gelijkgezinden, en voldoening omdat het zeker niet gemakkelijk was. Leren programmeren is eentje van doorzetten en de vele momenten van frustratie accepteren. Het zijn die spaarzame momenten van grote vreugde die je er dan steeds doorheen slepen. Ik ben blij zoveel te hebben geleerd in korte tijd en kijk ernaar uit om nog veel meer door te blijven leren. Deze groepsopdracht was een perfecte afsluiting van onze tijd als groep samen. We kunnen trots zijn op het eindresultaat en iedereen heeft een belangrijke bijdrage geleverd. Je steekt veel van elkaar op en op momenten wanneer iemand vastzat kwam er altijd snel hulp. Wat me bovenal zal bijblijven was het plezier om samen met anderen aan iets moois te bouwen. De team-spirit en eensgezindheid binnen deze groep was groot en heel aanstekelijk. De rol van scrum master heb ik dan ook met heel veel plezier gedaan. Ik zal iedereen gaan missen en hoop dat iedereen een mooie toekomst tegemoet gaat!",
     },
