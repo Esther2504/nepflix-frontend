@@ -37,6 +37,7 @@ function App() {
     '/modal',
     "/search",
     '/grid-layout',
+    '/team',
   ];
 
   //Code below from line 22 to26 can be set back in after no further changes needs to be made in the codes.

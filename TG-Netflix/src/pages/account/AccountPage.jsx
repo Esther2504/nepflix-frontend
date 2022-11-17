@@ -9,12 +9,13 @@ import SettingsSection from '../../components/account-page/SettingsSection';
 import HeaderSection from '../../components/account-page/HeaderSection';
 import AccountFooter from '../../components/footer/AccountFooter';
 import NavbarAccount from '../../components/navbar/NavbarAccount';
+import { AccountContainer } from './AccountPage.styled';
 
 export default function AccountPage() {
   return (
     <Wrapper>
       <NavbarAccount />
-      <div className="account-container">
+      <AccountContainer>
         <HeaderSection />
         <MembershipSection />
         <PlanSection />
@@ -22,7 +23,7 @@ export default function AccountPage() {
           <ProfileSection />
         </ProfileStyling>
         <SettingsSection />
-      </div>
+      </AccountContainer>
       <AccountFooter />
     </Wrapper>
   );

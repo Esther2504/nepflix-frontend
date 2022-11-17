@@ -2,16 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 // nav en footer placeholders
-/* nav {
-  width: 100%;
-  height: 7rem;
-  background-color: black;
-  color: white;
-  font-size: 3rem;
-  position: fixed;
-  top: 0;
-  text-align: center;
-} */
 
 footer {
   width: 100%;
@@ -38,25 +28,26 @@ a:hover {
   text-decoration: underline;
 }
 
-.account-container {
-  width: 80%;
-  margin: 0 auto;
-  padding-top: 4rem;
-  padding-bottom: 7rem;
-}
-
 @media screen and (max-width: 500px) {
   a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
   }
-
-  .account-container {
-    width: 90%;
-  }
 }
 `;
+
+export const AccountContainer = styled.div`
+width: 80%;
+margin: 0 auto;
+padding-top: 4rem;
+padding-bottom: 7rem;
+
+@media screen and (max-width: 500px) {
+  width: 90%;
+}
+
+`
 
 export const Header = styled.div`
 display: flex;
