@@ -1,4 +1,4 @@
-import { Title, TitleWrapper } from './MyList.styled'
+import { Title, TitleWrapper, Wrapper } from './MyList.styled'
 import Footer from '../../components/footer/footer';
 import MovieCard from '../../components/movie-card/MovieCard';
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import CallSmallModal from "../../components/Modal/CallSmallModal";
 import CallBigModal from "../../components/Modal/CallBigModal";
 import { getMovies } from '../../reducers/fetchReducer';
-import {GridContainer} from "../../components/grid-layout/GridLayout.styled";
+import { GridContainer } from "../../components/grid-layout/GridLayout.styled";
 
 export default function MyList() {
 
@@ -59,33 +59,35 @@ export default function MyList() {
 
   return (
     <>
-     {isHovering && (
-            <CallSmallModal
-              onMouseLeave={() => setIsHovering(false)}
-              hover={isHovering}
-              setIsHovering={setIsHovering}
-              data={{ coords: coords, dataset: dataset }}
-              onClick={openBigModal}
-              movieID={movieID}
-              
-            />
-            
-          )}
-        {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
+      {isHovering && (
+        <CallSmallModal
+          onMouseLeave={() => setIsHovering(false)}
+          hover={isHovering}
+          setIsHovering={setIsHovering}
+          data={{ coords: coords, dataset: dataset }}
+          onClick={openBigModal}
+          movieID={movieID}
+
+        />
+
+      )}
+      {globalModalState.modalState && <CallBigModal  {...movieDetails} />}
       <div className="padding-container">
-        <TitleWrapper>
-          <Title>My List</Title>
-       
-        </TitleWrapper>
-       
-        <GridContainer>
+        <Wrapper>
+          <TitleWrapper>
+            <Title>My List</Title>
 
-     
+          </TitleWrapper>
 
-          {liked.map((movie, index) => {
-            return <MovieCard key={index} movie={movie} />
-          })};
-        </GridContainer>
+          <GridContainer>
+
+
+
+            {liked.map((movie, index) => {
+              return <MovieCard key={index} movie={movie} />
+            })};
+          </GridContainer>
+        </Wrapper>
         <Footer />
       </div>
     </>
