@@ -79,7 +79,7 @@ export default function GridLayout() {
       backdrop_path: nathaniel,
       name: "Nathaniel",
       keywords: "Master of the Video Banner",
-      description: "",
+      description: "These past six months have been amazing. Had the pleasure of working with an amazing group of people. I've learned soo much from sass to state management.",
     },
     {
       backdrop_path: hiuchee,
