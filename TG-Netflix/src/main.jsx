@@ -22,6 +22,7 @@ import browseMockData from './mock-data/browse_categories_banner.mock.json'
 import movieDetailsMock from './mock-data/movie_details_similar.mock.json'
 import GridLayout from "./components/grid-layout/GridLayout";
 import Team from "./pages/teampage/Team"
+import ScrollToTop from "./ScrollToTop";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
+        <ScrollToTop />
           <Routes>
             <Route path="/" element={<App />}>
               <Route index element={<Landing />} />
