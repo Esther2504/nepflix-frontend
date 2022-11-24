@@ -42,7 +42,7 @@ export default function Searchbar() {
   return (
     <>
       <S.Form role="search">
-        <button>
+        <button aria-label="Search">
           <SearchIcon alt="Search icon" />
         </button>
         <input

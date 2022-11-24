@@ -220,7 +220,7 @@ export default function GridLayout() {
             color: "white",
             fontSize: "5rem",
             textAlign: "center",
-            marginTop: "90rem",
+            marginTop: "5rem",
             marginBottom: "1rem"
           }}
         >

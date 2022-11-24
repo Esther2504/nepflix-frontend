@@ -79,7 +79,7 @@ export default function Navbar() {
             <li>
               <S.Account>
                 <img src={profile} alt="Profile" />
-                <img src={arrowdown} />
+                <img src={arrowdown} alt />
                 <ul>
                   <img className="arrow-up" src={arrowup} />
                   <li>

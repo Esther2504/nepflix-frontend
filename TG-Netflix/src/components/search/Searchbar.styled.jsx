@@ -53,7 +53,7 @@ export const Form = styled.div`
     cursor: pointer;
 
     &:focus {
-      outline: 0;
+      outline: transparent;
     }
   }
 
