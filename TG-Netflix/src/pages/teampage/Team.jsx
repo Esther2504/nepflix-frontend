@@ -5,17 +5,17 @@ import CallSmallModal from "./CallSmallModal";
 import styled from "styled-components";
 
 // images
-import bart from "./images/bart.png";
-import lex from "./images/lex.png";
-import hiuchee from "./images/hiu-chee.png";
-import sander from "./images/sander.png";
-import marijana from "./images/marijana.png";
-import esther from "./images/esther.png";
-import marko from "./images/marko.png";
-import nathaniel from "./images/nathaniel.png";
-import luisa from "./images/luisa.png";
-import joost from "./images/joost.png";
-import szymon from "./images/szymon.png";
+import bart from "./images/bart.jpg";
+import lex from "./images/lex.jpg";
+import hiuchee from "./images/hiu-chee.jpg";
+import sander from "./images/sander.jpg";
+import marijana from "./images/marijana.jpg";
+import esther from "./images/esther.jpg";
+import marko from "./images/marko.jpg";
+import nathaniel from "./images/nathaniel.jpg";
+import luisa from "./images/luisa.jpg";
+import joost from "./images/joost.jpg";
+import szymon from "./images/szymon.jpg";
 import placeholderother from "./images/placeholder-other.jpg";
 
 export default function GridLayout() {
