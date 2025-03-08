@@ -1,5 +1,11 @@
 {
+  "homepage": "https://esther2504.github.io/nepflix-frontend/",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "dependencies": {
     "react-icons": "^4.4.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
