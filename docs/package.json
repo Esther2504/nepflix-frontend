@@ -1,5 +1,8 @@
 {
   "name": "tg-netflix",
+  "homepage": "https://esther2504.github.io/nepflix-frontend/",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "private": true,
   "version": "0.0.0",
   "type": "module",
